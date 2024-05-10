@@ -7,17 +7,39 @@
     "pipe_style":1,
     "variables":{
       "localvar":{
-        "0x2e5d38773f0_2024325124735865409":{
-          "name":"Тест воспоминания",
+        "0x23ee0e437e0_2024328225920676633":{
+          "name":"Причины изгнания",
           "type":"array[string]",
           "value":[
-            "Изнасиловал и убил дочь сторожа",
-            "Откурамозил гриблана",
-            "Испортил воду в родничке"
+            "откурамозил гриблана",
+            "испортил воду в родничке",
+            "пытался украсть череп Савлеона",
+            "курамозил мельтешат",
+            "притворялся что нет руки",
+            "украл спички со склада",
+            "вырожденец",
+            "не верует в Живчика",
+            "потерял лопату",
+            "дружок",
+            "съел отвёртку",
+            "убил жену сторожа",
+            "слишком часто падал",
+            "украл мясо со склада",
+            "пролил ведро молока",
+            "потерял ключи от склада",
+            "спрятал все сковородки",
+            "рисовал бибы",
+            "осквернил алтарь",
+            "впустил жрунов",
+            "воняет",
+            "не умеет курить",
+            "сломал ружьё",
+            "поджог лекарню",
+            "насрал на сковородку"
           ],
           "category":"localvar",
           "group":"",
-          "systemname":"Test_vospominaniya",
+          "systemname":"Prichiny_izgnaniya",
           "reprType":"string (Строка)",
           "reprDataType":"array (Массив)"
         }
@@ -34,20 +56,20 @@
         "fields":{},
         "methods":{}
       },
-      "compiledGUID":"51b50b08-d2d6-48d7-a500-2b3dee8efc17",
+      "compiledGUID":"03f7c1d9-ff6c-4359-bb16-018b754c5211",
       "compileStatus":"Compiled",
       "graphVersion":2
     },
     "mpos":[
-      -106.68501045728101,
-      -272.9957346075705,
-      2209.113314428611,
-      2079.1654724033956
+      -569.4564484166636,
+      -1119.7628411486353,
+      2878.424137250157,
+      2709.1050703530873
     ],
-    "mzoom":-0.48
+    "mzoom":-0.54
   },
   "nodes":{
-    "0x2e5c99bf990":{
+    "0x23edc7928d0":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":"data\\icons\\node_base.png",
       "name":"Заметка",
@@ -86,7 +108,7 @@
       },
       "class_":"internal.sticker"
     },
-    "0x2e5d37f7850":{
+    "0x23edab11f90":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":"data\\icons\\icon_Blueprint_Cast_16x",
       "name":"Преобразовать тип",
@@ -125,7 +147,7 @@
       },
       "class_":"control.castto"
     },
-    "0x2e5cf282b50":{
+    "0x23edf52e090":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":"data\\icons\\node_base.png",
       "name":"Rand",
@@ -206,7 +228,7 @@
       },
       "class_":"math.random"
     },
-    "0x2e5cf2815d0":{
+    "0x23edf52da90":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":"data\\icons\\icon_BluePrintEditor_Function_16px",
       "name":"Установить голод",
@@ -245,7 +267,7 @@
       },
       "class_":"methods.Mob.setHunger_0"
     },
-    "0x2e5cf280bd0":{
+    "0x23edf52f2d0":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":"data\\icons\\icon_Blueprint_Event_16x",
       "name":"При назначении",
@@ -280,103 +302,7 @@
       "subgraph_session":{},
       "class_":"methods.ScriptedRole._onAssignedWrapper_0"
     },
-    "0x2e5d22a84d0":{
-      "type_":"runtime_domain.RuntimeNode",
-      "icon":"data\\icons\\icon_BluePrintEditor_Function_16px",
-      "name":"Добавить воспоминание",
-      "color":[
-        0,
-        69,
-        104
-      ],
-      "border_color":[
-        74,
-        84,
-        85,
-        255
-      ],
-      "text_color":[
-        255,
-        255,
-        255,
-        180
-      ],
-      "disabled":false,
-      "selected":false,
-      "visible":true,
-      "width":347.0,
-      "height":171.8,
-      "pos":[
-        824.5726231521251,
-        455.1351498091628
-      ],
-      "layout_direction":0,
-      "port_deletion_allowed":false,
-      "subgraph_session":{},
-      "custom":{
-        "Цель":"Объект Mob",
-        "Воспоминание":"Я туопй!!!"
-      },
-      "class_":"methods.Mob.addMemory_0"
-    },
-    "0x2e5cf39e4d0":{
-      "type_":"runtime_domain.RuntimeNode",
-      "icon":[
-        "data\\icons\\ArrayPin.png",
-        "#ff87ff"
-      ],
-      "name":"Получить <b>Тест воспоминания</b>",
-      "color":[
-        255,
-        0,
-        255,
-        255
-      ],
-      "border_color":[
-        74,
-        84,
-        85,
-        255
-      ],
-      "text_color":[
-        255,
-        255,
-        255,
-        180
-      ],
-      "disabled":false,
-      "selected":false,
-      "visible":true,
-      "width":292.0,
-      "height":65.5,
-      "pos":[
-        360.4162141494078,
-        784.4352896192994
-      ],
-      "layout_direction":0,
-      "port_deletion_allowed":true,
-      "subgraph_session":{},
-      "input_ports":[],
-      "output_ports":[
-        {
-          "name":"Значение",
-          "multi_connection":true,
-          "display_name":true,
-          "color":[
-            255,
-            0,
-            255,
-            255
-          ],
-          "type":"array[string]"
-        }
-      ],
-      "custom":{
-        "nameid":"0x2e5d38773f0_2024325124735865409"
-      },
-      "class_":"variable.get"
-    },
-    "0x2e5c5768850":{
+    "0x23edf611410":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":[
         "data\\icons\\ArrayPin.png",
@@ -407,8 +333,8 @@
       "width":406.0,
       "height":60,
       "pos":[
-        309.7694912460597,
-        707.87628988168
+        776.968725088162,
+        426.27882384655396
       ],
       "layout_direction":0,
       "port_deletion_allowed":true,
@@ -459,114 +385,7 @@
       },
       "class_":"array.pick"
     },
-    "0x2e5cf26df10":{
-      "type_":"runtime_domain.RuntimeNode",
-      "icon":"data\\icons\\icon_BluePrintEditor_Function_16px",
-      "name":"Сообщение на экране",
-      "color":[
-        0,
-        69,
-        104,
-        255
-      ],
-      "border_color":[
-        74,
-        84,
-        85,
-        255
-      ],
-      "text_color":[
-        255,
-        255,
-        255,
-        180
-      ],
-      "disabled":false,
-      "selected":false,
-      "visible":true,
-      "width":324.0,
-      "height":141.10000000000002,
-      "pos":[
-        1391.6551538935673,
-        480.4089818836359
-      ],
-      "layout_direction":0,
-      "port_deletion_allowed":true,
-      "subgraph_session":{},
-      "input_ports":[
-        {
-          "name":"Вход",
-          "multi_connection":true,
-          "display_name":true,
-          "color":[
-            255,
-            255,
-            255,
-            255
-          ],
-          "type":"Exec",
-          "style":1
-        },
-        {
-          "name":"Сообщение",
-          "multi_connection":false,
-          "display_name":true,
-          "color":[
-            255,
-            0,
-            255,
-            255
-          ],
-          "type":"string"
-        },
-        {
-          "name":"Данные",
-          "multi_connection":false,
-          "display_name":true,
-          "color":[
-            46,
-            139,
-            87,
-            255
-          ],
-          "type":"int"
-        }
-      ],
-      "output_ports":[
-        {
-          "name":"Выход",
-          "multi_connection":false,
-          "display_name":true,
-          "color":[
-            255,
-            255,
-            255,
-            255
-          ],
-          "type":"Exec",
-          "style":1
-        }
-      ],
-      "custom":{
-        "autoportdata":{
-          "color":[
-            255,
-            255,
-            255,
-            255
-          ],
-          "border_color":[
-            255,
-            255,
-            255,
-            255
-          ]
-        },
-        "Сообщение":"%1"
-      },
-      "class_":"control.messageBox"
-    },
-    "0x2e5cd098b10":{
+    "0x23edf610ed0":{
       "type_":"runtime_domain.RuntimeNode",
       "icon":[
         "data\\icons\\pill_16x.png",
@@ -595,10 +414,10 @@
       "selected":false,
       "visible":true,
       "width":383.0,
-      "height":177.3,
+      "height":187.8,
       "pos":[
-        1912.205460940004,
-        670.0304937730801
+        784.8429167523668,
+        48.72902923860282
       ],
       "layout_direction":0,
       "port_deletion_allowed":false,
@@ -608,137 +427,245 @@
         "Значение":"Описание"
       },
       "class_":"fields.GameObject.desc_0.set"
+    },
+    "0x23edf610050":{
+      "type_":"runtime_domain.RuntimeNode",
+      "icon":"data\\icons\\pill_16x.png",
+      "name":"Создать строку",
+      "color":[
+        52,
+        107,
+        43,
+        255
+      ],
+      "border_color":[
+        74,
+        84,
+        85,
+        255
+      ],
+      "text_color":[
+        255,
+        255,
+        255,
+        180
+      ],
+      "disabled":false,
+      "selected":false,
+      "visible":true,
+      "width":339.0,
+      "height":164.20000000000002,
+      "pos":[
+        805.85260253368,
+        248.32362819469364
+      ],
+      "layout_direction":0,
+      "port_deletion_allowed":true,
+      "subgraph_session":{},
+      "input_ports":[
+        {
+          "name":"Строка 1",
+          "multi_connection":false,
+          "display_name":true,
+          "color":[
+            255,
+            0,
+            255,
+            255
+          ],
+          "type":"string"
+        },
+        {
+          "name":"Строка 2",
+          "multi_connection":false,
+          "display_name":false,
+          "color":[
+            255,
+            0,
+            255,
+            255
+          ],
+          "type":"string"
+        }
+      ],
+      "output_ports":[
+        {
+          "name":"Строка",
+          "multi_connection":true,
+          "display_name":true,
+          "color":[
+            255,
+            0,
+            255,
+            255
+          ],
+          "type":"string"
+        }
+      ],
+      "custom":{
+        "autoportdata":{},
+        "makeport_in":"",
+        "Строка 1":"Изгнан потому что "
+      },
+      "class_":"string.stringMake"
+    },
+    "0x23edc73f150":{
+      "type_":"runtime_domain.RuntimeNode",
+      "icon":[
+        "data\\icons\\ArrayPin.png",
+        "#ff87ff"
+      ],
+      "name":"Получить <b>Причины изгнания</b>",
+      "color":[
+        255,
+        0,
+        255,
+        255
+      ],
+      "border_color":[
+        74,
+        84,
+        85,
+        255
+      ],
+      "text_color":[
+        255,
+        255,
+        255,
+        180
+      ],
+      "disabled":false,
+      "selected":false,
+      "visible":true,
+      "width":284.0,
+      "height":65.5,
+      "pos":[
+        842.6386769484011,
+        494.9622954833697
+      ],
+      "layout_direction":0,
+      "port_deletion_allowed":true,
+      "subgraph_session":{},
+      "input_ports":[],
+      "output_ports":[
+        {
+          "name":"Значение",
+          "multi_connection":true,
+          "display_name":true,
+          "color":[
+            255,
+            0,
+            255,
+            255
+          ],
+          "type":"array[string]"
+        }
+      ],
+      "custom":{
+        "nameid":"0x23ee0e437e0_2024328225920676633"
+      },
+      "class_":"variable.get"
     }
   },
   "connections":[
     {
       "in":[
-        "0x2e5d37f7850",
+        "0x23edab11f90",
         "Вход"
       ],
       "out":[
-        "0x2e5cf280bd0",
+        "0x23edf52f2d0",
         "Выход"
       ]
     },
     {
       "in":[
-        "0x2e5d37f7850",
+        "0x23edab11f90",
         "Входной объект"
       ],
       "out":[
-        "0x2e5cf280bd0",
+        "0x23edf52f2d0",
         "Моб"
       ]
     },
     {
       "out":[
-        "0x2e5d37f7850",
+        "0x23edab11f90",
         "Успешное преобразование"
       ],
       "in":[
-        "0x2e5cf2815d0",
+        "0x23edf52da90",
         "Вход"
       ]
     },
     {
       "out":[
-        "0x2e5d37f7850",
+        "0x23edab11f90",
         "Объект"
       ],
       "in":[
-        "0x2e5cf2815d0",
+        "0x23edf52da90",
         "Цель"
       ]
     },
     {
       "out":[
-        "0x2e5d37f7850",
+        "0x23edab11f90",
         "Объект"
       ],
       "in":[
-        "0x2e5d22a84d0",
+        "0x23edf610ed0",
         "Цель"
       ]
     },
     {
       "out":[
-        "0x2e5d37f7850",
-        "Объект"
-      ],
-      "in":[
-        "0x2e5cd098b10",
-        "Цель"
-      ]
-    },
-    {
-      "out":[
-        "0x2e5cf282b50",
+        "0x23edf52e090",
         "Результат"
       ],
       "in":[
-        "0x2e5cf2815d0",
+        "0x23edf52da90",
         "Голод"
       ]
     },
     {
       "out":[
-        "0x2e5cf2815d0",
+        "0x23edf52da90",
         "Выход"
       ],
       "in":[
-        "0x2e5d22a84d0",
+        "0x23edf610ed0",
         "Вход"
       ]
     },
     {
       "in":[
-        "0x2e5d22a84d0",
-        "Воспоминание"
+        "0x23edf611410",
+        "Массив"
       ],
       "out":[
-        "0x2e5c5768850",
+        "0x23edc73f150",
+        "Значение"
+      ]
+    },
+    {
+      "out":[
+        "0x23edf611410",
         "Элемент"
-      ]
-    },
-    {
-      "out":[
-        "0x2e5d22a84d0",
-        "Выход"
       ],
       "in":[
-        "0x2e5cf26df10",
-        "Вход"
+        "0x23edf610050",
+        "Строка 2"
       ]
     },
     {
-      "out":[
-        "0x2e5d22a84d0",
-        "Результат"
-      ],
       "in":[
-        "0x2e5cf26df10",
-        "Данные"
-      ]
-    },
-    {
-      "out":[
-        "0x2e5cf39e4d0",
+        "0x23edf610ed0",
         "Значение"
       ],
-      "in":[
-        "0x2e5c5768850",
-        "Массив"
-      ]
-    },
-    {
       "out":[
-        "0x2e5cf26df10",
-        "Выход"
-      ],
-      "in":[
-        "0x2e5cd098b10",
-        "Вход"
+        "0x23edf610050",
+        "Строка"
       ]
     }
   ]
