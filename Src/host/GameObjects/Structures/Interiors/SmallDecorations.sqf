@@ -13,10 +13,33 @@ class(SmallDecorations) extends(StructureBasicCategory) endclass
 
 //мусорки < container
 
+//Предметы интерьера, украшения
+editor_attribute("InterfaceClass")
+editor_attribute("TemplatePrefab")
+class(InterierProp) extends(SmallDecorations) 
+	var(name,"Предмет интерьера");
+	editor_only(var(desc,"Различные украшения интерьера");)
+	var(material,"MatGlass");
+endclass
+
+class(Vase) extends(InterierProp) 
+	var(name,"Великолепная ваза");
+	var(desc,"Потрясающее изделие невиданной красоты");
+	var(model,"relicta_models\models\interier\props\treasure\vase\vase.p3d");
+	getter_func(isMovable,true);
+	getterconst_func(getCoefAutoWeight,100);
+endclass
+
 //картины
 editor_attribute("InterfaceClass")
 editor_attribute("TemplatePrefab")
-class(Picture) extends(SmallDecorations) var(name,"Картина"); editor_only(var(desc,"Просто картина");) endclass
+class(Picture) extends(SmallDecorations) 
+	var(name,"Картина");
+	editor_only(var(desc,"Просто картина");)
+	var(material,"MatCloth");
+	getter_func(isMovable,true);
+	getterconst_func(getCoefAutoWeight,5);
+endclass
 
 editor_attribute("EditorGenerated")
 class(PictureIcon) extends(Picture)
@@ -52,6 +75,9 @@ endclass
 editor_attribute("EditorGenerated")
 class(PosterLive) extends(Picture)
 	var(model,"metro_ob\model\sovet3.p3d");
+	var(material,"MatCloth");
+	getter_func(isMovable,false);
+	var(weight,1.15);
 endclass
 
 editor_attribute("EditorGenerated")
@@ -102,7 +128,13 @@ endclass
 //ковры
 editor_attribute("InterfaceClass")
 editor_attribute("TemplatePrefab")
-class(Carpet) extends(SmallDecorations) var(name,"Ковер"); editor_only(var(desc,"Красивый ковер");) endclass
+class(Carpet) extends(SmallDecorations) 
+	var(name,"Ковер");
+	editor_only(var(desc,"Красивый ковер");)
+	var(material,"MatCloth");
+	getter_func(isMovable,true);
+	getterconst_func(getCoefAutoWeight,50);
+endclass
 
 editor_attribute("EditorGenerated")
 class(RedCarpetWall) extends(Carpet)
@@ -112,6 +144,11 @@ endclass
 editor_attribute("EditorGenerated")
 class(RedCarpet) extends(Carpet)
 	var(model,"ml_shabut\carpet\carpet.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(RedCarpet1) extends(RedCarpet)
+	var(model,"ca\structures_e\misc\misc_interier\carpet_2_ep1.p3d");
 endclass
 
 editor_attribute("EditorGenerated")
@@ -126,11 +163,18 @@ endclass
 //таблички
 editor_attribute("InterfaceClass")
 editor_attribute("TemplatePrefab")
-class(SmallSign) extends(SmallDecorations) var(name,"Табличка"); editor_only(var(desc,"Табличка или указатель");) endclass
+class(SmallSign) extends(SmallDecorations) 
+	var(name,"Табличка");
+	editor_only(var(desc,"Табличка или указатель");)
+	var(material,"MatWood");
+	getterconst_func(getCoefAutoWeight,50);
+	var(dr,1);
+endclass
 
 editor_attribute("EditorGenerated")
 class(WoodenGraveCross) extends(SmallSign)
 	var(model,"ca\buildings\misc\hrobecek_krizek2.p3d");
+	getter_func(isMovable,true);
 endclass
 
 editor_attribute("EditorGenerated")
@@ -201,11 +245,17 @@ endclass
 //Монументы, памятники, могилы
 editor_attribute("InterfaceClass")
 editor_attribute("TemplatePrefab")
-class(MonumentBase) extends(SmallDecorations) var(name,"Монумент"); editor_only(var(desc,"Монументы - памятники - могилы");) endclass
+class(MonumentBase) extends(SmallDecorations) 
+	var(name,"Монумент");
+	editor_only(var(desc,"Монументы - памятники - могилы");)
+	var(material,"MatBeton");
+	var(dr,4);
+endclass
 
 editor_attribute("EditorGenerated")
 class(AncientMonument) extends(MonumentBase)
 	var(model,"a3\structures_f_exp\cultural\ancientrelics\petroglyphwall_01_f.p3d");
+	var(material,"MatStone");
 endclass
 
 editor_attribute("EditorGenerated")
@@ -229,6 +279,11 @@ class(Statue) extends(MonumentBase)
 endclass
 
 editor_attribute("EditorGenerated")
+class(Pedestal) extends(Statue)
+	var(model,"a3\structures_f_argo\cultural\statues\pedestal_01_f.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
 class(Statue9) extends(Statue)
 	var(model,"a3\structures_f_enoch\cultural\cemeteries\tombstone_17_f.p3d");
 endclass
@@ -236,21 +291,25 @@ endclass
 editor_attribute("EditorGenerated")
 class(Statue8) extends(Statue)
 	var(model,"a3\structures_f_exp\cultural\ancientrelics\ancienthead_01_f.p3d");
+	var(material,"MatStone");
 endclass
 
 editor_attribute("EditorGenerated")
 class(Statue7) extends(Statue)
 	var(model,"a3\structures_f_exp\cultural\ancientrelics\ancientstatue_02_f.p3d");
+	var(material,"MatStone");
 endclass
 
 editor_attribute("EditorGenerated")
 class(Statue6) extends(Statue)
 	var(model,"a3\structures_f_exp\cultural\ancientrelics\ancientstatue_01_f.p3d");
+	var(material,"MatStone");
 endclass
 
 editor_attribute("EditorGenerated")
 class(Statue5) extends(Statue)
 	var(model,"a3\structures_f_exp\cultural\totems\palmtotem_02_f.p3d");
+	var(material,"MatStone");
 endclass
 
 editor_attribute("EditorGenerated")

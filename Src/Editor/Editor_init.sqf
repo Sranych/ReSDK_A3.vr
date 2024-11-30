@@ -56,13 +56,24 @@
 
 #include <..\client\Inventory\inventory.hpp>
 
+#include <Widgets\Widgets.hpp>
+
 //assertion
 call compile __pragma_preprocess "src\host\CommonComponents\Assert.sqf";
 
 //встраиваемые предварительные функции
 #include <..\host\precompiled.sqf>
 
-
+//структуры
+#define STRUCT_INIT_FUNCTIONS
+#include <..\host\struct.hpp>
+#undef STRUCT_INIT_FUNCTIONS
+//структурная библиотека
+#include <..\host\CommonComponents\StructLib.sqf>
+//дефайны для лута
+#include <..\host\LootSystem\LootSystem_structs.sqf>
+//algorithm
+call compile __pragma_preprocess "src\host\CommonComponents\Algorithm.sqf";
 //Отладчик
 #include <..\host\Tools\EditorWorkspaceDebug\InternalImpl.sqf>
 ;relicta_debug_onPostErrorHandle = {
@@ -79,13 +90,17 @@ call compile __pragma_preprocess "src\host\CommonComponents\Assert.sqf";
 	cba_common_waitUntilAndExecArray = [];
 };
 
+#include <..\host\CommonComponents\ModelTransform.hpp>
+#include <..\client\Rendering\Render_debug.sqf>
+#include <..\host\Yaml\Yaml_init.sqf>
+
 //renode отладчик
 #include "..\host\ReNode\ReNode_debugger.sqf"
 
 #include <EditorEngine.h>
 
 //Строковое название версии. Пишется в пользовательском интерфейсе редактора
-Core_version_name = "1.14-path.2";
+Core_version_name = "1.18";
 //Номер версии сборки редактора. Используется в бинарных файлах карт.
 Core_version_number = 4;
 
@@ -94,6 +109,8 @@ Editor_enableAutoloadGOLIB = true;
 //core
 componentInit(Core)
 #include "Core\Core_init.sqf"
+componentInit(Core_struct)
+#include "Core\Core_struct.sqf"
 componentInit(Core_fileWatcher)
 #include "Core\Core_fileWatcher.sqf"
 componentInit(Core_pathes)

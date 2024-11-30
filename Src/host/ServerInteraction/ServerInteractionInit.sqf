@@ -16,8 +16,6 @@
 #include "ServerInteractionTests.sqf"
 //Проверщик объектов с проблемными моделями, через которые не проходит рейкаст
 #include "ServerInteractionShared.sqf"
-//хандлер коллизии на стороне сервера
-#include "ServerInteraction_Collision.sqf"
 
 
 //клиентское использование интеракта для INTERACT_LODS_CHECK_GEOM
@@ -201,9 +199,27 @@ si_getIntersectData = {
 	[_ins select 0 select 2,asltoatl (_ins select 0 select 0),_ins select 0 select 1]
 };
 
-//not used in gamecode
+si_getIntersectDataV2 = {
+	params ["_p1","_p2",["_ig1",objnull],["_ig2",objnull]];
+	private _ins = lineIntersectsSurfaces [
+  		AGLToASL _p1,
+  		AGLToASL _p2,
+  		_ig1,
+		_ig2,
+		true,
+		100,
+		INTERACT_LODS_CHECK_STANDART
+ 	];
+	#ifdef EDITOR
+	_ins = _ins select {isNull((_x select 2)getvariable "link")};
+	#endif
+	if (count _ins == 0) exitWith {[objnull,[0,0,0],[0,0,0]]};
+	
+	[_ins select 0 select 2,asltoatl (_ins select 0 select 0),_ins select 0 select 1]
+};
+
 si_getIntersectObjects = {
-	params ["_p1","_p2",["_ig1",objNUll],["_ig2",objNUll],["_countObjs",10],["_retUnique",true]];
+	params ["_p1","_p2",["_ig1",objNUll],["_ig2",objNUll],["_countObjs",10],["_retUnique",true],["_retAsVObj",false],["_retIPos",false]];
 	private _ins = lineIntersectsSurfaces [
   		AGLToASL _p1,
   		AGLToASL _p2,
@@ -214,20 +230,42 @@ si_getIntersectObjects = {
 		INTERACT_LODS_CHECK_STANDART,
 		_retUnique
  	];
+	//second pass
+	if (count _ins == 0) then {
+		_ins = lineIntersectsSurfaces [
+			AGLToASL _p1,
+			AGLToASL _p2,
+			_ig1,
+			_ig2,
+			true,
+			_countObjs,
+			INTERACT_LODS_CHECK_GEOM,
+			_retUnique
+		];
+	};
 	if (count _ins == 0) exitWith {[]};
-	_ins = lineIntersectsSurfaces [
-		AGLToASL _p1,
-		AGLToASL _p2,
-  		_ig1,
-		_ig2,
-		true,
-		_countObjs,
-		INTERACT_LODS_CHECK_GEOM,
-		_retUnique
- 	];
-	if (count _ins == 0) exitWith {[]};
-	_ins apply {_x select 2}
+	if _retAsVObj then {
+		if _retIPos then {
+			_ins apply {
+				[[_x select 2] call si_handleObjectReturnCheckVirtual, asltoatl (_x select 0)]
+			}
+		} else {
+			_ins apply {
+				[_x select 2] call si_handleObjectReturnCheckVirtual
+			}
+		};
+	} else {
+		if _retIPos then {
+			_ins apply {
+				[_x select 2,asltoatl (_x select 0)]
+			}
+		} else {
+			_ins apply {_x select 2}
+		};
+	};
 };
+
+#include "ServerInteraction_rayTrace.sqf"
 
 //Отладчик эдитора
 //#define SI_THROW_DEBUG
@@ -455,6 +493,7 @@ si_onBulletAct = {
 		#define logshotgun(txt,vars)
 	#endif
 
+	logshotgun("Process bullet damage: ",_dam arg _type arg _selection arg _usr arg _weapon)
 	logshotgun("Distance and half distance info:",_distance arg _halfDistance)
 
 	//половина повреждений при дистанции большей чем 1/2
@@ -612,6 +651,7 @@ si_throwModes = [
 					#endif
 					(_x getVariable "_dmgData")params ["_dam","_type","_selection","_usr"];
 					_throwed = _x getVariable "_sysRef";
+					__INTERNAL_THROWED_VIRTUAL__ = _x;
 					_distance = linearConversion[0,1,_interp,0,(_x getVariable "_distance")];
 					callFuncParams(_targ,onThrowHit,_dam arg _type arg _selection arg _usr arg _distance arg _throwed)
 				};

@@ -36,6 +36,14 @@ if (isMultiplayer)then{
 cprint_usestdout = true; //flag for standart console output
 cprint_isserver = isMultiplayer && isServer;
 
+// ["PREFIX","message %1, arg %2, last %3",...,...] call stdoutPrint
+stdoutPrint = {
+	private _args = _this;
+	private _PREF = _args deleteAt 0;
+	private _color = _args deleteAt (count _args - 1);
+	conDllCall (_PREF + (format _args) + _color);
+	__post_message_RB(_PREF + (format _args))
+};
 
 cprint = {
 	if (cprint_isserver) then {
@@ -49,6 +57,8 @@ cprint = {
 			[format _this, "log"] call chatPrint;
 		};
 	};
+
+	__post_message_RB(format _this)
 };
 
 cprintErr = {
@@ -63,6 +73,8 @@ cprintErr = {
 			[PRFX__ + format _this, "log"] call chatPrint;
 		};
 	};
+
+	__post_message_RB(PRFX__ + format _this)
 };
 
 cprintWarn = {
@@ -78,6 +90,8 @@ cprintWarn = {
 			[PRFX__ + format _this, "log"] call chatPrint;
 		};
 	};
+
+	__post_message_RB(PRFX__ + format _this)
 };
 
 if (isMultiplayer && {!isNullVar(__editorEnabled)})then{
@@ -85,7 +99,9 @@ if (isMultiplayer && {!isNullVar(__editorEnabled)})then{
 	appExit(APPEXIT_REASON_CRITICAL);
 };
 
+#ifndef RBUILDER
 removeAllMissionEventHandlers "ScriptError";
+#endif
 
 if (!isServer) then {
 	scriptErrHndl = addMissionEventHandler ["ScriptError",
@@ -107,6 +123,8 @@ if (!isServer) then {
 	}];
 };
 
+#define STRUCT_INIT_FUNCTIONS
+#include "..\struct.hpp"
 
 allThreads = []; //init thread pool
 hashMapNull = createHashMapFromArray [["__NULL_HASH_MAP__","__NULL_HASH_MAP__"]];
@@ -278,6 +296,17 @@ regex_getFirstMatch = {
 	""
 };
 
+regex_getMatches = {
+	params ["_txt","_pattern",["_optMath",0]];
+	private _out = _txt regexfind [_pattern,0];
+	private _rList = [];
+	{
+		_rList pushBack (_x select _optMath select 0);
+		false
+	} count _out;
+	_rList
+};
+
 regex_replace = {
 	params ["_txt","_pattern","_replacer"];
 	_txt regexReplace [_pattern,_replacer];
@@ -329,9 +358,6 @@ cst_isComressed = {
 //		Other utility functions
 //==================================================================================================
 
-//enable preinit functional tests function decl
-//#define __ENABLE_STATIC_TEST
-
 // Строковые хелперы
 stringStartWith = {
 	params ["_checked","_started",["_casesense",true]];
@@ -364,7 +390,7 @@ stringReplace = {
 	_result + _string
 };
 
-//Выбирает лучший случай [[1,2,3],{_x > 2}] call selectBest
+//Выбирает лучший случай [[2, -6, 4], {abs _x}] call selectBest
 selectBest = {
 	params ["_array", "_criteria", "_return"];
 
@@ -397,7 +423,7 @@ arrayDeleteItem = {
 
 arrayIsValidIndex = {
 	params ["_a","_ix"];
-	count _a > 0 && {_ix < count _a}
+	count _a > 0 && {_ix < count _a} && {_ix >= 0}
 };
 
 //shuffle array elements, return alter array
@@ -446,9 +472,49 @@ randomInt = {
 	randInt(_beg,_end)
 };
 
+randomProbably = {
+	params ["_v"];
+	prob(_v)
+};
+
+getPrecentage = {
+	params ["_checkedval","_pval"];
+	precentage(_checkedval,_pval)
+};
+
 clampNumber = {
 	params ["_v","_mi","_ma"];
 	clamp(_v,_mi,_ma)	
+};
+
+clampInRange = {
+	params ["_v","_mi","_ma"];
+	private _fact = _ma * 2;
+	if (_v < _mi) exitWith {
+		_v + _fact
+	};
+	if (_v > _ma) exitWith {
+		_v - _fact
+	};
+	_v
+};
+
+// See - BIS_fnc_pulsate; frequency: Number - the frequency in Hz, 1 / _frequency = 0.1 second is the period
+pulsate = {
+	params ["_freq",["_timeval",diag_tickTime]];
+	0.5 * (1.0 + sin(2 * PI * _freq * _timeval))
+};
+
+//число в массив цифр
+numberGetDigits = {
+	params ["_num"];
+	[_num] call BIS_fnc_numberDigits;
+};
+
+//срезает дробную часть числа
+numberCutDecimals = {
+	params ["_num","_digits"];
+	[_num, _digits] call BIS_fnc_cutDecimals;
 };
 
 stringFormat = {
@@ -464,7 +530,119 @@ stringFormat = {
 	} else {
 		[_fmt,_val]
 	};
-	format _eval
+	_eval call formatLazy;
+};
+
+/*
+	Ленивое форматирование. 
+	Не выбрасывает исключений при отсутствующих параметрах для ключей (в режиме -debug)
+	Все отсутствующие параметры заменяются на пустые строки.
+	Пример:
+		format["%1 %2","Hello"] // throws error
+
+		...
+		["%1 %2","Hello"] call formatLazy; //no throws, result is "Hello "
+
+*/
+formatLazy = {
+	private _args = _this;
+	private _firstTxt = _args select 0;
+	private _params = _args select [1]; // get params without first string
+	private _rtoks = (_firstTxt regexfind ["\%\d+",0]) apply {_x select 0 select 0};
+	_rtoks = _rtoks arrayIntersect _rtoks; //only unique
+	if (count _rtoks == (count _params)) exitWith {
+		format _args;
+	};
+	_params resize (count _rtoks);
+	private _out = [_firstTxt];
+	_out append (_params apply {ifcheck(isNullVar(_x),"",_x)});
+	format _out
+};
+
+getPosListCenter = {
+	params [["_poses",[]],"_dummyParam"];
+	private _cPosSum = [0,0,0];
+	if equals(_poses,[]) exitWith {_cPosSum};
+
+	{
+		_cPosSum = _cPosSum vectorAdd _x;
+		false
+	} count _poses;
+
+	_cPosSum vectorMultiply (1 / count _poses);
+};
+
+//Specialized random functions. For more details see https://community.bistudio.com/wiki/Example_Code:_Random_Area_Distribution
+
+//Специальный рандом по области. Чем ближе к центру тем выше вероятность. Распределение идёт по всей окружности.
+randomRadius = {
+	params ["_center","_radius"];
+	private _pos = _center getPos [random _radius,random 360];
+	_pos set [2,_center select 2];
+	_pos
+};
+
+//Специальный рандом по области. Равномерное распределение по позиции в радиусе.
+randomPosition = {
+	params ["_center","_radius"];
+	private _pos = _center getPos [_radius * (sqrt random 1),random 360];
+	_pos set [2,_center select 2];
+	_pos
+};
+
+//Специальный рандом по области. Распределение идёт ближе к центру. Чем ближе к центру тем выше вероятность.
+randomGaussian = {
+	params ["_center","_radius"];
+	private _pos = _center getPos [_radius * (random [-1,0,1]),random 180];
+	_pos set [2,_center select 2];
+	_pos
+};
+
+fileExists_Node = {
+	params ["_f"];
+	FileExists _f
+};
+
+// _mode == true -> asc, false -> desc: [[20,2,5],{_x}] call sortBy;
+sortBy = {
+	params ["_list","_algorithm",["_modeIsAscend",true]];
+
+	private _cnt = 0;
+	private _inputArray = _list apply 
+	{
+		_cnt = _cnt + 1; 
+		[_x call _algorithm, _cnt, _x]
+	};
+
+	_inputArray sort _modeIsAscend;
+	_inputArray apply {_x select 2}
+	
+};
+
+//find nearest number in array of numbers
+nearNumber = {
+	params ["_arr","_num"];
+	_arr = _arr + [_num];
+	_arr sort true;
+
+	private _i = _arr find _num;
+	private _max = _arr deleteAt (_i + 1);
+	private _min = _arr deleteAt (_i - 1);
+
+	if (isNil "_min") exitWith {_max};
+	if (isNil "_max") exitWith {_min};
+
+	[_min, _max] select (_num - _min > _max - _num)
+};
+
+fileLoad_Node = {
+	params ["_f",["_doPreprocess",false]];
+	if !([_f] call fileExists_Node) exitWith {""};
+	if (_doPreprocess) then {
+		PreprocessFileLineNumbers _f
+	} else {
+		LoadFile _f
+	};
 };
 
 missionNamespace setVariable ["pushFront",
@@ -481,25 +659,6 @@ missionNamespace setVariable ["pushFront",
 ];
 //!pushfront = {}; <- throws compier error
 
-#ifndef EDITOR
-	#undef __ENABLE_STATIC_TEST
-#endif
-
-//tests
-#ifdef __ENABLE_STATIC_TEST
-
-functionalitests_preinit = {
-		#define testcheck(value,errortext) if !(value) exitWith { \
-		private _format = format["%1 - %2",errortext,'value']; \
-		setLastError(_format); \
-	};
-
-	testcheck(vec3("helloworld","Hello",false) call stringStartWith,"")
-	testcheck(!(vec3("helloworld","Hello",true) call stringStartWith),"")
-	testcheck(vec3("helloworld","rld",false) call stringEndWith,"")
-	testcheck(!(vec3("helloWORLD","RLD",true) call stringEndWith),"")
-
-	#undef testcheck
-};
-
-#endif
+VM_COMPILER_ADDFUNC_BINARY(setPhysicsCollisionFlag_impl,setPhysicsCollisionFlag);
+VM_COMPILER_ADDFUNC_UNARY(screenToWorldDirection_impl,screenToWorldDirection);
+VM_COMPILER_ADDFUNC_BINARY(isequalref_impl,isequalref);

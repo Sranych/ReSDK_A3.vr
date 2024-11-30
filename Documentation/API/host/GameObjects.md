@@ -11,7 +11,7 @@ Replaced value:
 ```sqf
 'qdel_isdeleted'
 ```
-File: [host\GameObjects\GameConstants.hpp at line 22](../../../Src/host/GameObjects/GameConstants.hpp#L22)
+File: [host\GameObjects\GameConstants.hpp at line 23](../../../Src/host/GameObjects/GameConstants.hpp#L23)
 ## QDEL(object)
 
 Type: constant
@@ -23,7 +23,7 @@ Replaced value:
 ```sqf
 (object) setVariable [__QDEL_VARNAME,true]
 ```
-File: [host\GameObjects\GameConstants.hpp at line 23](../../../Src/host/GameObjects/GameConstants.hpp#L23)
+File: [host\GameObjects\GameConstants.hpp at line 24](../../../Src/host/GameObjects/GameConstants.hpp#L24)
 ## QDELING(object)
 
 Type: constant
@@ -35,7 +35,7 @@ Replaced value:
 ```sqf
 !ISNIL{object getVariable __QDEL_VARNAME}
 ```
-File: [host\GameObjects\GameConstants.hpp at line 24](../../../Src/host/GameObjects/GameConstants.hpp#L24)
+File: [host\GameObjects\GameConstants.hpp at line 25](../../../Src/host/GameObjects/GameConstants.hpp#L25)
 ## ITEM_SIZE_TINY
 
 Type: constant
@@ -47,7 +47,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\GameConstants.hpp at line 39](../../../Src/host/GameObjects/GameConstants.hpp#L39)
+File: [host\GameObjects\GameConstants.hpp at line 40](../../../Src/host/GameObjects/GameConstants.hpp#L40)
 ## ITEM_SIZE_SMALL
 
 Type: constant
@@ -59,7 +59,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\GameConstants.hpp at line 40](../../../Src/host/GameObjects/GameConstants.hpp#L40)
+File: [host\GameObjects\GameConstants.hpp at line 41](../../../Src/host/GameObjects/GameConstants.hpp#L41)
 ## ITEM_SIZE_MEDIUM
 
 Type: constant
@@ -71,7 +71,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\GameConstants.hpp at line 41](../../../Src/host/GameObjects/GameConstants.hpp#L41)
+File: [host\GameObjects\GameConstants.hpp at line 42](../../../Src/host/GameObjects/GameConstants.hpp#L42)
 ## ITEM_SIZE_LARGE
 
 Type: constant
@@ -83,7 +83,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\GameConstants.hpp at line 42](../../../Src/host/GameObjects/GameConstants.hpp#L42)
+File: [host\GameObjects\GameConstants.hpp at line 43](../../../Src/host/GameObjects/GameConstants.hpp#L43)
 ## ITEM_SIZE_BIG
 
 Type: constant
@@ -95,7 +95,7 @@ Replaced value:
 ```sqf
 5
 ```
-File: [host\GameObjects\GameConstants.hpp at line 43](../../../Src/host/GameObjects/GameConstants.hpp#L43)
+File: [host\GameObjects\GameConstants.hpp at line 44](../../../Src/host/GameObjects/GameConstants.hpp#L44)
 ## ITEM_SIZE_HUGE
 
 Type: constant
@@ -107,7 +107,7 @@ Replaced value:
 ```sqf
 6
 ```
-File: [host\GameObjects\GameConstants.hpp at line 44](../../../Src/host/GameObjects/GameConstants.hpp#L44)
+File: [host\GameObjects\GameConstants.hpp at line 45](../../../Src/host/GameObjects/GameConstants.hpp#L45)
 ## BASE_STORAGE_COST(size_type)
 
 Type: constant
@@ -119,7 +119,7 @@ Replaced value:
 ```sqf
 round (2^(size_type-1))
 ```
-File: [host\GameObjects\GameConstants.hpp at line 47](../../../Src/host/GameObjects/GameConstants.hpp#L47)
+File: [host\GameObjects\GameConstants.hpp at line 48](../../../Src/host/GameObjects/GameConstants.hpp#L48)
 ## BASE_STORAGE_CAPACITY(size_type)
 
 Type: constant
@@ -131,7 +131,7 @@ Replaced value:
 ```sqf
 round (7*(size_type-1))
 ```
-File: [host\GameObjects\GameConstants.hpp at line 50](../../../Src/host/GameObjects/GameConstants.hpp#L50)
+File: [host\GameObjects\GameConstants.hpp at line 51](../../../Src/host/GameObjects/GameConstants.hpp#L51)
 ## DEFAULT_CLOTH_STORAGE
 
 Type: constant
@@ -143,7 +143,7 @@ Replaced value:
 ```sqf
 BASE_STORAGE_CAPACITY(1.8571429)
 ```
-File: [host\GameObjects\GameConstants.hpp at line 53](../../../Src/host/GameObjects/GameConstants.hpp#L53)
+File: [host\GameObjects\GameConstants.hpp at line 54](../../../Src/host/GameObjects/GameConstants.hpp#L54)
 ## DEFAULT_ITEMBAG_STORAGE
 
 Type: constant
@@ -155,7 +155,7 @@ Replaced value:
 ```sqf
 BASE_STORAGE_CAPACITY(3)
 ```
-File: [host\GameObjects\GameConstants.hpp at line 54](../../../Src/host/GameObjects/GameConstants.hpp#L54)
+File: [host\GameObjects\GameConstants.hpp at line 55](../../../Src/host/GameObjects/GameConstants.hpp#L55)
 ## DEFAULT_BACKPACK_STORAGE
 
 Type: constant
@@ -167,7 +167,7 @@ Replaced value:
 ```sqf
 BASE_STORAGE_CAPACITY(4)	
 ```
-File: [host\GameObjects\GameConstants.hpp at line 55](../../../Src/host/GameObjects/GameConstants.hpp#L55)
+File: [host\GameObjects\GameConstants.hpp at line 56](../../../Src/host/GameObjects/GameConstants.hpp#L56)
 ## DEFAULT_BOX_STORAGE
 
 Type: constant
@@ -179,7 +179,7 @@ Replaced value:
 ```sqf
 BASE_STORAGE_CAPACITY(6)
 ```
-File: [host\GameObjects\GameConstants.hpp at line 56](../../../Src/host/GameObjects/GameConstants.hpp#L56)
+File: [host\GameObjects\GameConstants.hpp at line 57](../../../Src/host/GameObjects/GameConstants.hpp#L57)
 ## DEFAULT_LARGEBOX_STORAGE
 
 Type: constant
@@ -191,7 +191,7 @@ Replaced value:
 ```sqf
 BASE_STORAGE_CAPACITY(7)
 ```
-File: [host\GameObjects\GameConstants.hpp at line 57](../../../Src/host/GameObjects/GameConstants.hpp#L57)
+File: [host\GameObjects\GameConstants.hpp at line 58](../../../Src/host/GameObjects/GameConstants.hpp#L58)
 ## DEFAULT_TICK_DELAY
 
 Type: constant
@@ -203,7 +203,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\GameConstants.hpp at line 86](../../../Src/host/GameObjects/GameConstants.hpp#L86)
+File: [host\GameObjects\GameConstants.hpp at line 87](../../../Src/host/GameObjects/GameConstants.hpp#L87)
 ## invicon(icon)
 
 Type: constant
@@ -215,7 +215,7 @@ Replaced value:
 ```sqf
 #icon
 ```
-File: [host\GameObjects\GameConstants.hpp at line 88](../../../Src/host/GameObjects/GameConstants.hpp#L88)
+File: [host\GameObjects\GameConstants.hpp at line 89](../../../Src/host/GameObjects/GameConstants.hpp#L89)
 ## gramm(amount)
 
 Type: constant
@@ -227,7 +227,7 @@ Replaced value:
 ```sqf
 amount / 1000
 ```
-File: [host\GameObjects\GameConstants.hpp at line 91](../../../Src/host/GameObjects/GameConstants.hpp#L91)
+File: [host\GameObjects\GameConstants.hpp at line 92](../../../Src/host/GameObjects/GameConstants.hpp#L92)
 ## kgToGramm(VL)
 
 Type: constant
@@ -239,7 +239,7 @@ Replaced value:
 ```sqf
 VL * 1000
 ```
-File: [host\GameObjects\GameConstants.hpp at line 94](../../../Src/host/GameObjects/GameConstants.hpp#L94)
+File: [host\GameObjects\GameConstants.hpp at line 95](../../../Src/host/GameObjects/GameConstants.hpp#L95)
 ## kgToLb(val)
 
 Type: constant
@@ -251,7 +251,31 @@ Replaced value:
 ```sqf
 ((val)*2)
 ```
-File: [host\GameObjects\GameConstants.hpp at line 97](../../../Src/host/GameObjects/GameConstants.hpp#L97)
+File: [host\GameObjects\GameConstants.hpp at line 98](../../../Src/host/GameObjects/GameConstants.hpp#L98)
+## inchToMeters(val)
+
+Type: constant
+
+Description: дюймы в метры
+- Param: val
+
+Replaced value:
+```sqf
+((val)/39.37)
+```
+File: [host\GameObjects\GameConstants.hpp at line 101](../../../Src/host/GameObjects/GameConstants.hpp#L101)
+## metersToFeet(val)
+
+Type: constant
+
+Description: метры в футы
+- Param: val
+
+Replaced value:
+```sqf
+((val)*3.289)
+```
+File: [host\GameObjects\GameConstants.hpp at line 103](../../../Src/host/GameObjects/GameConstants.hpp#L103)
 ## DISTANCE_WORLDSAY
 
 Type: constant
@@ -263,7 +287,7 @@ Replaced value:
 ```sqf
 15
 ```
-File: [host\GameObjects\GameConstants.hpp at line 99](../../../Src/host/GameObjects/GameConstants.hpp#L99)
+File: [host\GameObjects\GameConstants.hpp at line 105](../../../Src/host/GameObjects/GameConstants.hpp#L105)
 ## sideToIndex(_side)
 
 Type: constant
@@ -275,7 +299,7 @@ Replaced value:
 ```sqf
 (abs ceil ((_side)*.1))
 ```
-File: [host\GameObjects\GameConstants.hpp at line 102](../../../Src/host/GameObjects/GameConstants.hpp#L102)
+File: [host\GameObjects\GameConstants.hpp at line 108](../../../Src/host/GameObjects/GameConstants.hpp#L108)
 ## SIDE_LEFT
 
 Type: constant
@@ -287,7 +311,7 @@ Replaced value:
 ```sqf
 -1
 ```
-File: [host\GameObjects\GameConstants.hpp at line 103](../../../Src/host/GameObjects/GameConstants.hpp#L103)
+File: [host\GameObjects\GameConstants.hpp at line 109](../../../Src/host/GameObjects/GameConstants.hpp#L109)
 ## SIDE_RIGHT
 
 Type: constant
@@ -299,7 +323,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\GameConstants.hpp at line 104](../../../Src/host/GameObjects/GameConstants.hpp#L104)
+File: [host\GameObjects\GameConstants.hpp at line 110](../../../Src/host/GameObjects/GameConstants.hpp#L110)
 ## NODE_SIDE_LIST_ALL
 
 Type: constant
@@ -311,7 +335,7 @@ Replaced value:
 ```sqf
 ['Левая сторона:SIDE_LEFT','Правая сторона:SIDE_RIGHT']
 ```
-File: [host\GameObjects\GameConstants.hpp at line 105](../../../Src/host/GameObjects/GameConstants.hpp#L105)
+File: [host\GameObjects\GameConstants.hpp at line 111](../../../Src/host/GameObjects/GameConstants.hpp#L111)
 # GameObject.sqf
 
 ## PIC_PREP
@@ -325,7 +349,7 @@ Replaced value:
 ```sqf
 <img size='0.8' image='%2'/>
 ```
-File: [host\GameObjects\GameObject.sqf at line 336](../../../Src/host/GameObjects/GameObject.sqf#L336)
+File: [host\GameObjects\GameObject.sqf at line 356](../../../Src/host/GameObjects/GameObject.sqf#L356)
 ## startSectorIndex
 
 Type: constant
@@ -337,7 +361,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\GameObject.sqf at line 651](../../../Src/host/GameObjects/GameObject.sqf#L651)
+File: [host\GameObjects\GameObject.sqf at line 761](../../../Src/host/GameObjects/GameObject.sqf#L761)
 ## sectorSize
 
 Type: constant
@@ -349,7 +373,43 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\GameObject.sqf at line 652](../../../Src/host/GameObjects/GameObject.sqf#L652)
+File: [host\GameObjects\GameObject.sqf at line 762](../../../Src/host/GameObjects/GameObject.sqf#L762)
+## DEBUG_VISUAL_OBJECTFALLING
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+
+```
+File: [host\GameObjects\GameObject.sqf at line 1417](../../../Src/host/GameObjects/GameObject.sqf#L1417)
+## DEBUG_VISUAL_OPENSPACE
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+
+```
+File: [host\GameObjects\GameObject.sqf at line 1606](../../../Src/host/GameObjects/GameObject.sqf#L1606)
+## async_delay_check_
+
+Type: constant
+
+Description: default async check timeout
+
+
+Replaced value:
+```sqf
+0.5
+```
+File: [host\GameObjects\GameObject.sqf at line 2391](../../../Src/host/GameObjects/GameObject.sqf#L2391)
 ## flyingObject
 
 Type: Variable
@@ -361,7 +421,7 @@ Initial value:
 ```sqf
 createObj
 ```
-File: [host\GameObjects\GameObject.sqf at line 50](../../../Src/host/GameObjects/GameObject.sqf#L50)
+File: [host\GameObjects\GameObject.sqf at line 53](../../../Src/host/GameObjects/GameObject.sqf#L53)
 ## go_internal_updateMethodsAfterStart
 
 Type: Variable
@@ -373,7 +433,7 @@ Initial value:
 ```sqf
 []
 ```
-File: [host\GameObjects\GameObject.sqf at line 378](../../../Src/host/GameObjects/GameObject.sqf#L378)
+File: [host\GameObjects\GameObject.sqf at line 455](../../../Src/host/GameObjects/GameObject.sqf#L455)
 ## go_internal_chatMesMap
 
 Type: Variable
@@ -385,7 +445,7 @@ Initial value:
 ```sqf
 ["emote","log","act","combat","info","mind","event","system","error","default"]
 ```
-File: [host\GameObjects\GameObject.sqf at line 974](../../../Src/host/GameObjects/GameObject.sqf#L974)
+File: [host\GameObjects\GameObject.sqf at line 1084](../../../Src/host/GameObjects/GameObject.sqf#L1084)
 ## go_internal_chatMesMapText
 
 Type: Variable
@@ -397,7 +457,7 @@ Initial value:
 ```sqf
 ["Эмоут:Кастомное пользовательское действие",...
 ```
-File: [host\GameObjects\GameObject.sqf at line 975](../../../Src/host/GameObjects/GameObject.sqf#L975)
+File: [host\GameObjects\GameObject.sqf at line 1085](../../../Src/host/GameObjects/GameObject.sqf#L1085)
 ## debug_internal_collectInheritanceDesign
 
 Type: function
@@ -407,7 +467,7 @@ Type: function
 Description: 
 
 
-File: [host\GameObjects\GameObject.sqf at line 37](../../../Src/host/GameObjects/GameObject.sqf#L37)
+File: [host\GameObjects\GameObject.sqf at line 40](../../../Src/host/GameObjects/GameObject.sqf#L40)
 # Chemistry.h
 
 ## CHEM_TIME_SLOW_UPDATE
@@ -1720,6 +1780,21 @@ Replaced value:
 2
 ```
 File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 17](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L17)
+## BONE_STATUS_LIST_NODE_BINDING
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+[ 'В порядке:BONE_STATUS_OK:Кости в порядке' \
+	,'Трещина:BONE_STATUS_CRACK:Образовались трещины в костях' \
+	,'Сломаны:BONE_STATUS_BROKEN:Открытый или закрытый перелом' \
+]
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 19](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L19)
 ## ORGAN_STATUS_OK
 
 Type: constant
@@ -1731,7 +1806,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 19](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L19)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 24](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L24)
 ## ORGAN_STATUS_DAMAGED
 
 Type: constant
@@ -1743,7 +1818,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 20](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L20)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 25](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L25)
 ## ORGAN_STATUS_DESTROYED
 
 Type: constant
@@ -1755,7 +1830,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 21](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L21)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 26](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L26)
 ## STANCE_UP
 
 Type: constant
@@ -1767,7 +1842,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 23](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L23)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 28](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L28)
 ## STANCE_MIDDLE
 
 Type: constant
@@ -1779,7 +1854,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 24](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L24)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 29](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L29)
 ## STANCE_DOWN
 
 Type: constant
@@ -1791,7 +1866,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 25](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L25)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 30](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L30)
 ## NODE_STANCE_LIST_ALL
 
 Type: constant
@@ -1803,7 +1878,7 @@ Replaced value:
 ```sqf
 ['В полный рост:STANCE_UP','В присяди:STANCE_MIDDLE','Лежа:STANCE_DOWN']
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 26](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L26)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 31](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L31)
 ## SPEED_MODE_STOP
 
 Type: constant
@@ -1815,7 +1890,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 28](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L28)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 33](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L33)
 ## SPEED_MODE_WALK
 
 Type: constant
@@ -1827,7 +1902,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 29](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L29)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 34](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L34)
 ## SPEED_MODE_RUN
 
 Type: constant
@@ -1839,7 +1914,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 30](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L30)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 35](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L35)
 ## SPEED_MODE_SPRINT
 
 Type: constant
@@ -1851,7 +1926,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 31](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L31)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 36](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L36)
 ## NODE_SPEED_MODE_LIST_ALL
 
 Type: constant
@@ -1863,7 +1938,7 @@ Replaced value:
 ```sqf
 ['Без движения:SPEED_MODE_STOP','Ходьба:SPEED_MODE_WALK','Бег:SPEED_MODE_RUN','Спринт:SPEED_MODE_SPRINT']
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 32](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L32)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 37](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L37)
 ## LIGHT_NO
 
 Type: constant
@@ -1875,7 +1950,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 34](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L34)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 39](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L39)
 ## LIGHT_LOW
 
 Type: constant
@@ -1887,7 +1962,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 35](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L35)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 40](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L40)
 ## LIGHT_MEDIUM
 
 Type: constant
@@ -1899,7 +1974,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 36](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L36)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 41](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L41)
 ## LIGHT_LARGE
 
 Type: constant
@@ -1911,7 +1986,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 37](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L37)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 42](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L42)
 ## LIGHT_FULL
 
 Type: constant
@@ -1923,7 +1998,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 38](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L38)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 43](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L43)
 ## LIGHT_GET_MODIF_STEALTH(val)
 
 Type: constant
@@ -1935,7 +2010,7 @@ Replaced value:
 ```sqf
 ([+5,+3,0,-3,-8]select(val))
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 39](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L39)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 44](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L44)
 ## NODE_LIGHT_LIST_ALL
 
 Type: constant
@@ -1947,7 +2022,7 @@ Replaced value:
 ```sqf
 ['Нет света:LIGHT_NO','Слабый свет:LIGHT_LOW','Средний свет:LIGHT_MEDIUM','Большой свет:LIGHT_LARGE','Полный свет:LIGHT_FULL']
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 40](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L40)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 45](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L45)
 ## VIEW_MODE_NONE
 
 Type: constant
@@ -1959,7 +2034,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 42](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L42)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 47](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L47)
 ## VIEW_MODE_MEDIUM
 
 Type: constant
@@ -1971,7 +2046,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 44](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L44)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 49](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L49)
 ## VIEW_MODE_FULL
 
 Type: constant
@@ -1983,7 +2058,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 45](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L45)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 50](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L50)
 ## VISIBILITY_MODE_NONE
 
 Type: constant
@@ -1995,7 +2070,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 49](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L49)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 54](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L54)
 ## VISIBILITY_MODE_LOW
 
 Type: constant
@@ -2007,7 +2082,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 50](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L50)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 55](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L55)
 ## VISIBILITY_MODE_MEDIUM
 
 Type: constant
@@ -2019,7 +2094,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 51](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L51)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 56](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L56)
 ## VISIBILITY_MODE_FULL
 
 Type: constant
@@ -2031,7 +2106,22 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 52](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L52)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 57](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L57)
+## NODE_VISIBILITY_MODE_LIST_ALL
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['Не видно:VISIBILITY_MODE_NONE:Цель не видно' \
+,'Плохо видно:VISIBILITY_MODE_LOW:Видно менее 50 процентов цели' \
+,'Видно:VISIBILITY_MODE_MEDIUM:Цель видима. Имеется прямой зрительный контакт по 50+ процентам площади её тела.' \
+,'Полностью видно:VISIBILITY_MODE_FULL:Вся площадь цели находится в видимом пространстве.']
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 59](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L59)
 ## UNC_ANIM_LIST
 
 Type: constant
@@ -2043,7 +2133,7 @@ Replaced value:
 ```sqf
 ["Acts_StaticDeath_04","Acts_StaticDeath_05","Acts_StaticDeath_06","Acts_StaticDeath_10","Acts_StaticDeath_13"]
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 54](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L54)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 64](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L64)
 ## UNC_ANIM
 
 Type: constant
@@ -2055,7 +2145,7 @@ Replaced value:
 ```sqf
 'Incapacitated'
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 54](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L54)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 64](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L64)
 ## DEUNC_ANIM
 
 Type: constant
@@ -2067,7 +2157,7 @@ Replaced value:
 ```sqf
 'amovppnemstpsnonwnondnon'
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 56](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L56)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 66](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L66)
 ## UNC_MIMIC
 
 Type: constant
@@ -2079,7 +2169,7 @@ Replaced value:
 ```sqf
 'unconscious'
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 58](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L58)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 68](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L68)
 ## DEFAULT_MIMIC
 
 Type: constant
@@ -2091,7 +2181,55 @@ Replaced value:
 ```sqf
 'neutral'
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 59](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L59)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 69](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L69)
+## DEAD_MIMIC
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+'dead'
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 70](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L70)
+## CUSTOM_ANIM_ACTION_NONE
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+0
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 72](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L72)
+## CUSTOM_ANIM_ACTION_SEAT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+1
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 73](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L73)
+## CUSTOM_ANIM_ACTION_STAND
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+2
+```
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 74](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L74)
 ## HUNGER_PER_TICK_LESS
 
 Type: constant
@@ -2103,7 +2241,7 @@ Replaced value:
 ```sqf
 0.015
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 64](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L64)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 79](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L79)
 ## THIRST_PER_TICK_LESS
 
 Type: constant
@@ -2115,7 +2253,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 67](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L67)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 82](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L82)
 ## HUNGER_STAMINA_LESS
 
 Type: constant
@@ -2127,7 +2265,7 @@ Replaced value:
 ```sqf
 0.034
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 71](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L71)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 86](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L86)
 ## HUNGER_UNC_TIME
 
 Type: constant
@@ -2139,7 +2277,7 @@ Replaced value:
 ```sqf
 randInt(10,60 * 3)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 73](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L73)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 88](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L88)
 ## THIRST_UNC_TIME
 
 Type: constant
@@ -2151,7 +2289,7 @@ Replaced value:
 ```sqf
 randInt(10,60 * 2)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 74](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L74)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 89](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L89)
 ## PAIN_LEVEL_MAX
 
 Type: constant
@@ -2163,7 +2301,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 78](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L78)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 93](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L93)
 ## PAIN_LEVEL_MIN
 
 Type: constant
@@ -2175,7 +2313,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 79](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L79)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 94](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L94)
 ## PAIN_LEVEL_NO
 
 Type: constant
@@ -2187,7 +2325,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 80](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L80)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 95](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L95)
 ## PAIN_LEVEL_TO_TEXT(val)
 
 Type: constant
@@ -2199,7 +2337,7 @@ Replaced value:
 ```sqf
 (["","слабая боль","боль","сильная боль","ужасная боль"] select val)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 82](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L82)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 97](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L97)
 ## PAIN_LIST_RESTORE_TIME
 
 Type: constant
@@ -2211,7 +2349,7 @@ Replaced value:
 ```sqf
 [0,120,240,360,1800]
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 86](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L86)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 101](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L101)
 ## PAIN_LEVEL_GET_RESTORE_TIME(lvl)
 
 Type: constant
@@ -2223,7 +2361,7 @@ Replaced value:
 ```sqf
 (PAIN_LIST_RESTORE_TIME select lvl)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 87](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L87)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 102](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L102)
 ## PAIN_MAX_AMOUNT
 
 Type: constant
@@ -2235,7 +2373,7 @@ Replaced value:
 ```sqf
 2520
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 90](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L90)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 105](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L105)
 ## PAIN_DEFAULT_RESTORE
 
 Type: constant
@@ -2247,7 +2385,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 93](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L93)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 108](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L108)
 ## PAIN_SLEEP_RESTORE
 
 Type: constant
@@ -2259,7 +2397,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 96](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L96)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 111](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L111)
 ## ORGAN_HEAL_TIMEOUT
 
 Type: constant
@@ -2271,7 +2409,7 @@ Replaced value:
 ```sqf
 100
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 101](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L101)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 116](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L116)
 ## ORGAN_REGEN_TIME_PRE_SECOND
 
 Type: constant
@@ -2283,7 +2421,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 103](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L103)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 118](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L118)
 ## ORGAN_MEDICAL_REGEN_TIME_PER_SECOND
 
 Type: constant
@@ -2295,7 +2433,7 @@ Replaced value:
 ```sqf
 10
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 105](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L105)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 120](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L120)
 ## BODY_PART_REGEN_DELAY
 
 Type: constant
@@ -2307,7 +2445,7 @@ Replaced value:
 ```sqf
 60
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 110](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L110)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 125](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L125)
 ## BODY_PART_HUNGER_REGEN_LOWLEVEL
 
 Type: constant
@@ -2319,7 +2457,7 @@ Replaced value:
 ```sqf
 40
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 113](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L113)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 128](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L128)
 ## APPEARANCE_UPDATE_DNA
 
 Type: constant
@@ -2331,7 +2469,7 @@ Replaced value:
 ```sqf
 0x1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 117](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L117)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 132](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L132)
 ## APPEARANCE_RACE
 
 Type: constant
@@ -2343,7 +2481,7 @@ Replaced value:
 ```sqf
 (0x2|APPEARANCE_UPDATE_DNA)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 118](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L118)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 133](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L133)
 ## APPEARANCE_GENDER
 
 Type: constant
@@ -2355,7 +2493,7 @@ Replaced value:
 ```sqf
 (0x4|APPEARANCE_UPDATE_DNA)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 119](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L119)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 134](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L134)
 ## APPEARANCE_SKIN
 
 Type: constant
@@ -2367,7 +2505,7 @@ Replaced value:
 ```sqf
 0x8
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 120](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L120)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 135](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L135)
 ## APPEARANCE_HAIR
 
 Type: constant
@@ -2379,7 +2517,7 @@ Replaced value:
 ```sqf
 0x10
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 121](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L121)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 136](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L136)
 ## APPEARANCE_HAIR_COLOR
 
 Type: constant
@@ -2391,7 +2529,7 @@ Replaced value:
 ```sqf
 0x20
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 122](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L122)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 137](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L137)
 ## APPEARANCE_FACIAL_HAIR
 
 Type: constant
@@ -2403,7 +2541,7 @@ Replaced value:
 ```sqf
 0x40
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 123](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L123)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 138](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L138)
 ## APPEARANCE_FACIAL_HAIR_COLOR
 
 Type: constant
@@ -2415,7 +2553,7 @@ Replaced value:
 ```sqf
 0x80
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 124](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L124)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 139](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L139)
 ## APPEARANCE_EYE_COLOR
 
 Type: constant
@@ -2427,7 +2565,7 @@ Replaced value:
 ```sqf
 0x100
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 125](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L125)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 140](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L140)
 ## APPEARANCE_ALL_HAIR
 
 Type: constant
@@ -2439,7 +2577,7 @@ Replaced value:
 ```sqf
 (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 126](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L126)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 141](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L141)
 ## APPEARANCE_ALL
 
 Type: constant
@@ -2451,7 +2589,7 @@ Replaced value:
 ```sqf
 0xFFFF
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 126](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L126)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 141](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L141)
 ## DEFAULT_SLOW_COOLDOWN
 
 Type: constant
@@ -2463,7 +2601,7 @@ Replaced value:
 ```sqf
 16 //The default cooldown for slow actions.*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 131](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L131)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 146](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L146)
 ## DEFAULT_ATTACK_COOLDOWN
 
 Type: constant
@@ -2475,7 +2613,7 @@ Replaced value:
 ```sqf
 8 //Default timeout for aggressive actions*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 132](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L132)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 147](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L147)
 ## DEFAULT_QUICK_COOLDOWN
 
 Type: constant
@@ -2487,7 +2625,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 133](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L133)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 148](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L148)
 ## GLUT_TINY
 
 Type: constant
@@ -2499,7 +2637,7 @@ Replaced value:
 ```sqf
 1       /* Eat anything tiny and smaller*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 136](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L136)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 151](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L151)
 ## GLUT_SMALLER
 
 Type: constant
@@ -2511,7 +2649,7 @@ Replaced value:
 ```sqf
 2    /* Eat anything smaller than we are*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 137](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L137)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 152](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L152)
 ## GLUT_ANYTHING
 
 Type: constant
@@ -2523,7 +2661,7 @@ Replaced value:
 ```sqf
 4   /* Eat anything, ever*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 138](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L138)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 153](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L153)
 ## GLUT_ITEM_TINY
 
 Type: constant
@@ -2535,7 +2673,7 @@ Replaced value:
 ```sqf
 8         /* Eat items with a w_class of small or smaller*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 140](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L140)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 155](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L155)
 ## GLUT_ITEM_NORMAL
 
 Type: constant
@@ -2547,7 +2685,7 @@ Replaced value:
 ```sqf
 16      /* Eat items with a w_class of normal or smaller*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 141](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L141)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 156](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L156)
 ## GLUT_ITEM_ANYTHING
 
 Type: constant
@@ -2559,7 +2697,7 @@ Replaced value:
 ```sqf
 32    /* Eat any item*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 142](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L142)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 157](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L157)
 ## GLUT_PROJECTILE_VOMIT
 
 Type: constant
@@ -2571,7 +2709,7 @@ Replaced value:
 ```sqf
 64 /* When vomitting, does it fly out?*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 143](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L143)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 158](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L158)
 ## DEVOUR_SLOW
 
 Type: constant
@@ -2583,7 +2721,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 146](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L146)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 161](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L161)
 ## DEVOUR_FAST
 
 Type: constant
@@ -2595,7 +2733,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 147](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L147)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 162](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L162)
 ## INCAPACITATION_NONE
 
 Type: constant
@@ -2607,7 +2745,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 150](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L150)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 165](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L165)
 ## INCAPACITATION_STUNNED
 
 Type: constant
@@ -2619,7 +2757,7 @@ Replaced value:
 ```sqf
 1 /*оглушение*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 151](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L151)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 166](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L166)
 ## INCAPACITATION_KNOCKDOWN
 
 Type: constant
@@ -2631,7 +2769,7 @@ Replaced value:
 ```sqf
 2 /*нокдаун. Падение вниз. Короткое время бездействия*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 152](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L152)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 167](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L167)
 ## INCAPACITATION_LYING
 
 Type: constant
@@ -2643,7 +2781,7 @@ Replaced value:
 ```sqf
 4 /*лежит. либо персонаж лёг на кровать, либо просто лежит в анимке*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 153](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L153)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 168](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L168)
 ## INCAPACITATION_RESTRAINED
 
 Type: constant
@@ -2655,7 +2793,7 @@ Replaced value:
 ```sqf
 8 /*держится кем-то*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 154](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L154)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 169](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L169)
 ## INCAPACITATION_ALL
 
 Type: constant
@@ -2667,7 +2805,7 @@ Replaced value:
 ```sqf
 (INCAPACITATION_STUNNED + INCAPACITATION_KNOCKDOWN + INCAPACITATION_LYING + INCAPACITATION_RESTRAINED)
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 156](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L156)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 171](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L171)
 ## NUTRITION_LEVEL_FAT
 
 Type: constant
@@ -2679,7 +2817,7 @@ Replaced value:
 ```sqf
 550
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 160](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L160)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 175](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L175)
 ## NUTRITION_LEVEL_FULL
 
 Type: constant
@@ -2691,7 +2829,7 @@ Replaced value:
 ```sqf
 500
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 161](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L161)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 176](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L176)
 ## NUTRITION_LEVEL_WELL_FED
 
 Type: constant
@@ -2703,7 +2841,7 @@ Replaced value:
 ```sqf
 450
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 162](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L162)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 177](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L177)
 ## NUTRITION_LEVEL_FED
 
 Type: constant
@@ -2715,7 +2853,7 @@ Replaced value:
 ```sqf
 350
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 163](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L163)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 178](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L178)
 ## NUTRITION_LEVEL_HUNGRY
 
 Type: constant
@@ -2727,7 +2865,7 @@ Replaced value:
 ```sqf
 250
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 164](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L164)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 179](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L179)
 ## NUTRITION_LEVEL_STARVING
 
 Type: constant
@@ -2739,7 +2877,7 @@ Replaced value:
 ```sqf
 150
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 165](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L165)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 180](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L180)
 ## THIRST_LEVEL_MAX
 
 Type: constant
@@ -2751,7 +2889,7 @@ Replaced value:
 ```sqf
 800
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 168](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L168)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 183](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L183)
 ## THIRST_LEVEL_FILLED
 
 Type: constant
@@ -2763,7 +2901,7 @@ Replaced value:
 ```sqf
 600
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 169](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L169)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 184](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L184)
 ## THIRST_LEVEL_MEDIUM
 
 Type: constant
@@ -2775,7 +2913,7 @@ Replaced value:
 ```sqf
 300
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 170](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L170)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 185](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L185)
 ## THIRST_LEVEL_THIRSTY
 
 Type: constant
@@ -2787,7 +2925,7 @@ Replaced value:
 ```sqf
 200
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 171](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L171)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 186](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L186)
 ## THIRST_LEVEL_DEHYDRATED
 
 Type: constant
@@ -2799,7 +2937,7 @@ Replaced value:
 ```sqf
 50
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 172](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L172)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 187](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L187)
 ## THIRST_FACTOR
 
 Type: constant
@@ -2811,7 +2949,7 @@ Replaced value:
 ```sqf
 0.5
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 173](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L173)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 188](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L188)
 ## STARVATION_MIN
 
 Type: constant
@@ -2823,7 +2961,7 @@ Replaced value:
 ```sqf
 60 /*If you have less nutrition than this value, the hunger indicator starts flashing - THIS ISN'T USED!*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 175](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L175)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 190](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L190)
 ## STARVATION_NOTICE
 
 Type: constant
@@ -2835,7 +2973,7 @@ Replaced value:
 ```sqf
 45 /*If you have more nutrition than this value, you get an occasional message reminding you that you're going to starve soon*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 176](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L176)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 191](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L191)
 ## STARVATION_WEAKNESS
 
 Type: constant
@@ -2847,7 +2985,7 @@ Replaced value:
 ```sqf
 20 /*Otherwise, if you have more nutrition than this value, you occasionally become weak and receive minor damage*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 177](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L177)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 192](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L192)
 ## STARVATION_NEARDEATH
 
 Type: constant
@@ -2859,7 +2997,81 @@ Replaced value:
 ```sqf
 5 /*Otherwise, if you have more nutrition than this value, you have seizures and occasionally receive damage*/
 ```
-File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 178](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L178)
+File: [host\GameObjects\ConstantAndDefines\Mobs.h at line 193](../../../Src/host/GameObjects/ConstantAndDefines/Mobs.h#L193)
+# ObjectsHP.h
+
+## OBJECT_TYPE_COMPLEX
+
+Type: constant
+
+Description: комплексные объекты состоят из нескольких частей. в основном это механизмы и устройства. их гораздо легче разрушить
+
+
+Replaced value:
+```sqf
+"complex"
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 7](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L7)
+## OBJECT_TYPE_SIMPLE
+
+Type: constant
+
+Description: простые (однородные) объекты обычно состоят из одного материала. большинство объектов типа постройки - простые
+
+
+Replaced value:
+```sqf
+"simple"
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 9](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L9)
+## OBJECT_TYPE_SPREADED
+
+Type: constant
+
+Description: !рассеянные типы не использовать. В них нет смысла на данном этапе
+
+
+Replaced value:
+```sqf
+"spreaded"
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 12](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L12)
+## DR_SP_1
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+2
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 19](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L19)
+## DR_SP_2
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+4
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 20](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L20)
+## DR_SP_3
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+6
+```
+File: [host\GameObjects\ConstantAndDefines\ObjectsHP.h at line 21](../../../Src/host/GameObjects/ConstantAndDefines/ObjectsHP.h#L21)
 # TimeConstants.h
 
 ## TIME_UNCONSCIOUS_ONWOUND
@@ -2970,6 +3182,42 @@ Replaced value:
 0.5
 ```
 File: [host\GameObjects\ConstantAndDefines\TimeConstants.h at line 22](../../../Src/host/GameObjects/ConstantAndDefines/TimeConstants.h#L22)
+## TIME_ATMOS_MAIN_HANDLER_UPDATE
+
+Type: constant
+
+Description: частота вызова метода проверки реакции
+
+
+Replaced value:
+```sqf
+0.1
+```
+File: [host\GameObjects\ConstantAndDefines\TimeConstants.h at line 25](../../../Src/host/GameObjects/ConstantAndDefines/TimeConstants.h#L25)
+## TIME_ATMOS_DELAY_REACT_BODY
+
+Type: constant
+
+Description: таймеры реакции моба на атмос. для тела и ног
+
+
+Replaced value:
+```sqf
+0.7
+```
+File: [host\GameObjects\ConstantAndDefines\TimeConstants.h at line 27](../../../Src/host/GameObjects/ConstantAndDefines/TimeConstants.h#L27)
+## TIME_ATMOS_DELAY_REACT_LEGS
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+0.7
+```
+File: [host\GameObjects\ConstantAndDefines\TimeConstants.h at line 28](../../../Src/host/GameObjects/ConstantAndDefines/TimeConstants.h#L28)
 # Decor.sqf
 
 ## oop_internal_decor_makeUnicalName
@@ -3005,7 +3253,7 @@ Replaced value:
 ```sqf
 setSelf(name,getVar(_item,name))
 ```
-File: [host\GameObjects\Items\Item.sqf at line 727](../../../Src/host/GameObjects/Items/Item.sqf#L727)
+File: [host\GameObjects\Items\Item.sqf at line 799](../../../Src/host/GameObjects/Items/Item.sqf#L799)
 ## methodReference(name__,parm,refparam)
 
 Type: constant
@@ -3019,7 +3267,7 @@ Replaced value:
 ```sqf
 func(name__) {parm; callFuncParams(getSelf(object),name__,refparam)}
 ```
-File: [host\GameObjects\Items\Item.sqf at line 1124](../../../Src/host/GameObjects/Items/Item.sqf#L1124)
+File: [host\GameObjects\Items\Item.sqf at line 1228](../../../Src/host/GameObjects/Items/Item.sqf#L1228)
 ## generateItemSize
 
 Type: function
@@ -3029,7 +3277,18 @@ Description:
 - Param: _bmax
 - Param: _radius
 
-File: [host\GameObjects\Items\Item.sqf at line 172](../../../Src/host/GameObjects/Items/Item.sqf#L172)
+File: [host\GameObjects\Items\Item.sqf at line 178](../../../Src/host/GameObjects/Items/Item.sqf#L178)
+## generateItemInfoList
+
+Type: function
+
+> Exists if **EDITOR** defined
+
+Description: 
+- Param: _file (optional, default "unknown_file")
+- Param: _line (optional, default 0)
+
+File: [host\GameObjects\Items\Item.sqf at line 204](../../../Src/host/GameObjects/Items/Item.sqf#L204)
 # Item_HandAnim.hpp
 
 ## ANIM_INDEX_HANDED
@@ -3104,6 +3363,18 @@ Replaced value:
 (ITEM_HANDANIM_LIST_ALLANIMS select (idx))
 ```
 File: [host\GameObjects\Items\Item_HandAnim.hpp at line 19](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L19)
+## __ITEM_HANDANIM_LIST_NAMESTRUCT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['Нижний:ITEM_HANDANIM_LOWER','Нижний (только кисть):ITEM_HANDANIM_LOWERONLYHAND','Фонарик:ITEM_HANDANIM_FLASHLIGHT','Факел:ITEM_HANDANIM_TORCH','Лампа:ITEM_HANDANIM_LAMP']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 21](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L21)
 ## ITEM_HANDANIM_LOWER
 
 Type: constant
@@ -3115,7 +3386,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 21](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L21)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 22](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L22)
 ## ITEM_HANDANIM_LOWERONLYHAND
 
 Type: constant
@@ -3127,7 +3398,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 22](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L22)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 23](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L23)
 ## ITEM_HANDANIM_FLASHLIGHT
 
 Type: constant
@@ -3139,7 +3410,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 23](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L23)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 24](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L24)
 ## ITEM_HANDANIM_TORCH
 
 Type: constant
@@ -3151,7 +3422,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 24](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L24)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 25](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L25)
 ## ITEM_HANDANIM_LAMP
 
 Type: constant
@@ -3163,7 +3434,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 25](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L25)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 26](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L26)
 ## ITEM_TWOHANDANIM_LIST_ALLANIMS
 
 Type: constant
@@ -3175,7 +3446,31 @@ Replaced value:
 ```sqf
 ["lwr","swd","pst","rfl","pswda","pswdb","capb"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 28](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L28)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 29](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L29)
+## __ITEM_TWOHANDANIM_LIST_NAMESTRUCT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['Нижний:ITEM_2HANIM_LOWER','Меч:ITEM_2HANIM_SWORD','Пистолет:ITEM_2HANIM_PISTOL','Винтовка:ITEM_2HANIM_RIFLE','Парирование:ITEM_2HANIM_PARRY_SWORD_1','Парирование:ITEM_2HANIM_PARRY_SWORD_2','Связан:ITEM_2HANIM_CAPTIVEBACK']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 31](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L31)
+## __ITEM_TWOHANDANIM_PARRY_LIST_NAMESTRUCT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['меч 1:ITEM_2HANIM_PARRY_SWORD_1','меч 2:ITEM_2HANIM_PARRY_SWORD_2']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 32](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L32)
 ## ITEM_2HANIM_LOWER
 
 Type: constant
@@ -3187,7 +3482,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 30](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L30)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 33](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L33)
 ## ITEM_2HANIM_SWORD
 
 Type: constant
@@ -3199,7 +3494,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 31](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L31)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 34](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L34)
 ## ITEM_2HANIM_PISTOL
 
 Type: constant
@@ -3211,7 +3506,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 32](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L32)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 35](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L35)
 ## ITEM_2HANIM_RIFLE
 
 Type: constant
@@ -3223,7 +3518,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 33](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L33)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 36](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L36)
 ## ITEM_2HANIM_PARRY_SWORD_1
 
 Type: constant
@@ -3235,7 +3530,7 @@ Replaced value:
 ```sqf
 4
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 34](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L34)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 37](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L37)
 ## ITEM_2HANIM_PARRY_SWORD_2
 
 Type: constant
@@ -3247,7 +3542,7 @@ Replaced value:
 ```sqf
 5
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 35](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L35)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 38](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L38)
 ## ITEM_2HANIM_CAPTIVEBACK
 
 Type: constant
@@ -3259,7 +3554,7 @@ Replaced value:
 ```sqf
 6
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 36](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L36)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 39](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L39)
 ## ITEM_COMBATANIM_LIST_ALLANIMS
 
 Type: constant
@@ -3271,7 +3566,7 @@ Replaced value:
 ```sqf
 ["hnd","sht","avt","avt"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 41](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L41)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 44](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L44)
 ## ITEM_ATTACKANIM_LIST_ALLANIMS
 
 Type: constant
@@ -3283,7 +3578,7 @@ Replaced value:
 ```sqf
 ["hnd","sht","gun","sht"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 43](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L43)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 47](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L47)
 ## ITEM_GET_OTHERHAND_ANIM(tex,ret,istwohands)
 
 Type: constant
@@ -3297,7 +3592,7 @@ Replaced value:
 ```sqf
 (if (tex == "gun") then {ret} else {if(istwohands)exitWith{tex};"bck"})
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 46](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L46)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 50](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L50)
 ## ITEM_COMBATANIM_ENUM_TO_ANIM(idx)
 
 Type: constant
@@ -3309,7 +3604,7 @@ Replaced value:
 ```sqf
 (ITEM_COMBATANIM_LIST_ALLANIMS select (idx))
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 48](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L48)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 52](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L52)
 ## ITEM_ATTACKANIM_ENUM_TO_ANIM(idx)
 
 Type: constant
@@ -3321,8 +3616,8 @@ Replaced value:
 ```sqf
 (ITEM_ATTACKANIM_LIST_ALLANIMS select (idx))
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 49](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L49)
-## ITEM_COMBATANIM_HAND
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 53](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L53)
+## __ITEM_COMBATANIM_LIST_NAMESTRUCT
 
 Type: constant
 
@@ -3331,9 +3626,21 @@ Description: используются данные: ITEM_COMBATANIM_LIST_ALLANIM
 
 Replaced value:
 ```sqf
+['Кулак:ITEM_COMBATANIM_HAND','Короткое:ITEM_COMBATANIM_SHORT','Автомат:ITEM_COMBATANIM_GUN','Рукоять:ITEM_COMBATANIM_GUN_HANDLE']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 56](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L56)
+## ITEM_COMBATANIM_HAND
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
 0
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 52](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L52)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 57](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L57)
 ## ITEM_COMBATANIM_SHORT
 
 Type: constant
@@ -3345,7 +3652,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 53](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L53)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 58](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L58)
 ## ITEM_COMBATANIM_GUN
 
 Type: constant
@@ -3357,7 +3664,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 54](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L54)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 59](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L59)
 ## ITEM_COMBATANIM_GUN_HANDLE
 
 Type: constant
@@ -3369,7 +3676,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 56](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L56)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 61](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L61)
 ## ITEM_TWOHANDCOMBATANIM_LIST_ALLANIMS
 
 Type: constant
@@ -3381,7 +3688,7 @@ Replaced value:
 ```sqf
 ["lwr","swd","pst","rfl"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 59](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L59)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 64](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L64)
 ## ITEM_TWOHANDATTACKANIM_LIST_ALLANIMS
 
 Type: constant
@@ -3393,7 +3700,19 @@ Replaced value:
 ```sqf
 ["lwr","swd","pst","rfl"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 61](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L61)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 67](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L67)
+## __ITEM_2HANIM_COMBAT_LIST_NAMESTRUCT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['Нижний:ITEM_2HANIM_COMBAT_LOWER','Меч:ITEM_2HANIM_COMBAT_SWORD','Пистолет:ITEM_2HANIM_COMBAT_PISTOL','Винтовка:ITEM_2HANIM_COMBAT_RIFLE']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 69](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L69)
 ## ITEM_2HANIM_COMBAT_LOWER
 
 Type: constant
@@ -3405,7 +3724,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 63](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L63)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 70](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L70)
 ## ITEM_2HANIM_COMBAT_SWORD
 
 Type: constant
@@ -3417,7 +3736,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 64](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L64)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 71](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L71)
 ## ITEM_2HANIM_COMBAT_PISTOL
 
 Type: constant
@@ -3429,7 +3748,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 65](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L65)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 72](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L72)
 ## ITEM_2HANIM_COMBAT_RIFLE
 
 Type: constant
@@ -3441,7 +3760,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 66](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L66)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 73](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L73)
 ## __item_parry_list_anims__
 
 Type: constant
@@ -3453,7 +3772,7 @@ Replaced value:
 ```sqf
 ["parh1","parh2","pars1","pars2"]
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 69](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L69)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 76](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L76)
 ## ITEM_PARRY_ENUM_TO_ANIM(idx)
 
 Type: constant
@@ -3465,7 +3784,19 @@ Replaced value:
 ```sqf
 (__item_parry_list_anims__ select idx)
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 70](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L70)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 77](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L77)
+## __ITEM_PARRY_LIST_NAMESTRUCT
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+['Кулак:ITEM_PARRY_HAND_1','Кулак 2:ITEM_PARRY_HAND_2','Меч:ITEM_PARRY_SWORD_1','Меч 2:ITEM_PARRY_SWORD_2']
+```
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 79](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L79)
 ## ITEM_PARRY_HAND_1
 
 Type: constant
@@ -3477,7 +3808,7 @@ Replaced value:
 ```sqf
 0
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 72](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L72)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 80](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L80)
 ## ITEM_PARRY_HAND_2
 
 Type: constant
@@ -3489,7 +3820,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 73](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L73)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 81](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L81)
 ## ITEM_PARRY_SWORD_1
 
 Type: constant
@@ -3501,7 +3832,7 @@ Replaced value:
 ```sqf
 2
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 74](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L74)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 82](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L82)
 ## ITEM_PARRY_SWORD_2
 
 Type: constant
@@ -3513,7 +3844,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Items\Item_HandAnim.hpp at line 75](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L75)
+File: [host\GameObjects\Items\Item_HandAnim.hpp at line 83](../../../Src/host/GameObjects/Items/Item_HandAnim.hpp#L83)
 # Bodyparts.sqf
 
 ## _rwt(t)
@@ -3527,7 +3858,7 @@ Replaced value:
 ```sqf
 [t,hashMapNew]
 ```
-File: [host\GameObjects\Items\Bodyparts\Bodyparts.sqf at line 220](../../../Src/host/GameObjects/Items/Bodyparts/Bodyparts.sqf#L220)
+File: [host\GameObjects\Items\Bodyparts\Bodyparts.sqf at line 223](../../../Src/host/GameObjects/Items/Bodyparts/Bodyparts.sqf#L223)
 # CaptiveBase.sqf
 
 ## server_handcuff_internal_random
@@ -3563,9 +3894,21 @@ Replaced value:
 ```sqf
 ;
 ```
-File: [host\GameObjects\Items\Clothes\cloth.sqf at line 185](../../../Src/host/GameObjects/Items/Clothes/cloth.sqf#L185)
+File: [host\GameObjects\Items\Clothes\cloth.sqf at line 192](../../../Src/host/GameObjects/Items/Clothes/cloth.sqf#L192)
 # Books.sqf
 
+## __CONST_WRITABLE_ITEM_CONTENT_MAX_LEN__
+
+Type: constant
+
+Description: 
+
+
+Replaced value:
+```sqf
+1024*10
+```
+File: [host\GameObjects\Items\Office\Books.sqf at line 22](../../../Src/host/GameObjects/Items/Office/Books.sqf#L22)
 ## gv(func)
 
 Type: constant
@@ -3579,7 +3922,7 @@ Replaced value:
 ```sqf
 _y get #func
 ```
-File: [host\GameObjects\Items\Office\Books.sqf at line 312](../../../Src/host/GameObjects/Items/Office/Books.sqf#L312)
+File: [host\GameObjects\Items\Office\Books.sqf at line 449](../../../Src/host/GameObjects/Items/Office/Books.sqf#L449)
 # BasicMob.sqf
 
 ## emulate_mp_in_sp
@@ -3605,7 +3948,7 @@ Replaced value:
 ```sqf
 
 ```
-File: [host\GameObjects\Mobs\BasicMob.sqf at line 287](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L287)
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 309](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L309)
 ## INTERACT_DIST_DEFAULT
 
 Type: constant
@@ -3617,7 +3960,7 @@ Replaced value:
 ```sqf
 1.1
 ```
-File: [host\GameObjects\Mobs\BasicMob.sqf at line 318](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L318)
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 340](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L340)
 ## __animget_impl__()
 
 Type: constant
@@ -3629,7 +3972,7 @@ Replaced value:
 ```sqf
 (getSelf(owner) call anim_getUnitAnim)
 ```
-File: [host\GameObjects\Mobs\BasicMob.sqf at line 827](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L827)
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 870](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L870)
 ## __data_light_slot__
 
 Type: constant
@@ -3641,7 +3984,7 @@ Replaced value:
 ```sqf
 [[INV_BACKPACK,null], [INV_ARMOR,null], [INV_HEAD,null], [INV_BACK,null],[INV_CLOTH,null],[INV_FACE,null],[INV_HAND_R,null],[INV_HAND_L,null],[INV_BELT,null]]
 ```
-File: [host\GameObjects\Mobs\BasicMob.sqf at line 937](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L937)
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 980](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L980)
 ## debug_internal_getinteractiontarget_spheres
 
 Type: Variable
@@ -3655,7 +3998,31 @@ Initial value:
 ```sqf
 []
 ```
-File: [host\GameObjects\Mobs\BasicMob.sqf at line 289](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L289)
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 311](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L311)
+## mob_static_savectx_signatures
+
+Type: Variable
+
+Description: caching doAfter context
+
+
+Initial value:
+```sqf
+createhashMap
+```
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 1912](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L1912)
+## mob_static_assign_signatures
+
+Type: Variable
+
+Description: 
+
+
+Initial value:
+```sqf
+createhashMap
+```
+File: [host\GameObjects\Mobs\BasicMob.sqf at line 1913](../../../Src/host/GameObjects/Mobs/BasicMob.sqf#L1913)
 # Mob.sqf
 
 ## __performace_attacklog
@@ -3708,7 +4075,7 @@ Description:
 
 Replaced value:
 ```sqf
-"debug_console" callExtension ("<server> mob::" + #funcname + "    " + text + "#0111")
+(["<server> mob::" + #funcname + "    ",text,"#0111"] call stdoutPrint)
 ```
 File: [host\GameObjects\Mobs\Mob.sqf at line 33](../../../Src/host/GameObjects/Mobs/Mob.sqf#L33)
 ## rp_log(text,fmt)
@@ -3721,7 +4088,7 @@ Description:
 
 Replaced value:
 ```sqf
-"debug_console" callExtension ("<server::Roleplay> " + format[text,fmt] + "#0111")
+(["<server::Roleplay> ",text,fmt,"#0111"] call stdoutPrint)
 ```
 File: [host\GameObjects\Mobs\Mob.sqf at line 34](../../../Src/host/GameObjects/Mobs/Mob.sqf#L34)
 ## DELAY_SHOCK
@@ -3759,7 +4126,7 @@ Replaced value:
 ```sqf
 getSelf(name)
 ```
-File: [host\GameObjects\Mobs\Mob.sqf at line 288](../../../Src/host/GameObjects/Mobs/Mob.sqf#L288)
+File: [host\GameObjects\Mobs\Mob.sqf at line 293](../../../Src/host/GameObjects/Mobs/Mob.sqf#L293)
 ## PIC_PREP
 
 Type: constant
@@ -3771,7 +4138,7 @@ Replaced value:
 ```sqf
 <img size='0.8' image='%2'/>
 ```
-File: [host\GameObjects\Mobs\Mob.sqf at line 360](../../../Src/host/GameObjects/Mobs/Mob.sqf#L360)
+File: [host\GameObjects\Mobs\Mob.sqf at line 370](../../../Src/host/GameObjects/Mobs/Mob.sqf#L370)
 # MobGhost.sqf
 
 ## hasBP(idx)
@@ -3938,7 +4305,7 @@ Replaced value:
 ```sqf
 _d = D6 <= 3; [p1,p2] select _d
 ```
-File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 681](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L681)
+File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 794](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L794)
 ## debuginfo(mes)
 
 Type: constant
@@ -3952,7 +4319,7 @@ Replaced value:
 ```sqf
 breakpoint("("+getSelf(name)+")::EVENT::("+_mode+") " + mes)
 ```
-File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 946](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L946)
+File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 1059](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L1059)
 ## debuginfo(mes)
 
 Type: constant
@@ -3966,7 +4333,7 @@ Replaced value:
 ```sqf
 
 ```
-File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 948](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L948)
+File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 1061](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L1061)
 ## __isZoneIn(zones,modif)
 
 Type: constant
@@ -3979,7 +4346,7 @@ Replaced value:
 ```sqf
 if (_attTargetZone in [zones]) exitWith {MOD(_mod,modif)}
 ```
-File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 1351](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L1351)
+File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 1464](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L1464)
 ## go_static_internal_map_redirzones
 
 Type: Variable
@@ -3991,7 +4358,7 @@ Initial value:
 ```sqf
 createHashMapFromArray[...
 ```
-File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 711](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L711)
+File: [host\GameObjects\Mobs\Mob_Combat.sqf at line 824](../../../Src/host/GameObjects/Mobs/Mob_Combat.sqf#L824)
 # Mob_combat_attdam_enum.hpp
 
 ## COMBAT_ATTDAM_ATTACK
@@ -4160,7 +4527,7 @@ _o_upd_impl_internal = { \
 	setSelf(varName,_var); \
 }; rpcAdd('content',_o_upd_impl_internal)
 ```
-File: [host\GameObjects\Mobs\Mob_Events.sqf at line 446](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L446)
+File: [host\GameObjects\Mobs\Mob_Events.sqf at line 474](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L474)
 ## __onUpdateImplMethod(content,varName)
 
 Type: constant
@@ -4178,7 +4545,7 @@ _o_upd_impl_internal = { \
 	callSelfParams(varName,_var); \
 }; rpcAdd('content',_o_upd_impl_internal)
 ```
-File: [host\GameObjects\Mobs\Mob_Events.sqf at line 453](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L453)
+File: [host\GameObjects\Mobs\Mob_Events.sqf at line 481](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L481)
 ## __onUpdateImplMethodNoParams(content,varName)
 
 Type: constant
@@ -4196,7 +4563,7 @@ _o_upd_impl_internal = { \
 	callSelf(varName); \
 }; rpcAdd('content',_o_upd_impl_internal)
 ```
-File: [host\GameObjects\Mobs\Mob_Events.sqf at line 460](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L460)
+File: [host\GameObjects\Mobs\Mob_Events.sqf at line 488](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L488)
 ## repl_doLocal
 
 Type: function
@@ -4206,9 +4573,21 @@ Description: replicator common
 - Param: _method
 - Param: _ctx
 
-File: [host\GameObjects\Mobs\Mob_Events.sqf at line 576](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L576)
+File: [host\GameObjects\Mobs\Mob_Events.sqf at line 620](../../../Src/host/GameObjects/Mobs/Mob_Events.sqf#L620)
 # Mob_Interact.sqf
 
+## callScriptedEvent(action__)
+
+Type: constant
+
+Description: 
+- Param: action__
+
+Replaced value:
+```sqf
+if (call __scriptRedirect) exitWith {action__}
+```
+File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 78](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L78)
 ## thcheck(r)
 
 Type: constant
@@ -4220,7 +4599,7 @@ Replaced value:
 ```sqf
 if (_coefWt <= _val) exitWith {r};
 ```
-File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 513](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L513)
+File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 562](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L562)
 ## thadd()
 
 Type: constant
@@ -4232,7 +4611,7 @@ Replaced value:
 ```sqf
 modvar(_val)+_mod;
 ```
-File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 514](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L514)
+File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 563](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L563)
 ## thchange(mod)
 
 Type: constant
@@ -4244,7 +4623,7 @@ Replaced value:
 ```sqf
 _mod = mod;
 ```
-File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 515](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L515)
+File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 564](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L564)
 ## mlp(v)
 
 Type: constant
@@ -4256,7 +4635,7 @@ Replaced value:
 ```sqf
 'v'
 ```
-File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 1315](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L1315)
+File: [host\GameObjects\Mobs\Mob_Interact.sqf at line 1416](../../../Src/host/GameObjects/Mobs/Mob_Interact.sqf#L1416)
 # Mob_Inventory.sqf
 
 ## __switchVars(prevname,nextname)
@@ -4271,7 +4650,7 @@ Replaced value:
 ```sqf
 _oth = getSelf(prevname); setSelf(prevname,getSelf(nextname)); setSelf(nextname,_oth)
 ```
-File: [host\GameObjects\Mobs\Mob_Inventory.sqf at line 169](../../../Src/host/GameObjects/Mobs/Mob_Inventory.sqf#L169)
+File: [host\GameObjects\Mobs\Mob_Inventory.sqf at line 185](../../../Src/host/GameObjects/Mobs/Mob_Inventory.sqf#L185)
 # Mob_Life.sqf
 
 ## checktime_nextcall
@@ -4285,7 +4664,7 @@ Replaced value:
 ```sqf
 randInt(3,4)
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 740](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L740)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 830](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L830)
 ## hasBP(idx)
 
 Type: constant
@@ -4297,7 +4676,7 @@ Replaced value:
 ```sqf
 !isNullObject(_bpArray getOrDefault [idx arg nullPtr])
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 769](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L769)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 859](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L859)
 ## AMOUNT_REGEN_STAMINA
 
 Type: constant
@@ -4309,7 +4688,7 @@ Replaced value:
 ```sqf
 3.3
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 911](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L911)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1001](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1001)
 ## AMOUNT_LESS_STAMINA
 
 Type: constant
@@ -4321,7 +4700,7 @@ Replaced value:
 ```sqf
 0.5
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 912](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L912)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1002](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1002)
 ## UNC_TO_STAMINALOSS_MIN
 
 Type: constant
@@ -4333,7 +4712,7 @@ Replaced value:
 ```sqf
 3
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1182](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1182)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1273](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1273)
 ## UNC_TO_STAMINALOSS_MAX
 
 Type: constant
@@ -4345,7 +4724,7 @@ Replaced value:
 ```sqf
 10
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1183](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1183)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1274](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1274)
 ## __dmgAndHp
 
 Type: constant
@@ -4357,7 +4736,7 @@ Replaced value:
 ```sqf
 _dmg arg _hp
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1219](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1219)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1310](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1310)
 ## log_performance
 
 Type: constant
@@ -4369,7 +4748,7 @@ Replaced value:
 ```sqf
 
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1220](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1220)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1311](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1311)
 ## lifelog(mes,fmt)
 
 Type: constant
@@ -4380,9 +4759,9 @@ Description:
 
 Replaced value:
 ```sqf
-"debug_console" callExtension (format["[LOG::LIFE]" + (mes) + "#1011",fmt])
+(["[LOG::LIFE]",(mes),fmt,"#1011"] call stdoutPrint)
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1222](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1222)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1313](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1313)
 ## std_check_dam(low,up)
 
 Type: constant
@@ -4395,7 +4774,7 @@ Replaced value:
 ```sqf
 if (_dmg >= (low) && _dmg < (up)) exitWith
 ```
-File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1290](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1290)
+File: [host\GameObjects\Mobs\Mob_Life.sqf at line 1391](../../../Src/host/GameObjects/Mobs/Mob_Life.sqf#L1391)
 # Mob_Skills.sqf
 
 ## skill_def
@@ -4626,7 +5005,7 @@ Initial value:
 ```sqf
 createHashMapFromArray[...
 ```
-File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 518](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L518)
+File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 529](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L529)
 ## skills_internal_list_otherSkillsSystemNames
 
 Type: Variable
@@ -4638,7 +5017,7 @@ Initial value:
 ```sqf
 [...
 ```
-File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 618](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L618)
+File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 629](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L629)
 ## skills_internal_list_otherSkillsSystemNames_withCategories
 
 Type: Variable
@@ -4650,7 +5029,7 @@ Initial value:
 ```sqf
 [...
 ```
-File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 630](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L630)
+File: [host\GameObjects\Mobs\Mob_Skills.sqf at line 641](../../../Src/host/GameObjects/Mobs/Mob_Skills.sqf#L641)
 # Mob_WoundSystem.sqf
 
 ## usesimplog
@@ -4927,20 +5306,6 @@ Description: Открытие артерии
 
 
 File: [host\GameObjects\Mobs\Mob_WoundSystem.sqf at line 358](../../../Src/host/GameObjects/Mobs/Mob_WoundSystem.sqf#L358)
-# IStruct.sqf
-
-## PIC_PREP
-
-Type: constant
-
-Description: 
-
-
-Replaced value:
-```sqf
-<img size='0.8' image='%2'/>
-```
-File: [host\GameObjects\Structures\IStruct.sqf at line 45](../../../Src/host/GameObjects/Structures/IStruct.sqf#L45)
 # MerchantConsole.hpp
 
 ## MC_CAT_CLOTH
@@ -5297,7 +5662,7 @@ Replaced value:
 ```sqf
 [#typename,randInt(lowprice,maxprice),ctg,randInt(countslow,countsmax),[ #typename ,"name",true,"getName"] call oop_getFieldBaseValue]
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 461](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L461)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 464](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L464)
 ## rx_pat(txt)
 
 Type: constant
@@ -5309,7 +5674,7 @@ Replaced value:
 ```sqf
 (txt + "\ *\-\ *\d{1,3}[ ]*(шт(ук|уки)?\.?)?")
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 462](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L462)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 465](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L465)
 ## regConsole
 
 Type: constant
@@ -5325,7 +5690,7 @@ Replaced value:
 	_global_merchantconsole_tradelist = ___s apply {[]}; \
 	_global_merchantconsole_catnames = [];
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1109](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1109)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1115](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1115)
 ## endRegConsole
 
 Type: constant
@@ -5338,7 +5703,7 @@ Replaced value:
 var_exprval(tradelist,_global_merchantconsole_tradelist); \
 	var_exprval(tradecats,_global_merchantconsole_catnames);
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1115](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1115)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1121](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1121)
 ## regCat(cat,namestr)
 
 Type: constant
@@ -5351,7 +5716,7 @@ Replaced value:
 ```sqf
 _global_merchantconsole_catnames pushBack [cat,namestr];
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1118](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1118)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1124](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1124)
 ## regItem(cat,typename_std,typename_compiled,minprice,maxprice,mincount,maxcount)
 
 Type: constant
@@ -5370,7 +5735,7 @@ Replaced value:
 _ctbuf = _global_merchantconsole_tradelist select cat; \
 	_ctbuf pushBack ["",typename_std,{typename_compiled},randInt(minprice,maxprice),randInt(mincount,maxcount),0];
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1120](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1120)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1126](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1126)
 ## regEnergyCount(cat,strname,__code,price,count__)
 
 Type: constant
@@ -5387,7 +5752,7 @@ Replaced value:
 _ctbuf = _global_merchantconsole_tradelist select cat; \
 	_ctbuf pushBack [strname,"<NULLOBJ>",__code,price,count__,0];
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1123](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1123)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1129](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1129)
 ## regItemDef(cat,typename,minpr,maxpr,minc,maxc)
 
 Type: constant
@@ -5404,7 +5769,7 @@ Replaced value:
 ```sqf
 regItem(cat,typename,typename,minpr,maxpr,minc,maxc)
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1126](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1126)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1132](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1132)
 ## regItemCustomName(cat,name,typename,minpr,maxpr,minc,maxc)
 
 Type: constant
@@ -5423,7 +5788,7 @@ Replaced value:
 _ctbuf = _global_merchantconsole_tradelist select cat; \
 	_ctbuf pushBack [name,typename,{typename},randInt(minpr,maxpr),randInt(minc,maxc),0];
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1127](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1127)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1133](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1133)
 ## regEnProvider(__GENERATED_TIME__)
 
 Type: constant
@@ -5440,7 +5805,7 @@ Replaced value:
 		}; \
 	}
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1215](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1215)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1234](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1234)
 ## checkMode(m__)
 
 Type: constant
@@ -5452,7 +5817,7 @@ Replaced value:
 ```sqf
 if (_mode == m__) exitWith
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1319](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1319)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1338](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1338)
 ## compareInput(t__)
 
 Type: constant
@@ -5464,7 +5829,7 @@ Replaced value:
 ```sqf
 if (_userInput == t__) exitWith
 ```
-File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1320](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1320)
+File: [host\GameObjects\Structures\Containers\Tech.sqf at line 1339](../../../Src/host/GameObjects/Structures/Containers/Tech.sqf#L1339)
 # DoorStatic.sqf
 
 ## struct_door_initOpenMode
@@ -5476,7 +5841,7 @@ Description: for testing [obj,[-0.73,0.7,-1.365],270] call struct_door_initOpenM
 - Param: _vecbias
 - Param: _dir
 
-File: [host\GameObjects\Structures\Doors\Static\DoorStatic.sqf at line 83](../../../Src/host/GameObjects/Structures/Doors/Static/DoorStatic.sqf#L83)
+File: [host\GameObjects\Structures\Doors\Static\DoorStatic.sqf at line 112](../../../Src/host/GameObjects/Structures/Doors/Static/DoorStatic.sqf#L112)
 # Teleport.sqf
 
 ## teleportMobToPoint
@@ -5516,7 +5881,7 @@ Replaced value:
 ```sqf
 1
 ```
-File: [host\GameObjects\Structures\Electronics\GeneratorParts.sqf at line 51](../../../Src/host/GameObjects/Structures/Electronics/GeneratorParts.sqf#L51)
+File: [host\GameObjects\Structures\Electronics\GeneratorParts.sqf at line 54](../../../Src/host/GameObjects/Structures/Electronics/GeneratorParts.sqf#L54)
 # Buttons.sqf
 
 ## OVERRIDE_ENABLE_AS_ACTIVATOR()
@@ -5547,7 +5912,7 @@ Replaced value:
 ```sqf
 if (_mode == m__) exitWith
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 250](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L250)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 253](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L253)
 ## compareInput(t__)
 
 Type: constant
@@ -5559,7 +5924,7 @@ Replaced value:
 ```sqf
 if (_userInput == t__) exitWith
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 251](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L251)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 254](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L254)
 ## compareInputAndJump(t__,newmode__)
 
 Type: constant
@@ -5572,7 +5937,7 @@ Replaced value:
 ```sqf
 if (_userInput == t__) exitWith {callSelfParams(setDispMode,newmode__)}
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 252](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L252)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 255](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L255)
 ## compareInputAndUseOptData(t__)
 
 Type: constant
@@ -5584,7 +5949,7 @@ Replaced value:
 ```sqf
 if (_userInput == t__) exitWith
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 254](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L254)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 257](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L257)
 ## optData
 
 Type: constant
@@ -5596,7 +5961,7 @@ Replaced value:
 ```sqf
 _optData
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 255](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L255)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 258](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L258)
 ## throwExceptionWithData()
 
 Type: constant
@@ -5608,7 +5973,7 @@ Replaced value:
 ```sqf
 errorformat("HeadControlPanel::onHandleNDInput() - Unhandled input: %1 (mode: %2, optdat: %3) at line %4",_userInput arg _userMode arg _optData arg __LINE__)
 ```
-File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 257](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L257)
+File: [host\GameObjects\Structures\Electronics\Devices\Control.sqf at line 260](../../../Src/host/GameObjects/Structures/Electronics/Devices/Control.sqf#L260)
 # HeadControlPanel.hpp
 
 ## MODE_NOPOWER
@@ -5803,20 +6168,6 @@ Replaced value:
 1
 ```
 File: [host\GameObjects\Structures\Electronics\Devices\HeadControlPanel.hpp at line 33](../../../Src/host/GameObjects/Structures/Electronics/Devices/HeadControlPanel.hpp#L33)
-# Kitchen.sqf
-
-## isclass(type)
-
-Type: constant
-
-Description: 
-- Param: type
-
-Replaced value:
-```sqf
-equals(callFunc(_item,getClassName),'type')
-```
-File: [host\GameObjects\Structures\Kitchen\Kitchen.sqf at line 92](../../../Src/host/GameObjects/Structures/Kitchen/Kitchen.sqf#L92)
 # Spawners.sqf
 
 ## spawnPos_internal_list_all

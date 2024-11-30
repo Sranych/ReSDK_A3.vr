@@ -115,6 +115,15 @@ node_enum
 ]
 node_enum
 
+#include "..\Namings\FaceList_categories.h"
+["Nation",face_list_category apply {format["%1:%2:",_x select 3,_x select 0]},
+	"name:Национальность
+	desc:Перечисление национальностей. Содержит все типы национальностей для людей.
+	enumtype:string
+	"
+]
+node_enum
+
 #include "..\GameObjects\ConstantAndDefines\Mobs.h"
 ["DirectionSide",NODE_DIR_LIST_ALL,
 	"name:Направление
@@ -122,6 +131,12 @@ node_enum
 	"
 ]
 node_enum
+
+["BoneStatus",BONE_STATUS_LIST_NODE_BINDING,
+"
+	name:Состояние костей
+	desc:Перечисление состояния костей для части тела.
+"] node_enum
 
 ["EntityStance",NODE_STANCE_LIST_ALL,
 	"name:Положение моба
@@ -142,6 +157,12 @@ node_enum
 		desc:Перечисление состояний освещённости объектов.
 	"
 ] node_enum
+
+["VisibilityMode",NODE_VISIBILITY_MODE_LIST_ALL,
+"
+	name:Видимость
+	desc:Видимость физического тела. Используется в проверках возможности видимости объектов.
+"] node_enum
 
 #include "..\GameObjects\GameConstants.hpp"
 ["SideIndex",NODE_SIDE_LIST_ALL,
@@ -166,6 +187,50 @@ node_enum
 "
 	name:Тип сообщения консоли
 	desc:Типы сообщений, которые можно вывести в консоль.
+"] node_enum
+
+
+#include "..\CombatSystem\CombatSystem.hpp"
+["DamageType",DAMAGE_TYPE_LIST_NODE_BINDING,
+"
+	name:Тип урона
+	desc:Перечисление типов урона.
+	enumtype:string
+"
+] node_enum
+
+["TargetZone",TARGET_ZONE_LIST_NODE_BINDING,
+"
+	name:Целевая зона
+	desc:Целевая зона персонажа (например, для повреждений) 
+"] node_enum
+
+["BodyPart",BODY_PART_LIST_NODE_BINDING,
+"
+	name:Часть тела
+	desc:Часть тела персонажа для ссылки на объекты частей тела. 
+"] node_enum
+
+["AttackType",ATTACK_TYPE_LIST_NODE_BINDING,
+"
+	name:Тип атаки
+	desc:Тип атаки. Отвечает за то как будет производиться атака.
+	enumtype:string
+"] node_enum
+
+#include "..\GURPS\gurps.hpp"
+["DiceResult",DICE_RESULT_LIST_NODE_BINDING,
+"
+	name:Результат броска кубиков
+	desc:Результат броска кубиков. Успех, провал, крит.успех или крит.провал.
+"
+] node_enum
+
+#include "..\SpecialActions\SpecialActions.hpp"
+["SpecialActionType",SPECIAL_ACTION_LIST_NODE_BINDING,
+"
+	name:Специальное действие
+	desc:Специальное действие, производимое персонажем. По умолчанию вызывается через кнопку ""F"".
 "] node_enum
 
 //!!! enum helper

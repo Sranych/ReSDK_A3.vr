@@ -17,9 +17,6 @@
 // #include "CombatSystem\loader.hpp"
 #include <..\..\host\CombatSystem\loader.hpp>
 
-// #include "CraftSystem\Crafts\Basic.sqf"
-#include <..\..\host\CraftSystem\Crafts\Basic.sqf>
-
 // loadFile("src\host\DataObjects\DataObjects_init.sqf");
 #include <..\..\host\DataObjects\DataObjects_init.sqf>
 
@@ -49,3 +46,6 @@
 
 // loadFile("src\host\Gender\Genders.sqf");
 #include <..\..\host\Gender\Genders.sqf>
+
+//loading materials
+#include <..\..\host\Materials\Materials_base.sqf>

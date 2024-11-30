@@ -12,6 +12,11 @@ file_const_defaultAsyncWriteTimeout = 5;
 #define EXTENDED_LOGGING_ASYNCCOPY
 #define EXTENDED_LOGGING_ASYNCUNLOCK
 
+init_function(io_init)
+{
+	#include "..\..\host\FileSystem\FileSystem_init.sqf"
+}
+
 function(file_open)
 {
 	params ["_path",["_isRelative",true],["_args",""]];
@@ -109,8 +114,14 @@ function(file_read)
 {
 	params ["_path",["_isRelative",true]];
 	if (_isRelative) then {_path = getMissionPath _path};
-
+	if !([_path,false] call file_exists) exitWith {
+		""
+	};
 	private _data = ["FileManager","Read",[_path,file_const_defaultDelimeter],true] call rescript_callCommand;
+	if equals(_data,"$BUFFER_OVERFLOW$") exitWith {
+		setLastError("Cannot load file because buffer limit is exceeded. Path: " + _path);
+		""
+	};
 	(_data regexReplace [file_const_defaultDelimeter+ "/g",""""])
 }
 

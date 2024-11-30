@@ -4,6 +4,7 @@
 // ======================================================
 
 loadFile("src\host\GameObjects\GameObject.sqf");
+loadFile("src\host\GameObjects\ScriptedGameObject.sqf");
 
 //mobs
 loadFile("src\host\GameObjects\Mobs\BasicMob.sqf");
@@ -12,6 +13,7 @@ loadFile("src\host\GameObjects\Mobs\MobGhost.sqf");
 
 //items
 loadFile("src\host\GameObjects\Items\Item.sqf");
+loadFile("src\host\GameObjects\Items\Debris\Debris.sqf");
 loadFile("src\host\GameObjects\Items\Clothes\cloth.sqf");
 	loadFile("src\host\GameObjects\Items\Clothes\Armors.sqf");
 loadFile("src\host\GameObjects\Items\MeleeWeapons\Axes.sqf");
@@ -51,7 +53,6 @@ loadFile("src\host\GameObjects\Items\ReagentContainers\ReagentContainer.sqf");
 	loadFile("src\host\GameObjects\Items\ReagentContainers\Chemical.sqf");
 	loadFile("src\host\GameObjects\Items\ReagentContainers\Cleanable.sqf");
 	loadFile("src\host\GameObjects\Items\ReagentContainers\Pills.sqf");
-loadFile("src\host\GameObjects\Items\NOGATEG.sqf");
 loadFile("src\host\GameObjects\Items\Bodyparts\Bodyparts.sqf");
 	loadFile("src\host\GameObjects\Items\Bodyparts\NonOrganicBodyParts.sqf");
 	loadFile("src\host\GameObjects\Items\Bodyparts\Organs.sqf");
@@ -79,6 +80,7 @@ loadFile("src\host\GameObjects\Structures\Constructions\Construction.sqf");
 	loadFile("src\host\GameObjects\Structures\Constructions\Poles.sqf");
 	loadFile("src\host\GameObjects\Structures\Constructions\StepsLadders.sqf");
 	loadFile("src\host\GameObjects\Structures\Constructions\Walls.sqf");
+	loadFile("Src\host\GameObjects\Structures\LiquidContainers\LiquidContainer.sqf");
 loadFile("src\host\GameObjects\Structures\Lighting\Natural.sqf");
 	loadFile("src\host\GameObjects\Structures\Lighting\Campfires.sqf");
 loadFile("src\host\GameObjects\Structures\Furniture\Furniture.sqf");
@@ -128,3 +130,4 @@ loadFile("src\host\GameObjects\Decors\Ruins.sqf");
 loadFile("src\host\GameObjects\Decors\BigWalls.sqf");
 loadFile("src\host\GameObjects\Decors\Stones.sqf");
 loadFile("src\host\GameObjects\Decors\Houses.sqf");
+loadFile("Src\host\GameObjects\Decors\BigFloor.sqf");

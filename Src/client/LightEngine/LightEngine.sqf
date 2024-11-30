@@ -17,6 +17,10 @@
 #include "ScriptedEffectConfigs.sqf"
 //prepare cfgs
 call le_se_doSorting;
+//create drop emitter map
+call le_se_internal_createDropEmitterMap;
+call le_se_internal_createUnmanagedEmitterMap;
+call le_se_internal_generateOptionAddress;
 
 #include "LightConfigs.sqf"
 #include "FireLightConfigs.sqf"
@@ -26,6 +30,7 @@ call le_se_doSorting;
 // #include "LightEngine_mainThread.sqf"
 
 #include "LightRender.sqf"
+#include "LightEngine_ScriptedCulling.sqf"
 
 // Нужно выяснить какое существо самое лучшее в плане атачинга при первом создании
 le_simulated = clientMob;//"B_Soldier_F" createVehicleLocal [0,0,0];
@@ -82,6 +87,7 @@ le_loadLight = {
 	//выгрузка старого конфига света
 	private _oldCfg = _src getvariable "__config";
 	if (!isNullVar(_oldCfg)) then {
+		//? это может вызывать проблемы когда требуется обновить внутреннее состояние одного источника.
 		if not_equals(_oldCfg,_type) then {
 			//Вот этот код может вызывать определённые проблемы в некоторых случаях
 			[_src] call le_unloadLight;
@@ -144,6 +150,8 @@ le_unloadLight = {
 
 	le_allLights deleteat (le_allLights find _light);
 	le_allLights deleteat (le_allLights find _obj);
+
+	[0] call lesc_onLightRemove;
 	
 	
 	os_light_list_noProcessedLights deleteAt (os_light_list_noProcessedLights find _light);
@@ -157,6 +165,13 @@ le_isLoadedLight = {
 	params ["_obj"];
 	private _light = _obj getvariable ["__light",objNUll];
 	not_equals(_light,objNUll)
+};
+
+le_getLoadedLightCfg = {
+	params ["_obj"];
+	private _light = _obj getvariable ["__light",objNUll];
+	if isNullReference(_light) exitWith {-1};
+	_obj getvariable ["__config",-1]
 };
 
 le_isLightConfig = {
@@ -345,6 +360,85 @@ le_debug_lightRender = {
 	}; startUpdateParams(_evlight,0.01,[lightObject arg sourceObject arg _renderMode]);
 };
 
+//render damage effect for objects
+_dofe = {
+	params ["_pos","_type","_norm"];
+	traceformat("damage effect normal: %1",_norm)
+	[_type,_pos,_norm] call le_se_fireEmit;
+};
+rpcAdd("do_fe",_dofe);
+
+_dofe_mob = {
+	params ["_owner","_type",["_sel","spine3"],"_deleteAfter"];
+	private _refem = refcreate([]);
+	[
+		_type,
+		_owner modelToWorldVisual (_owner selectionPosition _sel),
+		null,
+		_deleteAfter,
+		_refem
+	] call le_se_fireEmit;
+	
+	refunpack(_refem);
+	private _params = [_refem,_owner,_sel];
+
+	startAsyncInvoke
+		{
+			params ["_emitters","_owner","_sel"];
+			if isNullReference(_owner) exitWith {true};
+			_realpos = _owner modelToWorldVisual (_owner selectionPosition _sel);
+			_dostop = false;
+			{
+				if isNullReference(_x) exitWith {_dostop = true};
+				_x setposatl _realpos;
+			} foreach _emitters;
+			_dostop
+		},
+		{},//do notning on end
+		_params
+	endAsyncInvoke
+};
+rpcAdd("do_fe_mob",_dofe_mob);
+
+/*
+Memory head_axis (dist: 0.127475)
+Memory pilot (dist: 0.151308)
+Memory head (dist: 0)
+Memory neck (dist: 0.127475)
+Memory rightshoulder (dist: 0.18672)
+Memory bubbleseffect (dist: 0)
+FireGeometry head (dist: 0.144867)
+HitPoints rightarm (dist: 0.187544)
+HitPoints spine3 (dist: 0.178059)
+HitPoints head (dist: 0.160828)
+HitPoints neck (dist: 0.120611)
+HitPoints body (dist: 0.178059)
+HitPoints head_hit (dist: 0.120611)
+HitPoints hand_r (dist: 0.187544)
+HitPoints arms (dist: 0.187544)
+
+*/
+// positions = {
+
+// 	_orig = player selectionPosition "head";
+// 	private _car = player; 
+// 	private _return = []; 
+// 	{ 
+// 		_sels = _car selectionNames _x;
+// 		_lod = _x;
+// 		{
+// 			_dist = _orig distance (_car selectionPosition [_x,_lod]);
+// 			if (_dist > 0.05) then {continue};
+// 			_return pushBack (format[
+// 				"%1 %2 (dist: %3)",
+// 				_lod,_x,_dist
+// 			])
+// 		} foreach _sels;
+// 	} forEach [
+// 		"Memory", "Geometry", "FireGeometry", "LandContact", "HitPoints"
+// 	]; 
+// 	copyToClipboard (_return joinString endl);
+// }
 
 //OBSOLETE
 

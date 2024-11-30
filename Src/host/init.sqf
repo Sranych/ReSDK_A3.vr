@@ -9,6 +9,8 @@ server_loadingState = 0;
 
 loadFile("src\host\ScriptErrorHandler\ScriptErrorHandler_init.sqf");
 loadFile("src\host\Curl\Curl.sqf");
+loadFile("src\host\FileSystem\FileSystem_init.sqf");
+loadFile("src\host\Yaml\Yaml_init.sqf");
 loadFile("src\host\Networking\Network.sqf");
 loadFile("src\public_loader.sqf");
 #ifdef EDITOR
@@ -27,7 +29,7 @@ loadFile("src\host\OOP_engine\oop_object.sqf");
 #include "CombatSystem\RuntimeWeaponModulesGenerator.sqf"
 #include "GameObjects\loader.hpp"
 #include "CombatSystem\loader.hpp"
-#include "CraftSystem\Crafts\Basic.sqf"
+loadFile("src\host\LootSystem\LootSystem_init.sqf");
 loadFile("src\host\DataObjects\DataObjects_init.sqf");
 loadFile("src\host\Reagents\loader.hpp");
 #include "StatusEffects\StatusEffects_init.sqf"
@@ -38,13 +40,25 @@ loadFile("src\host\GameEvents\loader.hpp");
 loadFile("src\host\SpecialActions\SpecialActions.sqf");
 loadFile("src\host\Client\client.sqf");
 loadFile("src\host\Gender\Genders.sqf");
+loadFile("src\host\Materials\Materials_init.sqf");
 call nodegen_loadClasses;
 // start class generator
 call cs_runtime_internal_makeAll;
 
 //OOP INIT ZONE
+#ifndef _SQFVM
+if !([] call oop_loadTypes) exitWith {
+	appExit(APPEXIT_REASON_COMPILATIOEXCEPTION);
+};
+#else
+//fucking sqfvm cant works normally...
 [] call oop_loadTypes;
+#endif
 //end classes
+
+//structures initialize
+loadFile("src\host\Structs\Structs_init.sqf");
+call struct_initialize; //init all struct
 
 //another loaded files...
 //DEPREACTED loadFile("src\host\Database\fDB\fDB_init.sqf"); //локальная база данных
@@ -61,8 +75,9 @@ loadFile("src\host\GURPS\Gurps.sqf");
 loadFile("src\host\PointerSystem\Pointer.sqf");
 loadFile("src\host\VerbSystem\verbs.sqf");
 loadFile("src\host\ClientManager\ClientManager.sqf");
+loadFile("src\host\Atmos\Atmos_init.sqf");
 loadFile("src\host\GamemodeManager\GamemodeManager.sqf");
-loadFile("src\host\CraftSystem\Craft.sqf"); //serverside craft system
+loadFile("src\host\CraftSystem\CraftSystem_init.sqf"); //craft system
 loadFile("src\host\AmbientControl\AmbientControl_init.sqf");
 loadFile("src\host\ServerInteraction\ServerInteractionInit.sqf"); //throwing, interactions etc. on serverside
 loadFile("src\host\ServerLighting\ServerLighting_init.sqf"); //serverside lighting system
@@ -83,10 +98,15 @@ if (!isMultiplayer) then {
 	loadFile("src\host\ServerSceneTest\serverscrene_init.sqf"); //for testing only
 };
 #endif
+#ifdef RBUILDER
+	loadFile("src\host\Tools\EditorDebug\EditorDebug.sqf"); //predecl debug utils in rb mode
 
-#ifdef DEBUG
-loadFile("src\host\UnitTests\UnitTest.sqf");
+	loadFile("src\host\Tools\BuildTools\BuildTools_init.sqf");
 #endif
+
+//postload initialize systems
+call loot_prepareAll;// intialize loot only after structs loaded
+call csys_init; //craft table init
 
 server_loadingState = 1;
 
@@ -109,3 +129,8 @@ if (isMultiplayer) then {
 	setDate [1985,5,20,0,00];
 	#endif
 };
+
+#ifdef RBUILDER
+//initialize RBuilder
+loadFile("src\host\Tools\RBuilder\RBuilder_init.sqf");
+#endif

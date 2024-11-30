@@ -6,20 +6,47 @@
 
 #ifdef DEBUG
 	
+	addCommand("container_errinfo",PUBLIC_COMMAND)
+	{
+		checkIfMobExists();
+		private _msg = "Internal error: Variables not found";
+		if !isNull(ciic_internal_errorCheckCanAdd) then {
+			_msg = format["Success created: %1; Errors: %2",ciic_internal_successedCreation,ciic_internal_errorCheckCanAdd];
+		};
+		callSelfParams(localSay,_msg arg "system");
+	};
+
 	addCommand("showthreads",PUBLIC_COMMAND)
 	{
-		_t = "Active threads: ";
+		_t = format["Active %1 threads: ",count cba_common_perFrameHandlerArray];
 		{
 			_delay = _x select 1;
 			_startedAt = _x select 3;
+			_threadLocation = _x select 6;
+			// _threadStacktrace = +(_x select 7);
+			// reverse _threadStacktrace;
+			// _ist = _threadStacktrace findif {_x select 0 != ""};
+			// if (_ist == -1) then {
+			// 	_threadStacktrace = endl + "Unknown stacktrace region";
+			// } else {
+			// 	_tlist = (_threadStacktrace select [0,_ist+1]) apply {"		"+(_x call scriptError_internal_handleStack_short)};
+			// 	_tlist = _tlist - [""];
+			// 	_threadStacktrace = endl + ((_tlist) joinString endl);
+			// };
+			// _threadStacktrace = endl + ((_threadStacktrace apply {"	" + (_x call scriptError_internal_handleStack_short)}) joinString endl);
+			_threadStacktrace = ""; // not implemented now...
+
 			_code = (toString (_x select 0)) splitString ";";
+			
+			_threadStacktrace = [_threadStacktrace,endl,sbr] call stringReplace;
+
 			if (count _code > 0 && {[_code select 0,"private ___fn___ = ",false] call stringStartWith}) then {
 				_code = _code select 0;
 				_code = _code select [count "private ___fn___ = ",count _code];
 
-				modvar(_t) + sbr + (format["%1 (per %2s, started %3s ago)",_code,_delay,tickTime - _startedAt]);
+				modvar(_t) + sbr + (format["<t color='#00ff00'>%1</t> (per %2s, started %3s ago): %4%5",_code,_delay,tickTime - _startedAt,_threadLocation,_threadStacktrace]);
 			} else {
-				modvar(_t) + sbr + (format["Unk thread %1",_x select 5]);
+				modvar(_t) + sbr + (format["<t color='#00ff00'>Unk thread %1</t> (per %4s, started %5s ago): %2%3",_x select 5,_threadLocation,_threadStacktrace,_delay,tickTime - _startedAt]);
 			};
 		} foreach cba_common_perFrameHandlerArray;
 
@@ -154,6 +181,68 @@
 		callSelfParams(ShowMessageBox,"Text" arg _struct);
 	};
 
+	addCommandWithDescription("craftlist",PUBLIC_COMMAND,"Открывает список рецептов. параметры default|system|interact")
+	{
+		checkIfMobExists();
+		
+		private _mode = args;
+		private _list = [];
+		{
+			private _recipeType = _y get "c_type";
+			private _kval = str _y;
+			if (_mode in ["default","building"] && _recipeType in ["default","building"]) then {
+				_list pushBack _kval;
+			};
+			if (_mode == "system" && _recipeType == _mode) then {
+				_list pushBack (_kval+(_y get "systemSpecific"));
+			};
+			if (_mode == "interact" && _recipeType == "interact") then {
+				_list pushBack _kval;
+			};
+		} foreach csys_map_allCraftRefs;
+
+		private _dat = ["Выберите рецепт для спавна ингредиентов:"];
+		private _handler = {
+			callSelfParams(localSay,format["Ingredient selected %1" arg _value]);
+			private _recipeId = parseNumber(_value splitString ":" select 1);
+			callSelf(CloseMessageBox);
+			if (_recipeID == 0) exitWith {
+				callSelfParams(localSay,"Parse recipe id error" arg "system");
+			};
+
+			private _recipe = csys_map_allCraftRefs get _recipeID;
+			private _components = _recipe get "components";
+			if ((_recipe get "c_type") == "interact") then {
+				_components = [
+					_recipe get "hand_item",
+					_recipe get "target"
+				];
+			};
+			callSelf(generateLastInteractOnServer);
+			private _endPos = callSelf(getLastInteractEndPos);
+			{
+				private _class = _x get "class";
+				if (_x get "isMultiSelector") then {
+					_class = _class select 0;
+				};
+				private _count = _x get "count";
+				for "_i" from 1 to _count do {
+					[_class,_endPos] call createGameObjectInWorld;
+				};
+			} foreach _components;
+		};
+		{
+			private _istr = [_x,"|","/"] call stringReplace;
+			_dat pushback (format["%1",_istr]);
+		} foreach _list;
+		
+		if (count _dat == 1) exitWith {
+			callFuncParams(thisClient,localSay,"Нет доступных ингредиентов" arg "error");
+		};
+
+		callFuncParams(thisClient,ShowMessageBox,"Listbox" arg _dat arg _handler);
+	};
+
 #endif
 // DEBUG
 
@@ -238,4 +327,17 @@ addCommandWithDescription("playtarget",ACCESS_OWNERS,"Перейти за дру
 };
 
 
+#endif
+
+#ifdef EDITOR
+addCommandWithDescription("rcsphere",PUBLIC_COMMAND,"Скрыть или показать желтую сферу при интеракциях")
+{
+	if (parseNumber args == 0) then {
+		si_internal_rayObject hideObject true;
+		["Курсор выключен","system"] call chatPrint;
+	} else {
+		si_internal_rayObject hideObject false;
+		["Курсор включен","system"] call chatPrint;
+	};
+};
 #endif

@@ -350,21 +350,33 @@ Description: сюда записывается сгенерированный js
 
 Initial value:
 ```sqf
-"src\host\ReNode\lib.obj" //!deprecated
+"ReNode\lib.obj"
 ```
-File: [host\ReNode\ReNode_init.sqf at line 33](../../../Src/host/ReNode/ReNode_init.sqf#L33)
+File: [host\ReNode\ReNode_init.sqf at line 34](../../../Src/host/ReNode/ReNode_init.sqf#L34)
+## nodegen_signLibExe
+
+Type: Variable
+
+Description: 
+
+
+Initial value:
+```sqf
+"ReNode\ReNode.exe"
+```
+File: [host\ReNode\ReNode_init.sqf at line 35](../../../Src/host/ReNode/ReNode_init.sqf#L35)
 ## nodegen_debug_copyobjlibPath
 
 Type: Variable
 
-Description: !deprecated
+Description: 
 
 
 Initial value:
 ```sqf
 "P:\Project\ReNodes\lib.obj"
 ```
-File: [host\ReNode\ReNode_init.sqf at line 34](../../../Src/host/ReNode/ReNode_init.sqf#L34)
+File: [host\ReNode\ReNode_init.sqf at line 36](../../../Src/host/ReNode/ReNode_init.sqf#L36)
 ## nodegen_debug_copyobjguidPath
 
 Type: Variable
@@ -376,7 +388,19 @@ Initial value:
 ```sqf
 "P:\Project\ReNodes\lib_guid"
 ```
-File: [host\ReNode\ReNode_init.sqf at line 35](../../../Src/host/ReNode/ReNode_init.sqf#L35)
+File: [host\ReNode\ReNode_init.sqf at line 37](../../../Src/host/ReNode/ReNode_init.sqf#L37)
+## nodegen_canUse
+
+Type: Variable
+
+Description: 
+
+
+Initial value:
+```sqf
+is3DEN || _genBindRBuilder
+```
+File: [host\ReNode\ReNode_init.sqf at line 44](../../../Src/host/ReNode/ReNode_init.sqf#L44)
 ## nodegen_cleanupClassData
 
 Type: function
@@ -384,7 +408,7 @@ Type: function
 Description: вызывается перед компиляцией классов
 
 
-File: [host\ReNode\ReNode_init.sqf at line 38](../../../Src/host/ReNode/ReNode_init.sqf#L38)
+File: [host\ReNode\ReNode_init.sqf at line 47](../../../Src/host/ReNode/ReNode_init.sqf#L47)
 ## nodegen_addClassMethod
 
 Type: function
@@ -392,7 +416,7 @@ Type: function
 Description: регистратор метода
 - Param: _ctx
 
-File: [host\ReNode\ReNode_init.sqf at line 43](../../../Src/host/ReNode/ReNode_init.sqf#L43)
+File: [host\ReNode\ReNode_init.sqf at line 52](../../../Src/host/ReNode/ReNode_init.sqf#L52)
 ## nodegen_addClassField
 
 Type: function
@@ -400,7 +424,7 @@ Type: function
 Description: 
 - Param: _ctx
 
-File: [host\ReNode\ReNode_init.sqf at line 48](../../../Src/host/ReNode/ReNode_init.sqf#L48)
+File: [host\ReNode\ReNode_init.sqf at line 57](../../../Src/host/ReNode/ReNode_init.sqf#L57)
 ## nodegen_addClass
 
 Type: function
@@ -408,7 +432,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 53](../../../Src/host/ReNode/ReNode_init.sqf#L53)
+File: [host\ReNode\ReNode_init.sqf at line 62](../../../Src/host/ReNode/ReNode_init.sqf#L62)
 ## nodegen_addFunction
 
 Type: function
@@ -416,7 +440,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 63](../../../Src/host/ReNode/ReNode_init.sqf#L63)
+File: [host\ReNode\ReNode_init.sqf at line 72](../../../Src/host/ReNode/ReNode_init.sqf#L72)
 ## nodegen_addSystemNode
 
 Type: function
@@ -424,7 +448,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 94](../../../Src/host/ReNode/ReNode_init.sqf#L94)
+File: [host\ReNode\ReNode_init.sqf at line 104](../../../Src/host/ReNode/ReNode_init.sqf#L104)
 ## nodegen_addEnumerator
 
 Type: function
@@ -434,7 +458,7 @@ Description:
 - Param: _members
 - Param: _pdata (optional, default '')
 
-File: [host\ReNode\ReNode_init.sqf at line 103](../../../Src/host/ReNode/ReNode_init.sqf#L103)
+File: [host\ReNode\ReNode_init.sqf at line 113](../../../Src/host/ReNode/ReNode_init.sqf#L113)
 ## nodegen_addStruct
 
 Type: function
@@ -444,7 +468,7 @@ Description:
 - Param: _members
 - Param: _pdata
 
-File: [host\ReNode\ReNode_init.sqf at line 132](../../../Src/host/ReNode/ReNode_init.sqf#L132)
+File: [host\ReNode\ReNode_init.sqf at line 145](../../../Src/host/ReNode/ReNode_init.sqf#L145)
 ## nodegen_commonAdd
 
 Type: function
@@ -452,7 +476,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 150](../../../Src/host/ReNode/ReNode_init.sqf#L150)
+File: [host\ReNode\ReNode_init.sqf at line 163](../../../Src/host/ReNode/ReNode_init.sqf#L163)
 ## nodegen_commonSysAdd
 
 Type: function
@@ -460,7 +484,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 165](../../../Src/host/ReNode/ReNode_init.sqf#L165)
+File: [host\ReNode\ReNode_init.sqf at line 178](../../../Src/host/ReNode/ReNode_init.sqf#L178)
 ## nodegen_registerFunctions
 
 Type: function
@@ -468,7 +492,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 180](../../../Src/host/ReNode/ReNode_init.sqf#L180)
+File: [host\ReNode\ReNode_init.sqf at line 193](../../../Src/host/ReNode/ReNode_init.sqf#L193)
 ## nodegen_registerMember
 
 Type: function
@@ -479,7 +503,7 @@ Description:
 - Param: _memname
 - Param: _contextList
 
-File: [host\ReNode\ReNode_init.sqf at line 184](../../../Src/host/ReNode/ReNode_init.sqf#L184)
+File: [host\ReNode\ReNode_init.sqf at line 197](../../../Src/host/ReNode/ReNode_init.sqf#L197)
 ## nodegen_registerClass
 
 Type: function
@@ -489,7 +513,7 @@ Description:
 - Param: _class
 - Param: _data
 
-File: [host\ReNode\ReNode_init.sqf at line 189](../../../Src/host/ReNode/ReNode_init.sqf#L189)
+File: [host\ReNode\ReNode_init.sqf at line 202](../../../Src/host/ReNode/ReNode_init.sqf#L202)
 ## nodegen_generateLib
 
 Type: function
@@ -497,7 +521,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 194](../../../Src/host/ReNode/ReNode_init.sqf#L194)
+File: [host\ReNode\ReNode_init.sqf at line 207](../../../Src/host/ReNode/ReNode_init.sqf#L207)
 ## nodegen_loadClasses
 
 Type: function
@@ -505,7 +529,7 @@ Type: function
 Description: 
 
 
-File: [host\ReNode\ReNode_init.sqf at line 399](../../../Src/host/ReNode/ReNode_init.sqf#L399)
+File: [host\ReNode\ReNode_init.sqf at line 415](../../../Src/host/ReNode/ReNode_init.sqf#L415)
 ## renode_invokeDelegate
 
 Type: function
@@ -513,7 +537,7 @@ Type: function
 Description: call delegate; _fref - vec2: vec2:(object,context), code(params:args,context)
 
 
-File: [host\ReNode\ReNode_init.sqf at line 440](../../../Src/host/ReNode/ReNode_init.sqf#L440)
+File: [host\ReNode\ReNode_init.sqf at line 456](../../../Src/host/ReNode/ReNode_init.sqf#L456)
 ## renode_print
 
 Type: function
@@ -523,7 +547,7 @@ Description: generic function for print messages into console
 - Param: _ch
 - Param: _ft
 
-File: [host\ReNode\ReNode_init.sqf at line 463](../../../Src/host/ReNode/ReNode_init.sqf#L463)
+File: [host\ReNode\ReNode_init.sqf at line 479](../../../Src/host/ReNode/ReNode_init.sqf#L479)
 # resdk_graph.h
 
 ## __THIS_GRAPH__
@@ -659,3 +683,87 @@ Replaced value:
 
 ```
 File: [host\ReNode\compiled\resdk_graph.h at line 38](../../../Src/host/ReNode/compiled/resdk_graph.h#L38)
+## __GLOBAL_MACRO_RESDK_EDITOR__
+
+Type: constant
+
+> Exists if **EDITOR** defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+true
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 44](../../../Src/host/ReNode/compiled/resdk_graph.h#L44)
+## __GLOBAL_MACRO_RESDK_EDITOR__
+
+Type: constant
+
+> Exists if **EDITOR** not defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+false
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 46](../../../Src/host/ReNode/compiled/resdk_graph.h#L46)
+## __GLOBAL_MACRO_RESDK_RELEASE__
+
+Type: constant
+
+> Exists if **RELEASE** defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+true
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 50](../../../Src/host/ReNode/compiled/resdk_graph.h#L50)
+## __GLOBAL_MACRO_RESDK_RELEASE__
+
+Type: constant
+
+> Exists if **RELEASE** not defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+false
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 52](../../../Src/host/ReNode/compiled/resdk_graph.h#L52)
+## __GLOBAL_MACRO_RESDK_DEBUG__
+
+Type: constant
+
+> Exists if **DEBUG** defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+true
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 56](../../../Src/host/ReNode/compiled/resdk_graph.h#L56)
+## __GLOBAL_MACRO_RESDK_DEBUG__
+
+Type: constant
+
+> Exists if **DEBUG** not defined
+
+Description: 
+
+
+Replaced value:
+```sqf
+false
+```
+File: [host\ReNode\compiled\resdk_graph.h at line 58](../../../Src/host/ReNode/compiled/resdk_graph.h#L58)

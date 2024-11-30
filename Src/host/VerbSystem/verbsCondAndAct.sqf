@@ -90,6 +90,8 @@ ENDVERB
 VERB(pickup)
 	act
 		callFunc(usr,generateLastInteractOnServer);
+		callFuncParams(usr,__setLastInteractDistance,0);//bypass check distance inside pickupitem()
+		
 		callFuncParams(usr,pickupItem,src);
 	cond
 		skipCond(!isTypeOf(usr,Mob));
@@ -109,9 +111,53 @@ VERB(doempty)
 		FLAGS(F_INUSR);
 		skipCond(!isTypeOf(usr,Mob));
 		skipCond(callSelf(getFilledSpace) == 0);
-		skipCond(!callSelf(isTrasferize));
+		skipCond(!callSelf(isTransferize));
 	act
 		callSelf(pourOutReagents);
+ENDVERB
+
+VERB(extinguish)
+	cond
+		private _it = callFunc(usr,getItemInActiveHandRedirect);
+		skipCond(isNullReference(_it));
+		skipCond(isTypeOf(src,Mob));
+		skipCond(!callFunc(_it,isReagentContainer));
+		skipCond(isTypeOf(_it,Syringe));
+		skipCond(callFunc(_it,getFilledSpace)==0);
+	act
+		private _it = callFunc(usr,getItemInActiveHandRedirect);
+		if !isNullReference(_it) then {
+			callFunc(usr,generateLastInteractOnServer);
+			if callFuncParams(_it,doExtinguish,src arg callFunc(usr,getLastInteractEndPos)) then {
+				callFuncParams(usr,meSay,"выливает " + callFunc(_it,getName) + " на " + callFunc(src,getName));
+			};
+		};
+	name
+		private _it = callFunc(usr,getItemInActiveHandRedirect);
+		if !isNullReference(_it) then {
+			private _pto = (pick["здесь","тут","сюда"]);
+			setName("Вылить " + callFunc(_it,getName) + " " + _pto);
+		};
+ENDVERB
+
+VERB(pull)
+	cond
+		skipCond(!isTypeOf(usr,Mob));
+		skipCond(isTypeOf(src,BasicMob));
+		skipCond(!callFunc(src,isMovable));
+
+		//temporary object cannot be pulled more than 1 mobs
+		private _pobj = callFunc(src,getPullMainOwner);
+		skipCond(!(_pobj in vec2(usr,nullPtr)));
+	act
+		callFuncParams(usr,startGrab,src);
+ENDVERB
+
+VERB(pulltransform)
+	cond
+		skipCond(not_equals(usr,callFunc(src,getPullMainOwner)));
+	act
+		callFuncParams(src,openPullSettings,usr);
 ENDVERB
 
 VERB(craft)
@@ -120,6 +166,16 @@ VERB(craft)
 		skipCond(!callSelf(canUseAsCraftSpace));
 	act
 		[src,usr] call craft_requestOpenMenu;
+ENDVERB
+
+VERB(craft_here)
+	cond
+		skipCond(!isTypeOf(usr,Mob));
+		skipCond(getVar(usr,isCombatModeEnable));
+	act
+		[src,usr,!isNull(getSelf(craftComponent))] call csys_requestOpenMenu;
+	name
+		if !isNull(getSelf(craftComponent)) exitWith {setName("Вспомнить рецепты")};
 ENDVERB
 
 VERB(twohands)
@@ -138,13 +194,22 @@ ENDVERB
 
 VERB(mainact)
 	cond
-		skipCond("*UNDECL*" in (toString getFunc(src,onMainAction)));
+		_isScript = callFunc(src,isScriptedObject);
+		skipCond("*UNDECL*" in (toString getFunc(src,onMainAction)) && !_isScript);
 		skipCond(!callFunc(src,canUseMainAction));
 		skipCond(isTypeOf(usr,Mob) && callFunc(usr,isHandcuffed)); //защита от вебрдействий в наручниках
 	act
+		if callFunc(src,isScriptedObject) exitWith {
+			callFuncParams(getVar(src,__script),onMainAction,usr);
+		};
 		callFuncParams(src,onMainAction,usr);
 	name
-		_t = callFunc(src,getMainActionName);
+		_t = "";
+		if callFunc(src,isScriptedObject) then {
+			_t = callFuncParams(getVar(src,__script),getMainActionName,usr);
+		} else {
+			_t = callFunc(src,getMainActionName);
+		};
 		if (_t!="")then{setName(_t)};
 ENDVERB
 

@@ -38,6 +38,7 @@ func(setCombatMode)
 	if equals(getSelf(isCombatModeEnable),_mode) exitWith {
 		errorformat("Mob::setCombatMode() - combat mode already setted on %1",_mode);
 	};
+	if callSelf(isCustomAnimState) exitWith {};
 
 	setSelf(isCombatModeEnable,_mode);
 	if (_mode) then {
@@ -62,7 +63,7 @@ func(getDataForApplyDamage)
 
 	//Внутренняя реализация с использованием внешних ссылок
 	private _dmgArr = callSelfParams(getDmgByAttackType,_attAttackType);
-
+	
 	private _basicDamage = 0;
 	if isRuleCritAttackInRange(RULE_CA_HEAD_MAXDMG_INGNORSP arg RULE_CA_HEAD_MAXDMG) then {
 		//выключение после игнора сп
@@ -103,6 +104,13 @@ func(getDataForApplyDamage)
 		MOD(_basicDamage, * 3);
 	};
 
+	//twohanded stronger
+	if !isNullReference(_attItem) then {
+		if callFuncParams(_caller,isHoldedTwoHands,_attItem) then {
+			rp_log("Twohanded attack",0);
+			modvar(_basicDamage) + 1;
+		};
+	};
 
 	if equals(_attCurCombatStyle,COMBAT_STYLE_WEAK) then {
 		_basicDamage = floor(_basicDamage / 3) max 0;
@@ -151,11 +159,110 @@ func(canAttack)
 func(attackOtherObj)
 {
 	objParams_1(_targ);
+	
+	if isNullReference(_targ) exitWith {};
+
 	if (callFunc(_targ,isDoor) && !isNullVar(__GLOBAL_FLAG_SPECACT_KICK__)) exitWith
 	{
 		callFuncParams(_targ,onDoorKicked,this arg "kick");
 	};
-	callSelfParams(localSay, "Так пока нельзя" arg "system");
+	//callSelfParams(localSay, "Так пока нельзя" arg "system");
+
+	if callSelf(isFailCombat) exitWith {
+		callSelf(applyFailCombat);
+	};
+
+	private _caller = this;
+	private _target = _targ;
+	private _attCurCombatStyle = getSelf(curCombatStyle);
+
+	if !isNullVar(__GLOB_SET_FLAG_DOUBLE_ATTACK__) then {
+		_attCurCombatStyle = COMBAT_STYLE_NO;
+	};
+
+	private _stamina_loss_amount = 10;
+	private _delay_next_attack = getSelf(rta);
+
+	callSelf(getAttackerWeapon) params ["_attWeapon","_attItem"];
+	if isTypeOf(_attWeapon,WeapGrabbedHuman) exitWith {
+		callSelfParams(localSay,"Схваченным не ударить." arg "error");
+	};
+	// Не нашлось подходящего оружия или выбранным нельзя атаковать
+	if equals(_attWeapon,nullPtr) exitWith {
+		private _mes = pick["А атаковать-то нечем","А чем атаковать?","НЕЧЕМ ПРОВЕСТИ АТАКУ!"];
+		callSelfParams(localSay,_mes arg "error");
+	};
+	if !callSelf(checkReadyWeapon) exitWith {};
+
+	if equals(_attCurCombatStyle,COMBAT_STYLE_STRONG_ATTACK) then {
+		modvar(_stamina_loss_amount) * 2;
+	};
+
+	private _delegate_success_attack = {
+
+		if equals(_attCurCombatStyle,COMBAT_STYLE_AIMED_ATTACK) then {
+			_delay_next_attack = _delay_next_attack * 2;
+		};
+		// if (_isFailedFint) then {
+		// 	_delay_next_attack = _delay_next_attack * 2.5;
+		// };
+		if equals(_attCurCombatStyle,COMBAT_STYLE_FAST_ATTACK) then {
+			_delay_next_attack = _delay_next_attack / 2;
+		};
+
+		callSelfParams(addStaminaLoss,_stamina_loss_amount);
+		callSelfParams(syncAttackDelayProcess,"melee" arg _attWeapon arg _attItem arg _delay_next_attack);
+		callSelfParams(applyAttackVisualEffects,_attWeapon);
+
+		//Двуручная атака
+		if equals(_attCurCombatStyle,COMBAT_STYLE_DOUBLE_ATTACK) then {
+
+			//флаг внешнего определения. объявлен в onDoubleAttackProcess()
+			if !isNullVar(__GLOB_SET_FLAG_DOUBLE_ATTACK__) exitWith {};
+
+			//если нулл итем выходим - удар рукой. не двуручка
+			//если предмет двуручен выходим
+			if (!isNullReference(_attItem) && {callSelfParams(isHoldedTwoHands,_attItem)}) exitWith {};
+
+			callSelfAfterParams(onDoubleAttackProcess,rand(0.2,0.6),_target); //todo timeout rand from rta values
+		};
+	}; // _delegate_success_attack
+	
+	private _delegate_damage = {
+		callFuncParams(_caller,playSoundData,callFuncParams(_attWeapon,getAttackSoundData,_attAttackType));
+		callSelf(getDataForApplyDamage) params ["_basicDamage","_dType"];
+		
+		private _basicDamageTarg = ifcheck(!isNullReference(_attItem),callFuncParams(_attItem,getEfficiencyOnAttack,_basicDamage arg _target),_basicDamage);
+
+		private _targetDr = getVar(_target,dr);//calculate this only before applydam
+		callFuncParams(_target,applyDamage,_basicDamageTarg arg _dType arg callSelf(getLastInteractEndPos) arg "attack"); //conv attack to -> _dir arg di_partDamage arg vec2(_attItem,_attWeapon)
+		
+		callFuncParams(_attItem,onAttackedObject,_target arg _basicDamage arg _targetDr arg callSelf(getLastInteractStartPos) arg "weap_attack");
+
+		//callSelfParams(onDamageMessage,_target arg _attWeapMes arg _attackedZoneText arg _attRealTargetZone arg _postMessageEffect);
+	};// _delegate_damage
+
+	private _attAttackType = callSelfParams(getAttackTypeForWeapon,_attWeapon);
+
+	if !callSelfParams(canInteractWithSavedObject,_attWeapon arg _attItem) exitWith {
+		//code duplicate
+		call _delegate_success_attack;
+		//Сегмент внешнего вызова.
+		callFunc(_attWeapon,onMiss); //звук промаха
+
+		callFuncParams(_item,onLongDistanceAttack,this arg _target);
+	};
+
+	//TODO --------- ROLL ATTACK (B.483) ----------
+
+	call _delegate_success_attack;
+
+	call _delegate_damage;
+	// ----------------- process damage ----------------
+
+	//private _amount = 1;
+	//private _type = DAMAGE_TYPE_CRUSHING;
+	//callFuncParams(_targ,applyDamage,_amount arg _type arg callSelf(getLastInteractEndPos) arg "attack");
 };
 
 //метод атаки. Широко использует замыкания и внешние переменные.
@@ -193,6 +300,9 @@ func(attackOtherMob)
 	};
 
 	callSelf(getAttackerWeapon) params ["_attWeapon","_attItem"];
+	if isTypeOf(_attWeapon,WeapGrabbedHuman) exitWith {
+		callSelfParams(localSay,"Схваченным не ударить." arg "error");
+	};
 	// Не нашлось подходящего оружия или выбранным нельзя атаковать
 	if equals(_attWeapon,nullPtr) exitWith {
 		private _mes = pick["А атаковать-то нечем","А чем атаковать?","НЕЧЕМ ПРОВЕСТИ АТАКУ!"];
@@ -460,6 +570,9 @@ func(attackSelf)
 	};
 
 	callSelf(getAttackerWeapon) params ["_attWeapon","_attItem"];
+	if isTypeOf(_attWeapon,WeapGrabbedHuman) exitWith {
+		callSelfParams(localSay,"Схваченным не ударить." arg "error");
+	};
 	// Не нашлось подходящего оружия или выбранным нельзя атаковать
 	if equals(_attWeapon,nullPtr) exitWith {
 		private _mes = pick["А атаковать-то нечем","А чем атаковать?","НЕЧЕМ ПРОВЕСТИ АТАКУ!"];

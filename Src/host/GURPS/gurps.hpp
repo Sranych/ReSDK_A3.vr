@@ -19,7 +19,7 @@
 
 //величина успеха
 #define getRollAmount(throwExec) ((throwExec) select 0)
-//тип возврата
+//тип возврата (DICE_SUCCESS, DICE_FAIL ...)
 #define getRollType(throwExec) ((throwExec) select 1)
 //результат 3d6
 #define getRollDiceAmount(throwExec) ((throwExec) select 2)
@@ -28,6 +28,13 @@
 #define DICE_FAIL -1
 #define DICE_CRITSUCCESS 2
 #define DICE_CRITFAIL -2
+
+#define DICE_RESULT_LIST_NODE_BINDING [ \
+	'Успех:DICE_SUCCESS' \
+	,'Провал:DICE_FAIL' \
+	,'Крилический успех:DICE_CRITSUCCESS' \
+	,'Критический провал:DICE_CRITFAIL' \
+]
 
 #define DICE_ISSUCCESS(v) ((v) > 0)
 #define DICE_ISFAIL(v) ((v) < 0)

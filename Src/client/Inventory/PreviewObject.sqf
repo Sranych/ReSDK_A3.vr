@@ -72,14 +72,6 @@ inventory_onVisualPreviewObject = {
 		resetBackgrounDragSlot
 	};
 	
-	private _angle = (getCameraViewDirection player) select 2;
-	
-	private _maxDist = if (_angle < MAX_ONMOUSECURSOR_DROP_ANGLE) then {
-		AGLToASL (screenToWorld getMousePosition);
-	} else {
-		AGLToASL (positionCameraToWorld [0,0,PUTDOWN_RADIUS])
-	};
-	
 	(_visObj call interact_getMouseIntersectData) params ["_targ","_pos","_vecup"];
 	
 	if equals(_targ,objNUll) exitWith {
@@ -130,11 +122,11 @@ inventory_collectInfoOnPutdown = {
 		//[object, intersect position,vectorUp lod]
 		([objnull] call interact_getIntersectData) params ["_obj","_pos","_vup"];
 		if isInteractible(_obj) then {_vup = [0,0,-1]};
-		[_pos,random 360,_vup]
+		[_pos,random 360,_vup,[_obj,true] call noe_client_getObjPtr];
 	} else {
 		private _visObj = inventory_previewObject;
 		
-		[getPosATLVisual _visObj,inventory_lastDirPreviewObject,vectorUpVisual _visObj]
+		[getPosATLVisual _visObj,getDir _visObj,vectorUpVisual _visObj,[getInteractibleTarget,true] call noe_client_getObjPtr]
 	};
 };
 

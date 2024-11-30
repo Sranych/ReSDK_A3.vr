@@ -2,28 +2,28 @@ version=54;
 class EditorData
 {
 	moveGridStep=0.25;
-	angleGridStep=0.017453292;
+	angleGridStep=0.08726646;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
 	toggles=42;
 	class ItemIDProvider
 	{
-		nextID=17576;
+		nextID=17617;
 	};
 	class LayerIndexProvider
 	{
-		nextID=8616;
+		nextID=8896;
 	};
 	class Camera
 	{
-		pos[]={4050.8406,38.857861,3650.5159};
-		dir[]={-0.25782853,-0.45901212,-0.85034007};
-		up[]={-0.13335109,0.88764268,-0.43974251};
-		aside[]={-0.95689535,-8.3644409e-007,0.29018098};
+		pos[]={4053.9807,38.824688,3644.665};
+		dir[]={-0.82115388,-0.31155965,0.47842145};
+		up[]={-0.26935989,0.95008016,0.15692903};
+		aside[]={0.50344473,-1.1676457e-006,0.86411482};
 	};
 };
 binarizationWanted=0;
-sourceName="resdk_a3";
+sourceName="ReSDK_A3";
 addons[]=
 {
 	"A3_Characters_F",
@@ -683,7 +683,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=17;
+		items=20;
 		class Item0
 		{
 			dataType="Group";
@@ -856,7 +856,7 @@ class Mission
 					state=1;
 					class Entities
 					{
-						items=4;
+						items=6;
 						class Item0
 						{
 							dataType="Layer";
@@ -2043,8 +2043,8 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={4043.3013,31.881771,3637.45};
-										angles[]={0.043716129,5.7579346,6.2076354};
+										position[]={4041.0518,31.852224,3636.4475};
+										angles[]={0.043594301,5.761744,0.011633517};
 									};
 									side="Empty";
 									flags=1;
@@ -2054,7 +2054,7 @@ class Mission
 									};
 									id=3700;
 									type="Land_GarbageBarrel_02_buried_F";
-									atlOffset=26.498034;
+									atlOffset=7.8842201;
 								};
 								class Item1
 								{
@@ -2086,7 +2086,7 @@ class Mission
 									flags=5;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RChiefSonKey""]]],[""class"",""WoodenDoor""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RChiefSonKey""]]],[""class"",""WoodenDoor""]]}";
 									};
 									id=3676;
 									type="Land_xlamdoor";
@@ -2104,7 +2104,7 @@ class Mission
 									flags=5;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RChiefSonKey""]]],[""class"",""WoodenDoor""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RChiefSonKey""]]],[""class"",""WoodenDoor""]]}";
 									};
 									id=3677;
 									type="Land_xlamdoor";
@@ -2742,7 +2742,7 @@ class Mission
 									side="Empty";
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""a3\props_f_orange\furniture\tablebig_01_f.p3d""]]],[""class"",""IStruct""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MediumWoodenTable1""]]}";
 									};
 									id=10420;
 									type="Land_TableBig_01_F";
@@ -2824,9 +2824,44 @@ class Mission
 							id=10414;
 							atlOffset=1.0433121;
 						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4043.3198,32.236935,3637.1716};
+								angles[]={0.0043972367,2.6179852,6.2776423};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Bucket""]]}";
+							};
+							id=17609;
+							type="CUP_A2_bucket";
+							atlOffset=0.64007568;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4043.177,32.248413,3637.1084};
+								angles[]={0,5.7595868,-0};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Umivalnik""]]}";
+							};
+							id=17608;
+							type="umivalnik1";
+							atlOffset=26.45751;
+						};
 					};
 					id=6346;
-					atlOffset=1.2898064;
+					atlOffset=0.60170364;
 				};
 				class Item1
 				{
@@ -3462,7 +3497,7 @@ class Mission
 							state=1;
 							class Entities
 							{
-								items=37;
+								items=38;
 								class Item0
 								{
 									dataType="Object";
@@ -4100,13 +4135,31 @@ class Mission
 									type="sundugan";
 									atlOffset=2.0500259;
 								};
+								class Item37
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={4070.1587,35.819618,3641.0222};
+										angles[]={0,4.7123981,0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SmallSteelRustyFence""]]}";
+									};
+									id=17589;
+									type="fence01";
+									atlOffset=1.3168411;
+								};
 							};
 							id=10272;
-							atlOffset=2.1197929;
+							atlOffset=0.65224838;
 						};
 					};
 					id=5530;
-					atlOffset=0.35409927;
+					atlOffset=0.68639755;
 				};
 				class Item2
 				{
@@ -4115,26 +4168,8 @@ class Mission
 					state=1;
 					class Entities
 					{
-						items=149;
+						items=148;
 						class Item0
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={4070.1658,32.824547,3652.9365};
-								angles[]={6.2821493,0,0.006999658};
-							};
-							side="Empty";
-							flags=1;
-							class Attributes
-							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MediumRuinedWhiteConcreteWall""]]}";
-							};
-							id=5310;
-							type="Land_WallCity_01_8m_dmg_whiteblue_F";
-							atlOffset=0.75147438;
-						};
-						class Item1
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4152,7 +4187,7 @@ class Mission
 							type="Land_Canal_WallSmall_10m_F";
 							atlOffset=3.3300095;
 						};
-						class Item2
+						class Item1
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4170,7 +4205,7 @@ class Mission
 							type="Land_Canal_WallSmall_10m_F";
 							atlOffset=3.4755325;
 						};
-						class Item3
+						class Item2
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4188,7 +4223,7 @@ class Mission
 							type="Land_WallCity_01_8m_plain_whiteblue_F";
 							atlOffset=0.83393097;
 						};
-						class Item4
+						class Item3
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4205,24 +4240,25 @@ class Mission
 							type="Land_kr_stena_3x6_okn";
 							atlOffset=26.284576;
 						};
-						class Item5
+						class Item4
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4062.7869,32.806244,3655.3225};
+								position[]={4062.7869,32.968655,3655.3225};
 								angles[]={6.2742634,0.61084849,6.2825232};
 							};
 							side="Empty";
+							flags=4;
 							class Attributes
 							{
 								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BrickThinWallDoorway""]]}";
 							};
 							id=5328;
 							type="Land_kr_stena_3x6_dv";
-							atlOffset=26.312706;
+							atlOffset=0.13420105;
 						};
-						class Item6
+						class Item5
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4240,7 +4276,7 @@ class Mission
 							type="Land_WallCity_01_pillar_yellow_F";
 							atlOffset=0.11831474;
 						};
-						class Item7
+						class Item6
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4258,7 +4294,7 @@ class Mission
 							type="Land_Net_Fence_pole_F";
 							atlOffset=0.092182159;
 						};
-						class Item8
+						class Item7
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4274,7 +4310,7 @@ class Mission
 							type="Land_lest_kletka";
 							atlOffset=26.183487;
 						};
-						class Item9
+						class Item8
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4291,7 +4327,7 @@ class Mission
 							type="land_concrete_slub3";
 							atlOffset=2.711977;
 						};
-						class Item10
+						class Item9
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4308,7 +4344,7 @@ class Mission
 							type="land_concrete_slub3";
 							atlOffset=2.7203083;
 						};
-						class Item11
+						class Item10
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4324,7 +4360,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8202782;
 						};
-						class Item12
+						class Item11
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4340,7 +4376,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8666687;
 						};
-						class Item13
+						class Item12
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4356,7 +4392,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8745804;
 						};
-						class Item14
+						class Item13
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4372,7 +4408,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8186111;
 						};
-						class Item15
+						class Item14
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4388,7 +4424,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.6516113;
 						};
-						class Item16
+						class Item15
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4404,7 +4440,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.6778984;
 						};
-						class Item17
+						class Item16
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4421,7 +4457,7 @@ class Mission
 							type="land_concrete_slub3";
 							atlOffset=2.7111778;
 						};
-						class Item18
+						class Item17
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4437,7 +4473,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8350372;
 						};
-						class Item19
+						class Item18
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4453,7 +4489,7 @@ class Mission
 							type="Land_ConcretePanels_02_single_dmg_F";
 							atlOffset=2.8238907;
 						};
-						class Item20
+						class Item19
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4471,7 +4507,7 @@ class Mission
 							type="Land_Net_Fence_pole_F";
 							atlOffset=0.56519318;
 						};
-						class Item21
+						class Item20
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4489,7 +4525,7 @@ class Mission
 							type="Land_Net_Fence_pole_F";
 							atlOffset=26.470898;
 						};
-						class Item22
+						class Item21
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4507,7 +4543,7 @@ class Mission
 							type="Land_Net_Fence_pole_F";
 							atlOffset=26.469898;
 						};
-						class Item23
+						class Item22
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4524,7 +4560,7 @@ class Mission
 							type="Land_GarbageBarrel_02_buried_F";
 							atlOffset=0.25579834;
 						};
-						class Item24
+						class Item23
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4542,7 +4578,7 @@ class Mission
 							type="Land_ConcreteWall_01_l_8m_F";
 							atlOffset=0.43235016;
 						};
-						class Item25
+						class Item24
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4559,25 +4595,25 @@ class Mission
 							type="grib5";
 							atlOffset=0.59630203;
 						};
-						class Item26
+						class Item25
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4061.8372,32.264282,3655.9578};
+								position[]={4061.8372,32.588345,3655.9578};
 								angles[]={0,3.7350094,0};
 							};
 							side="Empty";
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RCaveDoctorKey""]]],[""class"",""WoodenDoor""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RCaveDoctorKey""]]],[""class"",""WoodenDoor""]]}";
 							};
 							id=7394;
 							type="Land_xlamdoor";
-							atlOffset=26.172327;
+							atlOffset=26.496389;
 						};
-						class Item27
+						class Item26
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4595,7 +4631,7 @@ class Mission
 							type="Land_xlamdoor";
 							atlOffset=26.467188;
 						};
-						class Item28
+						class Item27
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4613,7 +4649,7 @@ class Mission
 							type="Land_xlamdoor";
 							atlOffset=0.0030708313;
 						};
-						class Item29
+						class Item28
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4631,7 +4667,7 @@ class Mission
 							type="Land_xlamdoor";
 							atlOffset=1.6730995;
 						};
-						class Item30
+						class Item29
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4649,7 +4685,7 @@ class Mission
 							type="Land_xlamdoor";
 							atlOffset=2.9539299;
 						};
-						class Item31
+						class Item30
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4665,7 +4701,7 @@ class Mission
 							type="Land_WoodenCounter_01_F";
 							atlOffset=1.2368164;
 						};
-						class Item32
+						class Item31
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4682,7 +4718,7 @@ class Mission
 							type="Land_WoodenTable_small_F";
 							atlOffset=1.0807285;
 						};
-						class Item33
+						class Item32
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4699,7 +4735,7 @@ class Mission
 							type="Land_WoodenBox_02_F";
 							atlOffset=0.061376572;
 						};
-						class Item34
+						class Item33
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4716,7 +4752,7 @@ class Mission
 							type="Land_Metal_rack_F";
 							atlOffset=26.471899;
 						};
-						class Item35
+						class Item34
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4734,7 +4770,7 @@ class Mission
 							type="Land_OfficeCabinet_02_F";
 							atlOffset=0.11866951;
 						};
-						class Item36
+						class Item35
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4750,7 +4786,7 @@ class Mission
 							type="Land_kr_stena_3x6_dv";
 							atlOffset=26.470898;
 						};
-						class Item37
+						class Item36
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4768,7 +4804,7 @@ class Mission
 							type="Land_Bench_03_F";
 							atlOffset=0.032409668;
 						};
-						class Item38
+						class Item37
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4786,7 +4822,7 @@ class Mission
 							type="Land_Bench_03_F";
 							atlOffset=26.547474;
 						};
-						class Item39
+						class Item38
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4804,7 +4840,7 @@ class Mission
 							type="Land_TinWall_01_m_4m_v1_F";
 							atlOffset=2.8694038;
 						};
-						class Item40
+						class Item39
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4822,24 +4858,25 @@ class Mission
 							type="Land_TinWall_01_m_4m_v1_F";
 							atlOffset=0.48700333;
 						};
-						class Item41
+						class Item40
 						{
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4071.6667,35.188972,3657.4758};
+								position[]={4071.6667,35.527309,3657.4758};
 								angles[]={0,3.1415925,0};
 							};
 							side="Empty";
-							flags=5;
+							flags=1;
 							class Attributes
 							{
 								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""TinFence""]]}";
 							};
 							id=7529;
 							type="Land_TinWall_01_m_4m_v1_F";
+							atlOffset=0.33833694;
 						};
-						class Item42
+						class Item41
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4855,7 +4892,7 @@ class Mission
 							type="Land_ChairWood_F";
 							atlOffset=26.503094;
 						};
-						class Item43
+						class Item42
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4872,7 +4909,7 @@ class Mission
 							type="Land_ChairWood_F";
 							atlOffset=26.496355;
 						};
-						class Item44
+						class Item43
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4889,7 +4926,7 @@ class Mission
 							type="Land_ChairWood_F";
 							atlOffset=2.9051018;
 						};
-						class Item45
+						class Item44
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4907,7 +4944,7 @@ class Mission
 							type="bar_stoika";
 							atlOffset=26.468901;
 						};
-						class Item46
+						class Item45
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4924,7 +4961,7 @@ class Mission
 							type="bed2";
 							atlOffset=26.488821;
 						};
-						class Item47
+						class Item46
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4941,7 +4978,7 @@ class Mission
 							type="bed4";
 							atlOffset=1.8975334;
 						};
-						class Item48
+						class Item47
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4958,7 +4995,7 @@ class Mission
 							id=7533;
 							type="bed4";
 						};
-						class Item49
+						class Item48
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4974,7 +5011,7 @@ class Mission
 							type="blevanton1v2";
 							atlOffset=0.93346977;
 						};
-						class Item50
+						class Item49
 						{
 							dataType="Object";
 							class PositionInfo
@@ -4990,7 +5027,7 @@ class Mission
 							type="blevanton1v2";
 							atlOffset=0.77898026;
 						};
-						class Item51
+						class Item50
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5008,7 +5045,7 @@ class Mission
 							type="box_wood_close";
 							atlOffset=0.046199799;
 						};
-						class Item52
+						class Item51
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5024,7 +5061,7 @@ class Mission
 							type="buhlo1";
 							atlOffset=0.63037109;
 						};
-						class Item53
+						class Item52
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5040,7 +5077,7 @@ class Mission
 							type="buhlo1";
 							atlOffset=0.63463402;
 						};
-						class Item54
+						class Item53
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5057,7 +5094,7 @@ class Mission
 							type="CUP_A2_case_bedroom_a";
 							atlOffset=26.529226;
 						};
-						class Item55
+						class Item54
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5075,7 +5112,7 @@ class Mission
 							type="CUP_A1_case_bedroom_b";
 							atlOffset=0.0022239685;
 						};
-						class Item56
+						class Item55
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5093,7 +5130,7 @@ class Mission
 							type="land_ganzazhelezo2";
 							atlOffset=0.012371063;
 						};
-						class Item57
+						class Item56
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5110,7 +5147,7 @@ class Mission
 							type="land_ganzazhelezo3";
 							atlOffset=2.7698555;
 						};
-						class Item58
+						class Item57
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5127,7 +5164,7 @@ class Mission
 							type="CUP_A2_hospital_bench";
 							atlOffset=1.6212063;
 						};
-						class Item59
+						class Item58
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5144,7 +5181,7 @@ class Mission
 							type="CUP_A2_hospital_bench";
 							atlOffset=0.32380295;
 						};
-						class Item60
+						class Item59
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5161,7 +5198,7 @@ class Mission
 							type="kartoteka";
 							atlOffset=0.40836525;
 						};
-						class Item61
+						class Item60
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5178,7 +5215,7 @@ class Mission
 							type="CUP_A2_l1_pillar_ep1";
 							atlOffset=0.66973114;
 						};
-						class Item62
+						class Item61
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5195,7 +5232,7 @@ class Mission
 							type="CUP_A2_l1_pillar_ep1";
 							atlOffset=0.68296432;
 						};
-						class Item63
+						class Item62
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5212,7 +5249,7 @@ class Mission
 							type="littlerag";
 							atlOffset=0.62784386;
 						};
-						class Item64
+						class Item63
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5229,7 +5266,7 @@ class Mission
 							type="littlerag";
 							atlOffset=0.68383217;
 						};
-						class Item65
+						class Item64
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5246,7 +5283,7 @@ class Mission
 							type="littlerag";
 							atlOffset=0.93438148;
 						};
-						class Item66
+						class Item65
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5263,7 +5300,7 @@ class Mission
 							type="littlerag";
 							atlOffset=0.93243599;
 						};
-						class Item67
+						class Item66
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5281,7 +5318,7 @@ class Mission
 							type="matras_2";
 							atlOffset=0.014970779;
 						};
-						class Item68
+						class Item67
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5299,7 +5336,7 @@ class Mission
 							type="medzanaves2";
 							atlOffset=26.430809;
 						};
-						class Item69
+						class Item68
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5317,7 +5354,7 @@ class Mission
 							type="medzanaves2";
 							atlOffset=26.414581;
 						};
-						class Item70
+						class Item69
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5335,7 +5372,7 @@ class Mission
 							type="medzanaves2";
 							atlOffset=0.48722076;
 						};
-						class Item71
+						class Item70
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5353,7 +5390,7 @@ class Mission
 							type="medzanaves2";
 							atlOffset=26.412289;
 						};
-						class Item72
+						class Item71
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5371,7 +5408,7 @@ class Mission
 							type="medzanaves2";
 							atlOffset=26.449249;
 						};
-						class Item73
+						class Item72
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5389,7 +5426,7 @@ class Mission
 							type="pomoika";
 							atlOffset=0.062822342;
 						};
-						class Item74
+						class Item73
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5407,7 +5444,7 @@ class Mission
 							type="CUP_A1_postel_panelak1";
 							atlOffset=0.04458046;
 						};
-						class Item75
+						class Item74
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5425,7 +5462,7 @@ class Mission
 							type="CUP_A1_postel_panelak2";
 							atlOffset=0.07692337;
 						};
-						class Item76
+						class Item75
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5443,7 +5480,7 @@ class Mission
 							type="shkafsin";
 							atlOffset=26.514885;
 						};
-						class Item77
+						class Item76
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5459,7 +5496,7 @@ class Mission
 							type="CUP_A2_smalltable";
 							atlOffset=26.438437;
 						};
-						class Item78
+						class Item77
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5477,7 +5514,7 @@ class Mission
 							type="sundugan";
 							atlOffset=0.47871399;
 						};
-						class Item79
+						class Item78
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5494,7 +5531,7 @@ class Mission
 							type="surgtable";
 							atlOffset=2.024847;
 						};
-						class Item80
+						class Item79
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5511,7 +5548,7 @@ class Mission
 							type="table";
 							atlOffset=2.8798389;
 						};
-						class Item81
+						class Item80
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5528,7 +5565,7 @@ class Mission
 							type="yashik";
 							atlOffset=26.56505;
 						};
-						class Item82
+						class Item81
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5545,7 +5582,7 @@ class Mission
 							type="Land_ChairWood_F";
 							atlOffset=2.1911697;
 						};
-						class Item83
+						class Item82
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5562,7 +5599,7 @@ class Mission
 							type="Land_ShellCrater_01_F";
 							atlOffset=0.31050491;
 						};
-						class Item84
+						class Item83
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5580,7 +5617,7 @@ class Mission
 							type="Land_ShellCrater_01_F";
 							atlOffset=0.21478462;
 						};
-						class Item85
+						class Item84
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5598,7 +5635,7 @@ class Mission
 							type="Land_xlamdoor";
 							atlOffset=2.9345837;
 						};
-						class Item86
+						class Item85
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5615,7 +5652,7 @@ class Mission
 							type="Land_WoodenTable_large_F";
 							atlOffset=0.9571991;
 						};
-						class Item87
+						class Item86
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5631,7 +5668,7 @@ class Mission
 							type="Land_WoodenTable_large_F";
 							atlOffset=2.8666191;
 						};
-						class Item88
+						class Item87
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5647,7 +5684,7 @@ class Mission
 							type="Land_Matches_F";
 							atlOffset=0.81499863;
 						};
-						class Item89
+						class Item88
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5663,7 +5700,7 @@ class Mission
 							type="Leaflet_05_Stack_F";
 							atlOffset=0.79627037;
 						};
-						class Item90
+						class Item89
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5680,7 +5717,7 @@ class Mission
 							id=7657;
 							type="Leaflet_05_Old_F";
 						};
-						class Item91
+						class Item90
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5697,7 +5734,7 @@ class Mission
 							type="Leaflet_05_Old_F";
 							atlOffset=0.78780746;
 						};
-						class Item92
+						class Item91
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5713,7 +5750,7 @@ class Mission
 							type="Leaflet_05_Old_F";
 							atlOffset=0.79742813;
 						};
-						class Item93
+						class Item92
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5730,7 +5767,7 @@ class Mission
 							type="Leaflet_05_Old_F";
 							atlOffset=0.79833794;
 						};
-						class Item94
+						class Item93
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5747,7 +5784,7 @@ class Mission
 							type="Land_cargo_addon01_V2_F";
 							atlOffset=0.87709618;
 						};
-						class Item95
+						class Item94
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5765,7 +5802,7 @@ class Mission
 							type="Land_Pliers_F";
 							atlOffset=0.00037765503;
 						};
-						class Item96
+						class Item95
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5783,7 +5820,7 @@ class Mission
 							type="stelazh_ot_seregi";
 							atlOffset=2.8582115;
 						};
-						class Item97
+						class Item96
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5801,7 +5838,7 @@ class Mission
 							type="Land_NetFence_03_m_pole_F";
 							atlOffset=26.222862;
 						};
-						class Item98
+						class Item97
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5819,7 +5856,7 @@ class Mission
 							type="Land_NetFence_03_m_pole_F";
 							atlOffset=26.470898;
 						};
-						class Item99
+						class Item98
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5837,7 +5874,7 @@ class Mission
 							type="Land_NetFence_03_m_pole_F";
 							atlOffset=26.12694;
 						};
-						class Item100
+						class Item99
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5855,7 +5892,7 @@ class Mission
 							type="Land_NetFence_03_m_pole_F";
 							atlOffset=26.512695;
 						};
-						class Item101
+						class Item100
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5872,7 +5909,7 @@ class Mission
 							id=7593;
 							type="Land_Stethoscope_01_F";
 						};
-						class Item102
+						class Item101
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5889,7 +5926,7 @@ class Mission
 							type="Land_Axe_F";
 							atlOffset=0.65594101;
 						};
-						class Item103
+						class Item102
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5907,7 +5944,7 @@ class Mission
 							type="chashka_rja";
 							atlOffset=0.79940414;
 						};
-						class Item104
+						class Item103
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5925,7 +5962,7 @@ class Mission
 							type="kleshni";
 							atlOffset=0.65468979;
 						};
-						class Item105
+						class Item104
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5943,7 +5980,7 @@ class Mission
 							type="koverold";
 							atlOffset=26.520634;
 						};
-						class Item106
+						class Item105
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5961,7 +5998,7 @@ class Mission
 							type="lobzik";
 							atlOffset=0.036830902;
 						};
-						class Item107
+						class Item106
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5977,7 +6014,7 @@ class Mission
 							id=7642;
 							type="meshok2";
 						};
-						class Item108
+						class Item107
 						{
 							dataType="Object";
 							class PositionInfo
@@ -5995,7 +6032,7 @@ class Mission
 							type="pila";
 							atlOffset=0.64503479;
 						};
-						class Item109
+						class Item108
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6012,7 +6049,7 @@ class Mission
 							id=7640;
 							type="box_metal_9";
 						};
-						class Item110
+						class Item109
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6028,7 +6065,7 @@ class Mission
 							type="CUP_A2_bucket";
 							atlOffset=2.9423714;
 						};
-						class Item111
+						class Item110
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6044,7 +6081,7 @@ class Mission
 							type="buhlo1";
 							atlOffset=0.81253433;
 						};
-						class Item112
+						class Item111
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6060,7 +6097,7 @@ class Mission
 							id=7675;
 							type="buhlo1";
 						};
-						class Item113
+						class Item112
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6076,7 +6113,7 @@ class Mission
 							id=7676;
 							type="buhlo1";
 						};
-						class Item114
+						class Item113
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6094,7 +6131,7 @@ class Mission
 							type="derewobarik";
 							atlOffset=26.36025;
 						};
-						class Item115
+						class Item114
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6112,7 +6149,7 @@ class Mission
 							type="derewobarik";
 							atlOffset=0.070867538;
 						};
-						class Item116
+						class Item115
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6129,7 +6166,7 @@ class Mission
 							id=7648;
 							type="eye";
 						};
-						class Item117
+						class Item116
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6146,7 +6183,7 @@ class Mission
 							type="kastryla";
 							atlOffset=0.31919098;
 						};
-						class Item118
+						class Item117
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6163,7 +6200,7 @@ class Mission
 							type="land_keroslampa";
 							atlOffset=0.78943253;
 						};
-						class Item119
+						class Item118
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6181,7 +6218,7 @@ class Mission
 							type="kosti";
 							atlOffset=0.33710098;
 						};
-						class Item120
+						class Item119
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6197,7 +6234,7 @@ class Mission
 							type="CUP_A2_lekarnicka";
 							atlOffset=0.92195511;
 						};
-						class Item121
+						class Item120
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6213,7 +6250,7 @@ class Mission
 							id=7594;
 							type="littlerag";
 						};
-						class Item122
+						class Item121
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6229,7 +6266,7 @@ class Mission
 							type="littlerag";
 							atlOffset=0.010543823;
 						};
-						class Item123
+						class Item122
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6247,7 +6284,7 @@ class Mission
 							type="pechechkas";
 							atlOffset=26.4876;
 						};
-						class Item124
+						class Item123
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6264,7 +6301,7 @@ class Mission
 							type="shank";
 							atlOffset=0.81233597;
 						};
-						class Item125
+						class Item124
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6280,7 +6317,7 @@ class Mission
 							type="svecha";
 							atlOffset=0.81261444;
 						};
-						class Item126
+						class Item125
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6298,7 +6335,7 @@ class Mission
 							type="land_tarelochka";
 							atlOffset=0.81221771;
 						};
-						class Item127
+						class Item126
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6309,13 +6346,13 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RCaveDoctorKey""]]],[""class"",""Wicket""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RCaveDoctorKey""]]],[""class"",""Wicket""]]}";
 							};
 							id=7698;
 							type="tinfence";
 							atlOffset=26.359808;
 						};
-						class Item128
+						class Item127
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6332,7 +6369,7 @@ class Mission
 							type="torch";
 							atlOffset=0.64696121;
 						};
-						class Item129
+						class Item128
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6350,7 +6387,7 @@ class Mission
 							type="umivalnik1";
 							atlOffset=0.80893326;
 						};
-						class Item130
+						class Item129
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6367,7 +6404,7 @@ class Mission
 							type="ykritie";
 							atlOffset=0.0046329498;
 						};
-						class Item131
+						class Item130
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6385,7 +6422,7 @@ class Mission
 							type="ykritie";
 							atlOffset=0.070207596;
 						};
-						class Item132
+						class Item131
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6402,7 +6439,7 @@ class Mission
 							type="ykritie";
 							atlOffset=0.086502075;
 						};
-						class Item133
+						class Item132
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6420,7 +6457,7 @@ class Mission
 							type="Land_ShellCrater_01_F";
 							atlOffset=0.13993073;
 						};
-						class Item134
+						class Item133
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6438,7 +6475,7 @@ class Mission
 							type="stol_ebuchiy";
 							atlOffset=0.32710648;
 						};
-						class Item135
+						class Item134
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6455,7 +6492,7 @@ class Mission
 							type="MedicalGarbage_01_Bandage_F";
 							atlOffset=0.79078865;
 						};
-						class Item136
+						class Item135
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6472,7 +6509,7 @@ class Mission
 							type="S_Crutch";
 							atlOffset=0.43359184;
 						};
-						class Item137
+						class Item136
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6489,7 +6526,7 @@ class Mission
 							type="S_Crutch";
 							atlOffset=0.44636917;
 						};
-						class Item138
+						class Item137
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6506,7 +6543,7 @@ class Mission
 							id=11001;
 							type="CUP_A1_postel_panelak2";
 						};
-						class Item139
+						class Item138
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6522,7 +6559,7 @@ class Mission
 							type="blevanton1v2";
 							atlOffset=0.93284416;
 						};
-						class Item140
+						class Item139
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6538,7 +6575,7 @@ class Mission
 							id=11007;
 							type="blevanton1v2";
 						};
-						class Item141
+						class Item140
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6554,7 +6591,7 @@ class Mission
 							id=11008;
 							type="blevanton1v2";
 						};
-						class Item142
+						class Item141
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6570,25 +6607,7 @@ class Mission
 							id=11009;
 							type="blevanton1v2";
 						};
-						class Item143
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={4070.1492,34.597527,3652.9092};
-								angles[]={3.140563,0,0.006999658};
-							};
-							side="Empty";
-							flags=1;
-							class Attributes
-							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MediumRuinedWhiteConcreteWall""]]}";
-							};
-							id=12382;
-							type="Land_WallCity_01_8m_dmg_whiteblue_F";
-							atlOffset=0.79879379;
-						};
-						class Item144
+						class Item142
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6606,7 +6625,7 @@ class Mission
 							type="land_ganzazhelezo2";
 							atlOffset=0.099977493;
 						};
-						class Item145
+						class Item143
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6624,7 +6643,7 @@ class Mission
 							type="land_ganzazhelezo2";
 							atlOffset=2.1537361;
 						};
-						class Item146
+						class Item144
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6642,7 +6661,7 @@ class Mission
 							type="Land_TinWall_01_m_4m_v1_F";
 							atlOffset=0.54159164;
 						};
-						class Item147
+						class Item145
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6660,7 +6679,7 @@ class Mission
 							type="Land_WallCity_01_8m_plain_grey_F";
 							atlOffset=1.9449711;
 						};
-						class Item148
+						class Item146
 						{
 							dataType="Object";
 							class PositionInfo
@@ -6678,9 +6697,26 @@ class Mission
 							type="Land_WallCity_01_8m_plain_grey_F";
 							atlOffset=1.7042713;
 						};
+						class Item147
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4070.4744,33.54921,3652.917};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""a3\structures_f_argo\walls\city\wallcity_01_8m_plain_grey_f.p3d""]]],[""class"",""IStruct""]]}";
+							};
+							id=17580;
+							type="Land_WallCity_01_8m_plain_grey_F";
+							atlOffset=1.7359772;
+						};
 					};
 					id=5529;
-					atlOffset=2.0378418;
+					atlOffset=1.9987583;
 				};
 				class Item3
 				{
@@ -6713,8 +6749,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4059.4485,32.612995,3664.0845};
-								angles[]={0,0.62831849,0};
+								position[]={4059.4448,32.612995,3663.9893};
+								angles[]={0,3.7699139,0};
 							};
 							side="Empty";
 							flags=1;
@@ -7473,7 +7509,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={4050.6875,31.478287,3647.0601};
-								angles[]={0,0.052359924,-0};
+								angles[]={0,0.052359924,0};
 							};
 							side="Empty";
 							flags=1;
@@ -7508,7 +7544,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={4050.6929,31.520384,3651.7156};
-								angles[]={0,1.7881393e-007,-0};
+								angles[]={0,1.7881393e-007,0};
 							};
 							side="Empty";
 							flags=1;
@@ -9271,7 +9307,7 @@ class Mission
 					state=1;
 					class Entities
 					{
-						items=143;
+						items=145;
 						class Item0
 						{
 							dataType="Object";
@@ -9302,7 +9338,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RKitchenerKey""]]],[""class"",""WoodenDoor""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RKitchenerKey""]]],[""class"",""WoodenDoor""]]}";
 							};
 							id=6858;
 							type="Land_xlamdoor";
@@ -9320,7 +9356,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RKitchenerKey""]]],[""class"",""WoodenDoor""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RKitchenerKey""]]],[""class"",""WoodenDoor""]]}";
 							};
 							id=6860;
 							type="Land_xlamdoor";
@@ -10566,7 +10602,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SquareWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""FryingPan""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",71],[""""class"""",""""Paper""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",67],[""""class"""",""""Rag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Muka""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",55],[""""class"""",""""Egg""""]]}"",1]]]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SquareWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""FryingPan""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",71],[""""class"""",""""Paper""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",67],[""""class"""",""""Rag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Muka""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",55],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
 							};
 							id=7928;
 							type="Land_WoodenBox_02_F";
@@ -11617,7 +11653,7 @@ class Mission
 							};
 							id=7628;
 							type="Land_ShelvesWooden_F";
-							atlOffset=1.6534119;
+							atlOffset=2.2583466;
 						};
 						class Item136
 						{
@@ -11739,9 +11775,44 @@ class Mission
 							type="Land_BrickWall_04_l_5m_old_F";
 							atlOffset=0.91072083;
 						};
+						class Item143
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4040.0122,33.564404,3660.7637};
+								angles[]={0,1.5707963,-0};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Umivalnik""]]}";
+							};
+							id=17606;
+							type="umivalnik1";
+							atlOffset=1.1738968;
+						};
+						class Item144
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4039.8936,33.021126,3660.1079};
+								angles[]={0.0025135824,0,0.001035801};
+							};
+							side="Empty";
+							flags=4;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenBucket""]]}";
+							};
+							id=17607;
+							type="CUP_A2_bucket_ep1";
+						};
 					};
 					id=5532;
-					atlOffset=0.54960632;
+					atlOffset=0.95573425;
 				};
 				class Item7
 				{
@@ -11750,7 +11821,7 @@ class Mission
 					state=1;
 					class Entities
 					{
-						items=10;
+						items=14;
 						class Item0
 						{
 							dataType="Layer";
@@ -12205,7 +12276,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RGuardKey""]]],[""class"",""SteelGridDoor""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RGuardKey""]]],[""class"",""SteelGridDoor""]]}";
 									};
 									id=5746;
 									type="reshetka";
@@ -12419,7 +12490,7 @@ class Mission
 									side="Empty";
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""class"",""OldWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""Torch""""]]}"",1]]]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""class"",""OldWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""RopeItem""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
 									};
 									id=5629;
 									type="land_tarkov_wood";
@@ -12437,7 +12508,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RGuardKey""]]],[""class"",""Wicket""],[""mark"",""Калитка""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RGuardKey""]]],[""class"",""Wicket""],[""mark"",""Калитка""]]}";
 									};
 									id=5107;
 									type="tinfence";
@@ -12780,7 +12851,7 @@ class Mission
 									};
 									id=10474;
 									type="Land_WoodenTable_small_F";
-									atlOffset=0.57168007;
+									atlOffset=0.57164574;
 								};
 								class Item38
 								{
@@ -12820,7 +12891,7 @@ class Mission
 								};
 							};
 							id=10480;
-							atlOffset=0.68390274;
+							atlOffset=0.68384171;
 						};
 						class Item3
 						{
@@ -12863,18 +12934,18 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4033.8652,31.914574,3670.9578};
+								position[]={4033.8652,32.221104,3670.9578};
 								angles[]={0,6.195919,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""StoneWall""]]}";
 							};
 							id=11114;
 							type="Land_Stone_4m_F";
-							atlOffset=0.84113503;
+							atlOffset=0.069662094;
 						};
 						class Item6
 						{
@@ -12917,7 +12988,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4031.25,34.159111,3667.25};
+								position[]={4030.2585,34.159111,3667.25};
 								angles[]={0,4.7124181,4.712389};
 							};
 							side="Empty";
@@ -12948,9 +13019,81 @@ class Mission
 							type="Land_NetFence_03_m_pole_F";
 							atlOffset=0.40139961;
 						};
+						class Item10
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4029.5747,33.761711,3657.8865};
+								angles[]={0,4.6425815,0};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""LargeConcreteWallWithReinforcement""]]}";
+							};
+							id=17586;
+							type="Land_Canal_WallSmall_10m_F";
+							atlOffset=3.6227894;
+						};
+						class Item11
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4047.6155,31.50868,3665.4316};
+								angles[]={6.2815661,0,0.0065963282};
+							};
+							side="Empty";
+							flags=4;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Bucket""]]}";
+							};
+							id=17611;
+							type="CUP_A2_bucket";
+							atlOffset=0.035327911;
+						};
+						class Item12
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4048.3625,31.729532,3665.4917};
+								angles[]={6.262702,6.2813959,0.015304545};
+							};
+							side="Empty";
+							flags=4;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenBucket""]]}";
+							};
+							id=17610;
+							type="CUP_A2_bucket_ep1";
+							atlOffset=0.10569572;
+						};
+						class Item13
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={4046.3477,32.276424,3666.7583};
+								angles[]={0,0.78539819,-0};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Umivalnik""]]}";
+							};
+							id=17612;
+							type="umivalnik1";
+							atlOffset=26.485519;
+						};
 					};
 					id=5528;
-					atlOffset=1.7877254;
+					atlOffset=0.19952583;
 				};
 				class Item8
 				{
@@ -13083,7 +13226,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""islocked"",true],[""preinit@__keytypesstr"",""RChiefKey, RLighterKey""]]],[""class"",""WoodenDoor""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__keytypesstr"",""RChiefKey, RLighterKey""]]],[""class"",""WoodenDoor""]]}";
 									};
 									id=10513;
 									type="Land_xlamdoor";
@@ -13356,7 +13499,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Предметы";
-							state=1;
 							class Entities
 							{
 								items=4;
@@ -13383,40 +13525,39 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={4037.7251,33.391113,3673.7224};
+										position[]={4037.6069,33.39233,3673.7122};
 									};
 									side="Empty";
-									flags=1;
+									flags=5;
 									class Attributes
 									{
 										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""OlderWoodenCup""]]}";
 									};
 									id=10524;
 									type="kryjka";
-									atlOffset=0.86205673;
 								};
 								class Item2
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={4036.8708,33.484615,3673.7927};
+										position[]={4038.0664,33.408741,3673.9395};
 									};
 									side="Empty";
+									flags=4;
 									class Attributes
 									{
 										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Candle""]]}";
 									};
 									id=10522;
 									type="svecha";
-									atlOffset=0.93279266;
 								};
 								class Item3
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={4037.1074,33.451019,3673.6365};
+										position[]={4038.7368,33.342495,3673.5364};
 										angles[]={0,0.48947603,0};
 									};
 									side="Empty";
@@ -13430,11 +13571,11 @@ class Mission
 								};
 							};
 							id=10526;
-							atlOffset=0.92956543;
+							atlOffset=0.00012969971;
 						};
 					};
 					id=10483;
-					atlOffset=0.28073502;
+					atlOffset=0.34253693;
 				};
 				class Item9
 				{
@@ -13680,7 +13821,7 @@ class Mission
 				};
 			};
 			id=4117;
-			atlOffset=1.1534958;
+			atlOffset=0.83082199;
 		};
 		class Item4
 		{
@@ -21542,7 +21683,7 @@ class Mission
 						};
 					};
 					id=6353;
-					atlOffset=3.9177094;
+					atlOffset=3.9320526;
 				};
 				class Item2
 				{
@@ -24481,7 +24622,6 @@ class Mission
 		{
 			dataType="Layer";
 			name="Рубцы";
-			state=1;
 			class Entities
 			{
 				items=5;
@@ -25933,7 +26073,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""class"",""SquareWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""Torch""""]]}"",2],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Rag""""]]}"",1]]]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""class"",""SquareWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""Rag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""TorchDisabled""""]]}"",2],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""TorchDisabled""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""TorchDisabled""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",50],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
 							};
 							id=6004;
 							type="Land_WoodenBox_02_F";
@@ -29295,7 +29435,7 @@ class Mission
 					name="Предметы";
 					class Entities
 					{
-						items=2;
+						items=3;
 						class Item0
 						{
 							dataType="Object";
@@ -29330,13 +29470,30 @@ class Mission
 							type="Land_ChairWood_F";
 							atlOffset=17.943485;
 						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3988.2786,18.125347,3726.3237};
+								angles[]={6.0240841,1.8361348,4.9903841};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""prob"",50],[""class"",""Shovel""]]}";
+							};
+							id=17562;
+							type="Land_Shovel_F";
+							atlOffset=0.42551422;
+						};
 					};
 					id=12011;
-					atlOffset=17.946367;
+					atlOffset=1.1932087;
 				};
 			};
 			id=5741;
-			atlOffset=1.71731;
+			atlOffset=1.7385387;
 		};
 		class Item7
 		{
@@ -39509,7 +39666,7 @@ class Mission
 							side="Empty";
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ca\structures\nav_boathouse\nav_boathouse_piert.p3d""]]],[""class"",""IStruct""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""LongBoardsOnStilts""]]}";
 							};
 							id=8976;
 							type="14_pier_14_nav_boathouse_piert";
@@ -42522,6 +42679,7 @@ class Mission
 				{
 					dataType="Layer";
 					name="Лут";
+					state=1;
 					class Entities
 					{
 						items=9;
@@ -45856,7 +46014,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Контейнеры";
-							state=1;
 							class Entities
 							{
 								items=71;
@@ -45883,24 +46040,6 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={3846.0005,10.635599,3591.6929};
-										angles[]={0,3.4906669,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11400;
-									type="box_wood_close";
-									atlOffset=5.2244415;
-								};
-								class Item2
-								{
-									dataType="Object";
-									class PositionInfo
-									{
 										position[]={3839.7988,14.944413,3586.7134};
 										angles[]={0,5.0614552,0};
 									};
@@ -45914,7 +46053,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=3.9486799;
 								};
-								class Item3
+								class Item2
 								{
 									dataType="Object";
 									class PositionInfo
@@ -45931,7 +46070,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=3.3117094;
 								};
-								class Item4
+								class Item3
 								{
 									dataType="Object";
 									class PositionInfo
@@ -45949,7 +46088,7 @@ class Mission
 									type="sundugan";
 									atlOffset=0.056715012;
 								};
-								class Item5
+								class Item4
 								{
 									dataType="Object";
 									class PositionInfo
@@ -45966,25 +46105,7 @@ class Mission
 									type="box";
 									atlOffset=4.0229378;
 								};
-								class Item6
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3926.6914,10.632366,3544.4487};
-										angles[]={0,3.141602,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",50],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",10],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",10],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",20],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",10],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",10],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",20],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",20],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",5],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",5],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",5],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",5],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",2],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11437;
-									type="box_wood_close";
-									atlOffset=0.74932384;
-								};
-								class Item7
+								class Item5
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46001,7 +46122,7 @@ class Mission
 									type="box";
 									atlOffset=3.3685932;
 								};
-								class Item8
+								class Item6
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46019,7 +46140,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=0.17353439;
 								};
-								class Item9
+								class Item7
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46037,7 +46158,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=3.3892841;
 								};
-								class Item10
+								class Item8
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46055,25 +46176,7 @@ class Mission
 									type="sundugan";
 									atlOffset=3.5508442;
 								};
-								class Item11
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3755.5933,27.070829,3540.7209};
-										angles[]={0,1.8326054,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11601;
-									type="box_wood_close";
-									atlOffset=3.3289833;
-								};
-								class Item12
+								class Item9
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46090,25 +46193,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=2.7968636;
 								};
-								class Item13
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3751.4375,24.649279,3554.8064};
-										angles[]={0,0.2618092,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11603;
-									type="box_wood_close";
-									atlOffset=1.4139366;
-								};
-								class Item14
+								class Item10
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46125,7 +46210,7 @@ class Mission
 									type="box";
 									atlOffset=3.3279438;
 								};
-								class Item15
+								class Item11
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46143,7 +46228,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=5.4272633;
 								};
-								class Item16
+								class Item12
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46161,7 +46246,7 @@ class Mission
 									type="meshok2";
 									atlOffset=1.1260757;
 								};
-								class Item17
+								class Item13
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46179,7 +46264,7 @@ class Mission
 									type="meshok2";
 									atlOffset=4.3504887;
 								};
-								class Item18
+								class Item14
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46196,7 +46281,7 @@ class Mission
 									type="box";
 									atlOffset=5.1433754;
 								};
-								class Item19
+								class Item15
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46213,7 +46298,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=4.7970228;
 								};
-								class Item20
+								class Item16
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46231,7 +46316,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=4.7351112;
 								};
-								class Item21
+								class Item17
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46249,43 +46334,7 @@ class Mission
 									type="sundugan";
 									atlOffset=0.012243271;
 								};
-								class Item22
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3750.9895,10.349048,3451.5103};
-										angles[]={0,1.4835396,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11632;
-									type="box_wood_close";
-									atlOffset=4.9378901;
-								};
-								class Item23
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3749.9556,16.109753,3477.9436};
-										angles[]={0.08726646,2.9670765,0};
-									};
-									side="Empty";
-									flags=5;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11633;
-									type="box_wood_close";
-									atlOffset=0.020025253;
-								};
-								class Item24
+								class Item18
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46302,7 +46351,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=0.675704;
 								};
-								class Item25
+								class Item19
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46319,7 +46368,7 @@ class Mission
 									type="box";
 									atlOffset=0.67523575;
 								};
-								class Item26
+								class Item20
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46337,25 +46386,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=0.16670322;
 								};
-								class Item27
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3820.7925,10.401291,3387.533};
-										angles[]={0,4.7124052,0};
-									};
-									side="Empty";
-									flags=5;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11642;
-									type="box_wood_close";
-									atlOffset=0.039848328;
-								};
-								class Item28
+								class Item21
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46372,7 +46403,7 @@ class Mission
 									type="box";
 									atlOffset=1.2566338;
 								};
-								class Item29
+								class Item22
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46389,7 +46420,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=1.2856541;
 								};
-								class Item30
+								class Item23
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46407,7 +46438,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=1.3147001;
 								};
-								class Item31
+								class Item24
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46425,7 +46456,7 @@ class Mission
 									type="sundugan";
 									atlOffset=1.3243914;
 								};
-								class Item32
+								class Item25
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46437,13 +46468,13 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
 									};
 									id=11647;
 									type="box_wood_close";
 									atlOffset=3.6407566;
 								};
-								class Item33
+								class Item26
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46460,25 +46491,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=1.3161716;
 								};
-								class Item34
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3827.2351,15.499514,3435.2739};
-										angles[]={0,3.4906669,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11654;
-									type="box_wood_close";
-									atlOffset=3.1279774;
-								};
-								class Item35
+								class Item27
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46496,25 +46509,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=3.2404566;
 								};
-								class Item36
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3814.304,15.282429,3458.6057};
-										angles[]={0,6.1959295,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11656;
-									type="box_wood_close";
-									atlOffset=3.7880602;
-								};
-								class Item37
+								class Item28
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46531,7 +46526,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=0.69159508;
 								};
-								class Item38
+								class Item29
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46549,25 +46544,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=0.47174549;
 								};
-								class Item39
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3903.3782,11.190578,3553.7769};
-										angles[]={0,3.141602,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11661;
-									type="box_wood_close";
-									atlOffset=0.60901451;
-								};
-								class Item40
+								class Item30
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46584,7 +46561,7 @@ class Mission
 									type="box";
 									atlOffset=3.1586828;
 								};
-								class Item41
+								class Item31
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46602,7 +46579,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=0.026608467;
 								};
-								class Item42
+								class Item32
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46620,7 +46597,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=5.426755;
 								};
-								class Item43
+								class Item33
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46638,25 +46615,7 @@ class Mission
 									type="sundugan";
 									atlOffset=3.2735701;
 								};
-								class Item44
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3933.6704,10.559445,3493.4548};
-										angles[]={0,3.4906669,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11666;
-									type="box_wood_close";
-									atlOffset=5.1482878;
-								};
-								class Item45
+								class Item34
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46673,7 +46632,7 @@ class Mission
 									type="box";
 									atlOffset=3.2820253;
 								};
-								class Item46
+								class Item35
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46691,25 +46650,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=0.15089321;
 								};
-								class Item47
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3904.009,11.555501,3502.271};
-										angles[]={0,0.52360862,0};
-									};
-									side="Empty";
-									flags=5;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11671;
-									type="box_wood_close";
-									atlOffset=0.018035889;
-								};
-								class Item48
+								class Item36
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46726,7 +46667,7 @@ class Mission
 									type="box";
 									atlOffset=0.75173092;
 								};
-								class Item49
+								class Item37
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46743,7 +46684,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=0.82515049;
 								};
-								class Item50
+								class Item38
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46761,7 +46702,7 @@ class Mission
 									type="shkafsin";
 									atlOffset=0.20380592;
 								};
-								class Item51
+								class Item39
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46779,25 +46720,7 @@ class Mission
 									type="sundugan";
 									atlOffset=5.0210428;
 								};
-								class Item52
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={3848.343,11.645949,3448.0447};
-										angles[]={0.2617994,3.4906676,0};
-									};
-									side="Empty";
-									flags=1;
-									class Attributes
-									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Crutch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""Torch""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1]]]]}";
-									};
-									id=11676;
-									type="box_wood_close";
-									atlOffset=1.180728;
-								};
-								class Item53
+								class Item40
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46814,7 +46737,7 @@ class Mission
 									type="CUP_Dhangar_borwnskrin";
 									atlOffset=3.2943068;
 								};
-								class Item54
+								class Item41
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46832,7 +46755,7 @@ class Mission
 									type="meshok2";
 									atlOffset=5.5243378;
 								};
-								class Item55
+								class Item42
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46850,7 +46773,7 @@ class Mission
 									type="meshok2";
 									atlOffset=0.75866508;
 								};
-								class Item56
+								class Item43
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46868,7 +46791,7 @@ class Mission
 									type="meshok2";
 									atlOffset=0.095297813;
 								};
-								class Item57
+								class Item44
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46886,7 +46809,7 @@ class Mission
 									type="meshok2";
 									atlOffset=0.3133812;
 								};
-								class Item58
+								class Item45
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46904,7 +46827,7 @@ class Mission
 									type="meshok2";
 									atlOffset=0.39313889;
 								};
-								class Item59
+								class Item46
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46922,7 +46845,7 @@ class Mission
 									type="meshok2";
 									atlOffset=0.049663544;
 								};
-								class Item60
+								class Item47
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46940,7 +46863,7 @@ class Mission
 									type="Land_WoodenBox_02_F";
 									atlOffset=0.077647209;
 								};
-								class Item61
+								class Item48
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46957,7 +46880,7 @@ class Mission
 									type="Land_WoodenBox_F";
 									atlOffset=2.4684629;
 								};
-								class Item62
+								class Item49
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46975,7 +46898,7 @@ class Mission
 									type="box_metal_9";
 									atlOffset=0.08114624;
 								};
-								class Item63
+								class Item50
 								{
 									dataType="Object";
 									class PositionInfo
@@ -46993,7 +46916,7 @@ class Mission
 									type="Land_WoodenBox_F";
 									atlOffset=0.055221558;
 								};
-								class Item64
+								class Item51
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47011,7 +46934,7 @@ class Mission
 									type="box_metal_9";
 									atlOffset=1.4340248;
 								};
-								class Item65
+								class Item52
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47028,7 +46951,7 @@ class Mission
 									type="Land_WoodenBox_F";
 									atlOffset=1.8505535;
 								};
-								class Item66
+								class Item53
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47046,7 +46969,7 @@ class Mission
 									type="box_metal_9";
 									atlOffset=0.13210869;
 								};
-								class Item67
+								class Item54
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47063,7 +46986,7 @@ class Mission
 									type="Land_WoodenBox_F";
 									atlOffset=0.44030571;
 								};
-								class Item68
+								class Item55
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47081,7 +47004,7 @@ class Mission
 									type="box_metal_9";
 									atlOffset=0.38116646;
 								};
-								class Item69
+								class Item56
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47098,7 +47021,7 @@ class Mission
 									type="Land_WoodenBox_F";
 									atlOffset=4.9407473;
 								};
-								class Item70
+								class Item57
 								{
 									dataType="Object";
 									class PositionInfo
@@ -47116,9 +47039,241 @@ class Mission
 									type="box_metal_9";
 									atlOffset=0.18027496;
 								};
+								class Item58
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3827.3308,15.504567,3435.1687};
+										angles[]={0,3.4906669,0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17592;
+									type="box_wood_close";
+									atlOffset=3.0966949;
+								};
+								class Item59
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3848.3213,11.582761,3448.2007};
+										angles[]={0.17518608,3.4754765,6.197248};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17593;
+									type="box_wood_close";
+									atlOffset=1.116334;
+								};
+								class Item60
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3846.0854,10.645918,3591.7349};
+										angles[]={0,3.4906669,0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17594;
+									type="box_wood_close";
+									atlOffset=5.2347603;
+								};
+								class Item61
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3926.709,10.666876,3544.4207};
+										angles[]={0,3.1416023,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17595;
+									type="box_wood_close";
+									atlOffset=0.58900547;
+								};
+								class Item62
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3755.4023,27.069157,3540.5349};
+										angles[]={0,1.6580789,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17596;
+									type="box_wood_close";
+									atlOffset=3.3272343;
+								};
+								class Item63
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3751.3889,24.671539,3554.5664};
+										angles[]={0,0.26181585,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17597;
+									type="box_wood_close";
+									atlOffset=1.4378262;
+								};
+								class Item64
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3751.0237,10.348602,3451.4553};
+										angles[]={0,1.3962731,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17598;
+									type="box_wood_close";
+									atlOffset=4.9374447;
+								};
+								class Item65
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3749.9158,16.088699,3477.9895};
+										angles[]={0.08726646,2.9670691,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17599;
+									type="box_wood_close";
+									atlOffset=1.7538853;
+								};
+								class Item66
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3820.5203,10.296357,3387.6179};
+										angles[]={0,4.7124028,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17600;
+									type="box_wood_close";
+									atlOffset=0.53883934;
+								};
+								class Item67
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3814.2327,15.345081,3458.6851};
+										angles[]={0,2.9670691,-0};
+									};
+									side="Empty";
+									flags=5;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17601;
+									type="box_wood_close";
+								};
+								class Item68
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3903.3489,11.156658,3553.7493};
+										angles[]={0,2.9670691,-0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17602;
+									type="box_wood_close";
+									atlOffset=0.57532787;
+								};
+								class Item69
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3933.6182,10.824478,3493.3816};
+										angles[]={0,3.4906669,0};
+									};
+									side="Empty";
+									flags=1;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17603;
+									type="box_wood_close";
+									atlOffset=5.4133205;
+								};
+								class Item70
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3904.1433,11.63266,3502.2395};
+										angles[]={0,3.4906669,0};
+									};
+									side="Empty";
+									flags=5;
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",100]]],[""prob"",75],[""class"",""BoardWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bone""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BoneStraightener""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""BrushCleaner""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Calculator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""CampfireCreator""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""BalaclavaMask2""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""FaceCoverMask""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""NomadCloth4""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoolCoat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CuttingBoard""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""Forceps""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""CoinBag""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Bread""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Egg""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Melteshonok""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""SaltShaker""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""WorkingAxe""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""CombatKnife""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""ShortSword""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",25],[""""class"""",""""Book""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",15],[""""class"""",""""PistolHandmade""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MetalCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""WoodenCup""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""SoupPlate""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""MatchBox""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",30],[""""class"""",""""NeedleWithThreads""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",35],[""""class"""",""""TorchDisabled""""]]}"",1]]]]}";
+									};
+									id=17605;
+									type="box_wood_close";
+								};
 							};
 							id=11428;
-							atlOffset=0.8799963;
+							atlOffset=0.57656479;
 						};
 						class Item3
 						{
@@ -47690,11 +47845,11 @@ class Mission
 						};
 					};
 					id=11389;
-					atlOffset=9.0720501;
+					atlOffset=9.0745049;
 				};
 			};
 			id=5533;
-			atlOffset=7.2111168;
+			atlOffset=7.2123442;
 		};
 		class Item9
 		{
@@ -54797,7 +54952,7 @@ class Mission
 					flags=1;
 					class Attributes
 					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_exodusnew\virusbratan.p3d""]]],[""class"",""IStruct""]]}";
+						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Wheelchair""]]}";
 					};
 					id=6808;
 					type="land_VirusBratan";
@@ -55319,7 +55474,7 @@ class Mission
 					side="Empty";
 					class Attributes
 					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""relicta_models\models\weapons\melee\swordxach\swordxach.p3d""]]],[""class"",""IStruct""]]}";
+						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SwordScimitar""]]}";
 					};
 					id=9677;
 					type="swordxach";
@@ -59062,17 +59217,69 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3988.2786,18.125347,3726.3237};
-				angles[]={6.0240841,1.8361348,4.9903841};
+				position[]={4025.5757,21.405605,3759.4451};
+				angles[]={0,1.5707963,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Umivalnik""]]}";
+			};
+			id=17613;
+			type="umivalnik1";
+			atlOffset=0.084264755;
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4024.437,20.875105,3760.3569};
+				angles[]={0.0069312002,0,0.0056733228};
 			};
 			side="Empty";
 			class Attributes
 			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""prob"",50],[""class"",""Shovel""]]}";
+				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenBucket""]]}";
 			};
-			id=17562;
-			type="Land_Shovel_F";
-			atlOffset=0.42551422;
+			id=17614;
+			type="CUP_A2_bucket_ep1";
+			atlOffset=15.64389;
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4025.5957,20.603582,3755.7307};
+				angles[]={6.2570286,6.2809043,0.048712682};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Bucket""]]}";
+			};
+			id=17615;
+			type="CUP_A2_bucket";
+			atlOffset=15.603582;
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4022.6321,20.87133,3759.79};
+				angles[]={0.0016194459,0,6.2765889};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenBucket""]]}";
+			};
+			id=17616;
+			type="CUP_A2_bucket_ep1";
+			atlOffset=15.640116;
 		};
 	};
 };

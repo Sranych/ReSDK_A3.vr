@@ -13,6 +13,9 @@ class(StreetLamp) extends(ElectronicDeviceLighting)
 	var(lightIsEnabled,false);
 	//var(model,"a3\structures_f_enoch\infrastructure\lamps\lampindustrial_01_f.p3d"); //"Land_LampIndustrial_01_F"
 	var(model,"a3\structures_f\civ\lamps\lampshabby_off_f.p3d"); //"Land_LampShabby_F"
+	var(material,"MatWood");
+	getterconst_func(getCoefAutoWeight,1.5);
+	var(dr,2);
 	var(edReqPower,12); //сколько требует электричества в 1 сек
 	//getter_func(isEnabled,getSelf(lightIsEnabled));
 	//var(edIsEnabled,false);
@@ -65,11 +68,15 @@ class(LampCeiling) extends(StreetLampEnabled)
 	var(edReqPower,50);
 	var(light,LIGHT_LAMP_CEILING);
 	var(model,"atmobjects\lamps\data\model\lamp_tarelka.p3d")
+	var(material,"MatMetal");
+	getterconst_func(getCoefAutoWeight,80);
+	var(dr,1);
 endclass
 
 editor_attribute("EditorGenerated")
 class(Chandelier) extends(LampCeiling)
 	var(model,"ml\ml_object_new\shabbat\lustra.p3d");
+	getterconst_func(getCoefAutoWeight,200);
 endclass
 
 //для бара свет
@@ -79,6 +86,9 @@ endclass
 
 class(LampWall) extends(StreetLampEnabled)
 	var(name,"Лампа");
+	var(material,"MatGlass");
+	getterconst_func(getCoefAutoWeight,80);
+	var(dr,1);
 	var(edReqPower,50);
 	var(light,LIGHT_LAMP_WALL);
 	var(model,"atmobjects\lamps\data\model\lamp_stena.p3d");

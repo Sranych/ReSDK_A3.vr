@@ -47,6 +47,14 @@ onGameKeyInputs = {
 	//if (_key == KEY_ESCAPE) exitWith {
 	//	[false] call esc_openMenu;
 	//};
+
+	//TODO add debug console executor with comments fix
+	// #ifdef EDITOR
+	// if (_key == KEY_P) exitWith {
+	// 	call compile (profileNamespace getVariable 'rscdebugconsole_expression')
+	// };
+	// #endif
+
 	_kupc = unpackKeyData(_this);
 
 	#define isPressed(var) isPressedKey(_kupc,var)
@@ -75,6 +83,8 @@ onGameKeyInputs = {
 	};
 
 	if (!([] call interact_isActive)) exitWith {};
+	
+	if (craft_isPreviewEnabled) exitWith {};
 
 	if isPressed(input_act_switchTwoHands) exitWith {call inventory_changeTwoHandsMode};
 	if isPressed(input_act_pointTo) exitWith {call interact_pointTo};
@@ -107,6 +117,7 @@ onGameKeyInputs = {
 	};
 	if isPressed(input_act_combatMode) exitWith {
 		if (call smd_isStunned) exitWith {};
+		if (call input_passThroughWallsProtect) exitWith {};
 		[!([player] call smd_isCombatModeEnabled)] call interact_setCombatMode;
 	};
 
@@ -156,6 +167,11 @@ onGameMouseInputs = {
 	params ["","_button", "", "", "_shift", "_ctrl", "_alt"];
 
 	if (isDisplayOpen || call smd_isStunned || !([] call interact_isActive)) exitWith {false};
+	if (craft_isPreviewEnabled) exitWith {};
+
+	#ifdef EDITOR
+	if ([_button,_shift,_ctrl,_alt] call inputDebug_handleMouseEvent) exitWith {false};
+	#endif
 
 	if (_button == MOUSE_LEFT) exitwith {
 		[true] call interact_onLMBPress

@@ -23,9 +23,9 @@ nodeModule_popPath(1)
 nodeModule_addPath("Отладка")
 
 
-["isEditor","Это редактор","\n#ifdef EDITOR\ntrue\n#else\nfalse\n#endif\n","bool:Редактор" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в редакторе."] reg_nular
-["isDebug","Это дебаг","\n#ifdef DEBUG\ntrue\n#else\nfalse\n#endif\n","bool:Дебаг" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в отладочной сборке."] reg_nular
-["isRelease","Это релиз","\n#ifdef RELEASE\ntrue\n#else\nfalse\n#endif\n","bool:Релиз" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в релизной сборке."] reg_nular
+["isEditor","Это редактор","__GLOBAL_MACRO_RESDK_EDITOR__","bool:Редактор" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в редакторе."] reg_nular
+["isDebug","Это дебаг","__GLOBAL_MACRO_RESDK_DEBUG__","bool:Дебаг" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в отладочной сборке."] reg_nular
+["isRelease","Это релиз","__GLOBAL_MACRO_RESDK_RELEASE__","bool:Релиз" opt "mul=1","Возвращает @[bool ИСТИНУ], если текущий граф выполняется в релизной сборке."] reg_nular
 
 nodeModule_setExecType("all")
 nodeModule_setColorStyle("Function")
@@ -40,7 +40,7 @@ nodeModule_addPath("Консоль")
 nodeModule_setExecType("all")
 nodeModule_setColorStyle("Function")
 
-["consoleLogGeneric","Лог в консоль","[@in.1,@in.2,[@genport.in.3(,)]] call renode_print; @out.1",
+["consoleLogGeneric","Лог в консоль","[@in.2,@in.3,[@genport.in.4(,)]] call renode_print; @out.1",
 	"string:Сообщение:Текст сообщения. Для отображения данных используйте '%1' в сообщении. Например, для переменной, подключенной в данные 3 вставьте в строку '%3'.",
 	"enum.ConsoleLogType:Тип:Тип сообщения, характеризующий внешний вид сообщения - цвет, префикс. Обратите внимание, что в релизной сборке трассировочные сообщения не выводятся в консоли." + endl +
 	"in:void:Данные 1:Любые дополнительные данные для вывода." 
@@ -49,4 +49,24 @@ nodeModule_setColorStyle("Function")
 	"runtimeports:1"
 	,
 	null, "Выводит сообщение в консоль."
+] reg_binary
+
+
+nodeModule_popPath(1)
+nodeModule_addPath("Файлы")
+
+nodeModule_setColorStyle("PureFunction")
+nodeModule_setExecType("pure")
+["fileExists","Файл существует","[@in.1] call fileExists_Node",
+	"string:Файл:Путь к файлу.",
+	"bool:Существует:Существует ли файл. Возвращает @[bool ИСТИНУ], если файл существует.", 
+	"Проверяет существование файла."
+] reg_unary
+
+["fileLoad","Загрузить файл","[@in.1,@in.2] call fileLoad_Node",
+	"string:Файл:Путь к файлу.",
+	"bool:Препроцесс:Возвращает @[bool ИСТИНУ], если файл загружен."
+		opt "def=false:require=-1",
+	"string:Содержимое:Содержимое файла. Возвращает пустую строку, если файл не загружен.",
+	"Загружает файл в в переменную. Возвращает пустую строку, если файл не загружен."
 ] reg_binary

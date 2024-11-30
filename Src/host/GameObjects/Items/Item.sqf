@@ -13,13 +13,14 @@
 
 #define DEBUG_TARG
 
-//NOCATEGITEMS
-//не расскоменитровывать пока не будет структурировано
-//#include "NOGATEG.sqf"
-
 editor_attribute("InterfaceClass")
 editor_attribute("ColorClass" arg "44C242")
 class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
+	"
+		name:Предмет
+		desc:Базовый игровой предмет
+		path:Игровые объекты.Предметы
+	" node_class
 
 	getter_func(getAbstractName,"Предмет");
 
@@ -31,16 +32,20 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 	getterconst_func(getChunkType,CHUNK_TYPE_ITEM);
 	getter_func(isItem,true);
 
+	getter_func(canApplyDamage,true);
+
 	verbList("pickup twohands",GameObject);
 	editor_attribute("EditorVisible" arg "custom_provider:size") editor_attribute("Tooltip" arg "Размер предмета")
 	var(size,ITEM_SIZE_TINY);//объём предмета
 
-	editor_attribute("ReadOnly")
+	
 	var(loc,objNull); //локация объекта. Данное поле по соглашению публично только для чтения. Установка значения ТОЛЬКО через setLoc()
 	editor_attribute("InternalImpl")
 	var(slot,-1); //если loc==mob тогда slot айди слота инвентаря
 
 	getterconst_func(isRadio,false);
+
+	getter_func(isMovable,true);
 
 	getterconst_func(canPickup,true); //можно ли поднять предмет
 	editor_attribute("EditorVisible" arg "custom_provider:allowedSlots") editor_attribute("Tooltip" arg "В какие слоты может быть назначен предмет")
@@ -65,6 +70,7 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 	//последний владелец который брал предмет
 	editor_attribute("InternalImpl")
 	var(lastAttLoc,vec2(nullPtr,ATTACK_TYPE_SWING));
+	getter_func(getLastTouched,getSelf(lastAttLoc) select 0); //кто последний трогал предмет
 	getter_func(getAttacksTypeAssoc,ATTACK_TYPE_ASSOC_SWING_ONLY);
 
 	//проигрывает звук из категории
@@ -120,7 +126,7 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 		//на всякий случай ассертим путь
 		#ifdef EDITOR
 		if (isNullVar(_m) || {not_equalTypes(_m,"")}) exitWith {
-			errorformat("%1 %2 %3",this arg _m arg getSelf(model));
+			errorformat("Constructor error; Cant find model for %1; Model was %2 [%3]",this arg _m arg getSelf(model));
 			appExit(APPEXIT_REASON_COMPILATIOEXCEPTION);
 		};
 		#endif
@@ -132,14 +138,14 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 		
 		setSelf(icon,"gen\"+(_m splitString "\/." joinString "+"));
 		
-		private _bbx = core_modelBBX get _m;
-		if isNullVar(_bbx) exitWith {
-			/////errorformat("Cant get bbx by model path %1",_m);
-		};
-		setSelf(size,_bbx call generateItemSize);
-		#ifdef EDITOR
-			setSelf(bbx,_bbx);
-		#endif
+		// private _bbx = core_modelBBX get _m;
+		// if isNullVar(_bbx) exitWith {
+		// 	/////errorformat("Cant get bbx by model path %1",_m);
+		// };
+		// setSelf(size,_bbx call generateItemSize);
+		// #ifdef EDITOR
+		// 	setSelf(bbx,_bbx);
+		// #endif
 	};
 
 	//процедура синхронизации иконки
@@ -194,6 +200,39 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 		if (_vlinear < .7)  exitWith {ITEM_SIZE_BIG + _addFromRadius};
 		ITEM_SIZE_HUGE
 	};
+	#ifdef EDITOR
+	generateItemInfoList = {
+		private _data = [];
+		private _sizeConst = ["ITEM_SIZE_TINY","ITEM_SIZE_SMALL","ITEM_SIZE_MEDIUM","ITEM_SIZE_LARGE","ITEM_SIZE_BIG","ITEM_SIZE_HUGE"];
+		_getPathinfo = {
+			params [["_file","unknown_file"],["_line",0]];
+			format["file: %1 at line %2",SHORT_PATH_CUSTOM(_file),_line]
+		};
+		{
+			private _class = _x;
+			traceformat("Process class %1",_class);
+			private _w = getFieldBaseValue(_class,"weight");
+			private _nargs = [null,null,null,null,null,null,null];
+			private _obj = instantiateParams(_class,_nargs);
+			assert_str(!isNullReference(_obj),"Null ref " + _class);
+			private _size = getVar(_obj,size);
+			assert_str(!isNullVar(_size) && {inRange(_size,ITEM_SIZE_TINY,ITEM_SIZE_HUGE)},"cant define size for " + _size);
+			private _name = getVar(_obj,name);
+			
+			_data pushBack (format["%1 (%2)::%3"+
+				"%4decl: %5%3"+
+				"%4size: %6 (%7) (const: %8)%3"+
+				"%4weight: %9 kg (const:%10)",
+				_class, _name,endl,toString[9],
+				(typeGetFromObject(_obj) getvariable "__decl_info__") call _getPathinfo,
+				_sizeConst select (_size-1),_size,([_class,"size",false] call oop_getFieldBaseValue),
+				_w,([_class,"weight",false] call oop_getFieldBaseValue)
+			]);
+		} foreach getAllObjectsTypeOf(Item);
+
+		copytoclipboard (_data joinString endl)
+	};
+	#endif
 
 	func(destructor)
 	{
@@ -230,6 +269,12 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 	// Если нужно ограничить логику возможности установки - юзай canPickup,..
 	func(canSetToSlot) {
 		objParams_1(_slot);
+		if equalTypes(_slot,"") then {
+			private _slotInd = INV_LIST_VARNAME find _slot;
+			if (_slotInd != -1) then {
+				_slot = INV_LIST_VARNAME select _slotInd;
+			};
+		};
 		if (_slot in INV_LIST_HANDS) exitWith {true};
 
 		_slot in getSelf(allowedSlots)
@@ -400,6 +445,18 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 		if !callFuncParams(_loc,canMoveOutItem,this) exitWith {false};
 		if !callFuncParams(_newlocation,canMoveInItem,this) exitWith {false};
 
+		if callFunc(_newlocation,isMob) then {
+			//transfer item in mob
+			traceformat("transfer item to mob %1",vec3(this,_loc,_newlocation))
+			callFuncParams(_newlocation,interpolate,"auto_trans" arg this arg _newlocation);
+		} else {
+			//transfer item from mob
+			if callFunc(_loc,isMob) then {
+				traceformat("transfer item from mob %1",vec3(this,_loc,_newlocation))
+				callFuncParams(_loc,interpolate,"auto_trans" arg this arg _newlocation);
+			};
+		};
+
 		callFuncParams(_loc,onMoveOutItem,this);
 		callFuncParams(_newlocation,onMoveInItem,this);
 		true
@@ -414,6 +471,11 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 			false
 		};
 		if (!_supressThrowErrLoc && {!callFuncParams(_loc,canMoveOutItem,this)}) exitWith {false};
+		
+		if isTypeOf(_loc,Mob) then {
+			callFuncParams(_loc,interpolate,"auto_trans" arg this arg getVar(this,pointer));
+		};
+
 		if (!_supressThrowErrLoc) then {
 			callFuncParams(_loc,onMoveOutItem,this);
 		};
@@ -425,6 +487,13 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 		true
 	};
 
+	"
+		name:В контейнере
+		desc:Возвращает @[bool ИСТИНУ], если предмет находится в контейнере.
+		type:get
+		lockoverride:1
+		return:bool:Находится ли предмет в контейнере.
+	" node_met
 	func(isInContainer)
 	{
 		objParams();
@@ -470,7 +539,7 @@ class(Item) extends(IDestructible) attribute(GenerateWeaponModule)
 	{
 		objParams_3(_pos,_dir,_vec);
 
-		_vObj = createSimpleObject [getSelf(model),[0,0,0],true];
+		_vObj = createMesh([getSelf(model) arg [0 arg 0 arg 0] arg true]);
 		#ifdef NOE_DEBUG_HIDE_SERVER_OBJECT
 		_vobj hideObject true;
 		#endif
@@ -648,6 +717,9 @@ class(ItemRadio) extends(Item)
 	var(name,"Радио");
 
 	var(model,"a3\structures_f\items\electronics\portablelongrangeradio_f.p3d");
+	var(weight,gramm(400));
+	var(size,ITEM_SIZE_SMALL);
+	getter_func(objectHealthType,OBJECT_TYPE_COMPLEX);
 
 	getterconst_func(isRadio,true);
 	var(radioIsEnabled,true);
@@ -660,7 +732,7 @@ class(ItemRadio) extends(Item)
 
 		//private _o = callSuper(Item,InitModel);
 
-		_vObj = createSimpleObject [getSelf(model),[0,0,0],true];
+		_vObj = createMesh([getSelf(model) arg [0 arg 0 arg 0] arg true]);
 		#ifdef NOE_DEBUG_HIDE_SERVER_OBJECT
 		_vobj hideObject true;
 		#endif
@@ -871,6 +943,8 @@ class(SystemHandItem) extends(SystemItem)
 	var(side,0);
 	var(mode,"none"); //none - нет, grab - объект, человек, twohand - двуручное (object предмет во второй руке)
 
+	getter_func(canApplyDamage,false);
+
 	func(constructor)
 	{
 		objParams();
@@ -900,8 +974,10 @@ class(SystemHandItem) extends(SystemItem)
 		private _relDir = [0,0,1];
 		private _sidePos = ifcheck(getSelf(side)==SIDE_LEFT,vec3(-0.3,0.8,0),vec3(0.3,0.8,0));
 		private _canReattach = true;
+		private _isMob = callFunc(_obj,isMob);
+		private _itemDragModename = "grab";//todo -> ifcheck(_isMob,"grab","pull");
 
-		if callFunc(_obj,isMob) then {
+		if (_isMob) then {
 			
 			//если его хочет грабнуть кто-то другой то ...
 			//точнее если владелец
@@ -956,10 +1032,22 @@ class(SystemHandItem) extends(SystemItem)
 			private _m = format["хватает %1 %2",[_tz,TARGET_ZONE_NAME_WHAT] call gurps_convertTargetZoneToString,callFuncParams(_obj,getNameEx,"кого")];
 			callFuncParams(getSelf(loc),meSay,_m);
 
+			callFuncParams(getSelf(loc),fastSendInfo,"cd_sp_grabbingMob" arg true);
+			callFuncParams(getSelf(loc),sendInfo,"spr_sync" arg []);
+
 		} else {
+			//checks
+			//!temporary
+			if !isNullReference(callFunc(_obj,getPullMainOwner)) exitWith {
+				_grabIsBlocked = true;
+			};
+
+			//non-mob
 			setSelf(object,_obj);
+			setSelf(weight,getVar(_obj,weight));//set weight for object
 			_worldObj = getVar(_obj,loc);
-			setSelf(attachedWeap,weaponModule(WeapHandyItem));
+			setSelf(attachedWeap,weaponModule(WeapHandyItem)); //todo change 
+			_canReattach = false;
 		};
 
 		if (_grabIsBlocked) exitWith {};
@@ -976,16 +1064,19 @@ class(SystemHandItem) extends(SystemItem)
 
 		};
 
-		setSelf(mode,"grab");
+		setSelf(mode,_itemDragModename);
 
 		callFuncParams(getSelf(loc),addItem,this arg _slotTo);
+
+		if (!_isMob) then {
+			callFuncParams(_obj,startPull,getSelf(loc));
+		};
 	};
 
 	func(stopGrab)
 	{
 		objParams();
 
-		//TODO: разделение на моба и структуру
 		private _obj = getSelf(object);
 		setSelf(object,nullPtr);
 
@@ -997,6 +1088,10 @@ class(SystemHandItem) extends(SystemItem)
 		private _isGrabOtherMob = !isNullReference(_otherObj) && {not_equals(_obj,_otherObj)};
 
 		callFuncParams(getSelf(loc),removeItem,this arg nullPtr);
+
+		if !callFunc(_obj,isMob) exitWith {
+			callFuncParams(_obj,stopPull,getSelf(loc));
+		};
 
 		private _mobObj = getVar(_obj,owner);
 		private _usrObj = getVar(getSelf(loc),owner);
@@ -1039,6 +1134,15 @@ class(SystemHandItem) extends(SystemItem)
 
 			callFuncParams(_obj,syncSmdVar,"isGrabbed" arg false);
 		};
+
+		
+		private _grabbedAnyMobs = (
+			{
+				(!isNullReference(_x) && {callFunc(getVar(_x,object),isMob)})
+			} count getVar(getSelf(loc),specHandAct)
+		) > 0;//no grabbed mobs now
+		callFuncParams(getSelf(loc),fastSendInfo,"cd_sp_grabbingMob" arg _grabbedAnyMobs);
+		callFuncParams(getSelf(loc),sendInfo,"spr_sync" arg []);
 
 	};
 
@@ -1152,6 +1256,7 @@ class(SystemInternalND) extends(Item)
 	{
 		setSelf(loc,ctxParams);
 	};
+	getter_func(canApplyDamage,false);
 
 	var(ndName,"MobInventory");
 	var(ndInteractDistance,INTERACT_DISTANCE);
@@ -1183,6 +1288,36 @@ class(SystemInternalND) extends(Item)
 		};
 	};
 
+endclass
+
+editor_attribute("HiddenClass")
+class(SystemInternalDynamicND) extends(SystemInternalND)
+	var(ptrval,"");
+	var(delegateNDInfo,null);
+	var(delegateNDInput,null);
+	var(context,null);
+
+	func(getNDInfo) {
+		objParams();
+		this call getSelf(delegateNDInfo);
+	};
+
+	func(onHandleNDInput) {
+		objParams_2(_usr,_inp);
+		[this,_usr,_inp] call getSelf(delegateNDInput);
+	};
+
+	//getter_func(getNDPointer,getSelf(ptrval));
+	func(setNDOptions)
+	{
+		objParams_6(_ndname,_dist,_ptr,_ndinf,_ndinp,_context);
+		setSelf(ndName,_ndname);
+		setSelf(ndInteractDistance,_dist);
+		setSelf(ptrval,_ptr);
+		setSelf(delegateNDInfo,_ndinf);
+		setSelf(delegateNDInput,_ndinp);
+		setSelf(context,_context);
+	};
 endclass
 
 editor_attribute("HiddenClass")
@@ -1330,3 +1465,39 @@ class(SystemMessageBoxND) extends(SystemInternalND)
 		call getSelf(delegate_handleInput);
 	};
 endclass
+
+#ifdef EDITOR
+class(Debug_Item_damager) extends(Item)
+
+	var(attachedWeap,weaponModule(WeapDebugger_item));
+	runtimeGenerateWeapon("WeapDebugger_item","WeapHandyItem")
+	{
+		varpair(attackedBy,pair(ATTACK_TYPE_SWING,"бьет отладочным"));
+		var(defenceBy,"отладочного");
+		getter_func(getMissAttackWeaponText,"отладочным");
+		varpair(dmgBonus,pair(ATTACK_TYPE_SWING,+10));
+	};
+
+	getterconst_func(startUpdateOnConstruct,true);
+	getterconst_func(defaultUpdateDelay,0.01);
+	getter_func(canApplyDamage,false);
+	func(onUpdate)
+	{
+		objParams();
+		
+		private _m = callSelf(getSourceLoc);
+		if isNullVar(_m) exitWith {};
+		if isNullReference(_m) exitWith {};
+		if isTypeOf(_m,Mob) then {
+			callFuncParams(_m,addStaminaRegen,1000);
+			setVar(_m,lastCombatActionTime,0);
+			setVar(_m,otherLastCombatActionTime,0);
+			setVar(_m,hunger,100);
+			setVar(_m,thirst,100);
+			
+		};
+		
+	};
+endclass
+
+#endif

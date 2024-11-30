@@ -149,7 +149,23 @@ class(BasicMob) extends(GameObject)
 region(roles management)
 	//! tasks already defined in Mob
 	//var_array(tasks); //задачи для человека
+	"
+		name:Базовая роль
+		desc:Базовая роль персонажа, с которой он появился в мире. Тут хранится объект роли, которую выбрал игрок при входе, либо получил в результате успешной проверки на полного антагониста. Базовая роль не меняется до самого конца раунда.
+		prop:get
+		classprop:0
+		return:ScriptedRole:Базовая роль моба
+		restr:ScriptedRole
+	" node_var
 	var(basicRole,nullPtr); //объект роли человека, выдаваемой при старте
+	"
+		name:Текущая роль
+		desc:Текущая роль моба. Можно переназначить с помощью узла ""Установить роль мобу"". Если вы ни разу не изменяли роль моба, то значение текущей роли эквиваленто базовой роли.
+		prop:get
+		classprop:0
+		return:ScriptedRole:Текущая роль моба
+		restr:ScriptedRole
+	" node_var
 	var(role,nullPtr); //текущая роль. возможно переназначать персонажей на другие роли
 	
 	var(location,nullPtr); //местоположение (тип ZoneBase)
@@ -283,6 +299,12 @@ region(raycast)
 	getter_func(getLastInteractVector,getSelf(__lastinteractdata__) select 3); //направление
 	getter_func(getLastInteractTarget,getSelf(__lastinteractdata__) select 4);
 	getter_func(getLastInteractNormal,getSelf(__lastinteractdata__) select 5);
+
+	func(__setLastInteractDistance)
+	{
+		objParams_1(_dist);
+		getSelf(__lastinteractdata__) set [2,_dist];
+	};
 
 	#define __debug_getinteractiontarget_spheres__
 	#ifdef __debug_getinteractiontarget_spheres__
@@ -609,6 +631,10 @@ region(Connect control events)
 		
 		//init voice
 		callSelfParams(applyVoiceType,null);
+
+		if callSelf(enabledAtmosReaction) then {
+			callSelfParams(setAtmosModeReaction,true);
+		};
 	};
 	
 	// Событие вызывается при изменении локальности клиента. (параметр true означает что владение мобом передано серверу)
@@ -636,6 +662,7 @@ region(Connect control events)
 		callSelfParams(sendInfo, "onPrepareClient" arg [callSelf(getInitialPos) arg getSelf(visionBlock)]);
 		
 		callSelfParams(localEffectUpdate,"GenericAmbSound");
+
 	};
 	// Вызывается при отключении клиента от моба
 	func(onDisconnected)
@@ -649,6 +676,8 @@ region(Connect control events)
 		
 		// close net display if client dropped connection
 		callSelf(closeOpenedNetDisplay);
+		//release building preview if exist
+		callSelf(releaseBuildingPreview);
 	};
 
 region(Mob location info: position; direction; speed)
@@ -763,7 +792,21 @@ region(Mob location info: position; direction; speed)
 		if (_dir > 45 && _dir <= 135) exitWith {DIR_RIGHT};
 		if (_dir > 135 && _dir <= 225) exitWith {DIR_BACK};
 		if (_dir > 225 && _dir <= 315) exitWith {DIR_LEFT};
-		errorformat("Unknown dir data %1",_dir);
+		DIR_FRONT
+	};
+
+	//inverted variant of getDirTo
+	func(getDirFrom)
+	{
+		objParams_1(_target);
+		private _obj = if (!isTypeOf(_target,Mob)) then {callFunc(_target,getBasicLoc)} else {getVar(_target,owner)};
+
+		private _dir = getSelf(owner) getRelDir _obj;
+
+		if (_dir > 315 || _dir <= 45) exitWith {DIR_FRONT};
+		if (_dir > 45 && _dir <= 135) exitWith {DIR_RIGHT};
+		if (_dir > 135 && _dir <= 225) exitWith {DIR_BACK};
+		if (_dir > 225 && _dir <= 315) exitWith {DIR_LEFT};
 		DIR_FRONT
 	};
 
@@ -1142,6 +1185,15 @@ region(Visual states)
 
 region(Messaging and chat managers)
 	
+	"
+		name:Установить имена моба
+		desc:Устанавливает первое и второе имя моба. Генерирует имена во всех склонениях.
+		type:method
+		lockoverride:1
+		in:string:Первое имя:Первое имя моба.
+		in:string:Второе имя:Второе имя моба. Чаще всего представлено в виде фамилии.
+			opt:require=-1
+	" node_met
 	func(generateNaming)
 	{
 		objParams_2(_f,_s);
@@ -1482,6 +1534,11 @@ region(Animator)
 	_anim = {
 		(_this select 0) switchmove (_this select 1)
 	}; rpcAdd("switchMove",_anim);
+	
+	_anim = {
+		(_this select 0) switchmove (_this select 1);
+		(_this select 0) playMoveNow (_this select 1); //fix force switchmove for fuckedup animations configs
+	}; rpcAdd("switchMove_force",_anim);
 
 	_anim = {
 		(_this select 0) switchmove (_this select 1)
@@ -1504,23 +1561,24 @@ region(Animator)
 		private _mob = getSelf(owner);
 
 		//changed after 0.4.75
-		if (_method == "switchmove") then {
-			
+		if (_method == "switchmove" || _method == "switchmove_force") then {
 			
 			//На сервере тоже вызываем метод
 			rpcCall(_method,[_mob arg _type]);
 
 			{
 				rpcSendToObject(_x,_method,[_mob arg _type]);
+
 			} foreach allPlayers;
 			
 			//Отладочная информация. Будет убрано после отлова ошибки синхронизации
-			["[applyGlobalAnim]: local - %1; Count: %2; Serversync: %3; Owner: %4; State %5",
-				isPlayer _mob,
+			["[applyGlobalAnim]: local - %1 (player=%6); Count: %2; Serversync: %3; Owner: %4; State %5;",
+				local _mob,
 				count allPlayers,
 				animationState _mob == _type,
 				owner _mob,
-				_type
+				_type,
+				isPlayer _mob
 			] call logInfo;
 
 			// //Тестовое исправление синхронизации по сети
@@ -1547,6 +1605,25 @@ region(Animator)
 	func(onChangeAnimCoef)
 	{
 		objParams();
+		//0.5-10 -> 0.5-1.4
+		private _move = callSelf(getMove) ;
+		//bonuses
+		private _encumBon = [getSelf(curEncumbranceLevel)] call gurps_encumLevelToMoveModifier;
+		_move = _move * _encumBon;
+		
+
+		//private _anmCoeff = getSelf(animCoef);
+		private _curSpeed = linearConversion[0.1,10,_move,0.5,1.4,true];
+
+		callSelfParams(setAnimSpeedCoef,_curSpeed);
+
+	};
+
+	func(setAnimSpeedCoef)
+	{
+		objParams_1(_val);
+
+		callSelfParams(syncSmdVar,"animSpeed" arg _val);
 	};
 
 	//установка кастомной анимации для частей тела, например для связки
@@ -1626,6 +1703,16 @@ region(Face and voice helpers)
 		setSelf(faceAnim,_anim);
 
 		callSelfParams(syncSmdVar,"faceAnim" arg _anim);
+	};
+
+	func(syncMobFaceAnim)
+	{
+		objParams();
+		if callSelf(isActive) then {
+			callSelfParams(setMobFaceAnim,DEFAULT_MIMIC);
+		} else {
+			callSelfParams(setMobFaceAnim,UNC_MIMIC);
+		};
 	};
 	
 	var(voiceType,"human");
@@ -1753,6 +1840,78 @@ region(Progress helpers)
 	//progress subsystem
 	var(progressData,vec3(nullPtr,"",nullPtr)); //ref target, method call, optional item
 	
+	/*
+		lambda-like progress extension with context passing
+		Usage:
+		
+		private _number = 123;
+		private _bool = false;
+		_code = {
+			/// called after 3 seconds
+			assert(_number == 123);
+			assert(!_bool);
+		};
+		callSelfParams(doAfter,_code arg 3 arg ["_number" arg "_bool"]);
+	*/
+	func(doAfter)
+	{
+		params ['this',"_code__","_callAfter","_context",["_checkType",-1]];
+		
+		if equalTypes(_context,"") then {
+			_context = [_context];
+		};
+		private _ctxSignature = _context joinString "+";
+		if (!(_ctxSignature in mob_static_assign_signatures)) then {
+			private _builder = [];
+			{
+				_builder pushBack (format["_ctxVals set [%1,%2];",_foreachindex,_x]);
+			} foreach _context;
+			mob_static_savectx_signatures set [_ctxSignature,compile (_builder joinString endl)];
+		};
+
+		//fill values
+		private _ctxVals = [];
+		0 call (mob_static_savectx_signatures get _ctxSignature);
+		
+		setSelf(___doafter_code,_code__);  //[array<keys>,array<values>]
+		setSelf(__doafter_context,[_context arg _ctxVals]);
+		callSelfParams(startSelfProgress,"__doAfter_completed" arg _callAfter arg _checkType);
+	};
+	//transfer context
+	var(___doafter_code,null);
+	var(__doafter_context,null);
+	
+	func(__doAfter_completed)
+	{
+		objParams();
+		private _da_ctx__ = getSelf(__doafter_context);
+		setSelf(__doafter_context,null);
+		if isNullVar(_da_ctx__) exitWith {
+			this call (getSelf(___doafter_code));
+			setSelf(___doafter_code,null);
+		};
+		
+		private _vars = _da_ctx__ select 0;
+		private _assignSignature = _vars joinString "+";
+		private _vals = _da_ctx__ select 1;
+		if !(_assignSignature in mob_static_assign_signatures) then {
+			private _str = [];
+			{
+				_str pushBack (format["%1 = _this select %2;",_x,_foreachindex]);
+			} foreach _vars;
+			mob_static_assign_signatures set [_assignSignature,compile (_str joinString endl)];
+		};
+		//setup context vars
+		private _vars;
+		_vals call (mob_static_assign_signatures get _assignSignature);
+
+		this call (getSelf(___doafter_code));
+		setSelf(___doafter_code,null);
+	};
+	//caching doAfter context
+	mob_static_savectx_signatures = createhashMap;
+	mob_static_assign_signatures = createhashMap;
+
 	//faster equivalent
 	func(startSelfProgress)
 	{
@@ -1974,4 +2133,103 @@ region(banned combat setting)
 		};
 	};
 
+region(Step sounds component)
+
+	func(handleStepSounds)
+	{
+		objParams_1(_obj);
+		private _matObj = getVar(_obj,material);
+		private _defaultReturn = {
+			callSelfParams(sendInfo,"os_gs" arg vec2(getVar(_obj,pointer),-1));
+		};
+
+		if (isNullVar(_matObj) || {not_equalTypes(_matObj,nullPtr)}) exitWith _defaultReturn;
+		if isNullReference(_matObj) exitWith _defaultReturn;
+
+		private _kStep = callFunc(_matObj,getStepDataKey);
+		callSelfParams(sendInfo,"os_gs" arg vec2(getVar(_obj,pointer),_kStep));
+	};
+
+	var(__enabledStepSoundSys,false);
+	
+	getter_func(isStepSoundSystemEnabled,getSelf(__enabledStepSoundSys));
+
+	func(setStepSoundSystem)
+	{
+		objParams_1(_mode);
+		if equals(callSelf(isStepSoundSystemEnabled),_mode) exitWith {false};
+		if (_mode) then {
+			assert_str(!isNullReference(getSelf(owner)),"Mob::setStepSoundSystem() - owner must be not null");
+		};
+		setSelf(__enabledStepSoundSys,_mode);
+	};
+
+region(Atmos subsystem)
+
+	getterconst_func(enabledAtmosReaction,false);
+	autoref var_handle(__atmosHandle);
+
+	//timeout react
+	var(__lastChunkReactStep,0);
+	var(__lastChunkReactBody,0);
+	var(__lastFireDamage,0);
+
+	func(setAtmosModeReaction)
+	{
+		objParams_1(_mode);
+		private _curMode = getSelf(__atmosHandle)!=-1;
+		if (_mode==_curMode) exitWith {false};
+		if (_mode) then {
+			callSelfParams(startUpdateMethod,"onAtmosUpdate" arg "__atmosHandle" arg TIME_ATMOS_MAIN_HANDLER_UPDATE);
+		} else {
+			callSelfParams(stopUpdateMethod,"__atmosHandle");
+		};
+		true
+	};
+
+	func(onAtmosUpdate)
+	{
+		updateParams();
+		private _o = getSelf(owner);
+		if isNullReference(_o) exitWith {};
+		private _hpos = (
+			_o modelToWorldVisual (_o selectionPosition "spine3")
+		) call atmos_chunkPosToId;
+		private _lpos = (getposatl _o) call atmos_chunkPosToId;
+		
+		//handle breathing
+		if (tickTime >= getSelf(__lastChunkReactBody)) then {
+			setSelf(__lastChunkReactBody,tickTime+TIME_ATMOS_DELAY_REACT_BODY);
+			_chHd = [_hpos] call atmos_getChunkAtChIdUnsafe;
+			if !isNullVar(_chHd) then {
+				_chHd call ["onMobContactBody",[this]];
+			};
+		};
+
+		//legs check
+		if (tickTime >= getSelf(__lastChunkReactStep)) then {
+			setSelf(__lastChunkReactStep,tickTime+TIME_ATMOS_DELAY_REACT_LEGS);
+			
+			if equals(_hpos,_lpos) exitWith {};// exit, because already contacted on body (STANCE_MIDDLE)
+			
+			_chLg = [_lpos] call atmos_getChunkAtChIdUnsafe;
+			if !isNullVar(_chLg) then {
+				_chLg call ["onMobContactTurf",[this]];
+			};
+		};
+	};
+
+region(previef functionality)
+	getter_func(isInBuildingPreviewMode,!isNull(getSelf(___cachedCraftBuildPreview)));
+
+	func(releaseBuildingPreview)
+	{
+		objParams();
+		if !callSelf(isInBuildingPreviewMode) exitWith {};
+		
+		//send preview build end
+		callSelfParams(sendInfo,"craft_endPrevFromServer" arg [false]);
+
+		[this,false] call csys_onCraftEndPreview;
+	};
 endclass

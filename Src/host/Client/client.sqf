@@ -34,6 +34,7 @@ class(ServerClient) /*extends(NetObject)*/
 
 	//список всех чанков на которые подписан клиент
 	var(loadedChunks,null);
+	var(loadedAreas,null);
 	
 	var(lastDeadTime,0);//время последней смерти
 	var(deadTimeout,60*15); //сколько ждать до воскрешения. дефолтное значение
@@ -71,6 +72,17 @@ class(ServerClient) /*extends(NetObject)*/
 		classprop:0
 	" node_var
 	var(isFirstJoin,true); //первый ли вход игрока в игру
+
+	func(_updateObjectName)
+	{
+		objParams();
+		private _cls = callSelf(getClassName);
+		if getSelf(isFirstJoin) then {
+			this setName (_cls + "::" + (str getSelf(id)));
+		} else {
+			this setName (_cls + "::" + (str getSelf(id)) + "(relog)");
+		};
+	};
 
 	func(constructor)
 	{
@@ -122,15 +134,19 @@ class(ServerClient) /*extends(NetObject)*/
 	func(unsubAllChunks)
 	{
 		objParams();
+		
 		//Был в игре выписываем из чанков
 		if (getSelf(state) == "ingame") then {
 			private _ch__ = null;
 			//отписываем клиента из всех чанков
 			{
 				_ch__ = parseSimpleArray _x;
-				rpcCall("unsubChunkListen",vec4(_ch__ select 0,_ch__ select 1,getSelf(id),false));
-			} foreach (getSelf(loadedChunks));
-			setSelf(loadedChunks,null);
+				rpcCall("unsubChunkListen",vec4(_ch__ select 0,_ch__ select 1,this,false));
+			} foreach (keys getSelf(loadedChunks));
+			setSelf(loadedChunks,createHashMap);
+			
+			[this] call atmos_unsubscribeClientListeningSrv;
+			setSelf(loadedAreas,createHashMap);
 		};
 	};
 	
@@ -328,12 +344,15 @@ class(ServerClient) /*extends(NetObject)*/
 	{
 		objParams();
 
+		callSelf(_updateObjectName);
+
 		#ifdef RELEASE
 		[getSelf(uid)] call db_updateValuesOnConnect;
 		#endif
 
 		//cleanup chunks
 		setSelf(loadedChunks,createHashMap);
+		setSelf(loadedAreas,createHashMap);
 
 		cm_allClients pushBack this;
 		setSelf(isReady,false);

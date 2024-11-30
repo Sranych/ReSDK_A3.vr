@@ -4,10 +4,15 @@
 // ======================================================
 
 #include <..\..\host\engine.hpp>
+#include <..\..\host\struct.hpp>
+#include <..\..\host\thread.hpp>
 #include <..\..\host\NOEngine\NOEngine.hpp>
 #include "..\..\host\NOEngine\NOEngine_Shared.sqf"
 #include <..\..\host\NOEngine\NOEngine_SharedTransportLevel.hpp>
+#include <..\..\host\Atmos\Atmos.hpp>
+#include <..\..\host\Atmos\Atmos_shared.sqf>
 #include <..\ClientRpc\clientRpc.hpp>
+#include "..\Interactions\interact_component_shared.hpp"
 
 #include <NOEngineClient.h>
 
@@ -18,6 +23,17 @@
 #include "NOEngineClient_TransportLevel.sqf"
 
 #include "NOEngineClient_ObjectManager.sqf"
+
+//#include "NOEngineClient_localAtmos.sqf"
+//this should be loaded only before netatmos.sqf
+#include "NOEngineClient_AtmosOptimizer.sqf"
+
+//perblock optimization
+#include "NOEngineClient_NetAtmosPerBlockOptimize.sqf"
+
+#include "NOEngineClient_Interpolation.sqf"
+
+#include "NOEngineClient_NetAtmos.sqf"
 
 //#include "NOEngineClient_Rendering.sqf"
 
@@ -46,6 +62,8 @@ noe_client_packetsChunks = createHashMap;
 
 noe_client_allPointers = createHashMap;
 
+noe_client_set_lockedPropUpdates = createHashMap; //список блокировки обновления визуального состояния объекта
+
 noe_client_handlers = [];
 
 //Запускает потоки карты
@@ -72,6 +90,10 @@ noe_client_stopListening = {
 	
 	//stop loading
 	[_mob] call noe_client_unloadAllChunks;
+
+	{
+		noe_client_set_lockedPropUpdates deleteAt _x;
+	} foreach (noe_client_set_lockedPropUpdates);
 	
 	true
 };
@@ -128,5 +150,7 @@ if (!isMultiplayer) then {
 	invokeAfterDelay(_post,1.5);
 };
 
+//structures only defined after main module inialized
+#include "NOEngineClient_NetAtmos_structs.sqf"
 
 log("NOEngine: client module loaded!");

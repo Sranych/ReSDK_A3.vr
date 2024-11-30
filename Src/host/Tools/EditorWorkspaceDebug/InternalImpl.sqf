@@ -131,6 +131,9 @@ relicta_debug_internal_handleError = {
 	private _stackStr = (_stack apply {_x call relicta_debug_internal_serializeStackTrace}) joinString endl;
 
 	private _codeType = ifcheck(projectEditor_isCompileProcess,"Compilation","Runtime");
+	#ifdef RBUILDER
+	_codeType = "RBuilder";
+	#endif
 	private _text = format["%1 error: %2"+endl+"file: %3 at line %4;"+endl+endl+endl+"Stacktrace:" + endl +"%5",_codeType,
 		_errorMsg,
 		_file,
@@ -180,6 +183,7 @@ relicta_debug_internal_serializeStackTrace = {
 //used on halt system call
 relicta_debug_setlasterror = {
 	params ["_name"];
+
 	relicta_debug_internal_lastErrorName = _name;
 };
 

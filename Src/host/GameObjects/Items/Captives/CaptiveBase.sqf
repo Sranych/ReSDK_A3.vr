@@ -53,7 +53,7 @@ editor_attribute("InterfaceClass")
 class(CaptiveItemBase) extends(Item)
 
 	var(model,"a3\structures_f_epa\items\tools\metalwire_f.p3d");
-	
+	var(size,ITEM_SIZE_SMALL);
 	//захваченная сущность
 	var(captived,nullPtr);
 	var(captiveDirection,0); //-1 задний захват (руками нельзя делать ничего), 1 передний хват (руками можно делать мирные действия)
@@ -95,18 +95,18 @@ class(CaptiveItemBase) extends(Item)
 	{
 		objParams();
 
-		#ifndef EDITOR
+		//#ifndef EDITOR
 		if equals(_targ,_usr) exitwith {
 			callFuncParams(_usr,localSay,"Самого себя связать не получится." arg "error");
 			false
 		};
 
 		private _dir = callFuncParams(_targ,getDirectionTo,_usr);
-		if (_dir != DIR_BACK) exitwith {
+		if (_dir != DIR_BACK && callFunc(_targ,isActive)) exitwith {
 			callFuncParams(_usr,localSay,"Связать получится только со спины." arg "error");
 			false
 		};
-		#endif
+		//#endif
 
 		if (!callFuncParams(_targ,hasPart,BP_INDEX_ARM_R) || !callFuncParams(_targ,hasPart,BP_INDEX_ARM_L)) exitWith {
 			callFuncParams(_usr,localSay,"Нужны две руки для связывания." arg "error");
@@ -243,8 +243,12 @@ endclass
 
 class(HandcuffItem) extends(CaptiveItemBase)
 	var(name,"Наручники");
+	var(material,"MatMetal");
+	getter_func(objectHealthType,OBJECT_TYPE_COMPLEX);
+	var(dr,DR_SP_2);
 	var(desc,"Собраны по архивным чертежам на Веселой Ферме.");
 	var(weight,gramm(380));
+	var(size,ITEM_SIZE_SMALL);
 	var(allowedSlots,[INV_BELT]);
 	var(captiveItemST,5);
 	var(breakLeft,5);
@@ -444,7 +448,9 @@ class(RopeItem) extends(CaptiveItemBase)
 	var(name,"Верёвка");
 	var(desc,"Простая веревка. Из чего она сделана неизвестно.");
 	var(weight,gramm(57));
+	var(size,ITEM_SIZE_SMALL);
 	var(model,"a3\structures_f_heli\items\tools\rope_01_f.p3d");
+	var(material,"MatCloth");
 	
 	var(captiveItemST,3);
 

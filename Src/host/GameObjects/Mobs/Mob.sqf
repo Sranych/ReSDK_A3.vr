@@ -30,8 +30,8 @@
 	#define __perf_print()
 #endif
 
-#define logmob(funcname,text) "debug_console" callExtension ("<server> mob::" + #funcname + "    " + text + "#0111")
-#define rp_log(text,fmt) "debug_console" callExtension ("<server::Roleplay> " + format[text,fmt] + "#0111")
+#define logmob(funcname,text) (["<server> mob::" + #funcname + "    ",text,"#0111"] call stdoutPrint)
+#define rp_log(text,fmt) (["<server::Roleplay> ",text,fmt,"#0111"] call stdoutPrint)
 
 //медленное бросание
 //#define debug_throw_slow
@@ -175,6 +175,8 @@ class(Mob) extends(BasicMob)
 	//Объект сетевого дисплея для раздевания
 	editor_attribute("InternalImpl") autoref var(_internalEquipmentND,newParams(SystemInternalND,this));
 
+	editor_attribute("InternalImpl") autoref var(_internalDynamicND,newParams(SystemInternalDynamicND,this));
+
 	func(constructor)
 	{
 		objParams();
@@ -205,6 +207,9 @@ class(Mob) extends(BasicMob)
 	{
 		objParams_1(_linked);
 		super();
+		
+		callSelfParams(setStepSoundSystem,true);//step system
+
 		#ifdef TEXTCHAT
 			callSelf(initializeVoice);
 		#endif
@@ -314,6 +319,9 @@ region(Connect control events)
 
 		callSelfParams(loadActions,null);
 
+		//хандлер звуков шагов
+		callSelfParams(fastSendInfo,"os_steps_canUseRequests" arg callSelf(isStepSoundSystemEnabled));
+
 		callSelfParams(onChangeAttackType,"sync"); //синхронизируем основные статистики
 
 		callSelfParams(sendInfo, "onPrepareClient" arg
@@ -350,6 +358,8 @@ region(Connect control events)
 		if callSelf(hasOpenedContainer) then {
 			callFuncParams(getSelf(openedContainer),onContainerClose,this);
 		};
+
+		callSelfParams(setCustomActionState,CUSTOM_ANIM_ACTION_NONE arg true);
 		
 		callSelfParams(sendInfo, "strafeLock" arg [false]);
 	};
@@ -365,6 +375,11 @@ region(Connect control events)
 		private _medMes = "";
 		private _commonInfo = "";
 		private _age = getSelf(age);
+
+		private _baseDesc = callSelf(getDesc);
+		if (!isNullVar(_baseDesc) && {_baseDesc != ""}) then {
+			modvar(_commonInfo) + sbr + _baseDesc;
+		};
 
 		if (
 		#ifdef EDITOR

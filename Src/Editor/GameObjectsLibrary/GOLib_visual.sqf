@@ -97,6 +97,10 @@ function(golib_vis_onCreateExpand)
 	_back = [_d,BACKGROUND,WIDGET_FULLSIZE,_ctg] call createWidget;
 	_back setBackgroundColor [0.1,0.1,0.1,.8];
 
+	// Fix #347
+	golib_vis_isEnteredInWidget = false;
+	golib_vis_lastBeforeEnterMousePos = [0,0,0];
+
 	_searchSizeH = 3;
 
 
@@ -190,6 +194,18 @@ function(golib_vis_onCreateExpand)
 	_tree ctrlAddEventHandler ["TreeMouseMove",golib_vis_ontreeMouseMoved];
 	_tree ctrlAddEventHandler ["MouseEnter",golib_vis_ontreeMouseEnter];
 	_tree ctrlAddEventHandler ["MouseExit",golib_vis_ontreeMouseExit];
+	_tree ctrlAddEventHandler ["KeyUp",{
+		params ["","_key","_shift","_ctrl","_alt"];
+		if (_key == KEY_C && _ctrl) then {
+			_cs = tvCurSel (call golib_vis_getTree);
+			if (!call golib_vis_isMouseInsideTree) exitWith {};
+			if not_equals(_cs,[]) then {
+				private _classname = ([_cs,"class"] call golib_vis_getTreeItemProperty);
+				[format["Имя '%1' скопировано в буфер обмена",_classname]] call showInfo;
+				copytoclipboard _classname;
+			};
+		};
+	}];
 
 	[_tree] call golib_internal_initTreeStateSaver;
 
@@ -260,6 +276,11 @@ function(golib_vis_isMouseInsideTree)
 	("golib_vis_ctg_bind" call widget_getBind) call isMouseInsideWidget
 }
 
+function(golib_vis_isMouseInsideInspector)
+{
+	("inspector_ctg_main_bind" call widget_getBind) call isMouseInsideWidget
+}
+
 function(golib_vis_onFrame)
 {
 	if (golib_vis_isholdedLMB) then {
@@ -278,6 +299,18 @@ function(golib_vis_onFrame)
 			[_drag,[100,100]] call widgetSetPositionOnly;
 		};
 		//["%1 - is inside %2",__FUNC__,call golib_vis_isMouseInsideTree] call printTrace;
+	};
+	golib_vis_isEnteredInWidget = call golib_vis_isMouseInsideTree || call golib_vis_isMouseInsideInspector;
+	if (golib_vis_isEnteredInWidget) then {
+		if equals(golib_vis_lastBeforeEnterMousePos,vec3(0,0,0)) then {
+			golib_vis_lastBeforeEnterMousePos = getposasl get3dencamera;
+		};
+		move3DENCamera [golib_vis_lastBeforeEnterMousePos,!true];
+	} else {
+		if not_equals(golib_vis_lastBeforeEnterMousePos,vec3(0,0,0)) then {
+			golib_vis_lastBeforeEnterMousePos = [0,0,0];
+			//ctrlSetFocus (call MouseAreaGetWidget);
+		};
 	};
 }
 
@@ -330,6 +363,7 @@ function(golib_vis_ontreeMouseUp)
 	} else {
 		//["tree rb up"] call showInfo;
 		_cs = tvCurSel (call golib_vis_getTree);
+		if (!call golib_vis_isMouseInsideTree) exitWith {};
 		if not_equals(_cs,[]) then {
 			[[_cs,"class"] call golib_vis_getTreeItemProperty] call golib_vis_onPressSettingsObject;
 		};

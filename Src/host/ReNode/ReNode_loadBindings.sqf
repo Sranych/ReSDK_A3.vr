@@ -52,6 +52,9 @@ nodeModule_setPath("Игровые объекты.Утилиты")
 #include "..\PointerSystem\pointers.hpp"
 #include "..\NOEngine\NOEngine_ObjectManager.sqf"
 
+nodeModule_setPath("Игровая логика.Ролевая система")
+#include "..\GURPS\Gurps.sqf"
+
 nodeModule_register("clients")
 nodeModule_setPath("Клиенты")
 #include "..\ClientManager\ClientManager.h"
@@ -69,5 +72,11 @@ nodeModule_register("taskSystem")
 nodeModule_setPath("Игровая логика.Задачи.Утилиты")
 
 #include "..\GameModes\taskSystem_functions.sqf"
+
+nodeModule_register("namingSystem")
+nodeModule_setPath("Игровая логика.Характеристики.Национальности")
+#include "..\Namings\Naming_nodes.sqf"
+
+#include "_regex.sqf"
 
 //

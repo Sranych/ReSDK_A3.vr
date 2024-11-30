@@ -11,6 +11,12 @@
 */
 #include <engine.hpp>
 
+#ifdef RBUILDER
+isRBuilder = true;
+#else
+isRBuilder = false;
+#endif
+
 pc_oop_flag_reloadModule = false;
 pc_oop_intList_loadObjectPool = [];
 
@@ -81,7 +87,7 @@ pc_oop_declareEOC = {
 
 	_pt_obj setvariable ['__fields',_fields]; //члены, определенные в этом классе; vec2(name:str,value:serialized)
 	_pt_obj setvariable ['__methods',_methods]; //методы, определенные в этом классе; vec2(name:str,method:code)
-	
+
 	_pt_obj setvariable ['__motherClass',_mother]; //класс-родитель
 	//!not used: _pt_obj setVariable ['__motherObject',nullPtr];
 	_pt_obj setVariable ['__childList',[]]; //прямые наследники
@@ -149,6 +155,7 @@ pc_oop_postInitClass = {
 
 		_class = nil;
 	};
+	__interface_header_flag__ = null;
 };
 
 
@@ -165,7 +172,7 @@ pc_oop_postInitClass = {
 pc_oop_regvar = {
 	params ["_f","_v"];
 	_mem_name = _f;
-	_lastIndex = _fields pushback [_mem_name,_v];
+	_lastIndexF = _fields pushback [_mem_name,_v];
 	call pc_oop_handleAttrF;
 };
 
@@ -175,7 +182,7 @@ pc_oop_handleAttrF = {
 		["f",_class,_mem_name,_last_node_info_] call nodegen_registerMember;
 		_last_node_info_ = nil;
 	};
-	if (!isnil '_netuse') then {(_fields select _lastIndex) set [2,"netuse"]; _netuse = nil};
+	if (!isnil '_netuse') then {(_fields select _lastIndexF) set [2,"netuse"]; _netuse = nil};
 	if (!isnil '_isAutoRefUse') then {_autoref pushBack _mem_name; _isAutoRefUse = nil};
 	if (!isnil '_isConstant') then {_pt_obj setvariable ['cst_##var',val]; _isAutoRefUse = nil};
 	if (isnil '_editor_next_attr') exitwith {};

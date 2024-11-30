@@ -4,6 +4,7 @@
 // ======================================================
 
 #include "host\engine.hpp"
+#include "host\struct.hpp"
 #include "host\oop.hpp"
 #include <host\Networking\Network.hpp>
 
@@ -12,7 +13,7 @@
 //server password and crypt key if exists
 if (fileExists("src\private.h")) then {
 	private _CRYPT_COMPILE_SERVER_ = true;
-	loadFile("src\private.h");
+	call compile __pragma_preprocess ("src\private.h");
 };
 
 //предварительная компиляция трассировки стека в редакторе
@@ -170,6 +171,11 @@ if (!isMultiplayer) then {
 	#endif
 };
 
+private _onexit = {
+	#ifdef RBUILDER
+	call RBuilder_onServerLockedLoading;
+	#endif
+};
 
 _calculateClientSide = {
 
@@ -191,10 +197,31 @@ _calculateClientSide = {
 
 _time_global = diag_ticktime;
 loadFile("src\host\init.sqf");
-
+if (server_isLocked) exitwith _onexit; //because class compiler can throws errors
 call dsm_initialize; //discord mgr init
 
-if (server_isLocked) exitWith {};
+
+if (!call yaml_isExtensionLoaded) then {
+	#ifdef EDITOR
+	["Yaml библиотека не найдена."
+		+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
+	#endif
+	setLastError("Yaml library not found.");
+	appExit(APPEXIT_REASON_EXTENSION_ERROR);
+};
+
+private _yamlObj = call yaml_getExtensionVersion;
+logformat("Yaml version: %1",_yamlObj);
+if ((_yamlObj getv(major)) == 0) then {
+	#ifdef EDITOR
+	["Yaml библиотека не обновлена."
+		+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
+	#endif
+	setLastError("Yaml library outdated.");
+	appExit(APPEXIT_REASON_EXTENSION_ERROR);
+};
+
+if (server_isLocked) exitWith _onexit;
 
 progLog("Serverside scripts loaded in " + str(diag_ticktime - _time_global) + " sec");
 
@@ -236,6 +263,10 @@ progLog("Revision: " + __revision);
 #endif
 
 progLog("isDebug: " + str _debug + "; isRelease: " + str _release);
+if (_debug == _release) exitWith {
+	setLastError("Debug/Release modes cannot be the same! " + (str _debug));
+	appExit(APPEXIT_REASON_COMPILATIOEXCEPTION);
+};
 
 #ifdef EDITOR
 	if !isNull(relicta_debug_compileMain) then {

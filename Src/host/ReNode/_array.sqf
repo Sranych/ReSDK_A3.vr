@@ -122,7 +122,7 @@ node_system
     rendertype:NoHeader
     autocoloricon:1
     exec:all
-    code:[@in.1] call arrayShuffleOrig; @out.1
+    code:[@in.2] call arrayShuffleOrig; @out.1
     in:auto:Массив:Ссылка на массив
         opt:typeget=array;@type
 " node_system
@@ -134,7 +134,7 @@ node_system
     icon:data\\icons\\icon_BluePrintEditor_Function_16px
     color:Function
     exec:all
-    code:[@in.1,@in.2,@in.3] call arraySwap; @out.1
+    code:[@in.2,@in.3,@in.4] call arraySwap; @out.1
     in:auto:Массив:Ссылка на массив
         opt:typeget=array;@type
     in:int:Индекс 1:Индекс первого элемента
@@ -452,10 +452,12 @@ node_system
     rendertype:NoHeader
     autocoloricon:1
     exec:all
-    code:(@in.2) append (@in.3); @out.1
+    code:private @genvar.out.2 = (@in.2); @locvar.out.2 append (@in.3); @out.1
     in:auto:Источник:Первый массив, к котрому будут добавлены все элементы из второго.
         opt:typeget=array;@type
     in:auto:Добавляемый:Второй массив, элементы которого будут добавлены в первый массив.
+        opt:typeget=array;@type
+    out:auto:Источник:Ссылка на массив-источник
         opt:typeget=array;@type
 " node_system
 

@@ -6,6 +6,9 @@
 #include <..\..\host\engine.hpp>
 #include <..\ClientRpc\clientRpc.hpp>
 
+//first step - check dlls
+#include "DllSignCheck.sqf"
+
 //disable world map effects
 setDetailMapBlendPars [1000, 1000];
 setHorizonParallaxCoef 500;
@@ -100,6 +103,11 @@ _owner = if (isServer) then {0} else {clientOwner};
 [true] call setBlackScreenGUI;
 ["Station"] call ct_load;
 _data = [_owner];
+
+//init clientside structures only in mp-mode
+if (isMultiplayer) then {
+    call struct_initialize;
+};
 
 if (!isMultiplayer) then {
     //против задержки пакетов

@@ -35,6 +35,7 @@
 
 #include "ClientData_forceWalk.sqf"
 
+#include "ClientData_customAnims.sqf"
 
 //уникальное имя клиента
 cd_clientName = "";
@@ -192,6 +193,9 @@ _onPrepareClient = {
 
 				//initialize onesync services
 				call os_start;
+
+				//enable atmos packets
+				[true] call noe_client_nat_setEnabled;
 
 				//set client game state
 				"game" call client_setState;
@@ -512,8 +516,13 @@ _authResult = {
 
 //client side animator
 _anim = {
-	(_this select 0) switchmove (_this select 1)
+	(_this select 0) switchmove (_this select 1);
 }; rpcAdd("switchMove",_anim);
+
+_anim = {
+	(_this select 0) switchmove (_this select 1);
+	(_this select 0) playMoveNow (_this select 1); //fix force switchmove for fuckedup animations configs
+}; rpcAdd("switchMove_force",_anim);
 
 //Плавная смена анимации
 _anim = {
@@ -537,7 +546,7 @@ _setvdirup = {
 }; rpcAdd("syncongrabrot",_setvdirup);
 
 //теперь cam_addCamShake можно вызывать удаленно
-rpcAdd("camshake",cam_addCamShake);
+rpcAdd("camshake",{_this call cam_addCamShake}); //fix initialization error
 
 //Репликация любых методов. универсальный удаленный вызов
 _replloc = {

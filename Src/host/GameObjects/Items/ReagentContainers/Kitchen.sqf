@@ -23,9 +23,12 @@ class(Kastrula) extends(IReagentNDItem)
 	var(name,"Кастрюля");
 	//"ml\ml_object_new\shabbat\kostrylya_2.p3d" CHANGE MODEL AND REMOVE OTHERS
 	var(model,"relicta_models\models\interier\props\kitchen\kastryla.p3d");
+	var(material,"MatMetal");
+	getter_func(getDropSound,"dropping\potspans_" + (str randInt(1,4)));
 	var(allowedSlots,[INV_HEAD]);
-	var(size,ITEM_SIZE_BIG);
+	var(size,ITEM_SIZE_MEDIUM);
 	var(weight,gramm(700));
+	var(dr,3);
 	//var(reagents,vec3(this,60,[vec2("Water",50)]) call ms_create);
 	var(reagents,vec3(this,1000,[vec2("Water",50) arg vec2("Gribicin",50)]) call ms_create);
 	
@@ -179,6 +182,10 @@ class(SoupPlate) extends(IReagentNDItem)
 	var(name,"Тарелка");
 	var(desc,"Глубокая тарелка для супов и похлёбок.");
 	var(model,"ml_exodusnew\tarelochka.p3d");
+	var(material,"MatMetal");
+	var(dr,2);
+	var(size,ITEM_SIZE_MEDIUM);
+	var(weight,gramm(600));
 	var(soupName,"");
 	
 	func(getName)
@@ -212,6 +219,10 @@ class(FoodPlate) extends(Container)
 	var(name,"Тарелка");
 	var(desc,"Эта тарелка предназначена для вторых блюд.");
 	var(model,"relicta_models\models\interier\props\kitchen\plate.p3d");
+	var(material,"MatGlass");
+	var(size,ITEM_SIZE_SMALL);
+	var(weight,gramm(200));
+	var(dr,1);
 endclass
 
 // Cups
@@ -219,18 +230,29 @@ endclass
 class(Cup) extends(IReagentNDItem)
 	var(name,"Чашка");
 	var(model,"relicta_models\models\interier\props\cup.p3d");
+	var(material,"MatGlass");
 	var(size,ITEM_SIZE_SMALL);
 	var(weight,gramm(200));
-	
 	var(reagents,vec2(this,30) call ms_create);
 	getterconst_func(transferAmount,[2 arg 5 arg 10 arg 20 arg 30]);
-	
+endclass
+
+class(Cup1) extends(Cup)
+	var(name,"Чашка");
+	var(model,"ml_exodusnew\chashunka.p3d");
+	var(material,"MatGlass");
+	var(size,ITEM_SIZE_SMALL);
+	var(weight,gramm(200));
+	var(reagents,vec2(this,30) call ms_create);
+	getterconst_func(transferAmount,[2 arg 5 arg 10 arg 20 arg 30]);
 endclass
 
 class(WoodenCup) extends(Cup)
 	var(name,"Деревянная кружка");
 	
 	var(model,"relicta_models\models\interier\props\kitchen\woodcup.p3d");
+	var(material,"MatWood");
+	var(weight,gramm(330));
 endclass
 
 class(OlderWoodenCup) extends(WoodenCup)
@@ -240,4 +262,7 @@ endclass
 class(MetalCup) extends(Cup)
 	var(name,"Стальная чашка");
 	var(model,"ml_shabut\furniture\chashka_rja.p3d");
+	var(material,"MatMetal");
+	var(dr,2);
+	var(weight,gramm(500));
 endclass

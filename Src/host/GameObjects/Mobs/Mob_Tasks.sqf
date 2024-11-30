@@ -40,10 +40,31 @@ region(Memories)
 						_tpref = "<t color='#ff0000'>[не выполнено] </t>";
 					};
 				};
-				modvar(_txt) + sbr + format["    %3%1: %2",getVar(_x,name),callFunc(_x,getTaskDescription),_tpref];
+				if getVar(_x,customTaskInfo) then {
+					private _tdescEx = callFuncParams(_x,getTaskDescription,this);
+					if (_tdescEx != "") then {
+						modvar(_txt) + sbr + format["    %2%1",_tdescEx,_tpref];
+					};
+				} else {
+					modvar(_txt) + sbr + format["    %3%1: %2",getVar(_x,name),callFuncParams(_x,getTaskDescription,this),_tpref];
+				};
 			} foreach getSelf(tasks);
 			
 			modvar(_txt) +"</t>";
+		};
+
+		private _mobDesc = callSelf(getDesc);
+		if (!isNullVar(_mobDesc) && {_mobDesc!=""}) then {
+			modvar(_txt) + sbr + _mobDesc;
+		};
+
+		private _mpool = [];
+		{
+			_mpool pushBack _x;
+		} foreach getVar(_mem,messages);
+
+		if (count _mpool > 0) then {
+			modvar(_txt) + sbr + "<t color='#5A71A3'>" + (_mpool joinString sbr) + "</t>";
 		};
 
 		{
@@ -113,7 +134,7 @@ region(Memories)
 		desc:Удаляет воспоминание моба. Если у персонажа нет головы или мозга - воспоминание не будет удалено.
 		type:method
 		lockoverride:1
-		in:int:Индекс воспоминания для удаления
+		in:int:Индекс:Индекс воспоминания для удаления
 		return:bool:Удалено ли воспоминание. Если у персонажа нет мозга или индекс принимает недопустимое значение - возвращает @[bool ЛОЖЬ]
 	" node_met
 	func(removeMemory)

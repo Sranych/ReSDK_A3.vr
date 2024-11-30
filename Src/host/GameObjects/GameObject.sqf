@@ -6,10 +6,13 @@
 #include "..\engine.hpp"
 #include "..\oop.hpp"
 #include "..\text.hpp"
+#include "..\struct.hpp"
 #include "GameConstants.hpp"
 #include "..\ServerRpc\serverRpc.hpp"
+#include "..\Networking\Network.hpp"
 #include <..\..\client\Inventory\inventory.hpp>
 #include <..\PointerSystem\pointers.hpp>
+#include <..\NOEngine\NOEngine_SharedTransportLevel.hpp>
 
 /*
 # Основные методы для моба
@@ -83,7 +86,7 @@ class(GameObject) extends(ManagedObject)
 	editor_attribute("Tooltip" arg "Модифицируемый метод получения описания")
 	getter_func(getDesc,if isNull(getSelf(desc)) then {""} else {getSelf(desc)});
 
-	verbListOverride("description mainact"); //список действий которые можно сделать с ЭТИМ объектом
+	verbListOverride("pull pulltransform extinguish craft_here description mainact"); //список действий которые можно сделать с ЭТИМ объектом
 
 	"
 		name:В мире
@@ -177,7 +180,7 @@ class(GameObject) extends(ManagedObject)
 		desc:Возвращает @[bool ИСТИНУ], если игровой объект может светиться, используя конфиги освещения и частиц.
 		type:const
 		classprop:0
-		return:bool:Является ли объект дверью
+		return:bool:Является ли объект источником света
 	" node_met
 	getterconst_func(canLight,false); //является ли предмет источником света
 	"
@@ -193,7 +196,7 @@ class(GameObject) extends(ManagedObject)
 		desc:Возвращает @[bool ИСТИНУ], если игровой объект является хранилищем реагентов (например, бутыки, шприцы).
 		type:const
 		classprop:0
-		return:bool:Является ли объект дверью
+		return:bool:Является ли объект реагент-хранилищем
 	" node_met
 	getterconst_func(isReagentContainer,false); // реагент-контейнер
 	"
@@ -221,6 +224,7 @@ class(GameObject) extends(ManagedObject)
 	" node_met
 	getterconst_func(isSeat,false); //это сиденье (стул, лавка)
 
+	//TODO remove
 	getter_func(canUseAsCraftSpace,false);//для пукнта в verb-меню (позволяет открывать крафт от этого объекта)
 	getter_func(getAllowedCraftCategories,[]); //доступные категории для крафт меню
 
@@ -233,9 +237,18 @@ class(GameObject) extends(ManagedObject)
 	" node_var
 	editor_attribute("EditorVisible" arg "custom_provider:weight")
 	editor_attribute("Tooltip" arg "Вес объекта в граммах или килограммах")
-	var(weight,gramm(1000));//вес в граммах
+	var(weight,0);//вес в граммах
 
-	editor_attribute("ReadOnly")
+	//перетаскивание
+	getter_func(isMovable,false); //объект движим
+	var(__moverMobs,[]);// кто двигает предмет
+
+	//рандомизатор веса
+	getterconst_func(canApplyWeightRandomize,false);
+	getterconst_func(getWeightRandomCoeff,vec2(0,0));
+	getterconst_func(getWeightRandomPrecision,2);//сколько знаков после нуля доступно
+
+	//editor_attribute("ReadOnly")
 	var(pointer,pointer_new(this)); //unique pointer
 	
 	func(constructor)
@@ -251,6 +264,13 @@ class(GameObject) extends(ManagedObject)
 		} else {
 			private _map = typeGetVar(_t,__mempool_inst__);
 			_map set [getSelf(pointer),this];
+		};
+
+		if callSelf(canApplyWeightRandomize) then {
+			private _oldWeight = getSelf(weight);
+			callSelf(getweightRandomCoeff) params [["_min",0],["_max",0]];
+			private _rval = parseNumber (rand(_min,_max) toFixed callSelf(getWeightRandomPrecision));
+			setSelf(weight,_oldWeight + _rval);
 		};
 	};
 
@@ -347,12 +367,13 @@ class(GameObject) extends(ManagedObject)
 		_icon = if (isNullVar(_icon) || {equals(_icon,stringEmpty)}) then {stringEmpty} else {
 			format["<img size='0.8' image='%1'/> ",if (".paa" in _icon) then {_icon} else {PATH_PICTURE_INV(_icon)}]};
 
-		private _otherText = if isTypeOf(this,Decor) then {""} else {
+		private _otherText = if (isTypeOf(this,Decor) || isTypeOf(this,IStruct)) then {""} else {
 			//Вес меньше 0 значит это фиктивный итем
-			if (callSelf(getWeight) < 0) exitWith {""};
+			if (callSelf(getWeight) < 0) exitWith {""}; 
 
 			sbr + callSelf(getTextWeight) + sbr +
 			"Размер: " + callSelf(getTextSize)
+			
 			#ifdef EDITOR
 			+ sbr + (if (isTypeOf(this,Item) && !isNull(getSelf(bbx))) then
 			{
@@ -368,17 +389,75 @@ class(GameObject) extends(ManagedObject)
 			if (_germText != "") then {
 				modvar(_otherText) + sbr + _germText;
 			};
+
+			if (callFuncParams(_usr,getDistanceTo,this) < 5) then {
+				modvar(_otherText) + sbr + (
+					if (
+						callSelf(canApplyDamage)
+						&& callSelf(getClassName) != "IStruct" //!temporary fix. remove in next versions
+						) then {
+					private _drTexts = ["Беззащитно","Слабенько защищено","Выглядит крепко","Хорошо защищено","Отличная защита"];
+					private _drConv = round (linearConversion [0, 8, getSelf(dr),0,4,true]);
+					
+					format[
+						'Состояние: %1 - %2br_inlineКачество: %3',
+						callSelfParams(getHPStatusText,true),
+						_drTexts select _drConv,
+						callSelf(getHTStatusText)
+					]
+				} else {
+					format[
+						"Выглядит %1. Никому %2 разрушить такое...",
+						pick["крайне древне","так старо","очень древне","на сотни колен"],
+						pick["не подвластно","не дозволено","не смочь","не найти сил","не суметь"],
+						pick["такое","это",callSelfParams(getNameFor,_usr)]
+					]
+				});
+			};
+			
+
+			#ifdef EDITOR
+			modvar(_otherText) + sbr + callSelf(getObjectHealth_Editor)
+			#endif
 		};
 
+		callFunc(_usr,generateLastInteractOnServer);
+		if equals(this,callFunc(_usr,getLastInteractTarget)) then {
+			private _ch = [callFunc(_usr,getLastInteractEndPos) call atmos_chunkPosToId] call atmos_getChunkAtChIdUnsafe;
+			if !isNullVar(_ch) then {
+				private _inf = _ch call ["getChunkUserInfo",[_usr]];
+				if (_inf!=stringEmpty) then {
+					modvar(_otherText) + sbr + _inf;
+				};
+
+			};
+		};
+
+		
+		//ddat = [_rand,_postrand,_icon,callSelfParams(getNameFor,_usr),_desc,_otherText];
 		format[_rand + _postrand,_icon + callSelfParams(getNameFor,_usr)] +
 		_desc +
 		_otherText;
+	};
+
+	func(getObjectHealth_Editor)
+	{
+		objParams();
+		private _m = format["HP (%1/%2); DR (%3/%4); HT %5",getSelf(hp),getSelf(hpMax),getSelf(dr),getSelf(drMax),getSelf(ht)];
+		if callSelf(canApplyDamage) then {
+
+		} else {
+			_m = setstyle("БЕЗ УРОНА: ",style_redbig) + _m;
+		};
+		_m
 	};
 
 	go_internal_updateMethodsAfterStart = [];
 
 	editor_attribute("InternalImpl")
 	var(_update_handle_auto,-1);
+
+	getter_func(isScriptedObject,false);
 
 	// запускает метод в цикле
 	func(startUpdateMethod)
@@ -429,6 +508,13 @@ class(GameObject) extends(ManagedObject)
 				this call gurps_recalcuateEncumbrance;
 			};
 		};
+	};
+
+	func(setWeight)
+	{
+		objParams_1(_w);
+		setSelf(weight,_w);
+		callSelf(onWeightChanged);
 	};
 
 	func(getTextWeight)
@@ -560,6 +646,11 @@ class(GameObject) extends(ManagedObject)
 	{
 		objParams();
 
+		if callSelf(isFlying) exitWith {
+			assert_str(!isNullVar(__INTERNAL_THROWED_VIRTUAL__),"Object is flying but visual object is null -> __INTERNAL_THROWED_VIRTUAL__");
+			__INTERNAL_THROWED_VIRTUAL__
+		};
+
 		private _curLoc = this;
 		private _probNewLoc = nullPtr;
 		while {true} do {
@@ -575,7 +666,7 @@ class(GameObject) extends(ManagedObject)
 			};
 			_curLoc = _probNewLoc;
 		};
-
+		
 		_curLoc;
 	};
 
@@ -624,6 +715,25 @@ class(GameObject) extends(ManagedObject)
 			warningformat("%1:getSourceLoc() returns this object",callSelf(getClassName));
 		};*/
 
+		_curLoc;
+	};
+
+	//расширенный метод получения базовой локации объекта
+	func(getSourceLocEx)
+	{
+		params ['this',"_owningList"];
+		if isNullVar(_owningList) then {_owningList = []};
+		private _curLoc = this;
+		private _probNewLoc = nullPtr;
+		while {true} do {
+			_probNewLoc = getVar(_curLoc,loc);
+			if (isNullVar(_probNewLoc) || {equalTypes(_probNewLoc,objNUll)}) exitWith {};
+			if callFunc(_probNewLoc,isMob) exitWith {};
+			
+			_curLoc = _probNewLoc;
+			_owningList pushBack _probNewLoc;
+		};
+		if isNullVar(_curLoc) exitWith {nullPtr};
 		_curLoc;
 	};
 
@@ -1024,6 +1134,12 @@ endregion
 			error("GameObject::unloadModel() - getChunkType returns null");
 			false
 		};
+
+		//request for update atmos chunk
+		private _ch = [(getposatl getSelf(loc))call atmos_chunkPosToId] call atmos_getChunkAtChId;
+		_ch set ["flagUpdObj",true];
+		callSelf(onUpdatePosition);
+
 		[this,_cht] call noe_unloadVisualObject;
 		true
 	};
@@ -1056,7 +1172,7 @@ endregion
 		if callSelf(isInWorld) then {
 			private _cht = callSelf(getChunkType);
 			if isNullVar(_cht) exitWith {
-				error("GameObject::unloadModel() - getChunkType returns null");
+				error("GameObject::replicateObject() - getChunkType returns null");
 				false
 			};
 			[getSelf(loc),_cht,true] call noe_replicateObject;
@@ -1187,15 +1303,22 @@ region(throwing and bullets functions)
 	func(onThrowHit) //вызывается при попадании в цель
 	{
 		objParams_6(_dam,_type,_sel,_usr,_dist,_throwed);
+		//_p is outref
+		private _drObj = getSelf(dr);
+		callSelfParams(applyDamage,_dam arg _type arg _p arg "throw_hit");
 
+		//! THIS CAN BE THROWS ERROR BECAUSE _throwed.loc - is flyingObject
+		callFuncParams(_throwed,onAttackedObject,this arg _dam arg _drObj arg _p arg "throwed");
 	};
 
 	//Тут обязательно нужно удалить пулю чтобы не вызывать утечек памяти
 	func(onBulletAct) //вызывается при попадании пули в цель
 	{
 		objParams_6(_dam,_type,_sel,_usr,_dist,_throwed);
-		callSelfParams(playSound,"guns\ric"+str randInt(1,5) arg randInt(0.85,1.15) arg 15 arg null arg _p); //_p is exref
-		callSelfParams(applyDamage,_dam arg _type arg _p arg null);
+		if !callFunc(_throwed,isNonLethalAmmo) then {
+			callSelfParams(playSound,"guns\ric"+str randInt(1,5) arg randInt(0.85,1.15) arg 15 arg null arg _p); //_p is exref
+			callSelfParams(applyDamage,_dam arg _type arg _p arg null);
+		};
 		delete(_throwed);
 	};
 
@@ -1208,44 +1331,466 @@ class(IDestructible) extends(GameObject)
 	"
 		name:Разрушаемый игровой объект
 		desc:Разрушаемый игровой объект. Все игровые объекты кроме мобов наследуются от данного класса.
-		path:Игровые объекты
+		path:Игровые объекты.Базовые
 	"
 	node_class
+
+	"
+		name:Скрипт
+		desc:Возвращает ссылку на скрипт, привязанный к игровому объекту.
+		type:get
+		classprop:0
+		return:object^:Ссылка на скрипт
+	" node_var
+	var(__script,nullPtr);
+	"
+		name:Это скриптовый объект
+		desc:Возвращает @[bool ИСТИНУ], если игровой объект является скриптовым объектом.
+		type:get
+		lockoverride:1
+		classprop:0
+		return:bool:Является ли объект скриптовым объектом
+	" node_met
+	getter_func(isScriptedObject,!isNullReference(getSelf(__script)));
+
+	func(destructor)
+	{
+		objParams();
+		private _script = getSelf(__script);
+		if !isNullReference(_srcipt) then {
+			delete(_script);
+		};
+
+		private _ccomp = getSelf(craftComponent);
+		if !isNullVar(_ccomp) then {
+			_ccomp callv(releaseComponent);
+		};
+
+		{
+			_x set ["flagUpdObj",true];
+			false;
+		} count (values getSelf(__atm_ownerChunks));
+	};
+
+	func(onUpdatePosition)
+	{
+		objParams();
+		{
+			_x set ["flagUpdObj",true];
+			false;
+		} count (values getSelf(__atm_ownerChunks));
+		setSelf(__atm_ownerChunks,createHashMap);
+
+		//TODO определение НИЗА модели
+		if (true) exitWith {};
+
+		//update simulation
+		/*
+			Цель - получить все объекты, граничащие с чанками этого объекта
+			1. Получаем чанки с помощью [this,true,false] atmos_getObjectOwnedChunks
+			2. Получаем полный список объектов в каждом чанке
+		*/
+		private _chObjList = [this,true,false] call atmos_getObjectOwnedChunks;
+		private _mapObjAll = createHashMap;
+		private _needSim = [];
+		traceformat("CHUNKS COUNT: %1",count _chObjList);
+		{
+			{
+				if !array_exists(_mapObjAll,getVar(_x,pointer)) then {
+					_mapObjAll set [getVar(_x,pointer),_x];
+					traceformat("CHECK OPENSPACE %1 - %2",_x arg callFunc(_x,isInOpenSpace))
+					if callFunc(_x,isInOpenSpace) then {
+						_needSim pushBack _x;
+					};
+				};
+				false;
+			} count (_x callv(getObjectsInChunk));
+			false
+		} count _chObjList;
+
+		//TODO sorting by z-value
+		{
+			callFunc(_x,onObjectFalling);
+		} count _needSim;
+	};
+
+	#define DEBUG_VISUAL_OBJECTFALLING
+
+	#ifndef EDITOR
+		#undef DEBUG_VISUAL_OBJECTFALLING
+	#endif
+
+	func(onObjectFalling)
+	{
+		objParams();
+		//if isNullReference(this) exitWith {false};
+
+		private _visObj = callSelf(getBasicLoc);
+		private _p1 = _visObj modelToWorldVisual [0,0,0];
+		private _p2 = _p1 vectorAdd [0,0,-1000];
+
+		private _iDat = [_p1,_p2,_visObj,
+		#ifdef EDITOR
+		noe_client_allPointers getOrDefault [getSelf(pointer),objNull]
+		#else
+		objNull
+		#endif
+		] call si_getIntersectData;
+		
+		#ifdef DEBUG_VISUAL_OBJECTFALLING
+		if !isNull(debug_objfalling_list) then {{deletevehicle _x} foreach debug_objfalling_list};
+		debug_objfalling_list = [];
+		assert_str(!isNull(atmos_debug_createSphere),"atmos_debug_createSphere must be defined");
+		_s1 = [1,0,0] call atmos_debug_createSphere;
+		_s2 = [0,1,0] call atmos_debug_createSphere;
+		_s1 setposatl _p1;
+		_s2 setposatl ifcheck(isNullReference(_iDat select 0),_p2,_iDat select 1);
+		debug_objfalling_list append vec2(_s1,_s2);
+		#endif
+
+		if isNullReference(_iDat select 0) exitWith {false};
+
+		
+		{
+			callFuncParams(_x,interpolate,"auto_trans_fall" arg this arg getSelf(pointer));
+		} foreach callSelfParams(getNearMobs,20);
+		
+		callSelfParams(setPos__,_iDat select 1);
+
+		private _dam = D6 * 5; //TODO расчет урона от дистанции падения+ объемов объекта
+		//TODO урон по объектам, на которые упал этот объект
+		callSelfAfterParams(applyDamage,rand(1.2,1.3),_dam arg DAMAGE_TYPE_CRUSHING arg _iDat select 1);
+		true
+	};
+
+	//set positiof of world object with replication
+	func(setPos__) //name is temporary
+	{
+		objParams_1(_pos);
+		if !callSelf(isInWorld) exitWith {};
+
+		private _wobj = callSelf(getBasicLoc);
+		_wobj setposatl _pos;
+		callSelf(replicateObject);
+	};
+
+	//set new position with interpolation
+	func(changePosition)
+	{
+		objParams_1(_pos);
+		if !callSelf(isInWorld) exitWith {};
+		
+		{
+			callFuncParams(_x,interpolate,"auto_trans_fall" arg this arg getSelf(pointer));
+		} foreach callSelfParams(getNearMobs,20);
+
+		callSelfParams(setPos__,_pos);
+	};
+
+	func(getNewTransform)
+	{
+		params ['this',["_down",-90],["_dir",random 360],["_force",2],["_addIgnored",[]]];
+		private _startPos = callSelf(getPos);
+		_force = clamp(_force,1,10);
+		private _ign = [this];
+		_ign append _addIgnored;
+		[
+			this,
+			_startPos,
+			[_down,0,_dir],
+			_force,
+			null,
+			null,
+			_ign
+		] call si_rayTraceProcess;
+	};
+
+	//todo optimize transport (from replicateObject to replicateTransform)
+	func(setTransform)
+	{
+		objParams_2(_p,_rot);
+		if !callSelf(isInWorld) exitWith {false};
+		assert_str(callSelf(isEnabledTransformMode),"Transform mode for pointer must be enabled -> " + getSelf(pointer));
+		private _wobj = getSelf(loc);
+		
+		if !isNullVar(_rot) then {
+			if equalTypes(_rot,0) then {
+				_wobj setDir _rot;
+			} else {
+				//conv to vec-coords
+				if (count _rot == 3) then {
+					_rot = _rot call model_convertPithBankYawToVec;
+				};
+				_rot params ["_vdr","_vup"];
+				_wobj setvectordirandup _rot;
+			};
+		};
+		
+		_wobj setPosWorld (atltoasl _p);
+
+		traceformat("Replicate object %1 (wpos %4); %2 %3",getSelf(pointer) arg _p arg _rot arg _posworld)
+
+		callSelf(replicateObject);
+
+		true
+	};
+
+	//return in struct vec2(pos[ATL|world],rot) - rot is float or vec3 (see model_getPitchBankYaw)
+	func(getTransform)
+	{
+		objParams();
+		if !callSelf(isInWorld) exitWith {null};
+		private _wobj = getSelf(loc);
+		[
+			ifcheck(_wobj getVariable vec2("wpos",false),getPosWorld _wobj,getPosAtl _wobj),
+			ifcheck(_wobj getVariable vec2("vdir",false),getDir _wobj,[_wobj] call model_getPitchBankYaw)
+		]
+	};
+
+	func(setTransformMode)
+	{
+		objParams_2(_mode,_replicate);
+		if !callSelf(isInWorld) exitWith {};
+		private _wobj = getSelf(loc);
+		if (_mode) then {
+			if !(_wobj getVariable ["wpos",false]) then {
+				(_wobj setVariable ["flags",(_wobj getvariable "flags") + wposObj_true]);
+			};
+			_wobj setVariable ["wpos",true];
+			if !(_wobj getVariable ["vdir",false]) then {
+				(_wobj setVariable ["flags",(_wobj getvariable "flags") + vDirObj_true]);
+			};
+			_wobj setVariable ["vdir",true];
+		} else {
+			if (_wobj getVariable ["wpos",false]) then {
+				(_wobj setVariable ["flags",(_wobj getvariable "flags") - wposObj_true]);
+			};
+			_wobj setVariable ["wpos",null];
+			if (_wobj getVariable ["vdir",false]) then {
+				(_wobj setVariable ["flags",(_wobj getvariable "flags") - vDirObj_true]);
+			};
+			_wobj setVariable ["vdir",null];
+		};
+		
+		if !isNullVar(_replicate) then {_replicate = true};
+
+		if (_replicate) then {
+			callSelf(replicateObject);
+		};
+	};
+	func(isEnabledTransformMode)
+	{
+		objParams();
+		if !callSelf(isInWorld) exitWith {false};
+		private _wobj = getSelf(loc);
+		(_wobj getVariable ["wpos",false]) && (_wobj getVariable ["vdir",false])
+	};
+
+	func(replicateTransform)
+	{
+		objParams();
+		if callSelf(isInWorld) then {
+			private _cht = callSelf(getChunkType);
+			if isNullVar(_cht) exitWith {
+				error("GameObject::replicateTransform() - getChunkType returns null");
+				false
+			};
+			[getSelf(loc),_cht,true] call noe_replicateTransform;
+
+			true
+		} else {
+			false
+		};
+	};
+
+	#define DEBUG_VISUAL_OPENSPACE
+
+	#ifndef EDITOR
+		#undef DEBUG_VISUAL_OPENSPACE
+	#endif
+
+	//функция проверки находится ли объект в воздухе
+	func(isInOpenSpace)
+	{
+		objParams();
+		private _visObj = callSelf(getBasicLoc);
+		private _bbx = boundingBoxReal [_visObj,"Geometry"];
+		private _lowerZ = _bbx select 0 select 2;
+		private _poses = [
+			_bbx select 0 select [0,2],
+			_bbx select 1 select [0,2],
+			[_bbx select 0 select 0,_bbx select 1 select 1],
+			[_bbx select 1 select 0,_bbx select 0 select 1]
+		] apply {
+			asltoatl (
+				_visObj modelToWorldVisualWorld  (_x vectoradd [0,0,_lowerZ])
+			)
+		};
+
+		//additional positions workaround
+		private _added = [];
+		{
+			_added pushBack ([_x] call getPosListCenter);
+		} foreach [
+			[_poses select 1,_poses select 2],
+			[_poses select 1,_poses select 3],
+			[_poses select 0,_poses select 2],
+			[_poses select 0,_poses select 3]
+		];
+		_poses append _added;
+
+		private _iDat = null;
+		private _countConnections = 0;
+
+		#ifdef DEBUG_VISUAL_OPENSPACE
+		if !isNull(debug_openspace_list) then {{deletevehicle _x} foreach debug_openspace_list};
+		debug_openspace_list = [];
+		assert_str(!isNull(atmos_debug_createSphere),"atmos_debug_createSphere must be defined");
+		{
+			_s1 = [1,0,1] call atmos_debug_createSphere;
+			_s2 = objNull;
+			_s1 setposatl _x;
+			private _iDatDebug = [_x,_x vectoradd [0,0,-.2],_visObj] call si_getIntersectData;
+			if !isNullReference(_iDatDebug select 0) then {
+				_s2 = [0,1,0] call atmos_debug_createSphere;
+				_s2 setposatl (_iDatDebug select 1);
+			} else {
+				_s2 = [1,0,0] call atmos_debug_createSphere;
+				_s2 setposatl (_x vectoradd [0,0,-.2]);
+			};
+			debug_openspace_list append vec2(_s1,_s2);
+		} foreach _poses;
+		#endif
+		#ifdef EDITOR
+		private _toUnhide = [];
+		{
+			if !(isObjectHidden _x) then {
+				_x hideObject true;
+				_toUnhide pushBack _x;
+			};
+		} foreach (values noe_client_allPointers);
+		#endif
+		{
+
+			_iDat = [_x,_x vectorAdd [0,0,-0.2],_visObj] call si_getIntersectData;
+
+			if !isNullReference(_iDat select 0) then {
+				INC(_countConnections);
+			};
+			false;
+		} count _poses;
+
+		#ifdef EDITOR
+		{_x hideObject false} foreach _toUnhide;
+		#endif
+
+		#ifdef DEBUG_VISUAL_OPENSPACE
+		traceformat("IDestructible::isInOpenSpace: _countConnections = %1",_countConnections);
+		#endif
+
+		_countConnections <= 3//8=>примерно треть для устойчивости объекта
+	};
+
+	getter_func(isMovable,false);
 
 	//all info for this system in baisc set: B 557
 	//Повреждения оружия на B 485
 
 	//общие данные. Все значения отличные от нуля сбрасывают инициализацию своих значений
+	/*
+		Здоровье объекта.
+		показывает вероятность того, что объект сломается от давления или нападения.
+
+		Мечи,столы, щиты и другие цельные однородные объекты ЗД 12.
+		Дешёвые, прихотливые или плохо содержащиеся вещи получают от -1 до -3 к ЗД;
+		качественно или грубо сделанные получают +1 или +2 к ЗД.
+		Большинство машин и подобных артефактов в хорошем состоянии имеют ЗД 10.
+	*/
+	"
+		name:Качество
+		desc:Возвращает @[int качество] игрового объекта. Среднее значение равно 10. Чем выше качество, тем ценее и прочнее предмет.
+		prop:all
+		classprop:1
+		return:int:Качество игрового объекта
+	" node_var
 	var(ht,10); //Статическая переменная "здоровья" объекта. От этого скилла кидаются броски на разрушение
+
+	/*
+		ЕЖ предмета.
+		количество повреждений, которое объект может вынести, прежде чем сломается или прекратит функционировать
+	*/
+	"
+		name:Здоровье
+		desc:Возвращает текущее здоровье игрового объекта. Оно варьируется от максимального здоровья до пятикратного отрицательного значения от максимального здоровья. Наприме, при максимальном здоровье 5 минимальное здоровье после которого предмет будет уничтожен будет -25 (5 * -5)
+		prop:get
+		classprop:1
+		return:int:Здоровье
+	" node_var
 	var(hp,0);
+		"
+			name:Максимальное здоровье
+			desc:Возвращает максимальное здоровье игрового объекта. Это значение никогда не может быть меньше 0.
+			prop:get
+			classprop:1
+			return:int:Максимальное здоровье
+		" node_var
 		var(hpMax,0);
+	/*
+		СП объекта.
+		Деревянные и пластиковые инструменты, устройства, мебель и т.д. обычно имеют СП 2.
+		Маленькие металлические, деревянно-металлические или композитные объекты, например топоры и пистолеты, обычно имеют СП 4.
+		Цельнометаллическое оружие ближнего боя имеет СП 6
+	*/
 	var(dr,0);
 		var(drMax,0);
-	//звук повреждений
-	getter_func(getDamageSound,"");
 	getter_func(canApplyDamage,false);
 
 	//complex - электронику, огнестрельное оружие, автотранспорт,роботов и большинство других механизмов
 	//simple - ткани (плащи, занавески), мебель и контактное оружие, действующее на силе владельца
 	//spreaded - рассеянные объекты например (сеть)
-	getter_func(objectHealthType,"simple");
+	getter_func(objectHealthType,OBJECT_TYPE_SIMPLE);
 
 	//Вызывается при уничтожении игрового объекта
 	func(onDestroyed)
 	{
 		objParams();
+		private _p = callSelf(getModelPosition);
+		for "_i" from 1 to randInt(3,6) do {
+			private _worldPos = _p vectorAdd [rand(-0.2,0.2),rand(-0.2,0.2),rand(-0.2,0.2)];
+			callSelfParams(sendDamageVisualOnPos,_worldPos arg true arg true arg false);
+		};
+
+		callSelf(dropDebrisOnDestroy);
 	};
+	
+	//Отметка времени последнего урона огнём
+	var(__atm_lastFireDamage,0);
+	//Здесь хранятся ссылка на чанки, которые владеют этим объектом. key:chId, value:AtmosChunk
+	var(__atm_ownerChunks,createHashMap);
 
 	func(applyDamage)
 	{
 		// количество урона, тип повреждений, мировая позиция по которой пришлись повреждения, (опциональная) причина урона
 		objParams_4(_amount,_type,_worldPos,_cause);
-		if !callSelf(canApplyDamage) exitWith {};
+		//traceformat("%1::applyDamage main - count: %2; dt: %3; pos: %4; cause: %5",this arg _amount arg _type arg _worldPos arg _cause);
+		private _canUseEffect = true;
+		private _canUseSound = true;
+		private _useBlockSound = true;
+		private _effector = {
+			if !isNullVar(_worldPos) then {
+				callSelfParams(sendDamageVisualOnPos,_worldPos arg _canUseEffect arg _canUseSound arg _useBlockSound);
+			};
+		};
+
+		if (!callSelf(canApplyDamage) || callSelf(getClassName) == "IStruct") exitWith {
+			_canUseEffect = false;
+			call _effector;
+		};
 
 		//сначала проходим через СП, потом мод. повр.
 		_amount = (_amount - getSelf(dr)) max 0;
 
-		if (callSelf(objectHealthType)=="complex")then{
+		if (callSelf(objectHealthType)==OBJECT_TYPE_COMPLEX)then{
 			//DAMAGE_TYPE_IMPALING,DAMAGE_TYPE_PIERCING_HU modif x1
 			if (_type == DAMAGE_TYPE_PIERCING_LA) exitWith {
 				_amount = floor(_amount * 0.5);
@@ -1257,7 +1802,7 @@ class(IDestructible) extends(GameObject)
 				_amount = floor(_amount * 0.2);
 			};
 		} else {
-			if (callSelf(objectHealthType)=="spreaded") then {
+			if (callSelf(objectHealthType)==OBJECT_TYPE_SPREADED) then {
 				if (_type in [DAMAGE_TYPE_IMPALING,DAMAGE_TYPE_PIERCING_SM,DAMAGE_TYPE_PIERCING_NO,DAMAGE_TYPE_PIERCING_LA,DAMAGE_TYPE_PIERCING_HU]) then {
 					_amount = _amount min 1;
 				} else {
@@ -1279,14 +1824,14 @@ class(IDestructible) extends(GameObject)
 				};
 			};
 		};
-	/*	//По правилам, описанным на B 380 мы применяем модификатор повреждений в этом методе, вместо стандартного модификатора
-		private _passed = //[
-			(_amount - getSelf(dr)) max 0
-		//] call gurps_applyDamageType
-		;*/
-		callSelfParams(onAffectDamageToPos,_passed arg _type arg _worldPos arg _cause);
+		
+		callSelfParams(onAffectDamageToPos,_amount arg _type arg _worldPos arg _cause);
 
-		modSelf(hp,- _passed);
+		_canUseEffect = _amount > 0;
+		_useBlockSound = _amount <= 0;
+		call _effector;
+
+		modSelf(hp,- _amount);
 		private _newhp = getSelf(hp);
 		private _maxhp = getSelf(hpMax);
 
@@ -1297,15 +1842,18 @@ class(IDestructible) extends(GameObject)
 		if (_newhp <= 0 && _newhp > (-1*_maxhp)) exitWith {
 			callSelfParams(onChangeObjectHP,2);
 			private _rr = (getSelf(ht) call gurps_rollstd);
-			if (getRollType(_rr) in [DICE_FAIL,DICE_CRITFAIL]) then {
-				callSelf(onDestroyed);
-				delete(this);
+			if DICE_ISFAIL(getRollType(_rr)) then {
+				//?тест. снижаем dr объекта
+				private _oldDr = getSelf(dr);
+				if (_oldDr>0) then {
+					setSelf(dr,(_oldDr - 1) max 0);
+				};
 			};
 		};
 		if (_newhp <= (-1*_maxhp) && _newhp > (-5*_maxhp)) exitWith {
 			callSelfParams(onChangeObjectHP,3);
 			private _rr = (getSelf(ht) call gurps_rollstd);
-			if (getRollType(_rr) in [DICE_FAIL,DICE_CRITFAIL]) then {
+			if DICE_ISFAIL(getRollType(_rr)) then {
 				callSelf(onDestroyed);
 				delete(this);
 			};
@@ -1315,7 +1863,84 @@ class(IDestructible) extends(GameObject)
 			callSelf(onDestroyed);
 			delete(this);
 		};
-		errorformat("IDestructible::applyDamage() - no affect damage: hp %1; max hp %2",_newhp arg _maxhp);
+		//errorformat("IDestructible::applyDamage() - no affect damage: hp %1; max hp %2; Amount %3",_newhp arg _maxhp arg _amount);
+	};
+
+	func(onAttackedObject)
+	{
+		objParams_5(_targ,_dam,_targDr,_pos,_reason);
+		
+		private _weapDamage = (getSelf(dr) + randInt(1,4)) max 0;
+		private _mod = 0;
+		if (isTypeOf(this,IMeleeWeapon) || isTypeOf(this,IRangedWeapon)) then {
+			modvar(_mod) + 4;
+		};
+		
+		traceformat("onAttachedObject: %1 => %2 [%3;%4]:: %5 (mod: %6)",this arg _targ arg _dam arg _targDr arg _weapDamage arg _mod)
+
+		if !([getSelf(ht) + _mod] call gurps_probSuccess) then {
+			//weapon damage after attack
+			callSelfParams(applyDamage,_weapDamage max 0 arg DAMAGE_TYPE_CRUSHING arg _pos arg _reason);
+		};
+	};
+
+	//получает эффективный урон против объекта
+	func(getEfficiencyOnAttack)
+	{
+		objParams_2(_dam,_targ);
+		private _mat = callFunc(_targ,getMaterial);
+		if !isNullReference(_mat) then {
+			private _modifWeaponDamage = callFunc(_mat,getDamageCoefOnAttack);
+			_dam = round(_dam*_modifWeaponDamage);
+		};
+		_dam
+	};
+
+	func(getHPStatusText)
+	{
+		objParams_1(_addClr);
+		if isNullVar(_addClr) then {_addClr = false};
+		private _curClr = "ffffff";
+		
+		private _tval = call {
+			private _hp = getSelf(hp);
+			private _maxhp = getSelf(hpMax);
+			if (_hp < (round(_maxhp/3)) && _hp > 0) exitWith {
+				_curClr = "207332";
+				"Повреждено"
+			};
+			if (_hp <= 0 && _hp > (-1*_maxhp)) exitWith {
+				_curClr = "3D541D";
+				"Сильно повреждено"
+			};
+			if (_hp <= (-1*_maxhp) && _hp > (-5*_maxhp)) exitWith {
+				_curClr = "992C08";
+				//private _idx = round linearConversion [-5*_maxhp,-1*_maxhp,_hp,0,4,true];
+				//["Почти уничтожено",""] select _idx
+				"Почти " + (pick["разрушено","уничтожено","сломано","раздолбано"])
+			};
+			if (_hp > 0) exitWith {
+				_curClr = "00C12B";
+				"Нормальное"
+			};
+			_curClr = "ff0000";
+			"Уничтожено"
+		};
+		ifcheck(_addClr,format["<t color='#%1'>%2</t>" arg _curClr arg _tval],_tval);
+	};
+
+	func(getHTStatusText)
+	{
+		objParams();
+		private _ht = getSelf(ht);
+		if (_ht <= 2) exitWith {"Отвратительное"};//2
+		if inRange(_ht,3,5) exitWith {"Ужасное"}; //3
+		if (inRange(_ht,6,8)) exitWith {"Плохое"}; //3
+		if inRange(_ht,9,11) exitWith {"Обычное"}; //3
+		if inRange(_ht,12,13) exitWith {"Хорошее"}; //2
+		if inRange(_ht,13,14) exitWith {"Отличное"};//2
+		if inRange(_ht,15,16) exitWith {"Превосходное"};//2
+		if (_ht >= 17) exitWith {"Великолепное"};//2
 	};
 
 	func(onChangeObjectHP)
@@ -1327,12 +1952,20 @@ class(IDestructible) extends(GameObject)
 	func(onAffectDamageToPos)
 	{
 		objParams_4(_passedDamage,_type,_worldPos,_cause);
-		traceformat("AFFECT DAM %1 %2 %3",_passedDamage arg _type arg _worldPos);
+		//traceformat("AFFECT DAM %1 %2 %3",_passedDamage arg _type arg _worldPos);
 	};
 
 	func(constructor)
 	{
 		objParams();
+
+		callSelf(initCraftSystem);
+
+		private _mat = getSelf(material);
+		if equalTypes(_mat,"") then {
+			_mat = _mat call mat_getByClass;
+			setSelf(material,_mat);
+		};
 
 		//germs
 		if isTypeOf(this,Item) then {
@@ -1351,20 +1984,16 @@ class(IDestructible) extends(GameObject)
 		//no damage - no hp
 		if !callSelf(canApplyDamage) exitWith {};
 
-		private _ft = kgToLb(callSelf(getWeight));
 		private _type = callSelf(objectHealthType);
 		private _val = 0;
 
 		if (getSelf(hp)>0) then {
 			setSelf(hpMax,getSelf(hp));
-		} else {
-			_val = if (_type == "complex") then {
-				ceil(4 * (_ft ^ (1/3)))
-			} else {
-				ceil(8 * (_ft ^ (1/3)))
+			if !callSelf(isItem) then {
+				setSelf(weight,([this] call gurps_calculateConstructionWeight) * 1000);
 			};
-			setSelf(hp,_val);
-			setSelf(hpMax,_val);
+		} else {
+			callSelf(generateObjectHP);
 		};
 
 		if (getSelf(dr)>0) then {
@@ -1375,9 +2004,234 @@ class(IDestructible) extends(GameObject)
 			};
 		};
 	};
+
+	func(generateObjectHP)
+	{
+		objParams();
+		private _val = 1;
+		if callSelf(isItem) then {
+			_val = [this] call gurps_calculateItemHP;
+		} else {
+			private _dwt = getSelf(weight);
+			if equals(_dwt,0) then {
+				private _weightTn = [this] call gurps_calculateConstructionWeight;
+				_val = [_weightTn] call gurps_calculateConstructionHP;
+				//lb to kg
+				setSelf(weight,_weightTn * 1000);
+			} else {
+				_val = [_dwt / 1000] call gurps_calculateConstructionHP;
+			};
+		};
+		setSelf(hp,_val);
+		setSelf(hpMax,_val);
+	};
+
+	//коэффициент для авторасчета веса. это делитель веса объекта. для мебели например 10
+	getterconst_func(getCoefAutoWeight,1);
+
+	//TODO replace to nullptr and refactoing all checks
+	var(material,null);//string|object
+	func(getMaterial)
+	{
+		objParams();
+		private _mObj = getSelf(material);
+		if isNullVar(_mObj) exitWith {nullPtr};
+		if not_equalTypes(_mObj,nullPtr) exitWith {nullPtr};
+		_mObj
+	};
+
+	func(sendDamageVisualOnPos)
+	{
+		objParams_4(_pos,_doEffect,_doSound,_useBlockSound);
+		if isNullVar(_doEffect) then {_doEffect = true};
+		if isNullVar(_doSound) then {_doSound = false};
+		if isNullVar(_useBlockSound) then {_useBlockSound = true};
+
+		private _mat = getSelf(material);
+		if isNullVar(_mat) exitWith {};
+
+		if (_doEffect) then {
+			private _emt = callFunc(_mat,getDamageEffect);
+			{
+				callFuncParams(_x,sendInfo,"do_fe" arg [_pos arg _emt arg _norm]);
+			} foreach callSelfParams(getNearMobs,20);
+		};
+
+
+		if (_doSound) then {
+			private _sound = ifcheck(_useBlockSound,callFunc(_mat,getResistSound),callFunc(_mat,getDamageSound));
+			if (_sound == stringEmpty) exitWith {};
+			callSelfParams(playSound,_sound arg randInt(0.85,1.15) arg 15 arg null arg _pos);
+		};
+	};
+
+	//функция создает частицы и раскидывает их вокруг объекта
+	func(dropDebrisOnDestroy)
+	{
+		objParams();
+		
+		//nonworld objects cannot drop debris
+		if !callSelf(isInWorld) exitWith {};
+
+		private _typeList = callSelf(getOnDestroyTypes);
+		//_typeList = ["TorchDisabled"];//!for debug only
+
+		if (count _typeList == 0) exitWith {}; //nothing to drop 
+		/*
+			Стандартная формула расчета количества частиц из объекта:
+			round(hpMax / 20)
+		*/
+		private _countCreate = callSelf(getOnDestroyCountCreate);
+
+		private _type = null;
+		private _startPos = getSelf(loc) modelToWorldVisual [0,0,0]; //center of model (not atl pos)
+		private _wobj = nullPtr;
+		private _tDat = null;
+
+		#ifdef NOE_DEBUG_HIDE_SERVER_OBJECT
+		private _nochange_serverobject = true;
+		#endif
+		#ifdef EDITOR
+		private _hidemodevobj = {
+			params ["_vobj","_mode"];
+			if (_mode) then {
+				if isNullVar(_nochange_serverobject) then {
+					getVar(_vobj,loc) hideObject true;
+				};
+				(noe_client_allPointers getOrDefault [getVar(_vobj,pointer),objNull]) hideObject true;
+			} else {
+				if isNullVar(_nochange_serverobject) then {
+					getVar(_vobj,loc) hideObject false;
+				};
+				(noe_client_allPointers getOrDefault [getVar(_vobj,pointer),objNull]) hideObject false;
+			};
+		};
+		[this,true] call _hidemodevobj;
+		//_parList = [this,_countCreate,_typeList,_startPos];
+		//_nfp = { params ['this',"_countCreate","_typeList","_startPos"];
+		#else
+		
+		//non editor hide serverside object
+		getVar(_vobj,loc) hideObject true;
+
+		#endif
+		
+		private _mobs = callSelfParams(getNearMobs,20);
+
+		for "_i" from 1 to _countCreate do {
+			_type = pick _typeList;
+			
+			_wobj = [_type,_startPos] call createGameObjectInWorld;//instantiate(_type);//
+			assert_str(!isNullReference(_wobj),"Failed to create debris type " + _type);
+
+			#ifdef EDITOR
+			[_wobj,true] call _hidemodevobj;
+			#else
+			getVar(_wobj,loc) hideObject true; //hide debris on server prod
+			#endif
+
+			_tDat = [
+				_wobj,
+				_startPos vectoradd [rand(-.1,.1),rand(-.1,.1),rand(0,.1)],
+				[rand(-20,70),rand(0,360)],
+				rand(2,4) //testforce
+			] call si_rayTraceProcess;
+
+			#ifdef EDITOR
+			[_wobj,false] call _hidemodevobj;
+			#else
+			getVar(_wobj,loc) hideObject false; //unhide debris on server prod
+			#endif
+			
+			_tDat params ["_iobj","_ipos","_ivec"];
+			
+			private _plis = [getVar(_wobj,pointer),[_ipos,callFunc(_wobj,getDir)],["ispd",
+				rand(0.7,1.2)//3//<fortest
+				,
+				"emuf"]];
+			{
+				callFuncParams(_x,sendInfo,"nintrp" arg _plis)
+			} foreach _mobs;
+
+			
+			callFuncParams(_wobj,setPos__,_ipos);
+		};
+
+		#ifdef EDITOR
+		//}; invokeAfterDelayParams(_nfp,2,_parList);
+		[this,false] call _hidemodevobj;
+		#else
+		
+		//non editor show serverside object
+		getVar(_vobj,loc) hideObject false;
+
+		#endif
+	};
+
+	//Пользовательская функция определения количества выпадающих предметов
+	getter_func(getOnDestroyCountCreate,round(getSelf(hpMax)/20));
+	//пользовательская функция получения типов при уничтожении объекта. можно настроить кастомные типы, выпадающие при уничтожении
+	getter_func(getOnDestroyTypes,callSelf(getOnDestroyTypesFromMaterial));
+
+	//минимально допустимое хп
+	"
+		name:Минимально допустимое здоровье
+		desc:Возвращает минимальное допустимое здоровье для этого игрового объекта (макс.зд. * -5)
+		type:get
+		lockoverride:1
+		return:int:Минимальное допустимое здоровье игрового объекта
+	" node_met
+	getter_func(getMinAllowedHP,-5 * getSelf(hpMax));
+
+	"
+		name:Текущее здоровье в процентах
+		desc:Возвращает текущее здоровье в процентах от 100 до 0
+		type:get
+		lockoverride:1
+		return:int:Текущее здоровье в процентах
+	" node_met
+	//текущее представление хп в процентном соотношении
+	func(getHPCurrentPrecentage)
+	{
+		objParams();
+		round linearConversion [callSelf(getMinAllowedHP),getSelf(hpMax),getSelf(hp),0,100,true];
+	};
+
+	"
+		name:Установить текущее здоровье в процентах
+		desc:Устанавливает текущее здоровье в процентах от 100 до 0
+		type:method
+		lockoverride:1
+		in:int:Здоровье:Здоровье в процентах
+			opt:def=100
+	" node_met
+	func(setHPCurrentPrecentage)
+	{
+		objParams_1(_val);
+		private _newHp = round linearConversion [0,100,_val,callSelf(getMinAllowedHP),getSelf(hpMax),true];
+		_newHp = clamp(_newHp,callSelf(getMinAllowedHP),getSelf(hpMax));
+		setSelf(hp,_newHp);
+	};
+
+	func(getOnDestroyTypesFromMaterial)
+	{
+		objParams();
+		private _mat = callSelf(getMaterial);
+		if !isNullReference(_mat) then {
+			callFunc(_mat,getDestructionTypes);
+		} else {
+			[]
+		};
+	};
 	
 	
 	var(germs,0);//сколько микробов на объекте (для инфекций)
+
+	func(addGerms)
+	{
+		objParams_1(_val);
+		setSelf(germs,getSelf(germs) + clamp(_val,0,GERM_COUNT_MAX));
+	};
 
 	//функция, получающая с помощью рейкаста объект, на котором лежит этот объект
 	func(getObjectPlace)
@@ -1441,6 +2295,509 @@ class(IDestructible) extends(GameObject)
 		
 		true;
 	};
+
+region(Fire functionality)
+	//Временное решение чтобы при готовке не загорался предмет
+	var(_lockedCanIgnite,false); //внешнее блокирование пожара
+
+	getter_func(canIgniteArea,false); //может ли этот источник поджечь свой чанк
+	//доп проверка на возгорание объекта. например можно настроить, чтобы источником был маленький предмет
+	func(checkCanIgniteObject)
+	{
+		objParams_1(_targ);
+		true
+	};
+	var(__s_nextCheckIgnite,0);
+	func(handleIgniteArea)
+	{
+		objParams();
+		if !callSelf(canIgniteArea) exitWith {};
+
+		if (tickTime>=getSelf(__s_nextCheckIgnite)) then {
+			callSelf(resetIngiteTimer);
+			[this] call atmos_tryIgnite;
+		};
+	};
+	func(resetIngiteTimer)
+	{
+		objParams();
+		#ifdef EDITOR
+		setSelf(__s_nextCheckIgnite,tickTime + 5);
+		#else
+		setSelf(__s_nextCheckIgnite,tickTime + randInt(40,60*2));
+		#endif
+	};
+
+region(Pulling functionality)
+	//get helper object on pulling
+	func(getPullHelperObject)
+	{
+		objParams();
+		if !callSelf(isInWorld) exitWith {objNull};
+		private _vtg = getSelf(loc) getVariable ["__vtarg_pull",objNull];
+		_vtg
+	};
+	getter_func(isPulled,count getSelf(__moverMobs) > 0);
+	func(getPullMainOwner)
+	{
+		objParams();
+		private _mvr = getSelf(__moverMobs);
+		if (count _mvr == 0) exitWith {nullPtr};
+		_mvr select 0
+	};
+	func(playPullSound)
+	{
+		objParams();
+		private _mat = callSelf(getMaterial);
+		if isNullReference(_mat) exitWith {};
+		private _snd = callFunc(_mat,getPullSound);
+		if (_snd == "") exitWith {};
+		callSelfParams(playSound,_snd arg getRandomPitchInRange(0.5,1.1) arg 8);
+	};
+	func(_checkCanPullingConditions)
+	{
+		objParams_1(_usr);
+		
+		if !callFunc(_usr,isActive) exitWith {false};
+
+		private _dir = callFuncParams(_usr,getDirFrom,this);
+		if (_dir!=DIR_FRONT) exitWith {false};
+		if callFunc(_usr,isConnected) exitWith {false};//сел - сброс
+		_stance = callFunc(_usr,getStance);
+		
+		if (_stance < STANCE_MIDDLE) exitWith {false};
+		
+		true
+	};
+	func(startPull)
+	{
+		objParams_1(_usr);
+		if !callSelf(isMovable) exitWith {};
+		if !callSelf(isInWorld) exitWith {};
+		if !callSelfParams(_checkCanPullingConditions,_usr) exitWith {};
+		
+		//todo горящие чанки объекта не позволят двигать его
+		
+		getSelf(__moverMobs) pushBack _usr;
+		callSelfParams(_pullStarted,_usr);
+		callSelf(onPullChanged);
+	};
+
+	//internal function for handling pullings
+	func(_pullStarted)
+	{
+		objParams_1(_usr);
+		//default async check timeout
+		#define async_delay_check_ 0.5
+
+		//this is helper puller, do not attach
+		private _isMainOwner = equals(callSelf(getPullMainOwner),_usr);
+
+		private _wobj = getSelf(loc);
+		private _srcPos = asltoatl getPosWorld _wobj;
+		private _own = getVar(_usr,owner);
+		private _offs = _srcPos vectorDiff (getposatl _own);
+
+		private _vtarg = if (_isMainOwner) then {
+			callSelfParams(setTransformMode,true); //enable transform
+			private _newvtarg = "Sign_Sphere10cm_F" createVehicleLocal [0,0,0];
+
+			_newvtarg setvariable ["_srcPos",_srcPos];
+			_newvtarg setvariable ["_own",_own];
+			_newvtarg setvariable ["_offs",_offs];
+
+			private _rotDefault = [_wobj] call model_getPitchBankYaw;
+			_newvtarg setvariable ["_rot",_rotDefault];//offset vector transform
+			_newvtarg setvariable ["_curRot",_rotDefault]; //current vector transform
+			_newvtarg setvariable ["_zpos",0]; //offset z-axis
+			_newvtarg setvariable ["_curZPos",0]; //current offset z-axis
+
+			_newvtarg setVariable ["_lastTransform",callSelf(getTransform)];
+
+			_wobj setVariable ["__vtarg_pull",_newvtarg];//creating reference
+			
+			_newvtarg setPosATL ((getposatl _own) vectoradd _offs);
+			[_newvtarg,_rotDefault] call model_SetPitchBankYaw;
+
+			_newvtarg
+		} else {
+			callSelf(getPullHelperObject)
+		};
+
+		private _params = [this,_usr,_vtarg,_own,_offs];
+
+		if (_isMainOwner) then {
+			private _bbxDat = (core_modelBBX get (tolower getSelf(model)));
+			if isNullVar(_bbxDat) then {_bbxDat = [[0,0,0],[0,0,0],0];};
+			(_bbxDat select 0) params ["_x1","_y1","_z1"];
+			(_bbxDat select 1) params ["_x2","_y2","_z2"];
+			private _bbxDatAll = [
+				[0,0,0],
+				[_x1,_y1,_z1],
+				[_x1,_y1,_z2],
+				[_x1,_y2,_z1],
+				[_x1,_y2,_z2],
+				[_x2,_y1,_z1],
+				[_x2,_y1,_z2],
+				[_x2,_y2,_z1],
+				[_x2,_y2,_z2]
+			];
+			private _maxZ = ((abs _z1) + (abs _z2))/2;
+			_vtarg setVariable ["_maxZOffset",_maxZ];
+
+			_params pushBack _bbxDatAll;
+		};
+		
+		private _ptrInfo = getSelf(pointer);
+		if (!_isMainOwner) then {
+			_ptrInfo = "helper+"+_ptrInfo;
+		} else {
+			callFuncParams(_usr,fastSendInfo,"pulling_canPull" arg true);
+		};
+		private _paramsRPC = [_ptrInfo];
+		
+		callFuncParams(_usr,syncSmdVar,"pull" arg _paramsRPC);
+		
+
+		startAsyncInvoke
+			{
+				private _tick = _this select 1;
+				if (tickTime < _tick) exitWith {false};
+				_this set [1,tickTime + async_delay_check_];
+				(_this select 0) params ['this',"_usr","_vtarg","_own","_offs","_bbxDatAll"];
+				private _isStop = false;
+
+				if isNullReference(_vtarg) exitWith {true};
+				if !callFunc(this,isInWorld) exitWith {true};
+				private _isMainOwner = equals(callSelf(getPullMainOwner),_usr);
+				private _canmove = true;
+				private _oldpos = getposatl _vtarg;
+				private _modpos = ((getposatl _own) vectoradd _offs);
+				
+				private _newtempPosZ = _vtarg getvariable "_zpos";
+				private _newtempPos = _modpos vectorAdd [0,0,_newtempPosZ];
+				private _newtempVec = _vtarg getvariable "_rot";
+
+				if !callSelfParams(_checkCanPullingConditions,_usr) then {
+					_isStop = true;
+				};
+
+				if (_isMainOwner) then {
+					
+					//apply vtarg temp transform
+					_vtarg setPosATL _newtempPos;
+					[_vtarg,_newtempVec] call model_SetPitchBankYaw;
+
+					_intersectCount = 0;
+					private _its = null;
+					//_upos = _own modelToWorld (_own selectionPosition "spine3");
+					_upos = getPosATL _own; //от предыдущей позиции проверка, не от моба...
+					{
+						_its = [
+							_upos,
+							_vtarg modelToWorld _x,
+							_vtarg,
+							_own
+						] call si_getIntersectData;
+						if !isNullReference(_its select 0) then {
+							private _itobj = _its select 0;
+							if equals(_itobj,_vtarg) exitWith {};
+							_itobj = [_itobj] call si_handleObjectReturnCheckVirtual;
+							if equals(_itobj,this) exitWith {};
+							//traceformat("increment iobj: %1",_its select 0)
+							INC(_intersectCount);
+						};
+					} foreach _bbxDatAll;
+
+					//traceformat("On intersection check result: %1",_intersectCount)
+					_canmove = _intersectCount <= 4;
+				};
+
+				if ((_oldpos distance (_modpos)) > 1.1) then {
+					_isStop = true;
+					callFuncParams(_usr,localSay,"Сорвалась хватка!" arg "error");
+				};
+				_it = [
+					getposatl _own,
+					(getposatl _own) vectoradd [0,0,-100],
+					_own,
+					getSelf(loc)
+				] call si_getIntersectData;
+				if (!isNullReference(_it select 0)) then {
+					if equals(_it select 0,getSelf(loc)) exitWith {
+						_isStop = true;
+					};
+				};
+
+				//bbx checking
+
+				if (!_isStop) then {
+					if (!_isMainOwner) exitWith {};
+					callFuncParams(_usr,fastSendInfo,"pulling_canPull" arg _canmove);
+					if (!_canmove) exitWith {
+						//reset position
+						_vtarg setPosAtl (_oldpos);
+						[_vtarg,_vtarg getVariable "_curRot"] call model_SetPitchBankYaw;
+					};
+					
+					//save positions
+					_vtarg setVariable ["_curRot",_newtempVec];
+					_vtarg setVariable ["_curZPos",_newtempPosZ];
+					
+					private _newPos = _newtempPos;
+					
+					getSelf(loc) setPosWorld (atltoasl _newPos);
+					[getSelf(loc),_newtempVec] call model_SetPitchBankYaw;
+					
+					callSelf(replicateObject);
+					traceformat("transform update %1 %2; OFFSET %3; Z %4",_newPos arg _newtempVec arg _offs arg _newtempPosZ)
+					
+
+					if ((_oldpos distance _newpos) > 0.15) then {
+						callFunc(this,playPullSound);
+					};
+				};
+
+				_isStop;
+			},
+			{
+				(_this select 0) params ['this',"_usr","_vtarg"];
+				
+				traceformat("PULLING TRIGGER STOPPED %1",_vtarg)
+				if !isNullReference(_vtarg) then {
+					//callFuncParams(_usr,onGrab,this);
+					{
+						if equals(getVar(_x,object),this) then {
+							callFunc(_x,stopGrab);
+						};
+					} foreach getVar(_usr,specHandAct);
+				};
+			},
+			[_params,tickTime + async_delay_check_]
+		endAsyncInvoke
+
+		#undef async_delay_check_
+	};
+
+	func(stopPull)
+	{
+		objParams_1(_usr);
+		
+		if isNullReference(_usr) exitWith {};
+		callFuncParams(_usr,syncSmdVar,"pull" arg 0);
+		private _mvr = getSelf(__moverMobs);
+		private _isMainOwner = equals(callSelf(getPullMainOwner),_usr);
+		array_remove(_mvr,_usr);
+
+		if (_isMainOwner) then {
+			callSelf(closePullSettings);
+		};
+
+		if (count _mvr == 0) then {
+			private _vtarg = callSelf(getPullHelperObject);
+			deleteVehicle _vtarg;
+		};
+
+		callSelf(onPullChanged);
+	};
+	
+	func(onPullChanged)
+	{
+		objParams();
+		callSelf(pullRecalculateWeight);
+	};
+	func(pullRecalculateWeight)
+	{
+		objParams();
+		private _mvr = getSelf(__moverMobs);
+		if ((count _mvr) == 0) exitWith {};
+		private _wobjList = [];
+		{
+			if isTypeOf(_x,Mob) then {
+				private _sysitm = getVar(_x,specHandAct);
+				{if equals(_x,this) then {_wobjList pushBack _x;}} foreach _sysitm;
+			};
+		} foreach _mvr;
+		
+		if (count _wobjList == 0) exitWith {};
+
+		private _wPerItem = callSelf(getWeight) / (count _wobjList);
+		{setVar(_x,weight,_wPerItem)} foreach _wobjList;
+		//update weight for mobs
+		{_x call gurps_recalcuateEncumbrance} foreach _mvr;
+	};
+	
+	func(closePullSettings)
+	{
+		objParams();
+		private _dynDisp = getVar(_usr,_internalDynamicND);
+		if equals(getVar(_dynDisp,ndName),"ObjectPull") then {
+			callFunc(_dynDisp,closeNDisplayForAllMobs);
+		};
+	};
+
+	func(openPullSettings)
+	{
+		objParams_1(_usr);
+		private _dynDisp = getVar(_usr,_internalDynamicND);
+
+		private _getInfo = {
+			private _p = getSelf(ptrval);
+			private _ctx = getSelf(context);
+			private _ph = callFunc(_ctx,getPullHelperObject);
+
+			[_p]
+		};
+		private _handleInp = {
+			objParams_2(_usr,_inp);
+			private _src = getSelf(context);
+			if isNullReference(_src) exitWith {};
+			if !callFunc(_src,isInWorld) exitWith {};
+			
+			private _ph = callFunc(_src,getPullHelperObject);
+			if isNullReference(_ph) exitWith {};
+			private _maxZOffset = _ph getvariable "_maxZOffset";
+
+			_inp params ["_mode","_val"];
+			if (_mode == "vupd") exitWith {
+				private _oldrot = _ph getVariable "_rot";
+				_ph setVariable ["_rot",_val];
+			};
+			if (_mode == "zupd") exitWith {
+				private _oldval = _ph getVariable "_zpos";
+				_ph setVariable ["_zpos",clamp(_val + _oldval,-_maxZOffset/2,_maxZOffset)];	
+			};
+			//unsupported mode
+			setLastError("Mode '" + _mode + "' is not supported");
+		};
+		private _ctx = this;
+		callFuncParams(_dynDisp,setNDOptions,"ObjectPull" arg 10 arg getSelf(pointer) arg _getInfo arg _handleInp arg _ctx);
+		
+		callFuncParams(_dynDisp,openNDisplayInternal,_usr arg getVar(_usr,owner));
+	};
+
+region(Emplacer system)
+	//можно ли расположить предмет на this объекте. проверяемый
+	func(canEmplaceItem)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		//по умолчанию можно расположить только если предмет на полу
+		callFuncParams(_obj,isFloorEmplaceFromVUP,_vup);
+	};
+	
+	//called on canEmplaceItem returns 
+	func(onEmplaceItemFail)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		if !callFuncParams(_obj,isFloorEmplaceFromVUP,_vup) exitWith {
+			private _msg = pick["Упадёт же!","Слишком большой наклон.","Лучше поставлю где поровнее.","Отсюда всё скатится...","Тут не встанет."];
+			callFuncParams(_usr,localSay,_msg arg "error");
+		};
+	};
+
+	func(onEmplaceItem)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		//virtual function for custom functionality
+		//for example: can use for update germs on item and source object
+	};
+
+	//внутренняя функция проверки расположен ли vectorup на полу
+	func(isFloorEmplaceFromVUP)
+	{
+		objParams_1(_vup);
+		(_vup select 2) >= 0.65
+	};
+
+region(Craft system)
+	
+	//кто последний дотрагивался до предмета
+	getter_func(getLastTouched,nullPtr);
+
+	var(craftComponentName,null); //система крафта (строка или null)
+	var(craftComponentParams,null);
+	var(craftComponent,null);
+	getter_func(hasCraftComponent,!isNull(getSelf(craftComponent)));
+
+	func(initCraftSystem)
+	{
+		objParams();
+		private _craftComp = getSelf(craftComponentName);
+		if !isNullVar(_craftComp) then {
+			assert_str(struct_existType_str(_craftComp),format vec3("Craft component %1 not found in class %2",_craftComp,callSelf(getClassName)));
+			private _params = getSelf(craftComponentParams);
+			if !isNullVar(_params) then {
+				_params = createHashMapFromArray _params;
+			};
+			private _comp = [_craftComp,[this,_params]] call struct_alloc;
+			setSelf(craftComponent,_comp);
+		};
+	};
+
+	func(getDescFor)
+	{
+		objParams_1(_usr);
+		private _baseDesc = super();
+		if callSelf(hasCraftComponent) then {
+			private _ccompDesc = getSelf(craftComponent) callp(getDescFor,_usr);
+			if (_ccompDesc!="") then {
+				modvar(_baseDesc) +sbr+ _ccompDesc;
+			};
+		};
+		_baseDesc
+	};
+
+	func(onMainAction) {
+		objParams_1(_usr);
+		if callSelf(hasCraftComponent) exitWith {
+			getSelf(craftComponent) callp(onActivate,_usr);
+		};
+		super();
+	};
+
+	func(onInteractWith)
+	{
+		objParams_2(_with,_usr);
+		if callSelf(hasCraftComponent) exitWith {
+			getSelf(craftComponent) callp(moveIngredient,_with arg _usr);
+		};
+	};
+
+	//redirects move funcs to craft component
+	func(canMoveInItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (isNullVar(_ccomp) || {!isinstance(_ccomp,BaseInternalCraftSystem)}) exitWith {true};
+		_ccomp callp(canMoveInItem,_item);
+	};
+
+	func(canMoveOutItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (isNullVar(_ccomp) || {!isinstance(_ccomp,BaseInternalCraftSystem)}) exitWith {true};
+		_ccomp callp(canMoveOutItem,_item);
+	};
+
+	func(onMoveInItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (!isNullVar(_ccomp) && {isinstance(_ccomp,BaseInternalCraftSystem)}) then {
+			_ccomp callp(onMoveInItem,_item);
+		};
+	};
+
+	func(onMoveOutItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (!isNullVar(_ccomp) && {isinstance(_ccomp,BaseInternalCraftSystem)}) then {
+			_ccomp callp(onMoveOutItem,_item);
+		};
+	};
+
 
 	// "
 	// 	name:Установка света

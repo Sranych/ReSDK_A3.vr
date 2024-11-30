@@ -74,7 +74,7 @@ Replaced value:
 (thisClass getVariable 'classname')
 ```
 File: [host\OOP_engine\oop_attributes.sqf at line 16](../../../Src/host/OOP_engine/oop_attributes.sqf#L16)
-## getMemeber(name)
+## getMember(name)
 
 Type: constant
 
@@ -107,7 +107,7 @@ Description:
 
 Replaced value:
 ```sqf
-!isNull(getMemeber(name))
+!isNull(getMember(name))
 ```
 File: [host\OOP_engine\oop_attributes.sqf at line 19](../../../Src/host/OOP_engine/oop_attributes.sqf#L19)
 ## setMember(name,value)
@@ -244,7 +244,7 @@ Description:
 
 Replaced value:
 ```sqf
-"debug_console" callExtension ("[OOP]:    " + (mes) + "#0111"); ["(OOP_init)	%1",mes] call logInfo
+["[OOP]:    " ,(mes) ,"#0111"] call stdoutPrint; ["(OOP_init)	%1",mes] call logInfo
 ```
 File: [host\OOP_engine\oop_init.sqf at line 15](../../../Src/host/OOP_engine/oop_init.sqf#L15)
 ## logoop(mes)
@@ -470,7 +470,7 @@ Description:
 
 Replaced value:
 ```sqf
-"debug_console" callExtension ("[OOP]:    " + (mes) + "#0111"); ["(OOP_init)	%1",mes] call logInfo
+["[OOP]:    ",(mes),"#0111"] call stdoutPrint; ["(OOP_init)	%1",mes] call logInfo
 ```
 File: [host\OOP_engine\oop_main_loader.sqf at line 23](../../../Src/host/OOP_engine/oop_main_loader.sqf#L23)
 ## logoop(mes)
@@ -755,3 +755,12 @@ Description:
 - Param: _overrideChild (optional, default false)
 
 File: [host\OOP_engine\oop_preinit.sqf at line 245](../../../Src/host/OOP_engine/oop_preinit.sqf#L245)
+## oop_getTypeValue
+
+Type: function
+
+Description: получить значение системного поля типа, например __decl_info__
+- Param: _typeName
+- Param: _value
+
+File: [host\OOP_engine\oop_preinit.sqf at line 280](../../../Src/host/OOP_engine/oop_preinit.sqf#L280)

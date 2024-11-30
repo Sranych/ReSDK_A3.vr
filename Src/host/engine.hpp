@@ -73,11 +73,6 @@
 #define log(message) [message] call cprint
 #define logformat(provider,formatText) [provider,formatText] call cprint
 
-/*#define warning(message) "debug_console" callExtension ("WARN: " + message + "#1101"); [message] call discWarning
-#define error(message) "debug_console" callExtension ("ERROR: " + message + "#1001"); [message] call discError
-
-#define warningformat(message,fmt) "debug_console" callExtension (format ["WARN: " + message + "#1101",fmt]); [format[message,fmt]] call discWarning
-#define errorformat(message,fmt) "debug_console" callExtension (format ["ERROR: " + message  + "#1001",fmt]); [format[message,fmt]] call discError*/
 /// -------------------------------------- FUNCTIONAL PRINTS ---------------------------------------
 #define warning(message) [message] call cprintWarn
 #define error(message) [message] call cprintErr
@@ -85,12 +80,20 @@
 #define warningformat(message,fmt) [message,fmt] call cprintWarn
 #define errorformat(message,fmt) [message,fmt] call cprintErr
 
+#ifdef RBUILDER
+	#define __post_message_RB(m) if (RBuilder_serverStarted) then {["RBuilder","c_send",["print",m]] call rescript_callCommandVoid};
+	#define __RB_FATAL_EXIT call RBuilder_onServerLockedLoading;
+#else
+	#define __post_message_RB(m) 
+	#define __RB_FATAL_EXIT 
+#endif
+
 /// ------------------------------------ FUNCTIONAL PRINTS -----------------------------------------
 
 #ifdef __TRACE__ENABLED
-	#define trace(message) "debug_console" callExtension ("TRACE: " + message + "#1011");
-	#define traceformat(message,fmt) "debug_console" callExtension (format ["TRACE: " + message + "#1011",fmt]);
-
+	#define trace(message) "debug_console" callExtension ("TRACE: " + message + "#1011"); __post_message_RB("TRACE: " + (message))
+	#define traceformat(message,fmt) "debug_console" callExtension (format ["TRACE: " + message + "#1011",fmt]); __post_message_RB(format["TRACE: " + (message) arg fmt])
+	
 	//breakpoints
 	#define breakpoint_setfile(x) __bp__file__ = x;
 	#define breakpoint(data) "__REDIRECT_KEYWORD_THIS_REQUIRED__" call{private __bp_l = __LINE__;private __bp_f = "<anon>"; if !isNullVar(__bp__file__)then{__bp_f=__bp__file__};\
@@ -107,13 +110,13 @@
 
 
 
-#define OBSOLETE(funcname) private _dt = format ["[OBSOLETE] => %1(): This function will be removed in the future and should not be used." + "#1101", #funcname]; "debug_console" callExtension _dt; [_dt] call discWarning;
+#define OBSOLETE(funcname) private _dt = format ["[OBSOLETE] => %1(): This function will be removed in the future and should not be used." + "#1101", #funcname]; warning(_dt); [_dt] call discWarning;
 
-#define NOTIMPLEMENTED(funcname) private _dt = format ["[NOT_IMPLEMENTED] => %1(): This function not implemented." + "#1101", #funcname]; "debug_console" callExtension _dt; [_dt] call discWarning;
+#define NOTIMPLEMENTED(funcname) private _dt = format ["[NOT_IMPLEMENTED] => %1(): This function not implemented." + "#1101", #funcname]; warning(_dt); [_dt] call discWarning;
 
 //закрытие потока программы
 #define ___appexitstr(value) #value
-#define appExit(exitCode) logformat("Application exited. Reason: %1 (%2)",exitCode arg __appexit_listreasons select exitCode); if (!isMultiplayer) then {client_isLocked = true; server_isLocked = true; endMission "END1";} else {if (isServer) then {server_isLocked = true} else {client_isLocked = true}}
+#define appExit(exitCode) logformat("Application exited. Reason: %1 (%2)",exitCode arg __appexit_listreasons select exitCode); if (!isMultiplayer) then {client_isLocked = true; server_isLocked = true; endMission "END1";} else {if (isServer) then {server_isLocked = true; __RB_FATAL_EXIT} else {client_isLocked = true}}
 	#define __appexit_listreasons (["EXIT" \
 	,"CRITICAL" \
 	,"DOUBLEDEF" \
@@ -211,9 +214,9 @@
 _ret = __FILE__; \
 }; _ret select [1,count _ret - 1]} \
 
-//TODO fix path
+#define getMissionName (missionname+".vr")
 #define SHORT_PATH_CUSTOM(d__) (d__) call {private _arr = _this splitString "\"; private _ret = ""; if (!isMultiplayer) then \
-{ if ("relicta.vr" in _arr) then {_ret = (_arr select [(_arr find "relicta.vr")+1,count _arr]) joinString "\"} else {_ret = _this}; } else { \
+{ if (getMissionName in _arr) then {_ret = (_arr select [(_arr find getMissionName)+1,count _arr]) joinString "\"} else {_ret = _this}; } else { \
 _ret = _this; \
 }; _ret} \
 
@@ -231,6 +234,9 @@ _ret = _this; \
 //Распаковывает ссылку на переменную из верхнего уровня если существует
 #define outRef(var,def) var = if isNullVar(var) then {def} else {var}
 
+// privates(_a _b _c _d)
+#define privates(v) private (v splitString "."); 
+
 //prob correct??? (rewrite)
 #define isNullPtr(obj) (obj isequaltypeany [locationnull,controlnull,objnull,displaynull])
 
@@ -240,6 +246,23 @@ _ret = _this; \
 #define isRefType(val) (val isEqualTypeAny [locationnull,controlnull,objnull,displaynull])
 #define isValType(val) !isRefType(val)
 */
+
+#ifdef RBUILDER
+	#define __rb_mesh_common_path__ "core\default\default.p3d"
+	#define createMesh(ctx) ctx call { params ["_p","_ps","_loc"]; \
+		createSimpleObject [ __rb_mesh_common_path__, _ps,_loc ]; \
+	}
+#else
+	#define createMesh(ctx) createSimpleObject (ctx)
+#endif
+
+//custom memobj
+#define mem_alloc() (createLocation ["cba_namespacedummy",[20,20,20],0,0])
+#define mem_set(ptr) (ptr)setvariable 
+#define mem_unset(ptr,val) (ptr)setvariable[val,null]
+#define mem_get(ptr,val) ((ptr)getvariable(val))
+#define mem_free(ptr) (deleteLocation (ptr))
+
 
 //string help
 #define stringEmpty ""
@@ -265,6 +288,9 @@ bool TestRange (int numberToCheck, int bottom, int top)
 */
 //Проверка диапазона
 #define inRange(numberToCheck,bottom,top) ((numberToCheck) >= bottom && (numberToCheck) <= top)
+
+//Проверка типов
+#define isInt(num) ((num) call {floor _this == _this})
 
 #define boolToInt(bval) ([0,1]select (bval))
 
@@ -292,7 +318,7 @@ bool TestRange (int numberToCheck, int bottom, int top)
 #define SETARR(arr,index,val) arr set[index,val]
 #define GETARR(arr,index) arr select(index)
 
-#define array_exists(arr,var) ((var)in arr)
+#define array_exists(arr,var) ((var)in(arr))
 //рандомный сорт массива
 #define array_shuffle(array) (array call BIS_fnc_arrayShuffle)
 //копирование массива
@@ -313,6 +339,9 @@ bool TestRange (int numberToCheck, int bottom, int top)
 #define vec3(x,y,z) [x,y,z]
 #define vec4(x,y,w,h) [x,y,w,h]
 
+//local variables swap
+#define __sw_combine(o1,o2) o1##o2
+#define swap_lvars(a,b) private __sw_combine(__t_swp_,b) = a; a = b; b = __sw_combine(__t_swp_,b)
 
 //reference packer
 #define refcreate(value) [value]
@@ -372,7 +401,7 @@ bool TestRange (int numberToCheck, int bottom, int top)
 //hashmap
 #define hashMapNew createHashMap
 #define hashMapNewArgs createHashMapFromArray
-
+#define toMap hashMapNewArgs
 // assign logics
 /*
 	prop(testvar) = "";
@@ -424,31 +453,6 @@ bool TestRange (int numberToCheck, int bottom, int top)
 #define removeEventHandler(varname,val) __eventHandlerName__(varname) deleteat (__eventHandlerName__(varname) find (val))
 #define callEventHandler(varname,evhargs) private eventHandlerArgs = evhargs; {call _x;true} count __eventHandlerName__(varname)
 
-// simple object creator
-/*
-	ps_##name = [["typeName",#name
-		],[#varname,1],[#varname,2
-	]];
-
-	structCreate(tempStruct)
-		structVar(a) 1
-		structVar(b) 2
-	structEnd
-
-	_s = structNew(tempStruct);
-
-
-*/
-#define structCreate(name) ps_##name = [["typeName",#name
-#define structEnd ]];
-
-#define structVar(varname) ],[#varname,
-
-#define structNew(name) (createHashMapFromArray ps_##name)
-//accessing struct
-#define structSet(obj,varname,varval) obj set [#varname,varval]
-#define structGet(obj,varname) (obj get #varname)
-
 //comparison
 
 #define equals(obja,objb) ((obja)isequalto(objb))
@@ -467,10 +471,13 @@ bool TestRange (int numberToCheck, int bottom, int top)
 #define pick selectRandom
 //выбор рандомного числа включительно Bis_fnc_randomNum
 #define rand(_beg,_end) (linearConversion [0,1,random 1,_beg,_end])
-//BIS_fnc_randomInt
-#define randInt(_beg,_end) (FLOOR linearConversion [0,1,random 1,(_beg)min(_end),(_end)max(_beg)+1])
+
+// Обновлённая функция выбора случайного целого числа из диапазона. 1.000001 было добавлено для решения проблемы когда рандом выпадает в 0.999999989
+#define randInt(_beg,_end) (FLOOR linearConversion [0,1.000001,random 1,(_beg)min(_end),(_end)max(_beg)+1])
 
 #define prob(val) (random[0,50,100]<(val))
+
+#define prob_new(val) (random 100<(val))
 
 //math helpers
 #define pow(a,b) ((a) ^ (b))
@@ -482,14 +489,23 @@ bool TestRange (int numberToCheck, int bottom, int top)
 
 #define parseNumberSafe(v) ((parseNumber (v)) call {if(finite _this) then {_this} else {0}})
 
+#define getdiff(a,b) ([a,b] call {params["_a","_b"]; if equals(_a,_b)exitWith{0}; ifcheck(_a>_b,-_a+_b,_b-_a) })
+
 //delay subsystem
 
 #define netTickTime CBA_missionTime
 #define tickTime diag_tickTime
 #define deltaTime diag_deltaTime
 
-#define startUpdate(func,delay) [func,delay] call CBA_fnc_addPerFrameHandler
-#define startUpdateParams(func,delay,params) [func,delay,params] call CBA_fnc_addPerFrameHandler
+#ifdef EDITOR
+	#define __alloc_thread_loc__ (cba_common_perFrameHandlerArray select -1) set [6,format["%1 at line %2",[__FILE__,getMissionPath "",""] call stringReplace,__LINE__]]; \
+		(cba_common_perFrameHandlerArray select -1) set [7,diag_stacktrace]
+	#define startUpdate(func,delay) call{private _h = [func,delay] call CBA_fnc_addPerFrameHandler; __alloc_thread_loc__; _h}
+	#define startUpdateParams(func,delay,params) call{private _h = [func,delay,params] call CBA_fnc_addPerFrameHandler; __alloc_thread_loc__; _h}
+#else
+	#define startUpdate(func,delay) [func,delay] call CBA_fnc_addPerFrameHandler
+	#define startUpdateParams(func,delay,params) [func,delay,params] call CBA_fnc_addPerFrameHandler
+#endif
 
 #define stopUpdate(handle) handle call CBA_fnc_removePerFrameHandler
 
@@ -558,7 +574,7 @@ cba_common_perFrameHandlerArray select (handle) set [1,newTime]; true})
 
 
 //sound engine
-
+#define soundPathPrep(v) ((v)splitString "/" joinString "\")
 #define soundDataDef(path) [path]
 #define soundData(path,pithmin,pithmax) [path,pithmin,pithmax]
 
@@ -710,7 +726,7 @@ ACRE_STACK_DEPTH = ACRE_STACK_DEPTH + 1; ACRE_CURRENT_FUNCTION = 'ANON'; \
 _ret = _this call ##function; ACRE_STACK_DEPTH = ACRE_STACK_DEPTH - 1; \
 ACRE_IS_ERRORED = false; _ret;}*/
 
-#ifdef EDITOR
+#ifdef EDITOR_OR_RBUILDER
 	#define setLastError(data__) ([data__] call relicta_debug_setlasterror); halt
 #else
 	#define setLastError(data__)
@@ -839,6 +855,11 @@ ACRE_IS_ERRORED = false; _ret;}*/
 		В этих перечислениях ключи - числа в строке (значения нумератора), значения - строки (названия элементов нумератора) 
 	При регистрации перечисления пишет член enum_values_NAME - который содержит массив чисел
 	Все ключи в строках, так как этот член - словарь, который не может нормально работать с циферками
+
+	Для указания кастомных типов перечисления укажите enumtype:
+		enumtype:float
+		enumtype:bool
+		enumtype:string
 
 	Фактическое добавление делается так:
 	["TestEnum",["Первое число:3:тест описание"]] node_enum

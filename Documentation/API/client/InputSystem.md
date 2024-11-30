@@ -509,6 +509,14 @@ Description:
 - Param: _timeout (optional, default 0.3)
 
 File: [client\InputSystem\inputKeyHandlers.sqf at line 125](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L125)
+## input_passThroughWallsProtect
+
+Type: function
+
+Description: temorary wall pass through walls
+
+
+File: [client\InputSystem\inputKeyHandlers.sqf at line 142](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L142)
 ## input_movementCheck
 
 Type: function
@@ -516,7 +524,7 @@ Type: function
 Description: Проверяет пользовательский инпут. true означает что клавиша заблокирована
 - Param: _key
 
-File: [client\InputSystem\inputKeyHandlers.sqf at line 144](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L144)
+File: [client\InputSystem\inputKeyHandlers.sqf at line 158](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L158)
 ## input_internal_isChangeStance
 
 Type: function
@@ -524,7 +532,7 @@ Type: function
 Description: 
 
 
-File: [client\InputSystem\inputKeyHandlers.sqf at line 196](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L196)
+File: [client\InputSystem\inputKeyHandlers.sqf at line 221](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L221)
 ## input_internal_isMovingButton
 
 Type: function
@@ -532,7 +540,15 @@ Type: function
 Description: 
 
 
-File: [client\InputSystem\inputKeyHandlers.sqf at line 197](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L197)
+File: [client\InputSystem\inputKeyHandlers.sqf at line 222](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L222)
+## input_internal_isMovingForward
+
+Type: function
+
+Description: 
+
+
+File: [client\InputSystem\inputKeyHandlers.sqf at line 223](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L223)
 ## input_getKeyNameByInputName
 
 Type: function
@@ -540,7 +556,7 @@ Type: function
 Description: 
 - Param: _inp
 
-File: [client\InputSystem\inputKeyHandlers.sqf at line 199](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L199)
+File: [client\InputSystem\inputKeyHandlers.sqf at line 225](../../../Src/client/InputSystem/inputKeyHandlers.sqf#L225)
 # inputManager.sqf
 
 ## isPressed(var)
@@ -554,7 +570,7 @@ Replaced value:
 ```sqf
 isPressedKey(_kupc,var)
 ```
-File: [client\InputSystem\inputManager.sqf at line 52](../../../Src/client/InputSystem/inputManager.sqf#L52)
+File: [client\InputSystem\inputManager.sqf at line 60](../../../Src/client/InputSystem/inputManager.sqf#L60)
 ## attr
 
 Type: constant
@@ -568,7 +584,7 @@ Replaced value:
 ```sqf
 ([#st,#ht,#dx,#iq,#fp,#will,#per,#hp] select ind_stat)
 ```
-File: [client\InputSystem\inputManager.sqf at line 125](../../../Src/client/InputSystem/inputManager.sqf#L125)
+File: [client\InputSystem\inputManager.sqf at line 136](../../../Src/client/InputSystem/inputManager.sqf#L136)
 ## dbg_addAtr(name,amount)
 
 Type: constant
@@ -583,7 +599,7 @@ Replaced value:
 ```sqf
 [(player),amount] call ((player) getVariable 'proto' getVariable ('add'+ name))
 ```
-File: [client\InputSystem\inputManager.sqf at line 126](../../../Src/client/InputSystem/inputManager.sqf#L126)
+File: [client\InputSystem\inputManager.sqf at line 137](../../../Src/client/InputSystem/inputManager.sqf#L137)
 ## onGameInputs_Down
 
 Type: function
@@ -621,7 +637,7 @@ Description: мышь в режиме игры
 - Param: _ctrl
 - Param: _alt
 
-File: [client\InputSystem\inputManager.sqf at line 155](../../../Src/client/InputSystem/inputManager.sqf#L155)
+File: [client\InputSystem\inputManager.sqf at line 166](../../../Src/client/InputSystem/inputManager.sqf#L166)
 # input_init.sqf
 
 ## input_catchedEscape

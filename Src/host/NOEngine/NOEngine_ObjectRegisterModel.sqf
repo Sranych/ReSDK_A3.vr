@@ -46,6 +46,17 @@ noe_registerObject = {
 			rpcSendToClient(getVar(_x,id),"onupdob",_packet);
 		} foreach chunk_getOwners(_chdata);
 	};
+
+	//request for update atmos chunk
+	assert_str(!isNullReference(_vis),"Null object in noe::registerObject; ptr -> " + _ptr);
+	private _chAtm = [(getposatl _vis)call atmos_chunkPosToId] call atmos_getChunkAtChIdUnsafe;
+	if !isNullVar(_chAtm) then {
+		_chAtm set ["flagUpdObj",true];
+		private _refObj = pointerList get _ptr;
+		if !isNullVar(_refObj) then {
+			callFunc(_refObj,onUpdatePosition);
+		};
+	};
 };
 
 //выводим регистрацию объекта
@@ -256,6 +267,22 @@ noe_unregisterLightAtObject = {
 	};
 };
 
+noe_syncLightAtObject = {
+	params ["_obj","_light",["_updateByteArr",false]];
+	if isNull(_obj getvariable "light") then { //fix if light is not register
+		_obj setvariable ["flags",(_obj getvariable "flags") + lightObj_true];
+	};
+	_obj setvariable ["light",_light];
+	
+	//reload serverlight
+	[_obj] call slt_destr;
+	[_obj,_light] call slt_create;
+
+	if (_updateByteArr) then {
+		[_obj] call noe_updateObjectByteArr;
+	};
+};
+
 // Обновляет информацию о радио. Небезопасный контекст. Возможно переполнение
 noe_updateObjectRadio = {
 	params ["_obj","_mode"];
@@ -332,6 +359,71 @@ noe_replicateObject = {
 
 };
 
+noe_replicateTransform = {
+	params ["_obj","_chunkType",["_doUpdateByteArr",false]];
+	setLastError("Not implemented - noe::replicateTransform");
+
+	if not_equalTypes(_obj,objNUll) exitWith {
+		errorformat("NOEngine::replicateTransform() - Attempt replicate non visual object - %1",_obj);
+	};
+
+	// getting chunk position
+	private _chpos = [getPosATL _obj,_chunkType] call noe_posToChunk;
+
+	#ifdef DEBUG
+	if (!_doUpdateByteArr) exitWith {
+		errorformat("CANT UPDATE %1. Update byteArray must be enabled",_obj getVariable 'bytearr');
+	};
+	#endif
+
+	//Согласно коду byteArray всегда будет обновляться
+	if (_doUpdateByteArr) then {
+
+		//checking if object placed in other chunk
+		// Новый алгоритм Legacy 0.4.51 реализует синхронизацию и обновление позиций если чанк-владелец этого объекта изменился
+		private _ba = (_obj getVariable "bytearr");
+		private _ppos = vec2(vec2(_ba select 3,_ba select 4),_chunkType) call noe_posToChunk;
+
+		//Объект перерегистрируется в другой позиции
+		if not_equals(_chpos,_ppos) then {
+			[_ppos,_chunkType,_ba select 0,false] call noe_unregisterObject;
+			//сначала обновим байтмассив
+			[_obj] call noe_updateObjectByteArr;
+			//регистрируем объект по новой позиции
+			[_chpos,_chunkType,_obj] call noe_registerObject;
+		} else {
+
+			//сначала обновим байтмассив
+			[_obj] call noe_updateObjectByteArr;
+
+			//синхронизация на текущей позиции
+
+			// getting chunk object
+			private _chunkObject = [_chpos,_chunkType] call noe_getChunkObject;
+
+			//update timestamp
+			private _updTime = tickTime;
+			chunk_setLastTicktimeUpdate(_chunkObject,_updTime);
+			_obj setVariable ["lastUpd",_updTime];
+
+			private _packet = [_chpos select 0,_chpos select 1,_chunkType,_updTime];
+			private _bytearr = _obj getVariable "bytearr";
+			_packet pushBack (_bytearr select 0);//ptr
+			_packet pushBack (_obj getvariable ["wpos",false]);//worldpos
+			_packet pushBack (_bytearr select 3);//posworld
+			_packet pushBack (_bytearr select 4);//vdir
+			_packet pushBack (vectorDirVisual _obj);//vup
+
+			{
+				rpcSendToClient(getVar(_x,id),"onupdtr",_packet);
+			} foreach chunk_getOwners(_chunkObject);
+		};
+
+	};
+
+
+};
+
 //Сохраняет данные об объекте в специальном массиве
 noe_updateObjectByteArr = {
 	params ["_obj"];
@@ -394,6 +486,9 @@ _noe_requestChunkLoad = {
 
 	//Добавляем владельца чанка
 	chunk_getOwners(_chObj) pushBackUnique _cli;
+	//вписываемся в список просмотра
+	getVar(_cli,loadedChunks) set [str[_chunk,_type],0];
+	//traceformat("RCHL-added chunk: %1; curcnt: %2",str vec2(_chunk,_type) arg count (getVar(_cli,loadedChunks)))
 
 }; rpcAdd("requestChunkLoad",_noe_requestChunkLoad);
 
@@ -418,10 +513,9 @@ _reqDelUpdCh = {
 
 _noe_unsubChunkListen = {
 	params ["_chunk","_type","_owner",["_skipServerUnsub",true]];
-
 	_chObj = [_chunk,_type] call noe_getChunkObject;
 	_ownerList = chunk_getOwners(_chObj);
-	_cli = _owner call cm_findClientById;
+	_cli = ifcheck(equalTypes(_owner,nullPtr),_owner,_owner call cm_findClientById);
 
 	_ownerList deleteAt (_ownerList find _cli);
 
@@ -436,6 +530,7 @@ _noe_unsubChunkListen = {
 
 	_strChunk = str [_chunk,_type];
 	getVar(_cli,loadedChunks) deleteAt _strChunk;
+	//traceformat("RCHL-removed chunk: %1; curcnt: %2",_strChunk arg count (getVar(_cli,loadedChunks)))
 
 }; rpcAdd("unsubChunkListen",_noe_unsubChunkListen);
 

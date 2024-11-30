@@ -9,7 +9,41 @@
 //большое здание
 editor_attribute("InterfaceClass")
 editor_attribute("TemplatePrefab")
-class(BigHouse) extends(BigConstructions) var(name,"Большое здание"); editor_only(var(desc,"Крупное здание выполняющее роль декорации и являющееся нерушимой конструкцией");) endclass
+class(BigHouse) extends(BigConstructions) 
+	var(name,"Большое здание"); 
+	var(material,"MatBeton");
+	editor_only(var(desc,"Крупное здание выполняющее роль декорации и являющееся нерушимой конструкцией");) 
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigTwoStoreyHouse) extends(BigHouse)
+	var(model,"a3\structures_f\households\house_big01\u_house_big_01_v1_dam_f.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigClayHouse) extends(BigHouse)
+	var(model,"ca\structures_e\housek\house_k_6_ep1.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigClayHouse4) extends(BigClayHouse)
+	var(model,"ca\structures_e\housec\house_c_5_v3_dam_ep1.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigClayHouse3) extends(BigClayHouse)
+	var(model,"ca\structures_e\housec\house_c_3_dam_ep1.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigClayHouse2) extends(BigClayHouse)
+	var(model,"ca\structures_e\housec\house_c_5_v1_ep1.p3d");
+endclass
+
+editor_attribute("EditorGenerated")
+class(BigClayHouse1) extends(BigClayHouse)
+	var(model,"ca\structures_e\housec\house_c_2_ep1.p3d");
+endclass
 
 editor_attribute("EditorGenerated")
 class(FactoryWithTanks) extends(BigHouse)

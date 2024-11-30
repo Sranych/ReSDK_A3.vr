@@ -10,8 +10,13 @@
 #include "..\engine.hpp"
 #include "..\oop.hpp"
 
+#include "Logger_RPTDump.h"
+
 //отключить логгер в редакторе
 #define DISABLE_LOG_IN_EDITOR
+
+//работает только в режиме редактора (для отладки)
+//#define PRINT_LOG_TO_CONSOLE
 
 /*
 	Обновленный логгер.
@@ -36,6 +41,10 @@ with uiNamespace do {
 		logger_isFirstInit = true;
 	};
 };
+
+#ifndef EDITOR
+	#undef PRINT_LOG_TO_CONSOLE
+#endif
 
 
 logger_internal_map = hashMapNew;
@@ -140,12 +149,29 @@ logToFile = {
 logger_action = {
 	params [["_dat",""],["_cat",""],["_lvl",""]];
 	
+	#ifdef PRINT_LOG_TO_CONSOLE
+		["PRINT_LOG_TO_CONSOLE: [%1] %2    %3",_cat,_lvl,_dat] call cprint;
+	#endif
+
+	#ifdef SYSTEM_LOG_DUMP_TO_RPT
+		if (_cat == "system") then {
+			SYSLOG_RPT_DUMP(format["syslog:%1: %2" arg _lvl arg _dat]);
+		};
+	#endif
+
 	//logger not supported in editor mode
 	#ifdef DISABLE_LOG_IN_EDITOR
 	if (true) exitwith {};
 	#endif
 
 	if (uiNamespace getVariable ["A3LOGEXT_HASERROR",false]) exitWith {false};
+	
+	#ifdef RBUILDER
+	if (true) exitWith {
+		__post_message_RB(format ["[%1]  %2" arg _cat arg _dat])
+		true;
+	};
+	#endif
 
 	private _result = "A3LOG" callExtension [
 		"LOG",
@@ -153,7 +179,7 @@ logger_action = {
 			format["-1%1%2%1%3%1%4", toString[29], _dat, _cat, _lvl]
 		]
 	];
-
+	
 	if (equals((_result param [0]),"[]") && equals((_result param [1]),0) 
 		&& equals((_result param [2]),0)) exitWith {true};
 
@@ -171,6 +197,14 @@ logger_timeStampToString = {
 	format["%1.%2.%3 %4:%5:%6.%7",_year,_month,_day, ifcheck(_hour<10,"0"+str _hour,_hour), ifcheck(_minute<10,"0"+str _minute,_minute), ifcheck(_second<10,"0"+str _second,_second), _millisecond]
 };
 
+logger_formatMob = {
+	params ["_mob"];
+	
+	assert_str(equalTypes(_mob,nullPtr),"Mob type missmatch. Expected oop-object");
+	assert_str(!isNullReference(_mob),"Mob reference is null");
+
+	format["%2 [%1] <%3>",getVar(_mob,name),getVar(_mob,owner),getVar(_mob,playerClients) joinString ","]
+};
 
 // initialize main logic
 call logger_internal_init;

@@ -5,7 +5,7 @@
 
 
 #include <..\..\..\client\Inventory\inventory.hpp>
-
+interfaceHeader
 attributeParams(hasField,"countSlots" arg "maxSize")
 
 getter_func(isContainer,true);
@@ -31,6 +31,33 @@ var(canUseContainer,true); //флаг для добавления содержи
 // ------------- new ss vars
 getterconst_func(startWith,[]); //list of items to start: getterconst_func(startWith,[["Item",["name","Предметец"],["weight",1200]],["Brain",["name","Объект"]]])
 // ------------- new vars end
+
+
+editor_attribute("alias" arg "Шаблон лута")
+editor_attribute("Tooltip" arg "Указывает какой набор лута будет заспавнен в этом хранилище")
+editor_attribute("EditorVisible" arg "type:string" arg "stringmaxsize:512")
+var(preinit@__lootTemplate,""); //системная переменная для установки ключей через редактор
+
+func(__handlePreInitVars__)
+{
+	objParams();
+	super();
+	private _lootType = getSelf(preinit@__lootTemplate);
+	if (_lootType != stringEmpty) then {
+		[_lootType,this] call loot_processObject;
+	};
+	setSelf(preinit@__lootTemplate,null);
+};
+
+
+//!вычистку содержимого нельзя сделать через autoref, так как деструктор вызывает removeItem, который изменяет исходный массив и появляются миссы
+func(destructor)
+{
+	objParams();
+	{
+		delete(_x);
+	} foreach array_copy(getSelf(content));
+};
 
 func(getWeight)
 {
@@ -64,8 +91,8 @@ func(canAdd)
 	if (!getSelf(canUseContainer)) exitWith {false};
 	if isTypeOf(_item,SystemItem) exitWith {false};
 	if (_size > getSelf(maxSize)) exitWith {
-		if !isNullVar(_FLAG_msFlag__) exitWith {
-			if !isNullVar(_FLAG_spResize__) then {
+		if (!isNullVar(_FLAG_msFlag__) && {_FLAG_msFlag__}) exitWith {
+			if (!isNullVar(_FLAG_spResize__) && {_FLAG_spResize__}) then {
 				setSelf(maxSize,_size);
 			};
 			true
@@ -73,7 +100,7 @@ func(canAdd)
 		false
 	};
 	if (getSelf(currentsize) + BASE_STORAGE_COST(_size) > getSelf(countSlots)) exitWith {
-		if !isNullVar(_FLAG_csFlag__) exitWith {
+		if (!isNullVar(_FLAG_csFlag__) && {_FLAG_csFlag__}) exitWith {
 			modSelf(countSlots, + BASE_STORAGE_COST(_size));
 			true
 		};
@@ -103,6 +130,11 @@ func(addItem)
 		warningformat("Attempt duplicate item on attach to container: item %1 in container %2 not placed",getVar(_item,pointer) arg getVar(_oldLoc,pointer));
 		"IContainer syserror: oldLoc equals this"
 	};
+	
+	//todo: remove disable firelights on insert in container (https://github.com/Relicta-Team/ReSDK_A3.vr/issues/502)
+	if (callFunc(_item,isFireLight) && getVar(_item,lightIsEnabled)) then {
+		callFuncParams(_item,lightSetMode,false);
+	};
 
 	callFuncParams(_item,playEventSound,"putdown");
 
@@ -112,6 +144,8 @@ func(addItem)
 	private _oldSlot = getVar(_item,slot);
 	private _isSlot = _oldSlot != -1;
 	if (callFunc(_oldLoc,isMob) && _isSlot) then {
+		callFuncParams(_oldLoc,interpolate,"auto_trans" arg _item arg this);
+
 		callFuncParams(_oldLoc,removeItem,_item arg this);
 	} else {
 
@@ -159,7 +193,7 @@ func(removeItem)
 		callSelf(onContainerContentUpdate);
 
 		if _isMobNewLoc then {
-
+			callFuncParams(_newLoc,interpolate,"auto_trans" arg _item arg _slot);
 			if (callFuncParams(_newLoc,addItem,args2(_item,_slot))) then {
 				callFuncParams(_item,playEventSound,"pickup");
 			} else {

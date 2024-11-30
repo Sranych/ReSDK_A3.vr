@@ -132,6 +132,8 @@ class(ManagedObject) extends(object)
 	// Указывает будет ли запущена функция обновления при создании объекта
 	getterconst_func(startUpdateOnConstruct,false);
 
+	getterconst_func(defaultUpdateDelay,1);
+
 	//включена ли подсистема автоочистки autoref переменных
 	getter_func(enableAutoRefGC,true);
 
@@ -151,7 +153,7 @@ class(ManagedObject) extends(object)
 		if (_mode) then {
 			if (!isImplementFunc(this,onUpdate)) exitWith {};
 
-			setSelf(__handleUpdateNative__,startUpdateParams(getSelfFunc(onUpdate),1,[this]));
+			setSelf(__handleUpdateNative__,startUpdateParams({(_this select 0)params["_p" arg "_c"]; _p call _c},callSelf(defaultUpdateDelay),[this arg getSelfFunc(onUpdate)]));
 			INC(oop_upd);
 		} else {
 			private _hnd = getSelf(__handleUpdateNative__);
@@ -163,6 +165,9 @@ class(ManagedObject) extends(object)
 		};
 	};
 
+	//отладочные сообщения автоссылок
+	//#define DEBUG_DISPOSE_OBJECTS
+
 	func(destructor)
 	{
 		objParams();
@@ -172,6 +177,10 @@ class(ManagedObject) extends(object)
 
 		//implementation for GC half-referenced objects
 		private _refList = getSelfFunc(__autoref_list);
+		
+		#ifdef DEBUG_DISPOSE_OBJECTS
+			warningformat("Disposing %1 with refs %2",this arg _refList);
+		#endif
 
 		if (!isNullVar(_refList)) then {
 			private _ptr = nullPtr;
@@ -179,13 +188,30 @@ class(ManagedObject) extends(object)
 			{
 				_ptr = getSelfReflect(_x); //may be object reference or array
 
+				#ifdef DEBUG_DISPOSE_OBJECTS
+					warningformat("	>>> %3(%2) %1",_ptr arg typename _ptr arg _x);
+				#endif
+
 				call {
 					if equalTypes(_ptr,_Tarray) exitWith { //cleanup array
 						{
+							#ifdef DEBUG_DISPOSE_OBJECTS
+								warningformat("			- dcheck PRE %1",_x);
+							#endif
 							if (!isNullReference(_x)) then {
+								//!обращаю внимание, что при удалении объекта, который в деструкторах удаляется из _ptr - этот _ptr будет смещен и появятся утечки
 								delete(_x);
-							}
-						} foreach _ptr;
+							};
+							#ifdef DEBUG_DISPOSE_OBJECTS
+								warningformat("			- dcheck POST %1",_x);
+							#endif
+							
+							false
+						} count _ptr;
+
+						#ifdef DEBUG_DISPOSE_OBJECTS
+							warningformat("		- %3(%2) arr_del: %1",_ptr arg _x arg this);
+						#endif
 
 						_ptr resize 1;
 						_ptr set [0,"<AUTOREF_NAN>"];
@@ -201,6 +227,10 @@ class(ManagedObject) extends(object)
 						}
 					};
 				}
+
+				#ifdef DEBUG_DISPOSE_OBJECTS
+					;warningformat("	<<< %3::%1 end dispose: %2",_x arg _ptr arg this);
+				#endif
 
 			} foreach _refList;
 		};

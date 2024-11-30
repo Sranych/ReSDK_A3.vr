@@ -10,6 +10,7 @@
 
 taskSystem_allTasks = [];
 taskSystem_checkedOnEndRound = [];
+taskSystem_increment = 0;
 
 taskSystem_map_tags = createHashMap; //map of all tagged tasks
 
@@ -64,7 +65,13 @@ class(TaskBase) extends(IGameEvent)
 				_etext = format["Задача %1 (%2) не была назначена ни одному из владельцев.",getSelf(name),callSelf(getClassName)];
 				setLastError(_etext);
 			};
+			[format["(TaskBase::constructor): Task %1 [%3:%2] created",
+				callSelf(getClassName),getSelf(__id),getSelf(tag)
+				]
+			] call gameLog;
 		}; nextFrameParams(_nf,this);
+
+		INC(taskSystem_increment);
 	};
 
 	func(destructor)
@@ -72,6 +79,9 @@ class(TaskBase) extends(IGameEvent)
 		objParams();
 		private _ctx = format["%1 (%2)",getSelf(name),callSelf(getClassName)];
 		setLastError("Ручное удаление задачи не допускается: " + _ctx);
+
+		callSelf(terminateUpdateProcess);
+		array_remove(taskSystem_allTasks,this);
 	};
 
 	"
@@ -86,6 +96,8 @@ class(TaskBase) extends(IGameEvent)
 		prop:get
 	" node_var
 	var(tag,"");//системный тэг задачи
+
+	var(__id,taskSystem_increment);
 
 	//Установить тэг задачи
 	"
@@ -109,6 +121,12 @@ class(TaskBase) extends(IGameEvent)
 		} else {
 			taskSystem_map_tags set [_tagName,[this]];
 		};
+
+		[format["(TaskBase::setTag): Task %1 [%3:%2] tag changed from %4 to %5",
+				callSelf(getClassName),getSelf(__id),getSelf(tag),
+				_oldTag,_tagName
+				]
+			] call gameLog;
 
 		setSelf(tag,_tagName);
 	};
@@ -142,16 +160,27 @@ class(TaskBase) extends(IGameEvent)
 		desc:Вызываемая функция вывода описания задачи. Обычно в этой функции вычисляются форматируемые значения (например, список объектов). Чтобы посмотреть исходную строку выведите в консоли 'Ролевое описание задачи'."+
 		"\nПараметры функции-действия\:"+
 		"\n - @[TaskBase^ Задача] - объект задачи, который производит проверку (вызов функции)"+
+		"\n - @[Mob^ Владелец] - владелец задачи, который запрашивает описание"+
 		"\n Возврат\: @[string Описание] - текст описания задачи. 
 		prop:all
-		return:function[event=string=TaskBase^]:Описание задачи
+		return:function[event=string=TaskBase^@Mob^]:Описание задачи
 	" node_var
 	var(_taskDescDelegate,{getSelf(descRoleplay)});
 	func(getTaskDescription)
 	{
-		objParams();
-		[this] call getSelf(_taskDescDelegate)
+		objParams_1(_usr); //user - who requested description
+		[this,_usr] call getSelf(_taskDescDelegate)
 	};
+
+	"
+		name:Пользовательское описание
+		desc:При включении данной опции в воспоминаниях вместо стандартного ""НАЗВАНИЯ:ОПИСАНИЯ"" задачи будет выводиться текст, возвращаемый обработчиком описания задачи. "+
+		"Обратите внимание, что если обработчик возвращает пустую строку, то текст задачи не будет выводиться в воспоминаниях для моба, который запросил это описание.
+		prop:all
+		return:bool:Использовать пользовательское описание задачи
+		defval:false
+	" node_var
+	var(customTaskInfo,false);
 
 	"
 		name:Единоразовая проверка условий
@@ -209,6 +238,13 @@ class(TaskBase) extends(IGameEvent)
 	func(onRegisterInTarget)
 	{
 		objParams_1(_mob);
+
+		[format["(TaskBase::onRegisterInTarget): Task %1 [%3:%2] added to %4",
+			callSelf(getClassName),getSelf(__id),getSelf(tag),
+				[_mob] call logger_formatMob
+			]
+		] call gameLog;
+
 		if getSelf(taskRegistered) exitWith {
 			getSelf(owners) pushBackUnique _mob;
 		};
@@ -247,12 +283,6 @@ class(TaskBase) extends(IGameEvent)
 			stopUpdate(getSelf(_taskHandle__));
 			setSelf(_taskHandle__,-1);
 		};
-	};
-
-	func(destructor)
-	{
-		callSelf(terminateUpdateProcess);
-		array_remove(taskSystem_allTasks,this);
 	};
 
 	func(updateMethod)
@@ -342,6 +372,12 @@ class(TaskBase) extends(IGameEvent)
 	{
 		objParams();
 		setSelf(isDone,true);
+
+		[format["(TaskBase::onTaskDone): Task %1 [%3:%2] done with result %4",
+			callSelf(getClassName),getSelf(__id),getSelf(tag),
+				getSelf(result)
+			]
+		] call gameLog;
 
 		if !callSelf(checkCompleteOnEnd) then {
 			callSelf(terminateUpdateProcess);

@@ -369,7 +369,7 @@ endclass
 //смерть сегодня имеет самый ужасный исход (потеря 5 хвостиков)
 class(NoDeathPointsAspect) extends(DirtpitGameAspect)
 	var(name,"Жажда жизни");
-	var(desc,"За смерть любой роли потеря 5х хвостиков");
+	var(desc,"За смерть в роли человека потеря 5х хвостиков");
 	var(descRoleplay,"Сегодня никому не хочется умирать...");
 	var(weight,0.1);
 
@@ -382,7 +382,13 @@ class(NoDeathPointsAspect) extends(DirtpitGameAspect)
 		{
 			//Аккуратно инжектим код
 			[_x,"onDeadBasic",{
-				callFuncParams(_usr,removePoints,5)
+				//жрунам не даем штраф
+				if (
+					getSelf(classMan) != "GMPreyMobEater" 
+					&& {getSelf(classWoman) != "GMPreyMobEater"}
+				) then {
+					callFuncParams(_usr,removePoints,5)
+				};
 			},"end",false] call oop_injectToMethod;
 		} foreach (callFunc(gm_currentMode,getLobbyRoles) + callFunc(gm_currentMode,getLateRoles))
 
@@ -838,7 +844,7 @@ class(GASaloonWhereWeapons) extends(BaseGameAspect)
 	var(name,"Где наши пушки?");
 	var(desc,"Пушки из бара спавнятся у других людей. Этот аспект показывается всем кто в баре и тем кто украл пушки");
 	var(descRoleplay,"Да уж... Из бара украли все оружие.");
-	var(allowedModes, ["GMSaloon"]);
+	var(allowedModes, ["GMSaloon" arg "GMSaloonV2"]);
 	var(weight,_GASaloonWhereWeaponsWeight);
 
 	var(listStolenWeapons,[]);
@@ -880,17 +886,20 @@ class(GASaloonNoAmmo) extends(BaseGameAspect)
 	var(name,"Мы всё простреляли");
 	var(desc,"Бандиты потратили все патроны на предыдущем деле.");
 	var(descRoleplay,"Бандиты потратили все патроны на предыдущем деле.");
-	var(allowedModes, ["GMSaloon"]);
+	var(allowedModes, ["GMSaloon" arg "GMSaloonV2"]);
 	var(weight,_GASaloonNoAmmoWeight);
 
 	func(onRoundBegin)
 	{
 		objParams();
-
+		private _pos = [3366.23,3705.17,21.0051];
+		if isTypeOf(gm_currentMode,GMSaloonV2) then {
+			_pos = [3366.31,3743.75,29.3002];
+		};
 		{
 			_mag = _x;
 			{delete(_x)} foreach array_copy(getVar(_mag,content));
-		} foreach (["IMagazineBase",[3366.23,3705.17,21.0051],10,true] call getAllItemsOnPosition);
+		} foreach (["IMagazineBase",_pos,10,true] call getAllItemsOnPosition);
 	};
 
 	func(onMob)

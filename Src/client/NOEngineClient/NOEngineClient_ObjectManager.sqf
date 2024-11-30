@@ -93,7 +93,8 @@ noe_client_updateObject = {
 	
 	//traceformat("handle update object: %1",_this)
 	if equals(_obj,objNUll) then {
-		warningformat("NOEngineClient::updateObject() - Object %1 is null",criptPtr(_ref));
+		//? не актуально так как обновление с созданием допускается
+		//warningformat("NOEngineClient::updateObject() - Object %1 is null",criptPtr(_ref));
 		_obj = if (_isSimple) then {createSimpleObject[_model,[0,0,0],true]} else {_model createVehicleLocal[0,0,0]};
 		_obj setVariable ["ref",_ref];
 		//_obj setVariable ["chunkObjRef",_chunkObject]; //Legacy 0.4.51 - Ссылка на чанк-владелец
@@ -109,6 +110,10 @@ noe_client_updateObject = {
 	#ifdef NOE_CLIENT_THREAD_DEBUG
 	_obj setVariable ["last_update_flag",tickTime];
 	#endif
+
+	_obj setVariable ["origData",(_this select chunk_objectData_transform)];
+
+	if (_ref in noe_client_set_lockedPropUpdates) exitWith {};
 	
 	if (count _pos == 4) then {
 		_obj setPosWorld (_pos select [0,3]);
@@ -337,4 +342,12 @@ noe_client_debug_findChunkObjectByPointer = {
 };	
 #endif
 //DEBUG
+
+noe_client_getObjPtr = {
+	params ["_obj",["_checkNGO",true]];
+	if (_checkNGO && {_obj call noe_client_isNGO}) then {
+		_obj = _obj call noe_client_getNGOSource;
+	};
+	_obj getvariable ["ref",""];
+};
 

@@ -12,7 +12,7 @@
 
 //Статическая дверь. Открывается сменой позиции/поворотом
 class(DoorStatic) extends(IStruct)
-	
+	var(dr,2);
 	getter_func(animateData,[]);//[vecbias,dir]
 
 	getter_func(getOpenSoundParams,["doors\wooden_open" arg getRandomPitchInRange(0.6,1.3) arg null]);
@@ -48,7 +48,7 @@ class(DoorStatic) extends(IStruct)
 			};
 			
 			if (count _origin != 4) then {
-				private _tempObj = createSimpleObject [getSelf(model),[0,0,0],true];
+				private _tempObj = createMesh([getSelf(model) arg [0 arg 0 arg 0] arg true]);
 				_tempObj setPosAtl (_origin select 0);
 				_tempObj setDir (_origin select 1);
 				
@@ -61,6 +61,10 @@ class(DoorStatic) extends(IStruct)
 			
 			_src setPosAtl (_origin select 2);
 			_src setDir (_origin select 3);
+			
+			private _ipar = [getSelf(pointer),[_origin select 2,getDir _src],["std"]];
+			callSelfParams(interpolateVisual,_ipar);
+			
 			[_src,CHUNK_TYPE_STRUCTURE,true] call noe_replicateObject;
 
 		} else {
@@ -68,14 +72,39 @@ class(DoorStatic) extends(IStruct)
 			if equals(_origin,[]) exitWith {
 				errorformat("Origin in object %1 is empty array.",callSelf(getClassName));
 			};
+			
 
 			_src setPosAtl (_origin select 0);
 			_src setDir (_origin select 1);
+			
+			private _ipar = [getSelf(pointer),[_origin select 0,getDir _src],["std"]];
+			callSelfParams(interpolateVisual,_ipar);
+
 			[_src,CHUNK_TYPE_STRUCTURE,true] call noe_replicateObject;
 
 		};
 
 	};
+
+	getterconst_func(interpSpeed,-0.35);//negative == random offset
+
+	//рассылка визуала
+	//! вызывает проблему когда объект реплицируется в соседний чанк
+	func(interpolateVisual)
+	{
+		objParams_1(_data);
+
+		if (count _data < 3) then {
+			_data set [2,["ispd",callSelf(interpSpeed)]];
+		} else {
+			(_data select 2) append ["ispd",callSelf(interpSpeed)];
+		};
+
+		{
+			callFuncParams(_x,sendInfo,"nintrp" arg _data);
+		} foreach callSelfParams(getNearMobs,chunkSize_structure);
+	};
+
 endclass
 
 
@@ -86,7 +115,7 @@ struct_door_initOpenMode = {
 		deleteVehicle struct_door_internal_ref;
 	};
 
-	private _tempObj = createSimpleObject [(getModelInfo _o) select 1,[0,0,0],true];
+	private _tempObj = createMesh( [(getModelInfo _o) select 1 arg [0 arg 0 arg 0] arg true]);
 
 	_tempObj setPosAtl getPosATL _o;
 	_tempObj setdir (getdir _o);

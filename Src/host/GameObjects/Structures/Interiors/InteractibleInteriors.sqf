@@ -5,10 +5,17 @@
 
 #include <..\..\..\engine.hpp>
 #include <..\..\..\oop.hpp>
+#include <..\..\..\text.hpp>
 #include <..\..\GameConstants.hpp>
 
 editor_attribute("InterfaceClass")
-class(InteractibleInterior) extends(SmallDecorations) var(name,"Интерактивный интерьер"); var(desc,"Различные интерьеры с функциями взаимодействия"); endclass
+class(InteractibleInterior) extends(SmallDecorations) 
+	var(name,"Штуковина"); 
+	var(desc,"С этим хочется что-то сделать" pcomma " но пока не знаю что...");
+	var(material,"MatMetal");
+	getterconst_func(getCoefAutoWeight,20);
+	var(dr,2);
+endclass
 
 
 class(PipeStove) extends(InteractibleInterior)
@@ -17,10 +24,7 @@ endclass
 
 class(Samovar) extends(InteractibleInterior)
 	var(model,"ml\ml_object_new\model_24\samovar.p3d");
-endclass
-
-class(Umivalnik) extends(InteractibleInterior)
-	var(model,"metro_ob\model\umivalnik1.p3d");
+	getter_func(isMovable,true);
 endclass
 
 class(HoochMachine) extends(InteractibleInterior)
@@ -33,14 +37,18 @@ endclass
 
 class(StationTea) extends(InteractibleInterior)
 	var(model,"ml\ml_object_new\model_14_10\chai.p3d");
+	getter_func(isMovable,true);
 endclass
 
 class(Scales) extends(InteractibleInterior)
 	var(model,"ml\ml_object_new\model_14_10\wesi.p3d");
+	getter_func(isMovable,true);
 endclass
 
 class(Gramofon) extends(InteractibleInterior)
 	var(model,"relicta_models\models\interier\props\patefon.p3d");
+	var(material,"MatWood");
+	getter_func(isMovable,true);
 endclass
 
 class(OldEngine) extends(InteractibleInterior)
@@ -72,10 +80,7 @@ class(Forge) extends(InteractibleInterior)
 	var(model,"ml_shabut\exoduss\forge.p3d");
 endclass
 
-class(WaterBarrel) extends(InteractibleInterior)
-	var(model,"a3\structures_f_epb\items\vessels\barrelwater_grey_f.p3d");
-endclass
-
 class(Anvil) extends(InteractibleInterior)
 	var(model,"ml\ml_object_new\model_14_10\nakowal.p3d");
+	getter_func(isMovable,true);
 endclass

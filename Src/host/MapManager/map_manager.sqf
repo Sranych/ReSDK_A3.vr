@@ -8,6 +8,7 @@
 #include <..\PointerSystem\pointers.hpp>
 #include <..\Networking\Network.hpp>
 #include "ObjectManager.sqf"
+#include "DynamicMapLoader.sqf"
 
 mapmanager_savemap = {
 
@@ -50,7 +51,7 @@ MapManager_loadmap = {
 	{
 		_x params ["_model","_pos","_vecdir","_vecup"]; //todo uncommon attributes
 
-		_obj = createSimpleObject [_model,[0,0,0]];
+		_obj = createMesh( [_model arg [0 arg 0 arg 0]]);
 		_obj setposatl _pos;
 		_obj setVectorDirAndUp [_vecdir,_vecup];
 

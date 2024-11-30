@@ -29,7 +29,7 @@ NGOExt_create = {
 	
 	//_bnd attachto [_obj,_vec];
 	_bnd setVariable ["__ngoext_itt",_imode];
-	_bnd disableCollisionWith player;
+	[_bnd,false] call setPhysicsCollisionFlag_impl;
 	//_obj setVariable ["ngo_geom",_bnd];
 	_bnd setVariable ["ngo_src",_obj];
 	_bnd setVariable ["ref",_obj getVariable "ref"];
@@ -41,6 +41,35 @@ NGOExt_create = {
 	//_bnd enableSimulation false;
 	
 	_bnd
+};
+
+NGOExt_createSoftlink = {
+	params ["_srcWorldObj","_target"];
+	private _ref = _srcWorldObj getvariable "ref";
+	if isNullVar(_ref) exitWith {false};
+	_target setvariable ["ref",_ref];
+	_target setvariable ["ngo_src",_srcWorldObj];
+	_target setvariable ["__ngoext_itt",true];
+	true
+};
+
+//create virtual object
+NGOExt_createDummyObject = {
+	params ["_src","_objType",["_imode",true],["_simple",true]];
+	private _ptr = [_src] call noe_client_getObjPtr;
+	if isNullVar(_objType) then {
+		_objType = ([_ptr,true] call noe_client_getOrignalObjectData) get "model";
+	};
+	private _obj = if (_simple) then {
+		createSimpleObject [_objType,[0,0,0],true];
+	} else {
+		_objType createVehicleLocal [0,0,0];
+	};
+	_obj setVariable ["__ngoext_itt",_imode];
+	[_bnd,false] call setPhysicsCollisionFlag_impl;
+	_obj setVariable ["ngo_src",_src];
+	_obj setVariable ["ref",_ptr];
+	_obj
 };
 
 noe_client_ngo_check = {
@@ -56,7 +85,7 @@ noe_client_ngo_check = {
 			#endif
 			_bnd attachto [_obj,_vec];
 			_bnd setObjectScale _scale;
-			_bnd disableCollisionWith player;
+			[_bnd,false] call setPhysicsCollisionFlag_impl;
 			_obj setVariable ["ngo_geom",_bnd];
 			_bnd setVariable ["ngo_src",_obj];
 			_bnd setVariable ["ref",_obj getVariable "ref"];
@@ -71,7 +100,7 @@ noe_client_ngo_check = {
 			#endif
 			_bnd attachto [_obj,_vec];
 			_bnd setObjectScale _scale;
-			_bnd disableCollisionWith player;
+			[_bnd,false] call setPhysicsCollisionFlag_impl;
 			_bnd setVariable ["ngo_src",_obj];
 			_bnd setVariable ["ref",_obj getVariable "ref"];
 			#ifndef NOE_NGO_DEBUG_MODE
@@ -91,3 +120,23 @@ noe_client_isNGO = {!isNullReference(_this getVariable vec2("ngo_src",objNull))}
 
 // getting ngo 
 noe_client_getNGOSource = {_this getVariable ["ngo_src",objnull]};
+
+noe_client_getObjectNGOSkip = {
+	private _obj = _this;
+	if (_obj call noe_client_isNGO) then {
+		private _probObj = _obj call noe_client_getNGOSource;
+		if isNullReference(_probObj) exitWith {_obj};
+		_probObj
+	} else {
+		_obj
+	}
+};
+
+noe_client_getPtrInfoNGOSkip = {
+	params ["_obj","_worldRef"];
+	_obj = _obj call noe_client_getObjectNGOSkip;
+	if !isNullVar(_worldRef) then {
+		refset(_worldRef,_obj);
+	};
+	if (typeof _obj == BASIC_MOB_TYPE) then {_obj} else {getObjReference(_obj)};
+};

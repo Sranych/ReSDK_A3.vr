@@ -138,11 +138,28 @@ input_spamProtect = {
 	};
 };
 
+//temorary wall pass through walls 
+input_passThroughWallsProtect = {
+	private _anmList = [
+		"aovrpercmstpsnonwnondf", //default
+		"aovrpercmstpsraswpstdf" //combat
+	];
+	if ((tolower animationState player) in _anmList) exitWith {
+		["<t color='#ff0000' size='1.3'>Ай-яй-яй...</t>"] call chatPrint;
+		true
+	};
+	false
+};
+
+
 #include <..\WidgetSystem\blockedButtons.hpp>
 
 //Проверяет пользовательский инпут. true означает что клавиша заблокирована
 input_movementCheck = {
 	params ["_key"];
+
+	//disable V in combat mode
+	if ([player] call smd_isCombatModeEnabled && {_key in (actionKeys "GetOver")}) exitWith {true};
 
 	_isMov = call input_internal_isMovingButton;
 	_isCS = call input_internal_isChangeStance;
@@ -150,6 +167,14 @@ input_movementCheck = {
 	if ((gf_isLockedInputByWall || gf_isLockedInputByActor) && (_isMov || _isCS)) exitWith {
 		true
 	};
+
+	if ((_isMov || _isCS) && {call cd_isCustomAnimEnabled}) exitWith {
+		call cd_handleRestCustomAnim;
+		true
+	};
+
+	//нельзя тащить вперёд
+	if (_isMov && {[player] call smd_isPulling} && {call input_internal_isMovingForward}) exitWith {true};
 
 	(player getVariable ["smd_bodyParts",[true,true,true,true]]) params ["_ra","_la","_rl","_ll","_canStand"];
 	_hasNoLegs = !_rl && !_ll;
@@ -195,6 +220,7 @@ input_movementCheck = {
 };
 input_internal_isChangeStance = {_key in CHANGE_STANCE_BUTTONS};
 input_internal_isMovingButton = {_key in CAN_MOVE_BUTTONS};
+input_internal_isMovingForward = {_key in MOVE_FORWARD_BUTTONS};
 
 input_getKeyNameByInputName = {
 	params ["_inp"];

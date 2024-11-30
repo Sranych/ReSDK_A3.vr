@@ -28,6 +28,7 @@ endclass
 class(CampfireCreator) extends(Item)
 	var(name,"Набор для костра");
 	var(desc,"Собранный местными умельцами"+comma+" набор для разведения костра");
+	var(material,"MatWood");
 	var(weight,gramm(600));
 	var(size,ITEM_SIZE_MEDIUM);
 	getter_func(getMainActionName,"Собрать");
@@ -57,6 +58,8 @@ class(DeliveryPipe) extends(IDeliveryPipeInternal)
 
 	var(name,"Труба доставки");
 	var(model,"ca\structures_e\misc\misc_construction\misc_concoutlet_ep1.p3d");
+	var(material,"MatBeton");
+	var(dr,3);
 	var(maxSize,ITEM_SIZE_BIG);
 	var(countSlots,DEFAULT_LARGEBOX_STORAGE);
 
@@ -1018,6 +1021,8 @@ class(PrinterMerchantConsole) extends(ElectronicDevice)
 	};
 
 	var(model,"CBRNContainer_01_closed_olive_F");
+	var(material,"MatSynt");
+	var(dr,3);
 	var(papers,[]);
 	var(maxPaperCount,20);
 	var(edIsEnabled,true);
@@ -1091,6 +1096,7 @@ class(MerchantConsole) extends(ElectronicDevice)
 	#include "..\..\Interfaces\INetDisplay.Interface"
 
 	var(ndName,"MerchantConsole");
+	var(material,"MatSynt");
 	var(ndInteractDistance,INTERACT_DISTANCE);
 	getter_func(getMainActionName,"Заказать");
 	func(onMainAction)
@@ -1156,6 +1162,18 @@ class(MerchantConsole) extends(ElectronicDevice)
 	regItemDef(MC_CAT_OTHER,"Lockpick",3,6,5,20)
 	regItemDef(MC_CAT_OTHER,"BrushCleaner",2,5,4,15)
 
+	regItemDef(MC_CAT_OTHER,"WoodenDebris3",4,6,20,50)
+	regItemDef(MC_CAT_OTHER,"WoodenDebris7",3,3,10,30)
+	regItemDef(MC_CAT_OTHER,"WoodenDebris6",2,2,10,30)
+
+	regItemDef(MC_CAT_OTHER,"Pickaxe",5,8,5,15)
+	regItemDef(MC_CAT_OTHER,"WorkingAxe",5,8,5,15)
+	regItemDef(MC_CAT_OTHER,"Sledgehammer",5,8,5,15)
+	regItemDef(MC_CAT_OTHER,"Hammer",3,6,5,15)
+	regItemDef(MC_CAT_OTHER,"Sledgehammer1",4,7,5,15)
+
+	regItemDef(MC_CAT_OTHER,"Rag",1,3,10,30)
+
 	regItemDef(MC_CAT_LIGHT,"TorchDisabled",3,5,5,10)
 	regItemDef(MC_CAT_LIGHT,"CandleDisabled",1,3,10,20)
 	regItemDef(MC_CAT_LIGHT,"LampKeroseneDisabled",8,12,3,8)
@@ -1206,6 +1224,7 @@ class(MerchantConsole) extends(ElectronicDevice)
 	regItemDef(MC_CAT_CONTAINERS,"Suitcase",10,15,1,8)
 	regItemDef(MC_CAT_CONTAINERS,"SteelBrownContainer",10,15,1,8)
 	regItemDef(MC_CAT_CONTAINERS,"ShuttleBag",9,12,1,2)
+	regItem(MC_CAT_CONTAINERS,"FabricBagBig1","FabricBagBig"+str randInt(1,2),10,15,3,8)
 
 	regItemDef(MC_CAT_MONEY,"Zvak",1,1,400,600)
 	regItemDef(MC_CAT_MONEY,"Bryak",10,10,200,400)

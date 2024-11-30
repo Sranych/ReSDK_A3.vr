@@ -9,6 +9,7 @@
 
 class(ElectronicDevice) extends(IStruct)
 	var(name,"Электронное устройство");
+	var(material,"MatSynt");
 
 	#include "..\..\Interfaces\ElectronicDevice.Interface"
 
@@ -16,6 +17,7 @@ endclass
 
 class(BaseElectronicDeviceLighting) extends(ILightibleStruct)
 	var(name,"Источник света");
+	var(material,"MatSynt");
 
 	#include "..\..\Interfaces\ElectronicDevice.Interface"
 
@@ -73,40 +75,6 @@ class(ElectronicDeviceNode) extends(ElectronicDevice)
 
 	var(edIsEnabled,false);
 	var(edIsUsePower,false);
-
-	func(addConnection) {
-		objParams_1(_obj);
-
-		getSelf(edConnected) pushBackUnique _obj;
-		setVar(_obj,edOwner,this);
-		modSelf(edNodeReqPower,+ getVar(_obj,edReqPower));
-
-		//включаем подачу энергии
-		if getVar(this,edIsUsePower) then {
-			callFuncParams(_obj,setUsePower,true);
-		};
-	};
-
-	func(removeConnection) {
-		objParams_1(_obj);
-
-		private _connectedList = getSelf(edConnected);
-		private _ind = _connectedList find _obj;
-		if (_ind == -1) exitWith {false};
-
-		_connectedList deleteAt _ind;
-
-		setVar(_obj,edOwner,nullPtr);
-
-		modSelf(edNodeReqPower, - getVar(_obj,edReqPower));
-		
-		//отключаем подачу энергии на источнике
-		if getVar(_obj,edIsUsePower) then {
-			callFuncParams(_obj,setUsePower,false);
-		};	
-		
-		true //return if success added
-	};
 
 endclass
 
