@@ -86,7 +86,7 @@ class(GameObject) extends(ManagedObject)
 	editor_attribute("Tooltip" arg "Модифицируемый метод получения описания")
 	getter_func(getDesc,if isNull(getSelf(desc)) then {""} else {getSelf(desc)});
 
-	verbListOverride("pull pulltransform extinguish description mainact"); //список действий которые можно сделать с ЭТИМ объектом
+	verbListOverride("pull pulltransform extinguish craft_here description mainact"); //список действий которые можно сделать с ЭТИМ объектом
 
 	"
 		name:В мире
@@ -224,6 +224,7 @@ class(GameObject) extends(ManagedObject)
 	" node_met
 	getterconst_func(isSeat,false); //это сиденье (стул, лавка)
 
+	//TODO remove
 	getter_func(canUseAsCraftSpace,false);//для пукнта в verb-меню (позволяет открывать крафт от этого объекта)
 	getter_func(getAllowedCraftCategories,[]); //доступные категории для крафт меню
 
@@ -236,7 +237,7 @@ class(GameObject) extends(ManagedObject)
 	" node_var
 	editor_attribute("EditorVisible" arg "custom_provider:weight")
 	editor_attribute("Tooltip" arg "Вес объекта в граммах или килограммах")
-	var(weight,gramm(1000));//вес в граммах
+	var(weight,0);//вес в граммах
 
 	//перетаскивание
 	getter_func(isMovable,false); //объект движим
@@ -507,6 +508,13 @@ class(GameObject) extends(ManagedObject)
 				this call gurps_recalcuateEncumbrance;
 			};
 		};
+	};
+
+	func(setWeight)
+	{
+		objParams_1(_w);
+		setSelf(weight,_w);
+		callSelf(onWeightChanged);
 	};
 
 	func(getTextWeight)
@@ -1299,15 +1307,8 @@ region(throwing and bullets functions)
 		private _drObj = getSelf(dr);
 		callSelfParams(applyDamage,_dam arg _type arg _p arg "throw_hit");
 
-		private _matObj = getVar(_throwed,material);
-		private _thDamModif = 1;
-		if (!isNullVar(_matObj) && !isNullReference(_matObj)) then {
-			_thDamModif = callFunc(_matObj,getDamageCoefOnAttack);
-		};
-
-		private _weapDamage = round(_dam*_thDamModif) - _drObj;
 		//! THIS CAN BE THROWS ERROR BECAUSE _throwed.loc - is flyingObject
-		callFuncParams(_throwed,applyDamage,_weapDamage arg _type arg _p arg "throwed");
+		callFuncParams(_throwed,onAttackedObject,this arg _dam arg _drObj arg _p arg "throwed");
 	};
 
 	//Тут обязательно нужно удалить пулю чтобы не вызывать утечек памяти
@@ -1358,6 +1359,11 @@ class(IDestructible) extends(GameObject)
 		private _script = getSelf(__script);
 		if !isNullReference(_srcipt) then {
 			delete(_script);
+		};
+
+		private _ccomp = getSelf(craftComponent);
+		if !isNullVar(_ccomp) then {
+			_ccomp callv(releaseComponent);
 		};
 
 		{
@@ -1466,6 +1472,37 @@ class(IDestructible) extends(GameObject)
 		private _wobj = callSelf(getBasicLoc);
 		_wobj setposatl _pos;
 		callSelf(replicateObject);
+	};
+
+	//set new position with interpolation
+	func(changePosition)
+	{
+		objParams_1(_pos);
+		if !callSelf(isInWorld) exitWith {};
+		
+		{
+			callFuncParams(_x,interpolate,"auto_trans_fall" arg this arg getSelf(pointer));
+		} foreach callSelfParams(getNearMobs,20);
+
+		callSelfParams(setPos__,_pos);
+	};
+
+	func(getNewTransform)
+	{
+		params ['this',["_down",-90],["_dir",random 360],["_force",2],["_addIgnored",[]]];
+		private _startPos = callSelf(getPos);
+		_force = clamp(_force,1,10);
+		private _ign = [this];
+		_ign append _addIgnored;
+		[
+			this,
+			_startPos,
+			[_down,0,_dir],
+			_force,
+			null,
+			null,
+			_ign
+		] call si_rayTraceProcess;
 	};
 
 	//todo optimize transport (from replicateObject to replicateTransform)
@@ -1669,13 +1706,34 @@ class(IDestructible) extends(GameObject)
 		качественно или грубо сделанные получают +1 или +2 к ЗД.
 		Большинство машин и подобных артефактов в хорошем состоянии имеют ЗД 10.
 	*/
+	"
+		name:Качество
+		desc:Возвращает @[int качество] игрового объекта. Среднее значение равно 10. Чем выше качество, тем ценее и прочнее предмет.
+		prop:all
+		classprop:1
+		return:int:Качество игрового объекта
+	" node_var
 	var(ht,10); //Статическая переменная "здоровья" объекта. От этого скилла кидаются броски на разрушение
 
 	/*
 		ЕЖ предмета.
 		количество повреждений, которое объект может вынести, прежде чем сломается или прекратит функционировать
 	*/
+	"
+		name:Здоровье
+		desc:Возвращает текущее здоровье игрового объекта. Оно варьируется от максимального здоровья до пятикратного отрицательного значения от максимального здоровья. Наприме, при максимальном здоровье 5 минимальное здоровье после которого предмет будет уничтожен будет -25 (5 * -5)
+		prop:get
+		classprop:1
+		return:int:Здоровье
+	" node_var
 	var(hp,0);
+		"
+			name:Максимальное здоровье
+			desc:Возвращает максимальное здоровье игрового объекта. Это значение никогда не может быть меньше 0.
+			prop:get
+			classprop:1
+			return:int:Максимальное здоровье
+		" node_var
 		var(hpMax,0);
 	/*
 		СП объекта.
@@ -1784,7 +1842,7 @@ class(IDestructible) extends(GameObject)
 		if (_newhp <= 0 && _newhp > (-1*_maxhp)) exitWith {
 			callSelfParams(onChangeObjectHP,2);
 			private _rr = (getSelf(ht) call gurps_rollstd);
-			if (getRollType(_rr) in [DICE_FAIL,DICE_CRITFAIL]) then {
+			if DICE_ISFAIL(getRollType(_rr)) then {
 				//?тест. снижаем dr объекта
 				private _oldDr = getSelf(dr);
 				if (_oldDr>0) then {
@@ -1795,7 +1853,7 @@ class(IDestructible) extends(GameObject)
 		if (_newhp <= (-1*_maxhp) && _newhp > (-5*_maxhp)) exitWith {
 			callSelfParams(onChangeObjectHP,3);
 			private _rr = (getSelf(ht) call gurps_rollstd);
-			if (getRollType(_rr) in [DICE_FAIL,DICE_CRITFAIL]) then {
+			if DICE_ISFAIL(getRollType(_rr)) then {
 				callSelf(onDestroyed);
 				delete(this);
 			};
@@ -1806,6 +1864,36 @@ class(IDestructible) extends(GameObject)
 			delete(this);
 		};
 		//errorformat("IDestructible::applyDamage() - no affect damage: hp %1; max hp %2; Amount %3",_newhp arg _maxhp arg _amount);
+	};
+
+	func(onAttackedObject)
+	{
+		objParams_5(_targ,_dam,_targDr,_pos,_reason);
+		
+		private _weapDamage = (getSelf(dr) + randInt(1,4)) max 0;
+		private _mod = 0;
+		if (isTypeOf(this,IMeleeWeapon) || isTypeOf(this,IRangedWeapon)) then {
+			modvar(_mod) + 4;
+		};
+		
+		traceformat("onAttachedObject: %1 => %2 [%3;%4]:: %5 (mod: %6)",this arg _targ arg _dam arg _targDr arg _weapDamage arg _mod)
+
+		if !([getSelf(ht) + _mod] call gurps_probSuccess) then {
+			//weapon damage after attack
+			callSelfParams(applyDamage,_weapDamage max 0 arg DAMAGE_TYPE_CRUSHING arg _pos arg _reason);
+		};
+	};
+
+	//получает эффективный урон против объекта
+	func(getEfficiencyOnAttack)
+	{
+		objParams_2(_dam,_targ);
+		private _mat = callFunc(_targ,getMaterial);
+		if !isNullReference(_mat) then {
+			private _modifWeaponDamage = callFunc(_mat,getDamageCoefOnAttack);
+			_dam = round(_dam*_modifWeaponDamage);
+		};
+		_dam
 	};
 
 	func(getHPStatusText)
@@ -1845,14 +1933,14 @@ class(IDestructible) extends(GameObject)
 	{
 		objParams();
 		private _ht = getSelf(ht);
-		if (_ht <= 3) exitWith {"Отвратительное"};
-		if (inRange(_ht,4,6)) exitWith {"Ужасное"};
-		if inRange(_ht,7,8) exitWith {"Плохое"};
-		if inRange(_ht,9,10) exitWith {"Обычное"};
-		if inRange(_ht,11,12) exitWith {"Хорошее"};
-		if inRange(_ht,13,14) exitWith {"Отличное"};
-		if inRange(_ht,15,16) exitWith {"Превосходное"};
-		if (_ht > 17) exitWith {"Великолепное"};
+		if (_ht <= 2) exitWith {"Отвратительное"};//2
+		if inRange(_ht,3,5) exitWith {"Ужасное"}; //3
+		if (inRange(_ht,6,8)) exitWith {"Плохое"}; //3
+		if inRange(_ht,9,11) exitWith {"Обычное"}; //3
+		if inRange(_ht,12,13) exitWith {"Хорошее"}; //2
+		if inRange(_ht,13,14) exitWith {"Отличное"};//2
+		if inRange(_ht,15,16) exitWith {"Превосходное"};//2
+		if (_ht >= 17) exitWith {"Великолепное"};//2
 	};
 
 	func(onChangeObjectHP)
@@ -1870,6 +1958,8 @@ class(IDestructible) extends(GameObject)
 	func(constructor)
 	{
 		objParams();
+
+		callSelf(initCraftSystem);
 
 		private _mat = getSelf(material);
 		if equalTypes(_mat,"") then {
@@ -1900,7 +1990,7 @@ class(IDestructible) extends(GameObject)
 		if (getSelf(hp)>0) then {
 			setSelf(hpMax,getSelf(hp));
 			if !callSelf(isItem) then {
-				setSelf(weight,[this] call gurps_calculateConstructionWeight);
+				setSelf(weight,([this] call gurps_calculateConstructionWeight) * 1000);
 			};
 		} else {
 			callSelf(generateObjectHP);
@@ -1922,14 +2012,22 @@ class(IDestructible) extends(GameObject)
 		if callSelf(isItem) then {
 			_val = [this] call gurps_calculateItemHP;
 		} else {
-			private _weightTn = [this] call gurps_calculateConstructionWeight;
-			_val = [_weightTn] call gurps_calculateConstructionHP;
-			//lb to kg
-			setSelf(weight,_weightTn * 1000);
+			private _dwt = getSelf(weight);
+			if equals(_dwt,0) then {
+				private _weightTn = [this] call gurps_calculateConstructionWeight;
+				_val = [_weightTn] call gurps_calculateConstructionHP;
+				//lb to kg
+				setSelf(weight,_weightTn * 1000);
+			} else {
+				_val = [_dwt / 1000] call gurps_calculateConstructionHP;
+			};
 		};
 		setSelf(hp,_val);
 		setSelf(hpMax,_val);
 	};
+
+	//коэффициент для авторасчета веса. это делитель веса объекта. для мебели например 10
+	getterconst_func(getCoefAutoWeight,1);
 
 	//TODO replace to nullptr and refactoing all checks
 	var(material,null);//string|object
@@ -2075,6 +2173,46 @@ class(IDestructible) extends(GameObject)
 	//пользовательская функция получения типов при уничтожении объекта. можно настроить кастомные типы, выпадающие при уничтожении
 	getter_func(getOnDestroyTypes,callSelf(getOnDestroyTypesFromMaterial));
 
+	//минимально допустимое хп
+	"
+		name:Минимально допустимое здоровье
+		desc:Возвращает минимальное допустимое здоровье для этого игрового объекта (макс.зд. * -5)
+		type:get
+		lockoverride:1
+		return:int:Минимальное допустимое здоровье игрового объекта
+	" node_met
+	getter_func(getMinAllowedHP,-5 * getSelf(hpMax));
+
+	"
+		name:Текущее здоровье в процентах
+		desc:Возвращает текущее здоровье в процентах от 100 до 0
+		type:get
+		lockoverride:1
+		return:int:Текущее здоровье в процентах
+	" node_met
+	//текущее представление хп в процентном соотношении
+	func(getHPCurrentPrecentage)
+	{
+		objParams();
+		round linearConversion [callSelf(getMinAllowedHP),getSelf(hpMax),getSelf(hp),0,100,true];
+	};
+
+	"
+		name:Установить текущее здоровье в процентах
+		desc:Устанавливает текущее здоровье в процентах от 100 до 0
+		type:method
+		lockoverride:1
+		in:int:Здоровье:Здоровье в процентах
+			opt:def=100
+	" node_met
+	func(setHPCurrentPrecentage)
+	{
+		objParams_1(_val);
+		private _newHp = round linearConversion [0,100,_val,callSelf(getMinAllowedHP),getSelf(hpMax),true];
+		_newHp = clamp(_newHp,callSelf(getMinAllowedHP),getSelf(hpMax));
+		setSelf(hp,_newHp);
+	};
+
 	func(getOnDestroyTypesFromMaterial)
 	{
 		objParams();
@@ -2088,6 +2226,12 @@ class(IDestructible) extends(GameObject)
 	
 	
 	var(germs,0);//сколько микробов на объекте (для инфекций)
+
+	func(addGerms)
+	{
+		objParams_1(_val);
+		setSelf(germs,getSelf(germs) + clamp(_val,0,GERM_COUNT_MAX));
+	};
 
 	//функция, получающая с помощью рейкаста объект, на котором лежит этот объект
 	func(getObjectPlace)
@@ -2153,6 +2297,8 @@ class(IDestructible) extends(GameObject)
 	};
 
 region(Fire functionality)
+	//Временное решение чтобы при готовке не загорался предмет
+	var(_lockedCanIgnite,false); //внешнее блокирование пожара
 
 	getter_func(canIgniteArea,false); //может ли этот источник поджечь свой чанк
 	//доп проверка на возгорание объекта. например можно настроить, чтобы источником был маленький предмет
@@ -2529,6 +2675,129 @@ region(Pulling functionality)
 		
 		callFuncParams(_dynDisp,openNDisplayInternal,_usr arg getVar(_usr,owner));
 	};
+
+region(Emplacer system)
+	//можно ли расположить предмет на this объекте. проверяемый
+	func(canEmplaceItem)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		//по умолчанию можно расположить только если предмет на полу
+		callFuncParams(_obj,isFloorEmplaceFromVUP,_vup);
+	};
+	
+	//called on canEmplaceItem returns 
+	func(onEmplaceItemFail)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		if !callFuncParams(_obj,isFloorEmplaceFromVUP,_vup) exitWith {
+			private _msg = pick["Упадёт же!","Слишком большой наклон.","Лучше поставлю где поровнее.","Отсюда всё скатится...","Тут не встанет."];
+			callFuncParams(_usr,localSay,_msg arg "error");
+		};
+	};
+
+	func(onEmplaceItem)
+	{
+		objParams_5(_obj,_pos,_dir,_vup,_usr);
+		//virtual function for custom functionality
+		//for example: can use for update germs on item and source object
+	};
+
+	//внутренняя функция проверки расположен ли vectorup на полу
+	func(isFloorEmplaceFromVUP)
+	{
+		objParams_1(_vup);
+		(_vup select 2) >= 0.65
+	};
+
+region(Craft system)
+	
+	//кто последний дотрагивался до предмета
+	getter_func(getLastTouched,nullPtr);
+
+	var(craftComponentName,null); //система крафта (строка или null)
+	var(craftComponentParams,null);
+	var(craftComponent,null);
+	getter_func(hasCraftComponent,!isNull(getSelf(craftComponent)));
+
+	func(initCraftSystem)
+	{
+		objParams();
+		private _craftComp = getSelf(craftComponentName);
+		if !isNullVar(_craftComp) then {
+			assert_str(struct_existType_str(_craftComp),format vec3("Craft component %1 not found in class %2",_craftComp,callSelf(getClassName)));
+			private _params = getSelf(craftComponentParams);
+			if !isNullVar(_params) then {
+				_params = createHashMapFromArray _params;
+			};
+			private _comp = [_craftComp,[this,_params]] call struct_alloc;
+			setSelf(craftComponent,_comp);
+		};
+	};
+
+	func(getDescFor)
+	{
+		objParams_1(_usr);
+		private _baseDesc = super();
+		if callSelf(hasCraftComponent) then {
+			private _ccompDesc = getSelf(craftComponent) callp(getDescFor,_usr);
+			if (_ccompDesc!="") then {
+				modvar(_baseDesc) +sbr+ _ccompDesc;
+			};
+		};
+		_baseDesc
+	};
+
+	func(onMainAction) {
+		objParams_1(_usr);
+		if callSelf(hasCraftComponent) exitWith {
+			getSelf(craftComponent) callp(onActivate,_usr);
+		};
+		super();
+	};
+
+	func(onInteractWith)
+	{
+		objParams_2(_with,_usr);
+		if callSelf(hasCraftComponent) exitWith {
+			getSelf(craftComponent) callp(moveIngredient,_with arg _usr);
+		};
+	};
+
+	//redirects move funcs to craft component
+	func(canMoveInItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (isNullVar(_ccomp) || {!isinstance(_ccomp,BaseInternalCraftSystem)}) exitWith {true};
+		_ccomp callp(canMoveInItem,_item);
+	};
+
+	func(canMoveOutItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (isNullVar(_ccomp) || {!isinstance(_ccomp,BaseInternalCraftSystem)}) exitWith {true};
+		_ccomp callp(canMoveOutItem,_item);
+	};
+
+	func(onMoveInItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (!isNullVar(_ccomp) && {isinstance(_ccomp,BaseInternalCraftSystem)}) then {
+			_ccomp callp(onMoveInItem,_item);
+		};
+	};
+
+	func(onMoveOutItem)
+	{
+		objParams_1(_item);
+		private _ccomp = getSelf(craftComponent);
+		if (!isNullVar(_ccomp) && {isinstance(_ccomp,BaseInternalCraftSystem)}) then {
+			_ccomp callp(onMoveOutItem,_item);
+		};
+	};
+
 
 	// "
 	// 	name:Установка света
