@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -146,7 +146,7 @@ interact_sendAction = {
 		//private _angle = (getCameraViewDirection player) select 2;
 		#define __hardcoded_angle__ -0.2
 		//if (((getCameraViewDirection player) select 2) < __hardcoded_angle__) then {
-			_sourceVecArr = [getmouseposition call screenToWorldDirection_impl,cam_renderVecMouse select 1];
+			_sourceVecArr = [screenToWorldDirection getmouseposition,cam_renderVecMouse select 1];
 		//};
 	};
 	_data append (_sourceVecArr select 0);
@@ -154,9 +154,15 @@ interact_sendAction = {
 	_data pushBack _actionType;
 	_data pushBack player;
 
-	private _onscreen = [_isMouseMode] call interact_getOnSceenCapturedObject;
-	if !isNullVar(_onscreen) then {
-		_data pushBack _onscreen;
+	call {
+		private _onscreen = [_isMouseMode] call interact_getOnSceenCapturedObject;
+		if !isNullVar(_onscreen) exitWith {
+			_data pushBack _onscreen;
+		};
+		//! пока мы запрещаем явную интеракцию с таким типом объекта. это может привести к проблеме при уничтожении
+		// if ([player] call smd_isPulling) exitWith {
+		// 	_data pushBack ([player] call smd_getPullingObjectPtr);	
+		// };
 	};
 
 	rpcSendToServer("iact",_data);

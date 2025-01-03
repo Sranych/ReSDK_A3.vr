@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -406,6 +406,22 @@ TEST(StructExitWith)
 	private _rval = _obj call ["func",["test"]];
 	traceformat("rval: %1",_rval)
 	ASSERT_EQ(_rval,"val is 9876 +strval:9876");
+}
+
+TEST(InlineStruct)
+{
+	private _obj = inline_struct(AnonType)
+		def(test_num) 123
+		def(test_func)
+		{
+			self getv(test_num);
+		}
+		def(test_str) "hello"
+	inline_endstruct;
+
+	ASSERT_EQ(_obj getv(test_str),"hello");
+
+	ASSERT_EQ(_obj callv(test_func),123);
 }
 
 TEST(SafeReferences)

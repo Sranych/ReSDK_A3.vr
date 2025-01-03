@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -98,8 +98,7 @@ struct(SafeReference)
 		params ["_other"];
 		private _c1 = self callv(_getContainer);
 		private _c2 = _other callv(_getContainer);
-		//_c1 isEqualRef _c2
-		[_c1,_c2] call isequalref_impl
+		_c1 isEqualRef _c2
 	}
 
 endstruct

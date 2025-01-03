@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -191,4 +191,10 @@ class(SmallStoveGrill) extends(ILightibleStruct)
 			callSelfParams(lightSetMode,false);
 		};
 	};
+endclass
+
+class(KitchenStove) extends(SmallStoveGrill)
+	var(name,"Дружковка");
+	var(desc,"Используется для приготовления пищи.")
+	var(model,"ml_exodusnew\stalker_tun\plita.p3d");
 endclass

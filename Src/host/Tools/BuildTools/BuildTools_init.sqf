@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -117,7 +117,7 @@ bt_buildClient = {
 
 	// --- saving 600-700
 	log("Saving build");
-	private _allContent = (CRYPT_KEY+"|"+(str allClientContents));
+	private _allContent = str allClientContents;
 	logformat("	Content size: %1 kb",(count _allContent)toFixed 0 splitString "." select 0);
 
 	if isNull(file_write) exitWith {

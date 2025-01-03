@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -7,7 +7,7 @@ noe_client_defaultInterpTime = 0.15;
 
 noe_client_interp_processObjInterp = {
 	params ["_srcObj","_fromPos","_fromTransf","_toPos","_toTransf","_time",["_scaleMode",0],["_stdMode",0],["_emuMode",false]];
-	[_srcObj,false] call setPhysicsCollisionFlag_impl;
+	_srcObj setPhysicsCollisionFlag false;
 	traceformat("Interp process launched: %1",_this)
 	
 	private _onEnd = {

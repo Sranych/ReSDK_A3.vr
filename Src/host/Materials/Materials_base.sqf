@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -69,12 +69,12 @@ class(MatBase) attribute(staticInit)
 	};
 
 	var(pullSounds,[]);
-	func(getPullSound)
+	func(getPullSounds)
 	{
 		objParams();
 		private _ps = getSelf(pullSounds);
-		if (count _ps == 0) exitWith {""};
-		pick _ps
+		if (count _ps == 0) exitWith {[]};
+		_ps
 	};
 
 	func(getResistSound)

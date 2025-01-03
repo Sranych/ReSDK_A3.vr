@@ -1,9 +1,9 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
-#define STRUCT_API_VERSION 1.6
+#define STRUCT_API_VERSION 1.7
 // enable fileinfo for structs. do not enable in release build
 //#define STRUCT_USE_ALLOC_INFO
 
@@ -108,9 +108,27 @@
 
 // * * * * * * * * * * * * Declaration base * * * * * * * * * * * * 
 
-#define struct(name) _t_annot_ = []; _sdecl__ = [ [STRUCT_MEM_TYPE, #name ], [STRUCT_MEM_FLAGS, struct_default_flag], ["__dflg__",false] ];
+#define struct(name) _t_vtable = spi_lst; _t_annot_ = []; _sdecl__ = [ [STRUCT_MEM_TYPE, #name ], [STRUCT_MEM_FLAGS, struct_default_flag], ["__dflg__",false] ];
 #define base(basename) _sdecl__ pushBack [STRUCT_MEM_BASE, #basename ];
-#define endstruct ;spi_lst pushBack _sdecl__; if (count _t_annot_ > 0) then {_sdecl__ pushBack ["#type_annot_list",_t_annot_]};
+#define endstruct ;_t_vtable pushBack _sdecl__; if (count _t_annot_ > 0) then {_sdecl__ pushBack ["#type_annot_list",_t_annot_]};
+
+/*
+	private _obj = inline_struct(TestStruct)
+		def(var)3;
+		def(test_func) {
+			_x = self getv(var);
+			print(_x);
+		}
+	inline_endstruct;
+
+	private _number = _obj getv(var);
+
+	logformat("inline struct: %1", inline_struct(Obj) def(someValue) 123 inline_endstruct);
+*/
+#define inline_struct(name) call{ _sdecl__ = [ [STRUCT_MEM_TYPE, #name ], [STRUCT_MEM_BASE, vtable_s get "InlineStructBase__"], [STRUCT_MEM_FLAGS, struct_default_flag], ["__dflg__",false] ];
+
+#define inline_endstruct ; private _sobj = createHashMapObject [_sdecl__,nil]; _sobj}
+
 
 
 // * * * * * * * * * * * * Member declaration * * * * * * * * * * * *
@@ -181,11 +199,11 @@
 
 //instansing
 #ifdef STRUCT_USE_ALLOC_INFO
-	#define struct_new(name) (call{_sbj___ = [ pts_##name ,nil] call struct_iallc; _sbj___ set ["__fileinfo__",__FILE__+ '+__LINE__']; _sbj___})
-	#define struct_newp(name,arglist) (call{_sbj___ = [ pts_##name ,[arglist]] call struct_iallc; _sbj___ set ["__fileinfo__",__FILE__+ '+__LINE__']; _sbj___})
+	#define struct_new(name) (call{_sbj___ = createHashMapObject[ pts_##name ,nil]; _sbj___ set ["__fileinfo__",__FILE__+ '+__LINE__']; _sbj___})
+	#define struct_newp(name,arglist) (call{_sbj___ = createHashMapObject[ pts_##name ,[arglist]]; _sbj___ set ["__fileinfo__",__FILE__+ '+__LINE__']; _sbj___})
 #else
-	#define struct_new(name) ([ pts_##name ,nil ] call struct_iallc)
-	#define struct_newp(name,arglist) ([ pts_##name ,[arglist]] call struct_iallc)
+	#define struct_new(name) (createHashMapObject[ pts_##name ,nil ])
+	#define struct_newp(name,arglist) (createHashMapObject[ pts_##name ,[arglist]])
 #endif
 
 //forced delete structure
@@ -399,15 +417,13 @@
 		private _baseName = null;
 		{
 			_baseName = _x;
-			_tList = ([_y] call struct_iallc) get STRUCT_MEM_TYPE;
+			_tList = (createHashMapObject[_y]) get STRUCT_MEM_TYPE;
 			{
 				(strt_inhChld get _x) pushBack _baseName;
 			} foreach (_tList select [1]);
 			strt_inh set [_x,_tList];
 		} foreach _weakDeclMap;
 	};
-
-	VM_COMPILER_ADDFUNC_UNARY(struct_iallc,createHashMapObject);
 
 	struct_alloc = {
 		params ["_s","_params"];
@@ -417,9 +433,9 @@
 		#endif
 
 		if isNullVar(_params) then {
-			[vtable_s get _s] call struct_iallc;
+			createHashMapObject[vtable_s get _s];
 		} else {
-			[vtable_s get _s,_params] call struct_iallc;
+			createHashMapObject[vtable_s get _s,_params];
 		};
 		
 		#ifdef STRUCT_USE_ALLOC_INFO

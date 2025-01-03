@@ -1,5 +1,5 @@
 // ======================================================
-// Copyright (c) 2017-2024 the ReSDK_A3 project
+// Copyright (c) 2017-2025 the ReSDK_A3 project
 // sdk.relicta.ru
 // ======================================================
 
@@ -678,6 +678,8 @@ region(Connect control events)
 		callSelf(closeOpenedNetDisplay);
 		//release building preview if exist
 		callSelf(releaseBuildingPreview);
+
+		callSelf(dropAllItemsInHands);
 	};
 
 region(Mob location info: position; direction; speed)

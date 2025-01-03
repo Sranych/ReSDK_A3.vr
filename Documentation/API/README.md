@@ -15,7 +15,7 @@ Count modules: 31
  - [InputSystem](client//InputSystem.md) - 6 files
  - [Interactions](client//Interactions.md) - 22 files
  - [Inventory](client//Inventory.md) - 7 files
- - [LightEngine](client//LightEngine.md) - 68 files
+ - [LightEngine](client//LightEngine.md) - 70 files
  - [Lobby](client//Lobby.md) - 8 files
  - [LocalEffects](client//LocalEffects.md) - 3 files
  - [NetDisplays](client//NetDisplays.md) - 16 files
@@ -53,12 +53,12 @@ Count modules: 55
  - [GameEvents](host//GameEvents.md) - 4 files
  - [GamemodeManager](host//GamemodeManager.md) - 10 files
  - [GameModes](host//GameModes.md) - 40 files
- - [GameObjects](host//GameObjects.md) - 143 files
+ - [GameObjects](host//GameObjects.md) - 144 files
  - [Gender](host//Gender.md) - 1 files
  - [GURPS](host//GURPS.md) - 3 files
  - [Logger](host//Logger.md) - 2 files
  - [LootSystem](host//LootSystem.md) - 2 files
- - [MapManager](host//MapManager.md) - 16 files
+ - [MapManager](host//MapManager.md) - 17 files
  - [Materials](host//Materials.md) - 3 files
  - [MatterSystem](host//MatterSystem.md) - 11 files
  - [Medals](host//Medals.md) - 3 files
