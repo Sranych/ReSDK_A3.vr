@@ -16,21 +16,21 @@ Count modules: 32
  - [InputSystem](client//InputSystem.md) - 6 files
  - [Interactions](client//Interactions.md) - 22 files
  - [Inventory](client//Inventory.md) - 7 files
- - [LightEngine](client//LightEngine.md) - 71 files
+ - [LightEngine](client//LightEngine.md) - 73 files
  - [Lobby](client//Lobby.md) - 8 files
- - [LocalEffects](client//LocalEffects.md) - 3 files
- - [NetDisplays](client//NetDisplays.md) - 16 files
- - [NOEngineClient](client//NOEngineClient.md) - 16 files
+ - [LocalEffects](client//LocalEffects.md) - 2 files
+ - [NetDisplays](client//NetDisplays.md) - 15 files
+ - [NOEngineClient](client//NOEngineClient.md) - 15 files
  - [OneSync](client//OneSync.md) - 5 files
- - [ProxyItems](client//ProxyItems.md) - 8 files
- - [Rendering](client//Rendering.md) - 13 files
- - [SoundSystem](client//SoundSystem.md) - 6 files
- - [StaminaControl](client//StaminaControl.md) - 4 files
+ - [ProxyItems](client//ProxyItems.md) - 7 files
+ - [Rendering](client//Rendering.md) - 12 files
+ - [SoundSystem](client//SoundSystem.md) - 3 files
+ - [StaminaControl](client//StaminaControl.md) - 3 files
  - [StrafeLock](client//StrafeLock.md) - 1 files
- - [SyncMobData](client//SyncMobData.md) - 3 files
+ - [SyncMobData](client//SyncMobData.md) - 2 files
  - [Traps](client//Traps.md) - 1 files
  - [VisualState](client//VisualState.md) - 10 files
- - [VoiceSystem](client//VoiceSystem.md) - 12 files
+ - [VoiceSystem](client//VoiceSystem.md) - 6 files
  - [WidgetSystem](client//WidgetSystem.md) - 6 files
 # Side: host
 Count modules: 55
@@ -40,7 +40,7 @@ Count modules: 55
  - [Atmos](host//Atmos.md) - 9 files
  - [CaveSystem](host//CaveSystem.md) - 4 files
  - [Client](host//Client.md) - 3 files
- - [ClientManager](host//ClientManager.md) - 16 files
+ - [ClientManager](host//ClientManager.md) - 17 files
  - [CombatSystem](host//CombatSystem.md) - 13 files
  - [CommonComponents](host//CommonComponents.md) - 30 files
  - [CraftSystem](host//CraftSystem.md) - 16 files
