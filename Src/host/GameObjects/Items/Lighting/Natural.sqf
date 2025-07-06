@@ -165,6 +165,10 @@ class(Torch) extends(ILightible)
 	func(onUpdate)
 	{
 		updateParams();
+		#ifdef SP_MODE
+			sp_checkWSim("light");
+		#endif
+
 		modSelf(fuelLeft,-1);
 		callSelf(handleIgniteArea);
 		if (getSelf(fuelLeft) == 0) then {
@@ -333,6 +337,14 @@ class(SigaretteDisabled) extends(Sigarette)
 	var(lightIsEnabled,false);
 endclass
 
+class(SigaretteButt) extends(Sigarette)
+	var(name,"Окурок");
+	var(model,"relicta_models2\misc\s_cigarette_end\s_cigarette_end.p3d");
+	var(canRestoreLight,false);
+	var(fuelLeft,0);
+	var(lightIsEnabled,false);
+endclass
+
 class(Samokrutka) extends(Sigarette)
 	var(name,"Грибная самокрутка");
 	var(model,"relicta_models2\misc\s_joint\s_joint.p3d");
@@ -340,6 +352,14 @@ class(Samokrutka) extends(Sigarette)
 endclass
 
 class(SamokrutkaDisabled) extends(Samokrutka)
+	var(lightIsEnabled,false);
+endclass
+
+class(SamokrutkaButt) extends(Samokrutka)
+	var(name,"Окурок");
+	var(model,"relicta_models2\misc\s_joint_end\s_joint_end.p3d");
+	var(canRestoreLight,false);
+	var(fuelLeft,0);
 	var(lightIsEnabled,false);
 endclass
 
@@ -368,6 +388,15 @@ class(Candle) extends(Sigarette)
 	var(light,"SLIGHT_LEGACY_CANDLE" call lightSys_getConfigIdByName);
 	getterconst_func(getHandAnim,ITEM_HANDANIM_TORCH);
 	var(fuelLeft,60 * 30);
+
+	func(onUpdate)
+	{
+		objParams();
+		#ifdef SP_MODE
+			sp_checkWSim("light");
+		#endif
+		super();
+	};
 
 	func(onFuelEmpty)
 	{

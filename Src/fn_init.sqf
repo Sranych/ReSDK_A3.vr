@@ -201,26 +201,30 @@ loadFile("src\host\init.sqf");
 if (server_isLocked) exitwith _onexit; //because class compiler can throws errors
 call dsm_initialize; //discord mgr init
 
+//do not validate yaml in spmode
+#ifndef SP_MODE
 
-if (!call yaml_isExtensionLoaded) then {
-	#ifdef EDITOR
-	["Yaml библиотека не найдена."
-		+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
-	#endif
-	setLastError("Yaml library not found.");
-	appExit(APPEXIT_REASON_EXTENSION_ERROR);
-};
+	if (!call yaml_isExtensionLoaded) then {
+		#ifdef EDITOR
+		["Yaml библиотека не найдена."
+			+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
+		#endif
+		setLastError("Yaml library not found.");
+		appExit(APPEXIT_REASON_EXTENSION_ERROR);
+	};
 
-private _yamlObj = call yaml_getExtensionVersion;
-logformat("Yaml version: %1",_yamlObj);
-if ((_yamlObj getv(major)) == 0) then {
-	#ifdef EDITOR
-	["Yaml библиотека не обновлена."
-		+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
-	#endif
-	setLastError("Yaml library outdated.");
-	appExit(APPEXIT_REASON_EXTENSION_ERROR);
-};
+	private _yamlObj = call yaml_getExtensionVersion;
+	logformat("Yaml version: %1",_yamlObj);
+	if ((_yamlObj getv(major)) == 0) then {
+		#ifdef EDITOR
+		["Yaml библиотека не обновлена."
+			+endl+endl+"Пожалуйста выполните команду по обновлению файлов редактора: Закройте Платформу и запустите ""RBuilder\DEPLOY.bat"""] call messageBox;
+		#endif
+		setLastError("Yaml library outdated.");
+		appExit(APPEXIT_REASON_EXTENSION_ERROR);
+	};
+	
+#endif
 
 if (server_isLocked) exitWith _onexit;
 
@@ -300,6 +304,10 @@ if (isMultiplayer) then {
 	[format["Сервер запущен! Версия %1",project_version]] call discServerNotif;
 	#endif
 };
+
+#ifdef SP_MODE
+	loadFile("src\host\Singleplayer\singleplayer_init.sqf");
+#endif
 
 server_maxclients = 70; //максимальное количество подключаемых клиентов
 
