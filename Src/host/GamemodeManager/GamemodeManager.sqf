@@ -13,6 +13,7 @@
 #include <GamemodeManager.h>
 #include <..\ClientManager\Client.hpp>
 #include <..\Family\Family.hpp>
+#include <..\Gender\Gender.hpp>
 
 
 
@@ -61,7 +62,7 @@ gm_roles = createHashMap;
 gm_inGameRoles = createHashMap; //роли, доступные после начала раунда
 
 /*
-	Расчитывается по приоритетам.
+	Рассчитывается по приоритетам.
 	Берётся роль, сначала выбирается. Рандомно выбирается клиент.
 
 */

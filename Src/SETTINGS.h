@@ -17,6 +17,9 @@
 #ifdef EDITOR
 	#define EDITOR_OR_RBUILDER
 	#define RBUILDER_OR_EDITOR
+
+	#define SP_MODE_OR_EDITOR
+	#define EDITOR_OR_SP_MODE
 #endif
 
 #ifdef RBUILDER
@@ -25,6 +28,27 @@
 	#define RBUILDER_OR_EDITOR
 #endif
 
+//uncomment for enable singleplayer
+//#define SP_MODE
+//#define SP_PROD
+//#define SP_DEBUG
+
+#ifdef SP_MODE
+	#define SP_MODE_OR_EDITOR
+	#define EDITOR_OR_SP_MODE
+	#undef EDITOR
+#endif
+
+//disable spdebug on disabled spmode
+#ifndef SP_MODE
+	#undef SP_DEBUG
+#endif
+
+//rbuilder force disable spmode and editor
+#ifdef RBUILDER
+	#undef SP_MODE_OR_EDITOR
+	#undef EDITOR_OR_SP_MODE
+#endif
 
 //============================================================================
 //			REGION: COMMON SETTINGS
@@ -72,6 +96,18 @@
 #define SERVER_PASSWORD server_password
 
 #ifndef EDITOR
+	#define __FORCE_DISABLE_LOCAL_PATHES__
+	//по умолчанию в прод.сп скриптовый эскейп включен всегда
+	#undef DISABLE_SCRIPTED_ESCAPE_MENU
+#endif
+
+#ifdef __FORCE_DISABLE_LOCAL_PATHES__
+	#undef __FORCE_DISABLE_LOCAL_PATHES__
+	#undef USE_LOCAL_PATHES
+#endif
+
+//in RBUILDER mode force disable local pathes
+#ifdef RBUILDER
 	#undef USE_LOCAL_PATHES
 #endif
 
@@ -157,6 +193,17 @@
 	#undef PRIVATELAUNCH
 #endif
 
+//прод.запуск сп режима
+#ifdef SP_PROD
+	#undef DEBUG
+	#define RELEASE
+#else
+	#ifdef SP_MODE
+		#undef RELEASE
+		#define DEBUG
+	#endif
+#endif
+
 // -preprocDefine=CMD__MACRONAME
 //redirected preproc
 #ifdef CMD__DEBUG
@@ -218,3 +265,5 @@
 	#define USEEVERYDAYRUN_doValidation() 
 	#define USEEVERYDAYRUN_THREAD_UPDATE() 
 #endif
+
+

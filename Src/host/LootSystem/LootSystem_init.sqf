@@ -32,16 +32,15 @@ loot_addConfig = {
 loot_prepareAll = {
 	private _skipLoad = false;
 	
+	#ifdef SP_MODE
+	if(true)exitWith{};
+	#endif
+
 	#ifdef TEST_IO
 	_skipLoad = true;
 	#endif
 	
 	if (_skipLoad) exitWith {};
-
-	#ifdef RBUILDER
-	//preparing file_getFileList
-	call loot_internal_rbuilder_preloadUtils;
-	#endif
 	
 	private _fileList = ["src\host\LootSystem\Collections",".yml",true] call fso_getFiles;
 	if (count _fileList == 0) exitWith {
@@ -53,12 +52,6 @@ loot_prepareAll = {
 
 	call loot_init;
 };
-
-#ifdef RBUILDER
-loot_internal_rbuilder_preloadUtils = {
-	#include "..\Tools\EditorDebug\EditorDebug_io.sqf"
-};
-#endif
 
 loot_loadConfig = {
 	params ["_path"];
