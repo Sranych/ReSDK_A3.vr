@@ -8,22 +8,22 @@ class EditorData
 	toggles=42;
 	class ItemIDProvider
 	{
-		nextID=11872;
+		nextID=11875;
 	};
 	class LayerIndexProvider
 	{
-		nextID=4173;
+		nextID=4289;
 	};
 	class Camera
 	{
-		pos[]={3456.3201,66.04113,3668.063};
-		dir[]={-0.36289802,-0.61515749,-0.70002306};
-		up[]={-0.28313833,0.7883696,-0.54616749};
-		aside[]={-0.88786274,9.580981e-08,0.46027234};
+		pos[]={3444.7063,36.244869,3722.7566};
+		dir[]={-0.73133016,-0.54279345,0.41321808};
+		up[]={-0.47256947,0.83984601,0.26701599};
+		aside[]={0.49198493,1.6334816e-06,0.87071764};
 	};
 };
 binarizationWanted=0;
-sourceName="resdk_a3";
+sourceName="ReSDK_A3";
 addons[]=
 {
 	"A3_Characters_F",
@@ -831,7 +831,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=11;
+		items=10;
 		class Item0
 		{
 			dataType="Group";
@@ -978,7 +978,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14.308147,5.0390005,8100.0713};
+				position[]={14.315493,5.039001,8100.0728};
 			};
 			side="Empty";
 			flags=4;
@@ -988,7 +988,7 @@ class Mission
 			};
 			id=2205;
 			type="Land_Orange_01_F";
-			atlOffset=-0.0021982193;
+			atlOffset=-0.0021977425;
 		};
 		class Item3
 		{
@@ -31157,7 +31157,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.272,13.360066,3704.4692};
-										angles[]={0,3.1415992,-0};
+										angles[]={0,3.1415992,0};
 									};
 									side="Empty";
 									flags=5;
@@ -31175,7 +31175,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.272,13.985066,3705.5};
-										angles[]={0,3.1415992,-0};
+										angles[]={0,3.1415992,0};
 									};
 									side="Empty";
 									flags=1;
@@ -31193,7 +31193,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.7812,14.979609,3707.6877};
-										angles[]={0,1.5707963,-0};
+										angles[]={0,1.5707963,0};
 									};
 									side="Empty";
 									flags=1;
@@ -36386,7 +36386,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3414.5205,13.828005,3714.0481};
-												angles[]={0,6.0213861,-0};
+												angles[]={0,6.0213861,0};
 											};
 											side="Empty";
 											flags=4;
@@ -36403,7 +36403,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3413.4124,14.013804,3712.1743};
-												angles[]={0,5.9690442,-0};
+												angles[]={0,5.9690442,0};
 											};
 											side="Empty";
 											class Attributes
@@ -36469,7 +36469,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3413.6641,14.0734,3712.218};
-												angles[]={0,3.1939602,-0};
+												angles[]={0,3.1939602,0};
 											};
 											side="Empty";
 											flags=1;
@@ -36479,7 +36479,7 @@ class Mission
 											};
 											id=11822;
 											type="polka_2";
-											atlOffset=0.95643425;
+											atlOffset=0.9564333;
 										};
 										class Item21
 										{
@@ -36521,7 +36521,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3414.2141,13.836438,3713.0698};
-												angles[]={0,5.7246833,-0};
+												angles[]={0,5.7246833,0};
 											};
 											side="Empty";
 											flags=4;
@@ -50906,7 +50906,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3435.9768,31.531572,3656.2715};
-								angles[]={0,2.70526,-0};
+								angles[]={0,2.70526,0};
 							};
 							side="Empty";
 							class Attributes
@@ -50923,7 +50923,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3436.7197,31.765368,3653.7561};
-								angles[]={0,1.3962634,-0};
+								angles[]={0,1.3962634,0};
 							};
 							side="Empty";
 							class Attributes
@@ -63254,7 +63254,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3337.1494,32.196915,3756.9514};
-										angles[]={0,3.1415923,-0};
+										angles[]={0,3.1415923,0};
 									};
 									side="Empty";
 									flags=4;
@@ -67735,234 +67735,269 @@ class Mission
 		class Item9
 		{
 			dataType="Layer";
-			name="111А ЭТО НАДО РАСПРЕДЕЛИТЬ ПО НУЖНЫМ МЕСТАМ";
-			state=1;
+			name="Лор";
 			class Entities
 			{
-				items=12;
+				items=3;
 				class Item0
 				{
-					dataType="Object";
-					class PositionInfo
+					dataType="Layer";
+					name="Седой это ты?";
+					state=1;
+					class Entities
 					{
-						position[]={3426.8982,18.333302,3707.6787};
-						angles[]={0,4.9676189,0};
+						items=5;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3425.5598,31.060968,3680.9309};
+								angles[]={0.001731889,0.5236674,0.016853193};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PenBlack""]]}";
+							};
+							id=11871;
+							type="Land_PenBlack_F";
+							atlOffset=0.91381264;
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3425.3643,31.751942,3680.5918};
+								angles[]={5.2861433,1.2067083,5.6525536};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""камень...""],[""desc"",""Думал друга увидел...""]]],[""class"",""SmallGrayStone""]]}";
+							};
+							id=11868;
+							type="CUP_A2_r2_stone";
+							atlOffset=0.66905022;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3424.7268,31.132278,3681.1716};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Candle""]]}";
+							};
+							id=11869;
+							type="svecha";
+							atlOffset=0.93352127;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3425.5325,31.050804,3680.8757};
+								angles[]={6.2707691,5.8817468,0.011523899};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Нычка""],[""preinit@__content"",""Обокрал торгоша, и скажу я тебе урвал кое-что ценное! Заныкал добро на самой верхотуре напротив ополчения, мешок там в углу.""]]],[""class"",""Paper""]]}";
+							};
+							id=11870;
+							type="Leaflet_05_Old_F";
+							atlOffset=0.90913582;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3392.2905,39.972775,3650.0618};
+								angles[]={0,2.3562012,0};
+							};
+							side="Empty";
+							flags=5;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""TrashCan_all""]]],[""class"",""FabricBagBig2""]]}";
+							};
+							id=11865;
+							type="meshok2";
+						};
 					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Ответ пролазе""],[""preinit@__content"",""Доброго промежутка, Пролаза, друг мой! Твою весточку я получил в прошлом промежутке, вот пишу тебе ответ. Дела у меня и так и сяк иногда всё наперекосяк, но живём потихоньку. Углярчики мои ведут себя хорошо и это радует. Вот Уголёк получил работу от каких-то важных людей, а он собственно мне весточку твою и передал. " \n "" \n "Вещь которую ты мне предлагаешь, она мне не надо, я тут останусь, мне тут хорошо, тут дом мой и люди мои и привык уже я. Ты только сам в Канаве её никому не продавай - убьют, лучше тут загони, пади найдётся дурник какой-нибудь. " \n "" \n "Ты ко мне приходи,  я недавно жительство сменил, теперь в подвалах обитаю, там где баки здоровенные, дверь у меня такая, ну типа, зелёная, не ошибёшься. Там теперь... обитель наша. Пирог, бражка - я угощаю!""]]],[""class"",""Paper""]]}";
-					};
-					id=11811;
-					type="Leaflet_05_Old_F";
-					atlOffset=5.3199472;
+					id=11872;
+					atlOffset=5.2347641;
 				};
 				class Item1
 				{
-					dataType="Object";
-					class PositionInfo
+					dataType="Layer";
+					name="Неудачная доставка";
+					state=1;
+					class Entities
 					{
-						position[]={3427.2664,21.199478,3703.0413};
-						angles[]={0.052370675,0.000609626,0.034901258};
+						items=7;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3426.9031,21.159975,3703.3965};
+								angles[]={0.069831848,0.0010161321,0.027621444};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolSmall""]]}";
+							};
+							id=11810;
+							type="BloodSplatter_01_Small_New_F";
+							atlOffset=8.1225166;
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3426.8982,18.333302,3707.6787};
+								angles[]={0,4.9676189,0};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Ответ пролазе""],[""preinit@__content"",""Доброго промежутка, Пролаза, друг мой! Твою весточку я получил в прошлом промежутке, вот пишу тебе ответ. Дела у меня и так и сяк иногда всё наперекосяк, но живём потихоньку. Углярчики мои ведут себя хорошо и это радует. Вот Уголёк получил работу от каких-то важных людей, а он собственно мне весточку твою и передал. " \n "" \n "Вещь которую ты мне предлагаешь, она мне не надо, я тут останусь, мне тут хорошо, тут дом мой и люди мои и привык уже я. Ты только сам в Канаве её никому не продавай - убьют, лучше тут загони, пади найдётся дурник какой-нибудь. " \n "" \n "Ты ко мне приходи,  я недавно жительство сменил, теперь в подвалах обитаю, там где баки здоровенные, дверь у меня такая, ну типа, зелёная, не ошибёшься. Там теперь... обитель наша. Пирог, бражка - я угощаю!""]]],[""class"",""Paper""]]}";
+							};
+							id=11811;
+							type="Leaflet_05_Old_F";
+							atlOffset=5.3199472;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3427.2664,21.199478,3703.0413};
+								angles[]={0.052370675,0.000609626,0.034901258};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolMedium""]]}";
+							};
+							id=11806;
+							type="BloodPool_01_Medium_New_F";
+							atlOffset=8.110076;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3427.0129,18.281254,3708.1533};
+								angles[]={0.052317474,0.00061009079,6.2308202};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolMedium""]]}";
+							};
+							id=11814;
+							type="BloodPool_01_Medium_New_F";
+							atlOffset=5.1919518;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3426.7793,21.23061,3702.7622};
+								angles[]={1.5707952,1.5402211e-06,1.0995502};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Head3""]]}";
+							};
+							id=11808;
+							type="golova_trup3";
+							atlOffset=8.139123;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3426.9546,18.330353,3707.989};
+								angles[]={3.0563159,3.5016017,0};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Arm""]]}";
+							};
+							id=11813;
+							type="S_Arm";
+							atlOffset=5.2272959;
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3429.5933,23.935818,3702.4626};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Candle""]]}";
+							};
+							id=11812;
+							type="svecha";
+							atlOffset=10.607419;
+						};
 					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolMedium""]]}";
-					};
-					id=11806;
-					type="BloodPool_01_Medium_New_F";
-					atlOffset=8.110076;
+					id=11873;
+					atlOffset=8.183054;
 				};
 				class Item2
 				{
-					dataType="Object";
-					class PositionInfo
+					dataType="Layer";
+					name="Предложение о работе";
+					state=1;
+					class Entities
 					{
-						position[]={3427.0129,18.281254,3708.1533};
-						angles[]={0.052317474,0.00061009079,6.2308202};
+						items=1;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3455.2666,31.25746,3637.4202};
+								angles[]={1.6194644,1.620989,1.4309965};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Работа""],[""preinit@__content"",""Нужны мужики на Ломню, плачу МНОГО - 4 звяка за смену. Приходите на ломню - побазарим.""]]],[""class"",""Paper""]]}";
+							};
+							id=11866;
+							type="Leaflet_05_Old_F";
+							atlOffset=1.1229858;
+						};
 					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolMedium""]]}";
-					};
-					id=11814;
-					type="BloodPool_01_Medium_New_F";
-					atlOffset=5.1919518;
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3426.7793,21.23061,3702.7622};
-						angles[]={1.5707952,1.5402211e-06,1.0995502};
-					};
-					side="Empty";
-					flags=1;
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Head3""]]}";
-					};
-					id=11808;
-					type="golova_trup3";
-					atlOffset=8.139123;
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3426.9546,18.330353,3707.989};
-						angles[]={3.0563159,3.5016017,0};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Arm""]]}";
-					};
-					id=11813;
-					type="S_Arm";
-					atlOffset=5.2272959;
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3429.7236,23.935818,3702.4626};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Candle""]]}";
-					};
-					id=11812;
-					type="svecha";
-					atlOffset=10.586917;
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3426.9031,21.159975,3703.3965};
-						angles[]={0.069831848,0.0010161321,0.027621444};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BloodPoolSmall""]]}";
-					};
-					id=11810;
-					type="BloodSplatter_01_Small_New_F";
-					atlOffset=8.1225166;
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3425.5325,31.050804,3680.8757};
-						angles[]={6.2707691,5.8817468,0.011523899};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Нычка""],[""preinit@__content"",""Обокрал торгоша, и скажу я тебе урвал кое-что ценное! Заныкал добро на самой верхотуре напротив ополчения, мешок там в углу.""]]],[""class"",""Paper""]]}";
-					};
-					id=11870;
-					type="Leaflet_05_Old_F";
-					atlOffset=0.90913582;
-				};
-				class Item8
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3425.5598,31.060968,3680.9309};
-						angles[]={0.001731889,0.5236674,0.016853193};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PenBlack""]]}";
-					};
-					id=11871;
-					type="Land_PenBlack_F";
-					atlOffset=0.91381264;
-				};
-				class Item9
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3392.2905,39.972775,3650.0618};
-						angles[]={0,2.3562012,-0};
-					};
-					side="Empty";
-					flags=5;
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""TrashCan_all""]]],[""class"",""FabricBagBig2""]]}";
-					};
-					id=11865;
-					type="meshok2";
-				};
-				class Item10
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3425.3643,31.751942,3680.5918};
-						angles[]={5.2861433,1.2067083,5.6525536};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""камень...""],[""desc"",""Думал друга увидел...""]]],[""class"",""SmallGrayStone""]]}";
-					};
-					id=11868;
-					type="CUP_A2_r2_stone";
-					atlOffset=0.66905022;
-				};
-				class Item11
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={3424.7268,31.132278,3681.1716};
-					};
-					side="Empty";
-					class Attributes
-					{
-						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Candle""]]}";
-					};
-					id=11869;
-					type="svecha";
-					atlOffset=0.93352127;
+					id=11874;
+					atlOffset=1.1229858;
 				};
 			};
 			id=11857;
-			atlOffset=0.48299408;
-		};
-		class Item10
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3455.3142,31.25746,3637.4202};
-				angles[]={1.6194644,1.620989,1.4309965};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Работа""],[""preinit@__content"",""Нужны мужики на Ломню, плачу МНОГО - 4 звяка за смену. Приходите на ломню - побазарим.""]]],[""class"",""Paper""]]}";
-			};
-			id=11866;
-			type="Leaflet_05_Old_F";
-			atlOffset=1.1226521;
+			atlOffset=16.742435;
 		};
 	};
 };
