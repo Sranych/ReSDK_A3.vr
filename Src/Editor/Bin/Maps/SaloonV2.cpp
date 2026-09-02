@@ -1,14 +1,14 @@
 version=54;
 class EditorData
 {
-	moveGridStep=0.125;
+	moveGridStep=1;
 	angleGridStep=0.017453292;
 	scaleGridStep=100;
 	autoGroupingDist=10;
-	toggles=42;
+	toggles=46;
 	class ItemIDProvider
 	{
-		nextID=11877;
+		nextID=11878;
 	};
 	class LayerIndexProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3446.9807,41.458687,3649.6267};
-		dir[]={-0.2560021,-0.27650884,0.92637044};
-		up[]={-0.07365866,0.96099472,0.26654685};
-		aside[]={0.96394187,-6.6007487e-08,0.26638013};
+		pos[]={3399.1318,18.511375,3675.5405};
+		dir[]={-0.42514464,-0.39620507,0.81395549};
+		up[]={-0.18374424,0.91781646,0.35178006};
+		aside[]={0.88646388,7.3475712e-07,0.46302146};
 	};
 };
 binarizationWanted=0;
@@ -1991,7 +1991,7 @@ class Mission
 									};
 									id=2268;
 									type="block_brick";
-									atlOffset=26.900011;
+									atlOffset=18.791851;
 								};
 								class Item61
 								{
@@ -24909,7 +24909,7 @@ class Mission
 									};
 									id=10576;
 									type="Land_Canal_WallSmall_10m_F";
-									atlOffset=4.0427055;
+									atlOffset=3.7413044;
 								};
 								class Item184
 								{
@@ -28823,7 +28823,7 @@ class Mission
 							state=1;
 							class Entities
 							{
-								items=82;
+								items=83;
 								class Item0
 								{
 									dataType="Object";
@@ -30149,9 +30149,25 @@ class Mission
 									type="block_strongstone";
 									atlOffset=8;
 								};
+								class Item82
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={3390,7.5547428,3678};
+									};
+									side="Empty";
+									class Attributes
+									{
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BlockStone""]]}";
+									};
+									id=11877;
+									type="block_strongstone";
+									atlOffset=8;
+								};
 							};
 							id=7142;
-							atlOffset=8;
+							atlOffset=0.34038925;
 						};
 						class Item2
 						{
@@ -31514,7 +31530,7 @@ class Mission
 									};
 									id=10796;
 									type="Land_pod_18x6";
-									atlOffset=12.875;
+									atlOffset=4.7464523;
 								};
 								class Item18
 								{
@@ -36113,6 +36129,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="Священная обитель ""Шапке""";
+									state=1;
 									class Entities
 									{
 										items=31;
@@ -37996,7 +38013,7 @@ class Mission
 								class Item5
 								{
 									dataType="Layer";
-									name="Гнилые насосы";
+									name="Насос комбината";
 									state=1;
 									class Entities
 									{
@@ -38009,14 +38026,14 @@ class Mission
 												position[]={3395.5139,13.706545,3678.6941};
 											};
 											side="Empty";
-											flags=1;
+											flags=5;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""ElectricPump""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Помпа""],[""desc"",""Выглядит нерабочим, сгнило..""]]],[""class"",""ElectricPump""]]}";
 											};
 											id=10602;
 											type="engine_turbo_01";
-											atlOffset=7.9826374;
+											atlOffset=0.087321281;
 										};
 										class Item1
 										{
@@ -38029,7 +38046,7 @@ class Mission
 											flags=1;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BigPipePump""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Бак""],[""desc"",""Выглядит нерабочим, сгнило..""]]],[""class"",""BigPipePump""]]}";
 											};
 											id=10600;
 											type="turbosos";
@@ -38043,18 +38060,18 @@ class Mission
 												position[]={3395.4712,14.421178,3675.4072};
 											};
 											side="Empty";
-											flags=1;
+											flags=5;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""ElectricalEngineDevice""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""name"",""Двигатель""],[""desc"",""Выглядит нерабочим, сгнило..""]]],[""class"",""ElectricalEngineDevice""]]}";
 											};
 											id=10598;
 											type="Land_vorota_pult";
-											atlOffset=7.9647179;
+											atlOffset=0.005979538;
 										};
 									};
 									id=11645;
-									atlOffset=7.9099751;
+									atlOffset=0.017141342;
 								};
 								class Item6
 								{
