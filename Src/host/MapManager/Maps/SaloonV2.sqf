@@ -2281,7 +2281,7 @@ if ((random 1) < 0.25) then {
 ['MetalBarrel3',[3395.88,3780.75,7.875],0,[0,0,1]] call InitStruct; 
 ['BunchOfShit',[3394.62,3781.38,11.5066,true],0,[0,-0.5,0.866026]] call InitStruct; 
 ['RustyCell',[3387.62,3777.58,14.7422,true],0,[0.358366,0,0.933581]] call InitStruct; 
-['SmallWoodenTable',[3414.69,3713.66,7.96074],0,[0,0,1]] call InitStruct; 
+['SmallWoodenTable',[3414.68,3713.66,7.96074],0,[0,0,1]] call InitStruct; 
 ['SquareWoodenBox',[3405.51,3711.36,7.93192],105,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Materials_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['SquareWoodenBox',[3414.74,3711.26,7.98871],90,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Things_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['SquareWoodenBox',[3404.52,3715.51,8.21542],85,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Things_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
@@ -2296,7 +2296,7 @@ _3407_037113709_678717_86860 = ['SteelGreenDoor',[3407.04,3709.68,7.8686],0,[0,0
 ['ContainerGreen',[3414.74,3712.64,7.95016],175,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Kintchen_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['SmallChair',[3413.92,3713.67,13.0213,true],270,[0.00693012,-0.0154593,0.999856]] call InitItem; 
 ['WoodenDoor',[3411.7,3712.84,8.02155],270,[0,0,1]] call InitStruct; 
-_3414_520513714_048108_82534 = ['Paper',[3414.52,3714.05,8.82534],345,[0,0,1], {_thisObj setvariable ['preinit@__content',"Здарова кореш, у меня дела все нормальные. Я вот чего пишу, у меня тут вещица появилась, её надо бы Оводу Горану принести. Какая-то кассета, ходят слухи что с помощью неё можно южные врата открыть. Горану она очень нужна, не знаю зачем да и не моё это дело. Мне самому она ни к чему, и так в достатке, да и Горан на меня зуб точит, не вариант кароче. Я тебе её могу за так подогнать, может всё таки ты хочешь из Злачника свинтить? Тебе всего делов, эту кассету доставить куда надо и я тебе обещаю что проблем не будет потом. Я попросил торгоша записку эту передать тебе через Уголька. Если он денег попросит - не давай, я ему звяку дал."]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitItem; 
+_3414_520513714_048108_82534 = ['Paper',[3414.52,3714.05,8.82534],345,[0,0,1], {_thisObj setvariable ['preinit@__content',"Здарова Гаврил, у меня дела все нормальные. Я вот чего пишу, у меня тут вещица появилась, её надо бы Оводу Горану принести. Какая-то кассета, ходят слухи что с помощью неё можно южные врата открыть. Горану она очень нужна, не знаю зачем да и не моё это дело. Мне самому она ни к чему, и так в достатке, да и Горан на меня зуб точит, не вариант кароче. Я тебе её могу за так подогнать, может всё таки ты хочешь из Злачника свинтить? Тебе всего делов, эту кассету доставить куда надо и я тебе обещаю что проблем не будет потом. Я попросил торгоша записку эту передать тебе через Уголька. Если он денег попросит - не давай, я ему звяку дал."]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitItem; 
 _3413_412353712_174329_01114 = ['Paper',[3413.41,3712.17,9.01114],342.001,[0,0,1], {_thisObj setvariable ['preinit@__content',"Замешиваем два хороших шмата теста, кладём их в печь сырыми, печь греть не надо. Отрезаем кусочек масла и смазываем тесто. Берём какой-нибудь гриб и берём масло смазываем гриб. Гриб кладём в печку. Печку смазываем маслом и кладём в неё масло. Зажигаем печь и ждём вкусный пирог смазанный маслом! После того как пирог будет готов - смазываем его маслом."]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitItem; 
 ['SpirtBottle',[3414.65,3713.68,8.82534],0,[0,0,1]] call InitItem; 
 ['Svetlolik',[3413.66,3712.17,9.01328],0,[0,0,1]] call InitItem; 
@@ -4555,7 +4555,7 @@ if (!isNil'_3407_037113709_678717_86860') then {
 	_3407_037113709_678717_86860 setvariable ['islocked',true];
 };
 if (!isNil'_3414_520513714_048108_82534') then {
-	_3414_520513714_048108_82534 setvariable ['name',"Письмо другу"];
+	_3414_520513714_048108_82534 setvariable ['name',"Письмо Гаврилу Голованову"];
 };
 if (!isNil'_3413_412353712_174329_01114') then {
 	_3413_412353712_174329_01114 setvariable ['name',"Рецепт пирога"];
