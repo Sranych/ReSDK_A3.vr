@@ -3683,6 +3683,12 @@ if ((random 1) < 0.5) then {
 ['LadderBase',[3473.62,3692.75,9.25],270,[0,0,1]] call InitStruct; 
 ['LadderBase',[3420,3625,9.25],0.000146849,[0,0,1]] call InitStruct; 
 ['LadderBase',[3368.88,3744.88,9.25],270,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3407.25,3800.38,25.625],90,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3410.25,3803.12,25.5725],0,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3407.25,3800.12,18.75],90,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3410.12,3803.25,15.875],0,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3413.25,3800.25,15.625],90,[0,0,1]] call InitStruct; 
+['BrickThinWallSmall',[3410.12,3797.12,16.25],0,[0,0,1]] call InitStruct; 
 ['StumpChair',[3425.45,3693.27,13.2827,true],345,[-0.00595248,-0.00327086,0.999977]] call InitItem; 
 ['StumpChair',[3425.89,3691.39,13.3108,true],345,[-0.00595248,-0.00327086,0.999977]] call InitItem; 
 ['Bucket1',[3426.33,3693.33,13.1714,true],0,[-0.0069996,-0.00103549,0.999975]] call InitItem; 
