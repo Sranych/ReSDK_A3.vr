@@ -4059,7 +4059,7 @@ _3433_875003708_5676324_25000 = ['IStruct',[3433.88,3708.57,24.25],180,[0,0,1], 
 ['SmallWallNetfence',[3429.88,3716.5,29.875],0,[0,0,1]] call InitStruct; 
 ['ConcreteSmallPole',[3423,3716.5,27],0,[0,0,1]] call InitStruct; 
 ['MediumLightConcretePole',[3431.5,3716.5,27.125],0,[0,0,1]] call InitStruct; 
-['WoodenTableHandmade',[3426.85,3713.12,26.375],0,[0,0,1]] call InitStruct; 
+['WoodenTableHandmade',[3427.11,3713.12,26.375],0,[0,0,1]] call InitStruct; 
 _3431_000003714_6250030_65120 = ['IStruct',[3431,3714.62,30.6512],270,[0,0,1], {_thisObj setvariable ['model','a3\structures_f\walls\slums02_4m.p3d'];}] call InitStruct; // !!! realocated model !!!
 _3434_250003701_1250025_37520 = ['IStruct',[3434.25,3701.12,30.619,true],0,[-0.0384836,0.0261709,0.998916], {_thisObj setvariable ['model','a3\structures_f\walls\slums02_pole.p3d'];}] call InitStruct; // !!! realocated model !!!
 _3434_729983714_2500027_49425 = ['IStruct',[3434.73,3714.25,33.0425,true],270,[0.00161583,-0.00659347,0.999977], {_thisObj setvariable ['model','a3\structures_f\walls\wall_tin_4_2.p3d'];}] call InitStruct; // !!! realocated model !!!
@@ -4111,7 +4111,7 @@ _3426_762453712_7539129_58706 = ['SteelDoorThinSmall',[3426.76,3712.75,29.5871],
 ['SteelThinWallMedium',[3424.5,3716.5,26.5841],1.36604e-05,[0,0,1]] call InitStruct; 
 ['SteelThinWallSmall',[3423.75,3712.75,26.5705],0,[0,0,1]] call InitStruct; 
 ['SteelThinWallSmall',[3425.62,3712.75,33.8514,true],1.41684e-12,[1,0,1.19249e-08]] call InitStruct; 
-['SteelThinWallSmall',[3428.07,3713.5,26.4142],90.0001,[0,0,1]] call InitStruct; 
+['SteelThinWallSmall',[3428.35,3713.49,26.4204],90.0001,[0,0,1]] call InitStruct; 
 ['SteelThinWallSmall',[3427.1,3709,35.3375,true],0,[1,0,1.19249e-08]] call InitStruct; 
 ['SteelThinWallSmall',[3425.48,3712.72,29.4929],0,[0,0,1]] call InitStruct; 
 ['SteelThinWallSmall',[3428.48,3716.48,29.4459],0,[0,0,1]] call InitStruct; 
@@ -4135,7 +4135,7 @@ _3426_762453712_7539129_58706 = ['SteelDoorThinSmall',[3426.76,3712.75,29.5871],
 ['WoodenSmallFence2',[3434.75,3711,28.375],0,[0,0,1]] call InitStruct; 
 ['SheetMetalTinFence',[3423.01,3711.16,29.4371],0,[0,0,1]] call InitStruct; 
 ['SteelThinRoofBig',[3427.62,3714,31.75],270,[0,0,1]] call InitStruct; 
-['WoodenTableHandmade',[3425.31,3713.12,26.375],0,[0,0,1]] call InitStruct; 
+['WoodenTableHandmade',[3425.31,3713.13,26.375],0,[0,0,1]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3434,3716,30.1897,true],0,[0.00566271,-0.00693096,0.99996]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3426.5,3716.38,29.6897,true],0,[0.00566271,-0.00693096,0.99996]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3437.88,3712.12,29.8147,true],[0.999976,-0.000603703,0.00690263],[-0.00692886,-0.0927904,0.995662]] call InitStruct; 
@@ -4144,12 +4144,12 @@ _3426_762453712_7539129_58706 = ['SteelDoorThinSmall',[3426.76,3712.75,29.5871],
 ['WoodenSmallShelf2',[3428.48,3713.07,29.5923],268.001,[0,0,1]] call InitStruct; 
 _3426_875003718_1250025_37500 = ['IStruct',[3426.88,3718.12,25.375],220,[0,0,1], {_thisObj setvariable ['model','ca\structures\ruins\ruin_rubble.p3d'];}] call InitStruct; // !!! realocated model !!!
 ['DirtCraterLong',[3434.88,3718.5,30.3142,true],275,[0.00739073,0.00503069,0.99996]] call InitStruct; 
-['SquareWoodenBox',[3423.61,3713.24,26.4602],0.735418,[0,0,1]] call InitStruct; 
+['SquareWoodenBox',[3423.59,3713.25,26.4602],0.735418,[0,0,1]] call InitStruct; 
 ['SquareWoodenBox',[3428.24,3709.9,26.4602],3.83232,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Things_tier1"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
-['SquareWoodenBox',[3430.82,3715.76,26.4602],357.722,[0,0,1]] call InitStruct; 
+['SquareWoodenBox',[3430.71,3715.7,26.4602],357.722,[0,0,1]] call InitStruct; 
 ['Shelves',[3425.97,3716.19,26.4602],0,[0,0,1]] call InitStruct; 
-['LampKeroseneHolderCharged',[3425.08,3715.98,26.4602],270.001,[0,0,1]] call InitStruct; 
-['LampKeroseneHolderCharged',[3431.67,3710.39,26.4602],88.854,[0,0,1]] call InitStruct; 
+['LampKeroseneHolderCharged',[3425.08,3715.98,26.4602],270.001,[0,0,1], {_thisObj setvariable ['preinit@__enablechanged',false]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
+['LampKeroseneHolderCharged',[3431.67,3710.39,26.4602],88.854,[0,0,1], {_thisObj setvariable ['preinit@__enablechanged',false]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['WoodenChair',[3431.07,3709.75,26.4602],147.983,[0,0,1]] call InitItem; 
 ['FabricBagBig2',[3425.72,3716.12,30.3479],342.337,[0,0,1]] call InitItem; 
 ['FabricBagBig2',[3423.38,3713.56,29.575],198.787,[0,0,1]] call InitItem; 
@@ -4186,8 +4186,9 @@ _3426_875003718_1250025_37500 = ['IStruct',[3426.88,3718.12,25.375],220,[0,0,1],
 ['Kastrula',[3427.29,3713.12,26.5652],180.001,[0,0,1]] call InitItem; 
 ['BrushCleaner',[3423.93,3713.39,27.4143],260,[0,0,1]] call InitItem; 
 ['BrushCleaner',[3423.83,3713.51,27.4149],100,[0,0,1]] call InitItem; 
-['MerchantConsoleSaloon',[3427.66,3712.91,27.3142],1.36604e-05,[0,0,1], {go_editor_globalRefs set ["MerchantConsole G:gFC8kWrxlD8",_thisObj];
+['MerchantConsoleSaloon',[3427.91,3712.91,27.3122],1.36604e-05,[0,0,1], {go_editor_globalRefs set ["MerchantConsole G:gFC8kWrxlD8",_thisObj];
 }] call InitStruct; 
+['WoodenSmallShelf2',[3428.57,3713.56,26.4602],358.001,[0,0,1]] call InitStruct; 
 _3444_000003747_0000025_12577 = ['IStruct',[3444,3747,31.0824,true],0,[-0.00119604,0,0.999999], {_thisObj setvariable ['model','ml_shabut\stalker_props\metallolom.p3d'];}] call InitStruct; // !!! realocated model !!!
 ['SofaBrown',[3426.34,3709.74,26.4602],0,[0,0,1]] call InitStruct; 
 _3431_375003714_7500027_78420 = ['RedButton',[3431.38,3714.75,32.784,true],[4.37114e-08,9.65599e-07,-1],[-1,0,-4.37114e-08], {go_editor_globalRefs set ["RedButton G:QmlLSxr6z/A",_thisObj];
@@ -4197,6 +4198,10 @@ _3431_375003714_5000027_78385 = ['RedButton',[3431.38,3714.5,32.784,true],[-1.33
 _3427_625003712_8750030_78420 = ['RedButton',[3427.62,3712.88,35.784,true],[0,7.54979e-08,-1],[0,1,7.54979e-08], {go_editor_globalRefs set ["RedButton G:rYU7m5E3iHo",_thisObj];
 }] call InitStruct; 
 ['TinFence',[3430.92,3708.92,26.5742],0,[0,0,1]] call InitStruct; 
+['WoodenOfficeTable4',[3430.86,3715.24,26.4602],0,[0,0,1]] call InitStruct; 
+_3367_450683747_0334528_46882 = if ((random 1) < 0.33) then {
+	['CoinBag',[3367.45,3747.03,28.4688],77,[0,0,1]] call InitItem; 
+};
 
 
 
@@ -5322,4 +5327,9 @@ if (!isNil'_3431_375003714_5000027_78385') then {
 if (!isNil'_3427_625003712_8750030_78420') then {
 	[_3427_625003712_8750030_78420,go_editor_globalRefs get "Imported LampCeiling715977 (6)"] call (_3427_625003712_8750030_78420 getvariable 'proto' getvariable 'addConnection');
 	[_3427_625003712_8750030_78420,go_editor_globalRefs get "Imported LampCeiling715977 (5)"] call (_3427_625003712_8750030_78420 getvariable 'proto' getvariable 'addConnection');
+};
+if (!isNil'_3367_450683747_0334528_46882') then {
+	_3367_450683747_0334528_46882 setvariable ['countslots',4];
+	[_3367_450683747_0334528_46882,'Paper',1,100,[["var","name","Подгон"],["var","preinit@__content","Здарова, Пахан! Это Белый, с Улиц. Подгон тебе от наших за твою помощь с прошлым делом! Этим подарчиком был напуган один особо ошалевший жрун в погонах, и я тебе советую затем не спешить использовать его по прямому назначению. Дальше всё просто - рвёшь чеку, отпускаешь рычаг и кидаешь куда тебе хочется. И да, что бы ты знал, чеку можно вставить назад, но только если ты не отпустил рычаг. Кстати, с рычагом осторожней будь и кидать готовься заранее. Если отпустил - лучше бросай и петляй как можешь дальше, иначе самого разорвёт на куски и станешь кормом для мельтешат. Так что лучше просто пугай тем, что чеку вытащишь, а потом вороти где было. Ну, бывай."]]] call (_3367_450683747_0334528_46882 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3367_450683747_0334528_46882,'Grenade',1,100] call (_3367_450683747_0334528_46882 getvariable 'proto' getvariable 'createItemInContainer');
 };
