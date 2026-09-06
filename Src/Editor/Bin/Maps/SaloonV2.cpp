@@ -2,28 +2,28 @@ version=54;
 class EditorData
 {
 	moveGridStep=0.125;
-	angleGridStep=0.017453292;
+	angleGridStep=0.08726646;
 	scaleGridStep=100;
 	autoGroupingDist=10;
 	toggles=34;
 	class ItemIDProvider
 	{
-		nextID=12325;
+		nextID=12375;
 	};
 	class LayerIndexProvider
 	{
-		nextID=5003;
+		nextID=5483;
 	};
 	class Camera
 	{
-		pos[]={3442.7974,35.799229,3741.8623};
-		dir[]={-0.24758168,-0.79515946,0.55363536};
-		up[]={-0.32460794,0.60639572,0.72587883};
-		aside[]={0.91291404,-5.9101149e-07,0.40824628};
+		pos[]={3443.4573,36.864029,3713.0408};
+		dir[]={-0.26115507,-0.57133651,0.77809554};
+		up[]={-0.18179862,0.82070279,0.54165751};
+		aside[]={0.9480536,3.3684773e-07,0.318198};
 	};
 };
 binarizationWanted=0;
-sourceName="ReSDK_A3";
+sourceName="resdk_a3";
 addons[]=
 {
 	"A3_Characters_F",
@@ -834,7 +834,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=20;
+		items=13;
 		class Item0
 		{
 			dataType="Group";
@@ -18651,7 +18651,7 @@ class Mission
 					state=1;
 					class Entities
 					{
-						items=173;
+						items=176;
 						class Item0
 						{
 							dataType="Object";
@@ -21682,17 +21682,72 @@ class Mission
 							type="Lamp_tarelka";
 							atlOffset=2.4077454;
 						};
+						class Item173
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3431.3987,32.784,3714.75};
+								angles[]={0,4.7123899,1.5707964};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (4)"",""Imported LampCeiling715977 (3)""]],[""mark"",""RedButton G:QmlLSxr6z/A""]]}";
+							};
+							id=12318;
+							type="knopka";
+							atlOffset=0.33900452;
+						};
+						class Item174
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3431.3989,32.784,3714.4727};
+								angles[]={0,4.7123909,1.5707964};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (2)"",""Imported LampCeiling715977""]],[""mark"",""RedButton G:1QZlBpipfPM""]]}";
+							};
+							id=12319;
+							type="knopka";
+							atlOffset=0.54172516;
+						};
+						class Item175
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3427.6121,35.784,3712.8774};
+								angles[]={1.5707963,0,0};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (6)"",""Imported LampCeiling715977 (5)""]],[""mark"",""RedButton G:rYU7m5E3iHo""]]}";
+							};
+							id=12320;
+							type="knopka";
+							atlOffset=1.1472969;
+						};
 					};
 					id=5214;
-					atlOffset=1.594265;
+					atlOffset=0.088741302;
 				};
 				class Item3
 				{
 					dataType="Layer";
 					name="А Общак ""Рук""";
+					state=1;
 					class Entities
 					{
-						items=75;
+						items=76;
 						class Item0
 						{
 							dataType="Object";
@@ -21739,7 +21794,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2_3""]]],[""class"",""SquareWoodenBox""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2_3""],[""countslots"",60]]],[""class"",""SquareWoodenBox""]]}";
 							};
 							id=3669;
 							type="Land_WoodenBox_02_F";
@@ -21792,7 +21847,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""]]],[""class"",""BoardWoodenBox""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""],[""countslots"",50]]],[""class"",""BoardWoodenBox""]]}";
 							};
 							id=3667;
 							type="box_wood_close";
@@ -22982,9 +23037,26 @@ class Mission
 							type="CUP_Dhangar_borwnskrin";
 							atlOffset=3.3417816;
 						};
+						class Item75
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={3367.4507,33.575787,3747.0334};
+								angles[]={0,1.3439037,0};
+							};
+							side="Empty";
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",4]]],[""prob"",33],[""class"",""CoinBag""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[[""""name"""",""""Подгон""""],[""""preinit@__content"""",""""Здарова, Пахан! Это Белый, с Улиц. Подгон тебе от наших за твою помощь с прошлым делом! Этим подарчиком был напуган один особо ошалевший жрун в погонах, и я тебе советую затем не спешить использовать его по прямому назначению. Дальше всё просто - рвёшь чеку, отпускаешь рычаг и кидаешь куда тебе хочется. И да, что бы ты знал, чеку можно вставить назад, но только если ты не отпустил рычаг. Кстати, с рычагом осторожней будь и кидать готовься заранее. Если отпустил - лучше бросай и петляй как можешь дальше, иначе самого разорвёт на куски и станешь кормом для мельтешат. Так что лучше просто пугай тем, что чеку вытащишь, а потом вороти где было. Ну, бывай.""""]]],[""""class"""",""""Paper""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""Grenade""""]]}"",1]]]]}";
+							};
+							id=12324;
+							type="bagforgold";
+							atlOffset=0.83073044;
+						};
 					};
 					id=5220;
-					atlOffset=3.0028687;
+					atlOffset=1.9168015;
 				};
 				class Item4
 				{
@@ -24604,7 +24676,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Окружение";
-					state=1;
 					class Entities
 					{
 						items=17;
@@ -24612,7 +24683,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Декор";
-							state=1;
 							class Entities
 							{
 								items=19;
@@ -25115,7 +25185,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Мельтешиный закуток";
-							state=1;
 							class Entities
 							{
 								items=35;
@@ -26448,7 +26517,7 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""]]],[""class"",""OldWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",45]]],[""class"",""OldWoodenBox""]]}";
 											};
 											id=7873;
 											type="land_tarkov_wood";
@@ -26864,7 +26933,7 @@ class Mission
 											flags=1;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""]]],[""class"",""SquareWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",50]]],[""class"",""SquareWoodenBox""]]}";
 											};
 											id=7831;
 											type="Land_WoodenBox_02_F";
@@ -26882,7 +26951,7 @@ class Mission
 											flags=1;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""]]],[""class"",""SquareWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",50]]],[""class"",""SquareWoodenBox""]]}";
 											};
 											id=7839;
 											type="Land_WoodenBox_02_F";
@@ -26900,7 +26969,7 @@ class Mission
 											flags=5;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""]]],[""class"",""SquareWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",60]]],[""class"",""SquareWoodenBox""]]}";
 											};
 											id=7863;
 											type="Land_WoodenBox_02_F";
@@ -27649,7 +27718,7 @@ class Mission
 											flags=1;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""]]],[""class"",""BoardWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",45]]],[""class"",""BoardWoodenBox""]]}";
 											};
 											id=7832;
 											type="box_wood_close";
@@ -27667,7 +27736,7 @@ class Mission
 											flags=1;
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""]]],[""class"",""BoardWoodenBox""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""],[""countslots"",45]]],[""class"",""BoardWoodenBox""]]}";
 											};
 											id=7840;
 											type="box_wood_close";
@@ -29652,7 +29721,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Сараи и навесы";
-							state=1;
 							class Entities
 							{
 								items=22;
@@ -30057,7 +30125,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Светляки и факелы";
-							state=1;
 							class Entities
 							{
 								items=5;
@@ -30319,7 +30386,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Предметы";
-							state=1;
 							class Entities
 							{
 								items=1;
@@ -31417,7 +31483,6 @@ class Mission
 				{
 					dataType="Layer";
 					name="Ломня";
-					state=1;
 					class Entities
 					{
 						items=7;
@@ -31425,7 +31490,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Конструкции";
-							state=1;
 							class Entities
 							{
 								items=74;
@@ -32759,7 +32823,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Декор";
-							state=1;
 							class Entities
 							{
 								items=91;
@@ -35299,7 +35362,7 @@ class Mission
 									side="Empty";
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Materials_all""]]],[""class"",""OldWoodenBox""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""],[""countslots"",55]]],[""class"",""OldWoodenBox""]]}";
 									};
 									id=9069;
 									type="land_tarkov_wood";
@@ -35317,7 +35380,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1_2""]]],[""class"",""ContainerGreen""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Things_tier1""],[""countslots"",45]]],[""class"",""ContainerGreen""]]}";
 									};
 									id=9067;
 									type="sundugan";
@@ -35451,7 +35514,7 @@ class Mission
 									flags=5;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Materials_all""]]],[""class"",""SquareWoodenBox""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Materials_all""],[""countslots"",60]]],[""class"",""SquareWoodenBox""]]}";
 									};
 									id=8965;
 									type="Land_WoodenBox_02_F";
@@ -36182,7 +36245,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Вход/вывеска";
-							state=1;
 							class Entities
 							{
 								items=26;
@@ -36657,7 +36719,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="Предметы";
-							state=1;
 							class Entities
 							{
 								items=153;
@@ -44897,13 +44958,13 @@ class Mission
 				};
 			};
 			id=6175;
-			atlOffset=25.517818;
+			atlOffset=25.503408;
 		};
 		class Item4
 		{
 			dataType="Layer";
 			name="Spawn points";
-			state=3;
+			state=1;
 			class Entities
 			{
 				items=52;
@@ -45734,18 +45795,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3428.708,37.130836,3717.21};
-						angles[]={0,1.5665458,0};
+						position[]={3424.063,35.641254,3714.8193};
+						angles[]={0,3.1373422,0};
 					};
 					side="Empty";
-					flags=1;
+					flags=5;
 					class Attributes
 					{
 						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""spawnpointname"",""RTorgSaloon""]]],[""class"",""CollectionSpawnPoint""]]}";
 					};
 					id=8226;
 					type="VR_3DSelector_01_default_F";
-					atlOffset=5.2506866;
 				};
 				class Item49
 				{
@@ -45802,7 +45862,7 @@ class Mission
 				};
 			};
 			id=7428;
-			atlOffset=15.723231;
+			atlOffset=15.581182;
 		};
 		class Item5
 		{
@@ -55875,7 +55935,7 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MagazineFinisherLoadedExtendedSaloon""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""a3\structures_f_epb\items\military\magazine_rifle_f.p3d""]]],[""class"",""IStruct""]]}";
 											};
 											id=11186;
 											type="Land_Magazine_rifle_F";
@@ -55943,7 +56003,7 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MagazineFinisherLoadedExtendedSaloon""]]}";
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""a3\structures_f_epb\items\military\magazine_rifle_f.p3d""]]],[""class"",""IStruct""]]}";
 											};
 											id=11185;
 											type="Land_Magazine_rifle_F";
@@ -67819,7 +67879,7 @@ class Mission
 			name="Торгаш новый";
 			class Entities
 			{
-				items=13;
+				items=16;
 				class Item0
 				{
 					dataType="Layer";
@@ -67859,7 +67919,7 @@ class Mission
 							};
 							id=11928;
 							type="polbetonsbs_2";
-							atlOffset=0.69769478;
+							atlOffset=0.7915554;
 						};
 						class Item2
 						{
@@ -67876,7 +67936,7 @@ class Mission
 							};
 							id=11929;
 							type="polbetonsbs_2";
-							atlOffset=0.9263134;
+							atlOffset=1.020174;
 						};
 						class Item3
 						{
@@ -68257,7 +68317,7 @@ class Mission
 							};
 							id=11952;
 							type="Land_Concrete_SmallWall_4m_F";
-							atlOffset=0.629776;
+							atlOffset=0.66823196;
 						};
 					};
 					id=11995;
@@ -69241,7 +69301,7 @@ class Mission
 							};
 							id=12042;
 							type="Land_SlumWall_01_s_4m_F";
-							atlOffset=0.10259247;
+							atlOffset=0.19645309;
 						};
 						class Item55
 						{
@@ -70042,7 +70102,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3434,30.189682,3716};
+						position[]={3434,30.095821,3716};
 						angles[]={6.2762542,0,6.2775226};
 					};
 					side="Empty";
@@ -70052,7 +70112,7 @@ class Mission
 					};
 					id=12209;
 					type="CUP_A2_castle_wall5_d_ruins";
-					atlOffset=0.75355339;
+					atlOffset=0.65969276;
 				};
 				class Item4
 				{
@@ -70230,7 +70290,7 @@ class Mission
 							flags=5;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SquareWoodenBox""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SquareWoodenBox""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",100],[""""class"""",""""ArmorLite""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",40],[""""class"""",""""ArmorLite""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""CombatHat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",40],[""""class"""",""""CombatHat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",40],[""""class"""",""""CombatHat""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",40],[""""class"""",""""ArmorMedium""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""prob"""",40],[""""class"""",""""ArmorMedium""""]]}"",1]]]]}";
 							};
 							id=2487;
 							type="Land_WoodenBox_02_F";
@@ -70938,9 +70998,58 @@ class Mission
 					type="CUP_A2_rack_ep1";
 					atlOffset=1.9073486e-06;
 				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3430.8586,32.010529,3715.2417};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenOfficeTable4""]]}";
+					};
+					id=12322;
+					type="stolik";
+					atlOffset=0.20900917;
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3426.3438,31.97386,3709.7415};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SofaBrown""]]}";
+					};
+					id=12312;
+					type="SMG_BomjDivan";
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3430.9158,32.2407,3708.9216};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+						init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""TinFence""]]}";
+					};
+					id=12321;
+					type="Land_TinWall_01_m_4m_v1_F";
+				};
 			};
 			id=11961;
-			atlOffset=0.051263809;
+			atlOffset=0.063390732;
 		};
 		class Item12
 		{
@@ -70959,126 +71068,6 @@ class Mission
 			id=12144;
 			type="metallolom";
 			atlOffset=0.0025901794;
-		};
-		class Item13
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3426.3438,31.97386,3709.7415};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SofaBrown""]]}";
-			};
-			id=12312;
-			type="SMG_BomjDivan";
-		};
-		class Item14
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3431.375,32.784,3714.75};
-				angles[]={0,4.7123899,1.5707964};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (4)"",""Imported LampCeiling715977 (3)""]],[""mark"",""RedButton G:QmlLSxr6z/A""]]}";
-			};
-			id=12318;
-			type="knopka";
-			atlOffset=0.33893967;
-		};
-		class Item15
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3431.375,32.784,3714.5};
-				angles[]={0,3.0544243e-09,1.5707964};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (2)"",""Imported LampCeiling715977""]],[""mark"",""RedButton G:1QZlBpipfPM""]]}";
-			};
-			id=12319;
-			type="knopka";
-			atlOffset=0.51378632;
-		};
-		class Item16
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3427.625,35.784,3712.875};
-				angles[]={1.5707963,0,0};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedButton""],[""edConnected"",[""Imported LampCeiling715977 (6)"",""Imported LampCeiling715977 (5)""]],[""mark"",""RedButton G:rYU7m5E3iHo""]]}";
-			};
-			id=12320;
-			type="knopka";
-			atlOffset=1.1472969;
-		};
-		class Item17
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3430.9158,32.2407,3708.9216};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""TinFence""]]}";
-			};
-			id=12321;
-			type="Land_TinWall_01_m_4m_v1_F";
-		};
-		class Item18
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3430.8586,32.010529,3715.2417};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenOfficeTable4""]]}";
-			};
-			id=12322;
-			type="stolik";
-			atlOffset=0.11514854;
-		};
-		class Item19
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3367.4507,33.575787,3747.0334};
-				angles[]={0,1.3439037,-0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""countslots"",4]]],[""prob"",33],[""class"",""CoinBag""],[""containerContent"",[[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[[""""name"""",""""Подгон""""],[""""preinit@__content"""",""""Здарова, Пахан! Это Белый, с Улиц. Подгон тебе от наших за твою помощь с прошлым делом! Этим подарчиком был напуган один особо ошалевший жрун в погонах, и я тебе советую затем не спешить использовать его по прямому назначению. Дальше всё просто - рвёшь чеку, отпускаешь рычаг и кидаешь куда тебе хочется. И да, что бы ты знал, чеку можно вставить назад, но только если ты не отпустил рычаг. Кстати, с рычагом осторожней будь и кидать готовься заранее. Если отпустил - лучше бросай и петляй как можешь дальше, иначе самого разорвёт на куски и станешь кормом для мельтешат. Так что лучше просто пугай тем, что чеку вытащишь, а потом вороти где было. Ну, бывай.""""]]],[""""class"""",""""Paper""""]]}"",1],[""{createHashMapFromArray[[""""customProps"""",createHashMapFromArray[]],[""""class"""",""""Grenade""""]]}"",1]]]]}";
-			};
-			id=12324;
-			type="bagforgold";
-			atlOffset=0.83073044;
 		};
 	};
 };
