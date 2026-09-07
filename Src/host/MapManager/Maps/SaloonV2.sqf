@@ -4145,7 +4145,7 @@ _3426_762453712_7539129_58706 = ['SteelDoorThinSmall',[3426.76,3712.75,29.5871],
 ['SheetMetalTinFence',[3423.01,3711.16,29.4371],0,[0,0,1]] call InitStruct; 
 ['SteelThinRoofBig',[3427.62,3714,31.75],270,[0,0,1]] call InitStruct; 
 ['WoodenTableHandmade',[3425.31,3713.13,26.375],0,[0,0,1]] call InitStruct; 
-['MediumPileOfDirtAndStones',[3434,3716,30.0958,true],0,[0.00566271,-0.00693096,0.99996]] call InitStruct; 
+['MediumPileOfDirtAndStones',[3434,3716,30.0645,true],0,[0.00566271,-0.00693096,0.99996]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3426.5,3716.38,29.6897,true],0,[0.00566271,-0.00693096,0.99996]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3437.88,3712.12,29.8147,true],[0.999976,-0.000603703,0.00690263],[-0.00692886,-0.0927904,0.995662]] call InitStruct; 
 ['MediumPileOfDirtAndStones',[3434.5,3713.75,29.5647,true],90,[-0.0069289,-0.00565876,0.99996]] call InitStruct; 
@@ -4153,14 +4153,16 @@ _3426_762453712_7539129_58706 = ['SteelDoorThinSmall',[3426.76,3712.75,29.5871],
 ['WoodenSmallShelf2',[3428.48,3713.07,29.5923],268.001,[0,0,1]] call InitStruct; 
 _3426_875003718_1250025_37500 = ['IStruct',[3426.88,3718.12,25.375],220,[0,0,1], {_thisObj setvariable ['model','ca\structures\ruins\ruin_rubble.p3d'];}] call InitStruct; // !!! realocated model !!!
 ['DirtCraterLong',[3434.88,3718.5,30.3142,true],275,[0.00739073,0.00503069,0.99996]] call InitStruct; 
-['SquareWoodenBox',[3423.59,3713.25,26.4602],0.735418,[0,0,1]] call InitStruct; 
+['SquareWoodenBox',[3423.59,3713.25,26.4602],0.735418,[0,0,1], {go_editor_globalRefs set ["SaloonMerchantBox",_thisObj];
+}] call InitStruct; 
 ['SquareWoodenBox',[3428.24,3709.9,26.4602],3.83232,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Things_tier1"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
-_3430_712893715_7038626_46023 = ['SquareWoodenBox',[3430.71,3715.7,26.4602],357.722,[0,0,1]] call InitStruct; 
+_3430_698733715_6745626_46169 = ['SquareWoodenBox',[3430.7,3715.67,26.4617],357.722,[0,0,1]] call InitStruct; 
 ['Shelves',[3425.97,3716.19,26.4602],0,[0,0,1]] call InitStruct; 
 ['LampKeroseneHolderCharged',[3425.08,3715.98,26.4602],270.001,[0,0,1], {_thisObj setvariable ['preinit@__enablechanged',false]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['LampKeroseneHolderCharged',[3431.67,3710.39,26.4602],88.854,[0,0,1], {_thisObj setvariable ['preinit@__enablechanged',false]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['WoodenChair',[3431.07,3709.75,26.4602],147.983,[0,0,1]] call InitItem; 
-['FabricBagBig2',[3425.72,3716.12,30.3479],342.337,[0,0,1]] call InitItem; 
+['FabricBagBig2',[3425.72,3716.12,30.3479],342.337,[0,0,1], {go_editor_globalRefs set ["SaloonMerchantFoodBag",_thisObj];
+}] call InitItem; 
 ['FabricBagBig2',[3423.38,3713.56,29.575],198.787,[0,0,1]] call InitItem; 
 ['BrownOldArmchair',[3423.94,3715.59,26.4602],135.738,[0,0,1]] call InitStruct; 
 ['BrownOldArmchair',[3424.1,3710.02,26.4602],25.738,[0,0,1]] call InitStruct; 
@@ -4180,28 +4182,103 @@ _3430_712893715_7038626_46023 = ['SquareWoodenBox',[3430.71,3715.7,26.4602],357.
 ['OldWoodenBox',[3426,3715.59,29.5631],2.56132e-05,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"Kintchen_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['BigClothCabinet',[3423.85,3713.05,29.5842],180,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"CityCloth_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
 ['Bucket',[3427.58,3713.02,26.5569],180.001,[0,0,1]] call InitItem; 
-['WoodenBucket',[3424.84,3713.04,26.5673],180.001,[0,0,1]] call InitItem; 
+['WoodenBucket',[3426.23,3713.04,26.5673],180.001,[0,0,1]] call InitItem; 
 ['Mug',[3427.84,3713.2,26.5637],145.001,[0,0,1]] call InitItem; 
 ['Cup',[3427.74,3715.7,27.325],35.0004,[0,0,1]] call InitItem; 
 ['CuttingBoard',[3427.5,3715.62,27.3106],65.0001,[0,0,1]] call InitItem; 
-['Kastrula',[3424.55,3713.12,26.5649],180.001,[0,0,1]] call InitItem; 
+['Kastrula',[3425.93,3713.12,26.5649],180.001,[0,0,1]] call InitItem; 
 ['KitchenKnife',[3430.71,3713.35,35.4403,true],[0.866025,0.500001,6.87639e-06],[-0.500001,0.866025,6.53831e-08]] call InitItem; 
 ['BreadChopped',[3427.54,3715.66,27.3337],90.0001,[0,0,1]] call InitItem; 
 ['BreadChopped',[3427.45,3715.59,27.3356],30.0005,[0,0,1]] call InitItem; 
-['FabricBagBig2',[3423.63,3713.06,27.414],178.787,[0,0,1]] call InitItem; 
-['FabricBagBig2',[3427.33,3715.98,29.5746],269.337,[0,0,1]] call InitItem; 
+['FabricBagBig2',[3423.36,3713.04,32.8566,true],[-0.667952,-0.697763,-0.258779],[-0.181695,-0.184301,0.96593], {go_editor_globalRefs set ["SaloonMerchantAlcoBag",_thisObj];
+}] call InitItem; 
+['FabricBagBig2',[3430.69,3714.89,26.4602],359.338,[0,0,1]] call InitItem; 
 ['SmallWoodenTable',[3427.42,3715.73,26.4602],90.0001,[0,0,1]] call InitStruct; 
-['Kastrula',[3424.26,3713.12,26.5684],115.001,[0,0,1]] call InitItem; 
+['Kastrula',[3425.65,3713.12,26.5684],115.001,[0,0,1]] call InitItem; 
 ['Kastrula',[3427.29,3713.12,26.5652],180.001,[0,0,1]] call InitItem; 
 ['BrushCleaner',[3423.93,3713.39,27.4143],260,[0,0,1]] call InitItem; 
 ['BrushCleaner',[3423.83,3713.51,27.4149],100,[0,0,1]] call InitItem; 
 ['MerchantConsoleSaloon',[3427.91,3712.91,27.3122],1.36604e-05,[0,0,1], {go_editor_globalRefs set ["MerchantConsole G:gFC8kWrxlD8",_thisObj];
 }] call InitStruct; 
 ['WoodenSmallShelf2',[3428.57,3713.56,26.4602],358.001,[0,0,1]] call InitStruct; 
-['WoodenOfficeTable4',[3430.86,3715.24,26.4602],0,[0,0,1]] call InitStruct; 
+['WoodenOfficeTable4',[3430.81,3715.22,26.4602],0,[0,0,1]] call InitStruct; 
 ['SofaBrown',[3426.34,3709.74,26.4602],0,[0,0,1]] call InitStruct; 
 ['TinFence',[3430.92,3708.92,26.5742],0,[0,0,1]] call InitStruct; 
 _3444_000003747_0000025_12577 = ['IStruct',[3444,3747,31.0824,true],0,[-0.00119604,0,0.999999], {_thisObj setvariable ['model','ml_shabut\stalker_props\metallolom.p3d'];}] call InitStruct; // !!! realocated model !!!
+['BigClothCabinetGreen',[3431.12,3713.54,26.4602],270,[0,0,1], {_thisObj setvariable ['preinit@__loottemplate',"SaloonMerchantCloth_all"]; _thisObj call (_thisObj getvariable 'proto' getvariable '__handlePreInitVars__');}] call InitStruct; 
+['SmallChair1',[3429.81,3715.97,26.4602],350,[0,0,1]] call InitItem; 
+['PaperHolder',[3430.97,3715.96,27.5612],15,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['PaperHolder',[3428.59,3713.1,27.5557],305,[0,0,1]] call InitItem; 
+};
+['PenRed',[3430.92,3715.74,27.5612],75.0004,[0,0,1]] call InitItem; 
+['Paper',[3430.94,3715.6,27.5612],355,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['PenRed',[3428.61,3713.32,27.5642],255,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['PenBlack',[3428.55,3713.36,27.5642],270,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['PenBlack',[3428.6,3713.39,27.5642],75,[0,0,1]] call InitItem; 
+};
+['CandleDisabled',[3426.83,3716.05,27.3248],0,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['CandleDisabled',[3426.93,3716.1,27.3248],0,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['CandleDisabled',[3426.91,3716,27.3248],275,[0,0,1]] call InitItem; 
+};
+['TorchDisabled',[3428.59,3713.69,26.8919],230,[0,0,1]] call InitItem; 
+if ((random 1) < 0.65) then {
+	['TorchDisabled',[3428.63,3713.57,26.8919],245,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['TorchDisabled',[3428.6,3713.49,26.8919],65.0007,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.6) then {
+	['CampfireCreator',[3428.59,3713.04,26.8847],35,[0,0,1]] call InitItem; 
+};
+['CampfireCreator',[3428.51,3713.31,26.8847],110,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['CampfireCreator',[3428.64,3713.23,26.8847],55,[0,0,1]] call InitItem; 
+};
+['Ashtray',[3424.48,3713.17,27.3138],235,[0,0,1]] call InitItem; 
+['SigaretteDisabled',[3424.34,3713.27,27.3138],75.0003,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['SigaretteDisabled',[3424.48,3713.29,27.3138],335,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['SigaretteDisabled',[3424.44,3713.3,27.3138],350,[0,0,1]] call InitItem; 
+};
+_3424_296143712_8361827_31386 = ['CoinBag',[3424.3,3712.84,27.3139],280,[0,0,1]] call InitItem; 
+_3424_551273713_2314526_56163 = ['SteelBrownContainer',[3424.55,3713.23,26.5616],10.0001,[0,0,1]] call InitItem; 
+_3428_631843713_9814527_23223 = ['SteelMedicalBox',[3428.63,3713.98,27.2322],90,[0,0,1]] call InitItem; 
+['PainkillerBox',[3428.42,3713.61,32.275,true],[5.57197e-07,3.04508e-06,1],[0.965926,-0.25882,2.49916e-07]] call InitItem; 
+['Bandage',[3428.45,3712.92,27.2279],20,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['Bandage',[3428.46,3712.94,27.2603],10,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['Bandage',[3428.4,3713.04,27.2307],250,[0,0,1]] call InitItem; 
+};
+['Bandage',[3428.46,3712.97,27.2261],0,[0,0,1]] call InitItem; 
+['Rag',[3428.57,3713.04,27.2314],35,[0,0,1]] call InitItem; 
+['NeedleWithThreads',[3428.54,3713.64,27.2435],320,[0,0,1]] call InitItem; 
+['Syringe',[3428.55,3713.5,27.2334],325,[0,0,1]] call InitItem; 
+if ((random 1) < 0.5) then {
+	['LiqPainkiller',[3428.53,3714.19,27.5577],0,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['LiqPainkiller',[3428.41,3714.18,27.5562],0,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['LiqDemitolin',[3428.38,3714.01,27.5542],0,[0,0,1]] call InitItem; 
+};
+if ((random 1) < 0.5) then {
+	['LiqDemitolin',[3428.38,3713.9,27.5532],0,[0,0,1]] call InitItem; 
+};
+['TrashCan',[3334.92,3698.78,33.5164,true],[1,7.29254e-08,-1.95403e-08],[0,0.258819,0.965926]] call InitStruct; 
 
 
 
@@ -4859,9 +4936,16 @@ if (!isNil'_3429_855713657_0957025_70103') then {
 };
 if (!isNil'_3436_104003657_1689526_77222') then {
 	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,100] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,100] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
 	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
 	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,30] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'NeedleWithThreads',1,30] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
 	[_3436_104003657_1689526_77222,'Bandage',2,100] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'Bandage',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'Bandage',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'Bandage',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3436_104003657_1689526_77222,'Bandage',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
 	[_3436_104003657_1689526_77222,'Bandage',1,50] call (_3436_104003657_1689526_77222 getvariable 'proto' getvariable 'createItemInContainer');
 };
 if (!isNil'_3437_314453655_0468825_09145') then {
@@ -5347,6 +5431,7 @@ if (!isNil'_3450_750003665_250008_75000') then {
 if (!isNil'_3444_708983667_997078_24069') then {
 	[_3444_708983667_997078_24069,'Bryak',1,100] call (_3444_708983667_997078_24069 getvariable 'proto' getvariable 'createItemInContainer');
 	[_3444_708983667_997078_24069,'Bryak',1,50] call (_3444_708983667_997078_24069 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3444_708983667_997078_24069,'Bryak',1,50] call (_3444_708983667_997078_24069 getvariable 'proto' getvariable 'createItemInContainer');
 };
 if (!isNil'_3450_853523689_9184626_50714') then {
 	_3450_853523689_9184626_50714 setvariable ['destination',"Ladder"];
@@ -5366,10 +5451,45 @@ if (!isNil'_3423_000003710_3750026_55192') then {
 if (!isNil'_3426_762453712_7539129_58706') then {
 	_3426_762453712_7539129_58706 setvariable ['islocked',true];
 };
-if (!isNil'_3430_712893715_7038626_46023') then {
-	[_3430_712893715_7038626_46023,'ArmorLite',1,100] call (_3430_712893715_7038626_46023 getvariable 'proto' getvariable 'createItemInContainer');
-	[_3430_712893715_7038626_46023,'ArmorLite',1,40] call (_3430_712893715_7038626_46023 getvariable 'proto' getvariable 'createItemInContainer');
-	[_3430_712893715_7038626_46023,'CombatHat',1,100] call (_3430_712893715_7038626_46023 getvariable 'proto' getvariable 'createItemInContainer');
-	[_3430_712893715_7038626_46023,'CombatHat',1,40] call (_3430_712893715_7038626_46023 getvariable 'proto' getvariable 'createItemInContainer');
-	[_3430_712893715_7038626_46023,'ArmorMedium',1,40] call (_3430_712893715_7038626_46023 getvariable 'proto' getvariable 'createItemInContainer');
+if (!isNil'_3430_698733715_6745626_46169') then {
+	[_3430_698733715_6745626_46169,'ArmorLite',1,100] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'ArmorLite',1,33] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'CombatHat',1,100] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'CombatHat',1,33] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'CombatHat',1,10] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'ArmorMedium',1,33] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'ArmorMedium',1,33] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3430_698733715_6745626_46169,'ArmorHeavy',1,10] call (_3430_698733715_6745626_46169 getvariable 'proto' getvariable 'createItemInContainer');
+};
+if (!isNil'_3424_296143712_8361827_31386') then {
+	[_3424_296143712_8361827_31386,'SamokrutkaDisabled',1,100] call (_3424_296143712_8361827_31386 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_296143712_8361827_31386,'SamokrutkaDisabled',1,50] call (_3424_296143712_8361827_31386 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_296143712_8361827_31386,'SamokrutkaDisabled',1,50] call (_3424_296143712_8361827_31386 getvariable 'proto' getvariable 'createItemInContainer');
+};
+if (!isNil'_3424_551273713_2314526_56163') then {
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3424_551273713_2314526_56163,'SigaretteDisabled',1,50] call (_3424_551273713_2314526_56163 getvariable 'proto' getvariable 'createItemInContainer');
+};
+if (!isNil'_3428_631843713_9814527_23223') then {
+	_3428_631843713_9814527_23223 setvariable ['countslots',20];
+	[_3428_631843713_9814527_23223,'PainkillerBox',1,30] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Bandage',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Bandage',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Bandage',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Bandage',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Bandage',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'NeedleWithThreads',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'NeedleWithThreads',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'NeedleWithThreads',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Syringe',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Syringe',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'Syringe',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'LiqDemitolin',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
+	[_3428_631843713_9814527_23223,'LiqPainkiller',1,50] call (_3428_631843713_9814527_23223 getvariable 'proto' getvariable 'createItemInContainer');
 };
