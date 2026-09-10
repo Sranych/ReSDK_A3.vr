@@ -16,12 +16,12 @@ endclass
 
 class(Slimehat) extends(Mushroom)
 	var(name,"Слизнешляпик");
-	var(model,"relicta_models\models\mushroom\kislyak.p3d");
+	var(model,"ml_shabut\mushrooms\grib8.p3d");
 	var(reagents,[vec2("Alvitin",randInt(5,25))]newReagentsFood);
 	getterconst_func(getBiteSize,5);
 	var(icon,invicon(mush_base));
 	var(size,ITEM_SIZE_MEDIUM);
-	var(weight,gramm(400));
+	var(weight,gramm(900));
 endclass
 
 class(Meatflower) extends(Slimehat)
@@ -54,6 +54,38 @@ class(Zhivoglot) extends(Slimehat)
 	var(reagents,[vec2("Nutriment",randInt(5,25))]newReagentsFood);
 	var(size,ITEM_SIZE_MEDIUM);
 	var(weight,gramm(800));
+endclass
+
+class(Zhirovik) extends(Slimehat)
+	var(name,"Жировик");
+	var(model,"ml_shabut\mushrooms\grib6.p3d");
+	var(reagents,[vec2("Nutriment",randInt(1,5))]newReagentsFood);
+	getterconst_func(getBiteSize,1);
+	var(size,ITEM_SIZE_MEDIUM);
+	var(weight,gramm(1100));
+endclass
+
+class(LampaHead) extends(Slimehat)
+	var(name,"Ламповая голова");
+	var(model,"ml_shabut\exoduss\gribabas1.p3d");
+		/* Как решить проблему?
+	var(light,"SLIGHT_M_LAMPAHEAD" call lightSys_getConfigIdByName);
+	*/
+	var(size,ITEM_SIZE_SMALL);
+	var(weight,gramm(200));
+endclass
+
+class(Svetlik) extends(Slimehat)
+	var(name,"Светлик");
+	var(desc,"Красивый и светится желтым")
+	var(model,"ml_shabut\exoduss\gribabas2.p3d");
+	var(reagents,[vec2("Nutriment",randInt(1,3))]newReagentsFood);
+	getterconst_func(getBiteSize,1);
+	/* Как решить проблему?
+	var(light,"SLIGHT_M_SVETOLIK" call lightSys_getConfigIdByName);
+	*/
+	var(size,ITEM_SIZE_SMALL);
+	var(weight,gramm(200));
 endclass
 
 class(Yaichnik) extends(Slimehat)
