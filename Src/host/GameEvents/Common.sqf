@@ -214,6 +214,8 @@ endclass
 class(HumansShuffleEvent) extends(InfluenceEventAllMaps)
 	var(name,"Поменяться местами");
 	var(desc,"Все люди в сознании меняются местами");
+	// Событие глобально отключено, но оставлено в коде для возможного возврата.
+	getterconst_func(canPlay,false);
 
 	func(onActivate)
 	{

@@ -751,13 +751,36 @@ class(GMSaloonV2) extends(GMBase)
 		private _insertBlock = "HolotapeInsertBlock" call getObjectByRef;
 		private _exitGate1 = "SaloonExitGate1" call getObjectByRef;
 		private _exitGate2 = "SaloonExitGate2" call getObjectByRef;
+		private _exitLamps = [
+			"SaloonExitLamp1" call getObjectByRef,
+			"SaloonExitLamp2" call getObjectByRef,
+			"SaloonExitLamp3" call getObjectByRef,
+			"SaloonExitLamp4" call getObjectByRef
+		];
 		assert_str(!isNullReference(_exitShield),"Global reference 'ElectricalShieldSaloonExit' not found");
 		assert_str(!isNullReference(_insertBlock),"Global reference 'HolotapeInsertBlock' not found");
 		assert_str(!isNullReference(_exitGate1),"Global reference 'SaloonExitGate1' not found");
 		assert_str(!isNullReference(_exitGate2),"Global reference 'SaloonExitGate2' not found");
+		{
+			assert_str(!isNullReference(_x),format["Global reference 'SaloonExitLamp%1' not found",_forEachIndex + 1]);
+		} foreach _exitLamps;
 		if !isNullReference(_exitShield) then {
-			callFunc(_exitShield,__disableAllWires);
+			// Щиток запитан со старта, но подключенные к нему выключатели выключены.
+			{
+				if !isNullReference(_x) then {
+					callFuncParams(_x,setEnable,false);
+				};
+			} foreach getVar(_exitShield,edConnected);
 		};
+		// Прожекторы над воротами подключаются к щитку только после вставки кассеты.
+		{
+			if !isNullReference(_x) then {
+				private _owner = getVar(_x,edOwner);
+				if !isNullReference(_owner) then {
+					callFuncParams(_owner,removeConnection,_x);
+				};
+			};
+		} foreach _exitLamps;
 		{
 			if !isNullReference(_x) then {
 				if getVar(_x,isLocked) then {
@@ -984,13 +1007,21 @@ class(GMSaloonV2) extends(GMBase)
 		private _insertBlock = "HolotapeInsertBlock" call getObjectByRef;
 		private _exitGate1 = "SaloonExitGate1" call getObjectByRef;
 		private _exitGate2 = "SaloonExitGate2" call getObjectByRef;
-		if (isNullReference(_exitShield) || {isNullReference(_insertBlock)} || {isNullReference(_exitGate1)} || {isNullReference(_exitGate2)}) exitWith {
+		private _exitLamps = [
+			"SaloonExitLamp1" call getObjectByRef,
+			"SaloonExitLamp2" call getObjectByRef,
+			"SaloonExitLamp3" call getObjectByRef,
+			"SaloonExitLamp4" call getObjectByRef
+		];
+		if (isNullReference(_exitShield) || {isNullReference(_insertBlock)} || {isNullReference(_exitGate1)} || {isNullReference(_exitGate2)} || {_exitLamps findIf {isNullReference(_x)} != -1}) exitWith {
 			error("GMSaloonV2::startEscapeSequence() - One or more escape objects are missing");
 			false
 		};
 
 		setSelf(isEscapeSequenceStarted,true);
-		callFunc(_exitShield,__enableAllWires);
+		{
+			callFuncParams(_exitShield,addConnection,_x);
+		} foreach _exitLamps;
 		if getVar(_exitGate1,isLocked) then {
 			callFuncParams(_exitGate1,setDoorLock,false arg false);
 		};
@@ -1156,7 +1187,9 @@ class(Saloon_Task_RoofV2) extends(Saloon_Task_BaseV2)
 	var(barmenClueText,"");
 	var(militiaBriefSent,false);
 	var(finishCode,0);
-	var(cageCountdown,-1);
+	var(banditMainCageEnteredAt,-1);
+	var(barmenCageEnteredAt,-1);
+	getterconst_func(getCageHoldDuration,45);
 
 	func(onTaskInit)
 	{
@@ -1245,24 +1278,42 @@ class(Saloon_Task_RoofV2) extends(Saloon_Task_BaseV2)
 		private _barmenInCage = !isNullReference(_barmenMob) && {callFuncParams(gm_currentMode,isMobInSBSCageArea,_barmenMob)} && {!getVar(_barmenMob,isDead)};
 		private _banditInCage = !isNullReference(_banditMainMob) && {callFuncParams(gm_currentMode,isMobInSBSCageArea,_banditMainMob)} && {!getVar(_banditMainMob,isDead)};
 
-		// Запускаем таймер когда хоть кто-то оказался в клетке
-		private _countdown = getSelf(cageCountdown);
-		if ((_barmenInCage || _banditInCage) && {_countdown < 0}) then {
-			setSelf(cageCountdown, 0);
-			_countdown = 0;
+		private _barmenEnteredAt = getSelf(barmenCageEnteredAt);
+		if (_barmenInCage) then {
+			if (_barmenEnteredAt < 0) then {
+				setSelf(barmenCageEnteredAt,tickTime);
+			};
+		} else {
+			if (_barmenEnteredAt >= 0) then {
+				setSelf(barmenCageEnteredAt,-1);
+				if (!isNullReference(_barmenMob) && {!getVar(_barmenMob,isDead)}) then {
+					callFuncParams(_barmenMob,mindSay,setstyle("МНЕ ТУТ НЕ МЕСТО",style_redbig));
+				};
+			};
 		};
-		if (_countdown >= 0) then {
-			modSelf(cageCountdown, + 1);
+
+		private _banditEnteredAt = getSelf(banditMainCageEnteredAt);
+		if (_banditInCage) then {
+			if (_banditEnteredAt < 0) then {
+				setSelf(banditMainCageEnteredAt,tickTime);
+			};
+		} else {
+			if (_banditEnteredAt >= 0) then {
+				setSelf(banditMainCageEnteredAt,-1);
+				if (!isNullReference(_banditMainMob) && {!getVar(_banditMainMob,isDead)}) then {
+					callFuncParams(_banditMainMob,mindSay,setstyle("МНЕ ТУТ НЕ МЕСТО",style_redbig));
+				};
+			};
 		};
-		// По истечении 30 сек - фиксируем кто в клетке на этот момент
-		if (getSelf(cageCountdown) >= 30) exitWith {
-			setSelf(cageCountdown, -1);
-			private _r = 0;
-			if (_barmenInCage && _banditInCage) then {_r = 5};
-			if (_barmenInCage && !_banditInCage) then {_r = 3};
-			if (_banditInCage && !_barmenInCage) then {_r = 4};
-			_r
-		};
+
+		_barmenEnteredAt = getSelf(barmenCageEnteredAt);
+		_banditEnteredAt = getSelf(banditMainCageEnteredAt);
+		private _holdDuration = callSelf(getCageHoldDuration);
+		private _barmenHeld = _barmenInCage && {_barmenEnteredAt >= 0} && {tickTime - _barmenEnteredAt >= _holdDuration};
+		private _banditHeld = _banditInCage && {_banditEnteredAt >= 0} && {tickTime - _banditEnteredAt >= _holdDuration};
+		if (_barmenHeld && _banditHeld) exitWith {5};
+		if (_barmenHeld) exitWith {3};
+		if (_banditHeld) exitWith {4};
 
 		if (gm_roundDuration >= getVar(gm_currentMode,duration)) exitWith {-2};
 		0
