@@ -1737,7 +1737,8 @@ class(MerchantConsoleSaloon) extends(MerchantConsole)
 			"Здорова, получил твой заказ. Товар доставлю в условленное место: %1. Примерно через 5 промежутков мешок будет там. Если я увижу, что ты явился туда раньше меня - сделки не будет.",
 			_placeDescription
 		];
-		private _paper = ["Paper",[3428.23,3713.86,28.664],null,false] call createItemInWorld;
+		private _paperPosition = callSelf(getModelPosition) vectorAdd [0,0.3,0];
+		private _paper = ["Paper",_paperPosition,null,false] call createItemInWorld;
 		if isNullReference(_paper) exitWith {};
 		setVar(_paper,name,"Ответ поставщика");
 		setVar(_paper,content,_text);
