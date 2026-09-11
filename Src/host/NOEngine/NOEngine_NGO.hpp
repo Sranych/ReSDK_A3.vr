@@ -59,3 +59,5 @@ addNGO("sterben_top\am_items_2\misc\food\milkbottle.p3d",vec3(0,0,-0.04),0.01);
 addNGO("ml_shabut\exoduss\gribabas1.p3d",vec3(0,0,0),0.01);
 //Гриб светлик
 addNGO("ml_shabut\exoduss\gribabas2.p3d",vec3(0,0,0),0.01);
+//Серый кирпич
+addNGO("sterben_top\am_items\props\wastes\camplog\brick.p3d",vec3(0,0,0),0.015);
