@@ -59,7 +59,7 @@ endclass
 class(Zhirovik) extends(Slimehat)
 	var(name,"Жировик");
 	var(model,"ml_shabut\mushrooms\grib6.p3d");
-	var(reagents,[vec2("Nutriment",randInt(1,5))]newReagentsFood);
+	var(reagents,[vec2("Nutriment",randInt(1,3))]newReagentsFood);
 	getterconst_func(getBiteSize,1);
 	var(size,ITEM_SIZE_MEDIUM);
 	var(weight,gramm(1100));
