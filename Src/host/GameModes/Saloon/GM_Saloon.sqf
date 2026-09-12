@@ -1234,7 +1234,7 @@ class(SaloonHolotapePlayerScript) extends(ScriptedGameObject)
 			_slotTo = callFunc(_usr,getNotActiveHand);
 		};
 		if !callFuncParams(_usr,canSetItemOnSlot,_tape arg _slotTo) exitWith {
-			callFuncParams(_usr,localSay,"Нужна свободная рука, чтобы извлечь кассету." arg "error");
+			callFuncParams(_usr,localSay,"Нужна свободная рука" pcomma " чтобы извлечь кассету." arg "error");
 			false
 		};
 		if !callFuncParams(_usr,addItem,_tape arg _slotTo) exitWith {
@@ -1387,7 +1387,7 @@ class(Saloon_Task_RoofV2) extends(Saloon_Task_BaseV2)
 			modSelf(cageCountdown, + 1);
 		};
 
-		// По истечении 30 сек - фиксируем кто в клетке на этот момент
+		// По истечении 120 сек - фиксируем кто в клетке на этот момент
 		if (getSelf(cageCountdown) >= 120) exitWith {
 			setSelf(cageCountdown,-1);
 			private _r = 0;
@@ -1426,7 +1426,7 @@ class(Saloon_Task_PortfelV2) extends(Saloon_Task_BaseV2)
 		_port = [getSelf(portfelClass),[3484.31,3648.24,30.0941],0,false] call createItemInWorld;
 		setSelf(portfel,_port);
 	};
-	getter_func(getDesc,"Надо грабануть владельца Дыры. У него есть целый чемодан со звяками. Нужно найти бабки и притащить их в общак на нашу хату, ну или притаранить на ломню, может там его вскрыть смогут.");
+	getter_func(getDesc,"Надо грабануть владельца Дыры. У него есть целый чемодан со звяками. Нужно найти бабки и притащить их в общак на нашу хату" pcomma " ну или притаранить на ломню" pcomma " может там его вскрыть смогут.");
 	func(getFinishDesc)
 	{
 		objParams_1(_result);
