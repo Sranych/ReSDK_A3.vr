@@ -8,22 +8,22 @@ class EditorData
 	toggles=42;
 	class ItemIDProvider
 	{
-		nextID=11873;
+		nextID=11872;
 	};
 	class LayerIndexProvider
 	{
-		nextID=4399;
+		nextID=4173;
 	};
 	class Camera
 	{
-		pos[]={3346.6245,36.991352,3756.2737};
-		dir[]={-0.90504789,-0.26536557,0.33242413};
-		up[]={-0.24910076,0.96414632,0.091494776};
-		aside[]={0.34478688,9.7975135e-07,0.93870109};
+		pos[]={3456.3201,66.04113,3668.063};
+		dir[]={-0.36289802,-0.61515749,-0.70002306};
+		up[]={-0.28313833,0.7883696,-0.54616749};
+		aside[]={-0.88786274,9.580981e-08,0.46027234};
 	};
 };
 binarizationWanted=0;
-sourceName="ReSDK_A3";
+sourceName="resdk_a3";
 addons[]=
 {
 	"A3_Characters_F",
@@ -831,7 +831,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=12;
+		items=11;
 		class Item0
 		{
 			dataType="Group";
@@ -7335,6 +7335,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="Конструкции";
+									state=1;
 									class Entities
 									{
 										items=54;
@@ -8286,6 +8287,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="Декор";
+									state=1;
 									class Entities
 									{
 										items=35;
@@ -9045,6 +9047,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="Мебель";
+									state=1;
 									class Entities
 									{
 										items=29;
@@ -18642,6 +18645,7 @@ class Mission
 				{
 					dataType="Layer";
 					name="Электричество";
+					state=1;
 					class Entities
 					{
 						items=168;
@@ -21160,7 +21164,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""SaloonExitLamp1""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""StreetLamp G:N1Ci7XqrJMo""]]}";
 							};
 							id=9959;
 							type="land_projector";
@@ -21176,7 +21180,7 @@ class Mission
 							side="Empty";
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""StationSpeaker""],[""mark"",""SaloonExitSpeaker""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""StationSpeaker""]]}";
 							};
 							id=9847;
 							type="speaker";
@@ -21194,7 +21198,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""SaloonExitLamp2""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""StreetLamp G:gflwixYcldM""]]}";
 							};
 							id=9955;
 							type="land_projector";
@@ -21212,7 +21216,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""SaloonExitLamp3""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""StreetLamp G:OMH9li1FnRo""]]}";
 							};
 							id=9958;
 							type="land_projector";
@@ -21230,7 +21234,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""SaloonExitLamp4""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\projector\projector.p3d""],[""light"",""SLIGHT_SEARCHLIGHT_DORM""]]],[""class"",""StreetLamp""],[""mark"",""StreetLamp G:zYDXJKzk5yo""]]}";
 							};
 							id=9963;
 							type="land_projector";
@@ -21301,7 +21305,7 @@ class Mission
 							flags=1;
 							class Attributes
 							{
-								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PowerSwitcherBig""],[""mark"",""PowerSwitcherBig G:tJ2LtTU+sos""]]}";
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PowerSwitcherBig""],[""edConnected"",[""StreetLamp G:N1Ci7XqrJMo"",""StreetLamp G:gflwixYcldM"",""StreetLamp G:OMH9li1FnRo"",""StreetLamp G:zYDXJKzk5yo""]],[""mark"",""PowerSwitcherBig G:tJ2LtTU+sos""]]}";
 							};
 							id=9973;
 							type="electron";
@@ -25644,6 +25648,7 @@ class Mission
 										{
 											dataType="Layer";
 											name="Конструкции";
+											state=1;
 											class Entities
 											{
 												items=46;
@@ -30152,6 +30157,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Конструкции поздемка";
+							state=1;
 							class Entities
 							{
 								items=60;
@@ -31151,7 +31157,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.272,13.360066,3704.4692};
-										angles[]={0,3.1415992,0};
+										angles[]={0,3.1415992,-0};
 									};
 									side="Empty";
 									flags=5;
@@ -31169,7 +31175,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.272,13.985066,3705.5};
-										angles[]={0,3.1415992,0};
+										angles[]={0,3.1415992,-0};
 									};
 									side="Empty";
 									flags=1;
@@ -31187,7 +31193,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3408.7812,14.979609,3707.6877};
-										angles[]={0,1.5707963,0};
+										angles[]={0,1.5707963,-0};
 									};
 									side="Empty";
 									flags=1;
@@ -32259,6 +32265,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Грязюка и декор подземка";
+							state=1;
 							class Entities
 							{
 								items=78;
@@ -33635,6 +33642,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Мебель подземка";
+							state=1;
 							class Entities
 							{
 								items=21;
@@ -36378,7 +36386,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3414.5205,13.828005,3714.0481};
-												angles[]={0,6.0213861,0};
+												angles[]={0,6.0213861,-0};
 											};
 											side="Empty";
 											flags=4;
@@ -36395,7 +36403,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3413.4124,14.013804,3712.1743};
-												angles[]={0,5.9690442,0};
+												angles[]={0,5.9690442,-0};
 											};
 											side="Empty";
 											class Attributes
@@ -36461,7 +36469,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3413.6641,14.0734,3712.218};
-												angles[]={0,3.1939602,0};
+												angles[]={0,3.1939602,-0};
 											};
 											side="Empty";
 											flags=1;
@@ -36471,7 +36479,7 @@ class Mission
 											};
 											id=11822;
 											type="polka_2";
-											atlOffset=0.9564333;
+											atlOffset=0.95643425;
 										};
 										class Item21
 										{
@@ -36513,7 +36521,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={3414.2141,13.836438,3713.0698};
-												angles[]={0,5.7246833,0};
+												angles[]={0,5.7246833,-0};
 											};
 											side="Empty";
 											flags=4;
@@ -37131,6 +37139,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="Инвалы";
+									state=1;
 									class Entities
 									{
 										items=49;
@@ -42507,6 +42516,7 @@ class Mission
 				{
 					dataType="Layer";
 					name="А Ополчение";
+					state=1;
 					class Entities
 					{
 						items=91;
@@ -44128,6 +44138,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Декор";
+							state=1;
 							class Entities
 							{
 								items=19;
@@ -44630,6 +44641,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Мельтешиный закуток";
+							state=1;
 							class Entities
 							{
 								items=35;
@@ -50894,7 +50906,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3435.9768,31.531572,3656.2715};
-								angles[]={0,2.70526,0};
+								angles[]={0,2.70526,-0};
 							};
 							side="Empty";
 							class Attributes
@@ -50911,7 +50923,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3436.7197,31.765368,3653.7561};
-								angles[]={0,1.3962634,0};
+								angles[]={0,1.3962634,-0};
 							};
 							side="Empty";
 							class Attributes
@@ -50938,6 +50950,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Конструкции";
+							state=1;
 							class Entities
 							{
 								items=74;
@@ -52271,6 +52284,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Декор";
+							state=1;
 							class Entities
 							{
 								items=91;
@@ -55693,6 +55707,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="Вход/вывеска";
+							state=1;
 							class Entities
 							{
 								items=26;
@@ -61978,13 +61993,15 @@ class Mission
 				{
 					dataType="Layer";
 					name="Южные врата";
+					state=1;
 					class Entities
 					{
-						items=7;
+						items=8;
 						class Item0
 						{
 							dataType="Layer";
 							name="Конструкции";
+							state=1;
 							class Entities
 							{
 								items=44;
@@ -62707,7 +62724,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""atmobjects\lamps\data\model\projector.p3d""]]],[""class"",""IStruct""],[""mark"",""SaloonExitLamp1 (1)""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""atmobjects\lamps\data\model\projector.p3d""]]],[""class"",""IStruct""]]}";
 									};
 									id=11750;
 									type="Projector";
@@ -62725,7 +62742,7 @@ class Mission
 									flags=1;
 									class Attributes
 									{
-										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""atmobjects\lamps\data\model\projector.p3d""]]],[""class"",""IStruct""],[""mark"",""SaloonExitLamp2 (1)""]]}";
+										init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""atmobjects\lamps\data\model\projector.p3d""]]],[""class"",""IStruct""]]}";
 									};
 									id=11753;
 									type="Projector";
@@ -62944,6 +62961,23 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
+								position[]={3340.9189,33.359131,3753.1472};
+							};
+							side="Empty";
+							flags=1;
+							class Attributes
+							{
+								init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_shabut\exoduss\mayfun.p3d""],[""name"",""Штуковина""]]],[""class"",""IStruct""]]}";
+							};
+							id=10066;
+							type="mayfun";
+							atlOffset=1.0170403;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
 								position[]={3340.8948,34.330421,3752.0591};
 							};
 							side="Empty";
@@ -62955,7 +62989,7 @@ class Mission
 							type="CUP_A1_mutt_vysilacka";
 							atlOffset=1.0181808;
 						};
-						class Item4
+						class Item5
 						{
 							dataType="Object";
 							class PositionInfo
@@ -62973,10 +63007,11 @@ class Mission
 							type="teh_shkaf";
 							atlOffset=0.078216553;
 						};
-						class Item5
+						class Item6
 						{
 							dataType="Layer";
 							name="Мебель";
+							state=1;
 							class Entities
 							{
 								items=17;
@@ -63219,7 +63254,7 @@ class Mission
 									class PositionInfo
 									{
 										position[]={3337.1494,32.196915,3756.9514};
-										angles[]={0,3.1415923,0};
+										angles[]={0,3.1415923,-0};
 									};
 									side="Empty";
 									flags=4;
@@ -63289,7 +63324,7 @@ class Mission
 							id=10085;
 							atlOffset=0.10016632;
 						};
-						class Item6
+						class Item7
 						{
 							dataType="Layer";
 							name="Кладбище";
@@ -64383,11 +64418,11 @@ class Mission
 						};
 					};
 					id=9851;
-					atlOffset=24.41588;
+					atlOffset=24.403126;
 				};
 			};
 			id=6175;
-			atlOffset=25.471661;
+			atlOffset=25.465282;
 		};
 		class Item4
 		{
@@ -67499,6 +67534,7 @@ class Mission
 		{
 			dataType="Layer";
 			name="Всякая хуйня";
+			state=1;
 			class Entities
 			{
 				items=10;
@@ -67863,7 +67899,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3392.2905,39.972775,3650.0618};
-						angles[]={0,2.3562012,0};
+						angles[]={0,2.3562012,-0};
 					};
 					side="Empty";
 					flags=5;
@@ -67927,23 +67963,6 @@ class Mission
 			id=11866;
 			type="Leaflet_05_Old_F";
 			atlOffset=1.1226521;
-		};
-		class Item11
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3340.9189,33.359131,3753.1472};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SaloonExitPlayer""],[""mark"",""SaloonExitPlayer""]]}";
-			};
-			id=11872;
-			type="mayfun";
-			atlOffset=1.0170403;
 		};
 	};
 };

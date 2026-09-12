@@ -10,7 +10,7 @@
 
 #include "ReVoice.h"
 
-// #define VOICE_DISABLE_IN_SINGLEPLAYERMODE
+#define VOICE_DISABLE_IN_SINGLEPLAYERMODE
 
 vs_apiversion = "stable_v5_with_subscribers";
 
