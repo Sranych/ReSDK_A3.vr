@@ -8,6 +8,20 @@
 #include <..\..\..\GameConstants.hpp>
 
 class(Mushroom) extends(IFoodItem)
+	//Количество токсинов за один укус.
+	var(toxinOnConsume,0);
+
+	getterconst_func(getBiteSize,5);
+	var(icon,invicon(mush_base));
+	var(size,ITEM_SIZE_MEDIUM);
+
+	func(onConsumed)
+	{
+		objParams_1(_consumer);
+		private _toxinAmount = getSelf(toxinOnConsume);
+		if (_toxinAmount <= 0) exitWith {};
+		callFuncParams(_consumer,adjustToxin,_toxinAmount);
+	};
 
 	//getter_func(getDropSound,"dropping\keydrop");
 	getter_func(getPickupSound,"updown\itm_ingredient_mushroom_up_0" + str randInt(1,4));
@@ -16,15 +30,13 @@ endclass
 
 class(Slimehat) extends(Mushroom)
 	var(name,"Слизнешляпик");
+	var(toxinOnConsume,150);
 	var(model,"relicta_models\models\mushroom\kislyak.p3d");
 	var(reagents,[vec2("Alvitin",randInt(5,25))]newReagentsFood);
-	getterconst_func(getBiteSize,5);
-	var(icon,invicon(mush_base));
-	var(size,ITEM_SIZE_MEDIUM);
 	var(weight,gramm(400));
 endclass
 
-class(Meatflower) extends(Slimehat)
+class(Meatflower) extends(Mushroom)
 	var(name,"Мясной цветок");
 	var(model,"relicta_models\models\mushroom\meatgrib.p3d");
 	var(reagents,[vec2("Kenazin",randInt(5,17)) arg vec2("Nutriment",randInt(5,8))]newReagentsFood);
@@ -32,7 +44,7 @@ class(Meatflower) extends(Slimehat)
 	var(weight,1.2);
 endclass
 
-class(Blevanton) extends(Slimehat)
+class(Blevanton) extends(Mushroom)
 	var(name,"Блевантон");
 	var(model,"relicta_models\models\mushroom\blevanton1v2.p3d");
 	var(reagents,[vec2("Askadiy",randInt(5,20)) arg vec2("Nutriment",randInt(0,5))]newReagentsFood);
@@ -40,7 +52,7 @@ class(Blevanton) extends(Slimehat)
 	var(weight,gramm(800));
 endclass
 
-class(Gnilokornik) extends(Slimehat)
+class(Gnilokornik) extends(Mushroom)
 	var(name,"Гнилокорник");
 	var(model,"relicta_models\models\mushroom\bliznecolor.p3d");
 	var(reagents,[vec2("Opirin",randInt(5,25))]newReagentsFood);
@@ -48,7 +60,7 @@ class(Gnilokornik) extends(Slimehat)
 	var(weight,1.3);
 endclass
 
-class(Zhivoglot) extends(Slimehat)
+class(Zhivoglot) extends(Mushroom)
 	var(name,"Живоглот");
 	var(model,"ml_shabut\mushrooms\grib5.p3d");
 	var(reagents,[vec2("Nutriment",randInt(5,25))]newReagentsFood);
@@ -56,7 +68,7 @@ class(Zhivoglot) extends(Slimehat)
 	var(weight,gramm(800));
 endclass
 
-class(Yaichnik) extends(Slimehat)
+class(Yaichnik) extends(Mushroom)
 	var(name,"Яичник");
 	var(model,"relicta_models\models\mushroom\blevanton2v2.p3d");
 	var(reagents,[vec2("Nutriment",randInt(5,25))]newReagentsFood);
@@ -64,7 +76,7 @@ class(Yaichnik) extends(Slimehat)
 	var(weight,gramm(900));
 endclass
 
-class(Svetlolik) extends(Slimehat)
+class(Svetlolik) extends(Mushroom)
 	var(name,"Светлолик");
 	var(model,"relicta_models\models\mushroom\mushroom1.p3d");
 	var(reagents,[vec2("Metaficin",randInt(5,10)) arg vec2("Nutriment",randInt(5,10))]newReagentsFood);
@@ -72,7 +84,7 @@ class(Svetlolik) extends(Slimehat)
 endclass
 
 
-class(Tumannik) extends(Slimehat)
+class(Tumannik) extends(Mushroom)
 	var(name,"Туманник");
 	var(model,"relicta_models\models\mushroom\kislyak.p3d");
 	var(reagents,[vec2("Ipamitin",randInt(10,25))]newReagentsFood);

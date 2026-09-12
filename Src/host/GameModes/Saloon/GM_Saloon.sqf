@@ -4,6 +4,7 @@
 // ======================================================
 
 #include <..\GameMode.h>
+#include <..\..\ServerRpc\serverRpc.hpp>
 
 editor_attribute("CodeOnyGamemode")
 class(GMSaloon) extends(GMBase)
@@ -749,15 +750,42 @@ class(GMSaloonV2) extends(GMBase)
 
 		private _exitShield = "ElectricalShieldSaloonExit" call getObjectByRef;
 		private _insertBlock = "HolotapeInsertBlock" call getObjectByRef;
+		private _exitPlayer = "SaloonExitPlayer" call getObjectByRef;
+		private _exitSpeaker = "SaloonExitSpeaker" call getObjectByRef;
 		private _exitGate1 = "SaloonExitGate1" call getObjectByRef;
 		private _exitGate2 = "SaloonExitGate2" call getObjectByRef;
+		private _exitLamps = [
+			"SaloonExitLamp1" call getObjectByRef,
+			"SaloonExitLamp2" call getObjectByRef,
+			"SaloonExitLamp3" call getObjectByRef,
+			"SaloonExitLamp4" call getObjectByRef
+		];
 		assert_str(!isNullReference(_exitShield),"Global reference 'ElectricalShieldSaloonExit' not found");
 		assert_str(!isNullReference(_insertBlock),"Global reference 'HolotapeInsertBlock' not found");
+		assert_str(!isNullReference(_exitPlayer),"Global reference 'SaloonExitPlayer' not found");
+		assert_str(!isNullReference(_exitSpeaker),"Global reference 'SaloonExitSpeaker' not found");
 		assert_str(!isNullReference(_exitGate1),"Global reference 'SaloonExitGate1' not found");
 		assert_str(!isNullReference(_exitGate2),"Global reference 'SaloonExitGate2' not found");
+		{
+			assert_str(!isNullReference(_x),format["Global reference 'SaloonExitLamp%1' not found",_forEachIndex + 1]);
+		} foreach _exitLamps;
 		if !isNullReference(_exitShield) then {
-			callFunc(_exitShield,__disableAllWires);
+			// Щиток запитан со старта, но подключенные к нему выключатели выключены.
+			{
+				if !isNullReference(_x) then {
+					callFuncParams(_x,setEnable,false);
+				};
+			} foreach getVar(_exitShield,edConnected);
 		};
+		// Прожекторы над воротами подключаются к щитку только после вставки кассеты.
+		{
+			if !isNullReference(_x) then {
+				private _owner = getVar(_x,edOwner);
+				if !isNullReference(_owner) then {
+					callFuncParams(_owner,removeConnection,_x);
+				};
+			};
+		} foreach _exitLamps;
 		{
 			if !isNullReference(_x) then {
 				if getVar(_x,isLocked) then {
@@ -772,6 +800,10 @@ class(GMSaloonV2) extends(GMBase)
 		if !isNullReference(_insertBlock) then {
 			private _scriptCreated = ["SaloonHolotapeInsertScript",_insertBlock] call createGameObjectScript;
 			assert_str(_scriptCreated,"Cannot assign SaloonHolotapeInsertScript to HolotapeInsertBlock");
+		};
+		if !isNullReference(_exitPlayer) then {
+			private _scriptCreated = ["SaloonHolotapePlayerScript",_exitPlayer] call createGameObjectScript;
+			assert_str(_scriptCreated,"Cannot assign SaloonHolotapePlayerScript to SaloonExitPlayer");
 		};
 		
 
@@ -984,13 +1016,23 @@ class(GMSaloonV2) extends(GMBase)
 		private _insertBlock = "HolotapeInsertBlock" call getObjectByRef;
 		private _exitGate1 = "SaloonExitGate1" call getObjectByRef;
 		private _exitGate2 = "SaloonExitGate2" call getObjectByRef;
+		private _exitLamps = [
+			"SaloonExitLamp1" call getObjectByRef,
+			"SaloonExitLamp2" call getObjectByRef,
+			"SaloonExitLamp3" call getObjectByRef,
+			"SaloonExitLamp4" call getObjectByRef
+		];
 		if (isNullReference(_exitShield) || {isNullReference(_insertBlock)} || {isNullReference(_exitGate1)} || {isNullReference(_exitGate2)}) exitWith {
 			error("GMSaloonV2::startEscapeSequence() - One or more escape objects are missing");
 			false
 		};
 
 		setSelf(isEscapeSequenceStarted,true);
-		callFunc(_exitShield,__enableAllWires);
+		{
+			if !isNullReference(_x) then {
+				callFuncParams(_exitShield,addConnection,_x);
+			};
+		} foreach _exitLamps;
 		if getVar(_exitGate1,isLocked) then {
 			callFuncParams(_exitGate1,setDoorLock,false arg false);
 		};
@@ -1004,11 +1046,9 @@ class(GMSaloonV2) extends(GMBase)
 	{
 		objParams();
 		if (!getSelf(isEscapeSequenceStarted) || getSelf(isEscapeSequenceFinished)) exitWith {};
-		private _insertBlock = "HolotapeInsertBlock" call getObjectByRef;
-		if isNullReference(_insertBlock) exitWith {};
-		private _alarmPosition = callFunc(_insertBlock,getModelPosition) vectorAdd [0,0,5];
-		callFuncParams(_insertBlock,playSound,"UNCATEGORIZED\cool_alarm.ogg" arg 1 arg 6000 arg 0.2 arg _alarmPosition arg true);
-		callSelfAfter(playEscapeAlarm,8);
+		private _exitSpeaker = "SaloonExitSpeaker" call getObjectByRef;
+		if isNullReference(_exitSpeaker) exitWith {};
+		callFuncParams(_exitSpeaker,playSound,"maps\saloon\saloon_gate_alert_hq_low" arg 1 arg 30 arg 1 arg null arg true);
 	};
 
 	func(finishEscapeSequence)
@@ -1110,7 +1150,7 @@ class(SaloonHolotapeInsertScript) extends(ScriptedGameObject)
 			callSelf(callBaseInteractWith);
 		};
 		if getSelf(isActivated) exitWith {
-			callFuncParams(_usr,localSay,"Кассета уже вставлена." arg "error");
+			callFuncParams(_usr,localSay,"Механизм уже активирован." arg "error");
 		};
 		if !isTypeOf(gm_currentMode,GMSaloonV2) exitWith {
 			callFuncParams(_usr,localSay,"Ничего не происходит." arg "error");
@@ -1121,7 +1161,99 @@ class(SaloonHolotapeInsertScript) extends(ScriptedGameObject)
 
 		setSelf(isActivated,true);
 		callFuncParams(_usr,meSay,"вставляет кассету в устройство");
-		delete(_with);
+	};
+endclass
+
+class(SaloonExitPlayer) extends(Item)
+	var(name,"Кассетный проигрыватель");
+	var(desc,"Старый прибор для воспроизведения магнитных кассет.");
+	var(model,"ml_shabut\exoduss\mayfun.p3d");
+	var(material,"MatSynt");
+	var(size,ITEM_SIZE_MEDIUM);
+	var(weight,1.5);
+endclass
+
+class(SaloonHolotapePlayerScript) extends(ScriptedGameObject)
+	var(insertedTape,nullPtr);
+	var(insertedTapeSlot,-1);
+	var(mainActionName,"Извлечь кассету");
+
+	func(getManagedSoundKey)
+	{
+		objParams();
+		format["saloon_tape_record_%1",getVar(getSelf(src),pointer)]
+	};
+
+	func(stopRecord)
+	{
+		objParams();
+		rpcSendToAll("sl_s_managed",[callSelf(getManagedSoundKey)]);
+	};
+
+	func(playRecord)
+	{
+		objParams();
+		private _player = getSelf(src);
+		private _source = callFunc(_player,getModelPosition);
+		private _soundData = ["maps\saloon\saloon_tape_record" arg _source arg 20 arg 1 arg 8];
+		private _nearMobs = _source nearEntities 45;
+		{
+			rpcSendToObject(_x,"sl_p_managed",[callSelf(getManagedSoundKey) arg _soundData]);
+			true
+		} count _nearMobs;
+	};
+
+	func(_onInteractWithWrapper)
+	{
+		objParams_4(_with,_usr,_combat,_inventory);
+		if !isTypeOf(_with,Holotape) exitWith {
+			callSelf(callBaseInteractWith);
+		};
+		if !isNullReference(getSelf(insertedTape)) exitWith {
+			callFuncParams(_usr,localSay,"В проигрывателе уже есть кассета." arg "error");
+		};
+
+		setSelf(insertedTapeSlot,getVar(_with,slot));
+		callFuncParams(_usr,removeItem,_with arg getSelf(src));
+		setSelf(insertedTape,_with);
+		callFuncParams(_usr,meSay,"вставляет кассету в проигрыватель");
+		callSelf(playRecord);
+	};
+
+	func(ejectTape)
+	{
+		objParams_1(_usr);
+		private _tape = getSelf(insertedTape);
+		if isNullReference(_tape) exitWith {false};
+
+		private _slotTo = getSelf(insertedTapeSlot);
+		if !callFuncParams(_usr,canSetItemOnSlot,_tape arg _slotTo) then {
+			_slotTo = getVar(_usr,activeHand);
+		};
+		if !callFuncParams(_usr,canSetItemOnSlot,_tape arg _slotTo) then {
+			_slotTo = callFunc(_usr,getNotActiveHand);
+		};
+		if !callFuncParams(_usr,canSetItemOnSlot,_tape arg _slotTo) exitWith {
+			callFuncParams(_usr,localSay,"Нужна свободная рука" pcomma " чтобы извлечь кассету." arg "error");
+			false
+		};
+		if !callFuncParams(_usr,addItem,_tape arg _slotTo) exitWith {
+			callFuncParams(_usr,localSay,"Не удаётся извлечь кассету." arg "error");
+			false
+		};
+
+		callSelf(stopRecord);
+		setSelf(insertedTape,nullPtr);
+		setSelf(insertedTapeSlot,-1);
+		callFuncParams(_usr,meSay,"извлекает кассету из проигрывателя");
+		true
+	};
+
+	func(_onMainActionWrapper)
+	{
+		objParams_1(_usr);
+		if isNullReference(getSelf(insertedTape)) exitWith {};
+		callSelfParams(ejectTape,_usr);
 	};
 endclass
 
@@ -1248,15 +1380,16 @@ class(Saloon_Task_RoofV2) extends(Saloon_Task_BaseV2)
 		// Запускаем таймер когда хоть кто-то оказался в клетке
 		private _countdown = getSelf(cageCountdown);
 		if ((_barmenInCage || _banditInCage) && {_countdown < 0}) then {
-			setSelf(cageCountdown, 0);
+			setSelf(cageCountdown,0);
 			_countdown = 0;
 		};
 		if (_countdown >= 0) then {
 			modSelf(cageCountdown, + 1);
 		};
-		// По истечении 30 сек - фиксируем кто в клетке на этот момент
-		if (getSelf(cageCountdown) >= 30) exitWith {
-			setSelf(cageCountdown, -1);
+
+		// По истечении 120 сек - фиксируем кто в клетке на этот момент
+		if (getSelf(cageCountdown) >= 120) exitWith {
+			setSelf(cageCountdown,-1);
 			private _r = 0;
 			if (_barmenInCage && _banditInCage) then {_r = 5};
 			if (_barmenInCage && !_banditInCage) then {_r = 3};
@@ -1293,7 +1426,7 @@ class(Saloon_Task_PortfelV2) extends(Saloon_Task_BaseV2)
 		_port = [getSelf(portfelClass),[3484.31,3648.24,30.0941],0,false] call createItemInWorld;
 		setSelf(portfel,_port);
 	};
-	getter_func(getDesc,"Надо грабануть владельца Дыры. У него есть целый чемодан со звяками. Нужно найти бабки и притащить их в общак. Общак в нашей хате.");
+	getter_func(getDesc,"Надо грабануть владельца Дыры. У него есть целый чемодан со звяками. Нужно найти бабки и притащить их в общак на нашу хату" pcomma " ну или притаранить на ломню" pcomma " может там его вскрыть смогут.");
 	func(getFinishDesc)
 	{
 		objParams_1(_result);
@@ -1301,7 +1434,6 @@ class(Saloon_Task_PortfelV2) extends(Saloon_Task_BaseV2)
 		if (_result == 1) exitWith {format["Бандиты принесли %1 в свой общак",callFunc(getSelf(portfel),getName)]};
 		if (_result == -2) exitWith {"Все бандиты погибли"};
 		if (_result == -3) exitWith {"Все бандиты под стражей"};
-		if (_result == -4) exitWith {format["Торгаш заполучил %1",callFunc(getSelf(portfel),getName)]};
 		if (_result == -5) exitWith {format["%2 увёл %1 у всех. Теперь он самый богатый человек в Злачнике!",callFunc(getSelf(portfel),getName),callFunc(getSelf(portfel),getStealerName)]};
 		"Сегодня не произошло ничего интересного...";
 	};
@@ -1316,7 +1448,6 @@ class(Saloon_Task_PortfelV2) extends(Saloon_Task_BaseV2)
 		if isNullReference(_portf) exitWith {0};
 		if (callFunc(_portf,isInWorld) && {(callFunc(_portf,getModelPosition) distance [3366.69,3743.81,27.6037]) <= 2}) exitWith {1};
 		if callSelf(isAllBanditsInCages) exitWith {-3};
-		if getVar(_portf,isOpenedByTrader) exitWith {-4};
 		if callFunc(_portf,isStolenSaloon) exitWith {-5};
 		#ifdef EDITOR
 		if (getVar(gm_currentMode,countAliveBandits) <= 0 && gm_roundDuration > 10) exitWith {-2};
@@ -1332,7 +1463,6 @@ endclass
 		var(weight,6.3);
 		var(countSlots,22);
 		var(isLockedSaloon,true);
-		var(isOpenedByTrader,false);
 		/*func(canPickup)
 		{
 			objParams();
@@ -1344,19 +1474,29 @@ endclass
 		};*/
 		getter_func(canUseMainAction,(!getSelf(isLockedSaloon) || isTypeOf(getVar(_usr,basicRole),RTorgSaloon)) && super());
 		getter_func(getMainActionName,ifcheck(getSelf(isLockedSaloon),"Вскрыть","Открыть"));
+		func(openSuitcase)
+		{
+			objParams();
+			if !getSelf(isLockedSaloon) exitWith {};
+
+			setSelf(isLockedSaloon,false);
+			setSelf(canUseContainer,true);
+			setSelf(desc,"Вскрытый чемодан. Внутри лежат звяки.");
+			callSelfParams(initMoney,randInt(190,220));
+		};
 		func(onMainAction)
 		{
 			objParams_1(_usr);
 			if !getSelf(isLockedSaloon) exitWith {
 				callSuper(Container,onMainAction);
 			};
+			if !isTypeOf(getVar(_usr,basicRole),RTorgSaloon) exitWith {};
 
 			if (callSelf(getModelPosition) distance2d [3426.21,3714.96,27.6805] >= 5) then {
 				callFuncParams(_usr,mindSay,"Чтобы вскрыть этот замок надо тащить чемодан ко мне в магазин. Все необходимые инструменты для вскрытия там есть!");
 			} else {
 				callFuncParams(_usr,mindSay,"Я с лёгкостью вскрываю замок!");
-				setSelf(isOpenedByTrader,true);
-				setSelf(isLockedSaloon,false);
+				callSelf(openSuitcase);
 			};
 		};
 		func(onInteractWith)
@@ -1383,10 +1523,7 @@ endclass
 			if !(isTypeOf(_tool,Lockpick) || isTypeOf(_tool,Crowbar)) exitWith {};
 			if not_equals(callFunc(_usr,getItemInActiveHandRedirect),_tool) exitWith {};
 
-			setSelf(isLockedSaloon,false);
-			setSelf(canUseContainer,true);
-			setSelf(desc,"Вскрытый чемодан. Внутри лежат звяки.");
-			callSelfParams(initMoney,randInt(190,220));
+			callSelf(openSuitcase);
 			callFuncParams(_usr,meSay,"вскрывает чемодан");
 		};
 		var(timerCount,0); //timer incremented
