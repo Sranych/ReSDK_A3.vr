@@ -1035,7 +1035,7 @@ class(GMSaloonV2) extends(GMBase)
 		if (!getSelf(isEscapeSequenceStarted) || getSelf(isEscapeSequenceFinished)) exitWith {};
 		private _exitSpeaker = "SaloonExitSpeaker" call getObjectByRef;
 		if isNullReference(_exitSpeaker) exitWith {};
-		callFuncParams(_exitSpeaker,playSound,"maps\saloon\saloon_gate_alert_hq_low" arg 1 arg 30 arg 1 arg null arg true);
+		callFuncParams(_exitSpeaker,playSound,"maps\saloon\saloon_gate_alert_hq_low" arg 1 arg 50 arg 1 arg null arg false);
 	};
 
 	func(finishEscapeSequence)
