@@ -33,7 +33,7 @@ class(Slimehat) extends(Mushroom)
 	var(model,"ml_shabut\mushrooms\grib8.p3d");
 	var(reagents,[vec2("Alvitin",randInt(5,25))]newReagentsFood);
 	var(weight,gramm(900));
-	var(toxinOnConsume,150);
+	var(toxinOnConsume,120);
 endclass
 
 class(Meatflower) extends(Mushroom)
@@ -42,6 +42,7 @@ class(Meatflower) extends(Mushroom)
 	var(reagents,[vec2("Kenazin",randInt(5,17)) arg vec2("Nutriment",randInt(5,8))]newReagentsFood);
 	var(size,ITEM_SIZE_HUGE);
 	var(weight,1.2);
+	var(toxinOnConsume,50);
 endclass
 
 class(Blevanton) extends(Mushroom)
@@ -58,6 +59,7 @@ class(Gnilokornik) extends(Mushroom)
 	var(reagents,[vec2("Opirin",randInt(5,25))]newReagentsFood);
 	var(size,ITEM_SIZE_BIG);
 	var(weight,1.3);
+	var(toxinOnConsume,120);
 endclass
 
 class(Zhivoglot) extends(Mushroom)
@@ -80,11 +82,14 @@ endclass
 class(LampaHead) extends(Mushroom)
 	var(name,"Ламповая голова");
 	var(model,"ml_shabut\exoduss\gribabas1.p3d");
+	var(reagents,[vec2("Alvitin",randInt(1,4))]newReagentsFood);
+	getterconst_func(getBiteSize,1);
 		/* Как решить проблему?
 	var(light,"SLIGHT_M_LAMPAHEAD" call lightSys_getConfigIdByName);
 	*/
 	var(size,ITEM_SIZE_SMALL);
 	var(weight,gramm(200));
+	var(toxinOnConsume,170);
 endclass
 
 class(Svetlik) extends(Mushroom)
@@ -124,6 +129,7 @@ class(Tumannik) extends(Mushroom)
 	var(icon,invicon(mush_base));
 	var(size,ITEM_SIZE_MEDIUM);
 	var(weight,gramm(600));
+	var(toxinOnConsume,120);
 endclass
 
 /// kitchen
