@@ -8,6 +8,16 @@
 #include <..\..\..\GameConstants.hpp>
 
 class(Mushroom) extends(IFoodItem)
+	//Количество токсинов за один укус. Ноль отключает отравление.
+	var(toxinOnConsume,0);
+
+	func(onConsumed)
+	{
+		objParams_1(_consumer);
+		private _toxinAmount = getSelf(toxinOnConsume);
+		if (_toxinAmount <= 0) exitWith {};
+		callFuncParams(_consumer,adjustToxin,_toxinAmount);
+	};
 
 	//getter_func(getDropSound,"dropping\keydrop");
 	getter_func(getPickupSound,"updown\itm_ingredient_mushroom_up_0" + str randInt(1,4));
@@ -16,6 +26,7 @@ endclass
 
 class(Slimehat) extends(Mushroom)
 	var(name,"Слизнешляпик");
+	var(toxinOnConsume,150);
 	var(model,"relicta_models\models\mushroom\kislyak.p3d");
 	var(reagents,[vec2("Alvitin",randInt(5,25))]newReagentsFood);
 	getterconst_func(getBiteSize,5);

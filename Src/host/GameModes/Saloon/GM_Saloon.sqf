@@ -1164,15 +1164,19 @@ class(SaloonHolotapeInsertScript) extends(ScriptedGameObject)
 	};
 endclass
 
-class(SaloonExitPlayer) extends(IStruct)
+class(SaloonExitPlayer) extends(Item)
 	var(name,"Кассетный проигрыватель");
 	var(desc,"Старый прибор для воспроизведения магнитных кассет.");
 	var(model,"ml_shabut\exoduss\mayfun.p3d");
+	var(material,"MatSynt");
+	var(size,ITEM_SIZE_MEDIUM);
+	var(weight,1.5);
 endclass
 
 class(SaloonHolotapePlayerScript) extends(ScriptedGameObject)
 	var(insertedTape,nullPtr);
 	var(insertedTapeSlot,-1);
+	var(mainActionName,"Извлечь кассету");
 
 	func(getManagedSoundKey)
 	{
@@ -1190,9 +1194,9 @@ class(SaloonHolotapePlayerScript) extends(ScriptedGameObject)
 	{
 		objParams();
 		private _player = getSelf(src);
-		private _source = getVar(_player,pointer);
+		private _source = callFunc(_player,getModelPosition);
 		private _soundData = ["maps\saloon\saloon_tape_record" arg _source arg 20 arg 1 arg 8];
-		private _nearMobs = (callFunc(_player,getBasicLoc)) nearEntities 45;
+		private _nearMobs = _source nearEntities 45;
 		{
 			rpcSendToObject(_x,"sl_p_managed",[callSelf(getManagedSoundKey) arg _soundData]);
 			true
@@ -1245,12 +1249,10 @@ class(SaloonHolotapePlayerScript) extends(ScriptedGameObject)
 		true
 	};
 
-	func(_onClickWrapper)
+	func(_onMainActionWrapper)
 	{
-		objParams_3(_usr,_isCombatAction,_isInventoryAction);
-		if isNullReference(getSelf(insertedTape)) exitWith {
-			callSelf(callBaseOnClick);
-		};
+		objParams_1(_usr);
+		if isNullReference(getSelf(insertedTape)) exitWith {};
 		callSelfParams(ejectTape,_usr);
 	};
 endclass
