@@ -54,7 +54,7 @@ class(WoodenDoubleDoor) extends(DoorDynamic)
 	getter_func(canBreakDoor,true);
 endclass
 
-editor_attribute("EditorGenerated")
 class(WoodenDoubleDoor2) extends(WoodenDoubleDoor)
-	var(model,"ca\structures_e\wall\wall_l\wall_l1_gate_ep1.p3d");
+	var(model,"land_wall_l1_gate_ep1");
+	getter_func(animateData,[vec3("door_1_rot",1.4,1.0) arg vec3("door_2_rot",1.4,1.0)]);
 endclass
