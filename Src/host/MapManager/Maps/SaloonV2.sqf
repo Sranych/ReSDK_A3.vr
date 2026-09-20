@@ -5393,21 +5393,23 @@ _3542_145513638_1462456_29080 = ['SpirtBottle',[3542.15,3638.15,61.2908,true],[4
 ['MilkBottle2',[3483.92,3636.61,26.004],355,[0,0,1]] call InitItem; 
 ['MilkBottle2',[3483.73,3636.78,26.0038],10,[0,0,1]] call InitItem; 
 ['MilkBottle2',[3483.88,3636.81,25.9879],20,[0,0,1]] call InitItem; 
-['beerbottle',[3479.36,3647.84,26.1036],0,[0,0,1]] call InitStruct; 
-_3479_371583647_9487326_10411 = ['IStruct',[3479.37,3647.95,26.1041],0,[0,0,1], {_thisObj setvariable ['model','ml\ml_object_new\model_14_10\bottlepoison.p3d'];}] call InitStruct; // !!! realocated model !!!
-_3479_365483648_1606426_10510 = ['IStruct',[3479.37,3648.16,26.1051],0,[0,0,1], {_thisObj setvariable ['model','ml\ml_object_new\model_14_10\bottlevine.p3d'];}] call InitStruct; // !!! realocated model !!!
+['beerbottle',[3479.36,3647.1,26.1036],0,[0,0,1]] call InitStruct; 
+_3479_371583647_2075226_10411 = ['IStruct',[3479.37,3647.21,26.1041],0,[0,0,1], {_thisObj setvariable ['model','ml\ml_object_new\model_14_10\bottlepoison.p3d'];}] call InitStruct; // !!! realocated model !!!
+_3479_365483648_1606426_10510 = ['IStruct',[3479.37,3648.16,26.1051],180,[0,0,1], {_thisObj setvariable ['model','ml\ml_object_new\model_14_10\bottlevine.p3d'];}] call InitStruct; // !!! realocated model !!!
 _3479_366703648_0564026_10464 = ['IStruct',[3479.37,3648.06,26.1046],325,[0,0,1], {_thisObj setvariable ['model','ml\ml_object_new\model_14_10\bottlehz.p3d'];}] call InitStruct; // !!! realocated model !!!
 ['whiskeybottle01',[3479.38,3648.29,26.1057],90,[0,0,1]] call InitStruct; 
-['GlassBottle3',[3479.32,3647.5,26.1029],0,[0,0,1]] call InitItem; 
-['GlassBottle2',[3479.32,3647.35,26.1021],0,[0,0,1]] call InitItem; 
-['GlassBottle1',[3479.33,3647.23,26.1014],0,[0,0,1]] call InitItem; 
+['GlassBottle3',[3479.39,3646.36,26.1029],0,[0,0,1]] call InitItem; 
+['GlassBottle2',[3479.39,3646.21,26.1021],0,[0,0,1]] call InitItem; 
+['GlassBottle1',[3479.39,3646.08,26.1014],0,[0,0,1]] call InitItem; 
 ['Campfire',[3485.93,3639.08,25.6208],270,[0,0,1], {_thisObj setvariable ['lightisenabled',false];}] call InitStruct; 
-['GlassBottle',[3479.33,3647.12,26.1295],0,[0,0,1]] call InitItem; 
+['GlassBottle',[3479.4,3645.97,26.1295],0,[0,0,1]] call InitItem; 
 ['scotch',[3479.37,3648.66,26.1079],90,[0,0,1]] call InitStruct; 
 ['tequila',[3479.38,3648.8,26.1295],0,[0,0,1]] call InitStruct; 
 ['am_scotch_new',[3479.38,3648.92,26.1295],180,[0,0,1]] call InitStruct; 
 ['am_scotch_old',[3479.36,3649.07,26.108],180,[0,0,1]] call InitStruct; 
 ['am_wine',[3479.38,3649.2,26.1081],180,[0,0,1]] call InitStruct; 
+_3479_347413649_7492726_10802 = ['IStruct',[3479.35,3649.75,26.108],0,[0,0,1], {_thisObj setvariable ['model','ml_exodusnew\tequila_timurka.p3d'];}] call InitStruct; // !!! realocated model !!!
+_3479_392583647_5520026_10800 = ['IStruct',[3479.39,3647.55,26.108],0,[0,0,1], {_thisObj setvariable ['model','relicta_models\models\interier\props\flask.p3d'];}] call InitStruct; // !!! realocated model !!!
 
 
 
