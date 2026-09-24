@@ -5,25 +5,25 @@ class EditorData
 	angleGridStep=0.08726646;
 	scaleGridStep=100;
 	autoGroupingDist=10;
-	toggles=34;
+	toggles=42;
 	class ItemIDProvider
 	{
-		nextID=14387;
+		nextID=14534;
 	};
 	class LayerIndexProvider
 	{
-		nextID=9695;
+		nextID=11423;
 	};
 	class Camera
 	{
-		pos[]={3481.1072,32.7967,3648.7161};
-		dir[]={-0.73641086,-0.56430048,-0.37353149};
-		up[]={-0.50332505,0.8254739,-0.25529775};
-		aside[]={-0.45239496,1.698505e-06,0.89189172};
+		pos[]={3476.4561,37.032742,3636.843};
+		dir[]={0.57779038,-0.58873314,0.56550556};
+		up[]={0.42100674,0.80802476,0.41205549};
+		aside[]={0.69955111,-4.6813511e-07,-0.71474123};
 	};
 };
 binarizationWanted=0;
-sourceName="resdk_a3";
+sourceName="ReSDK_A3";
 addons[]=
 {
 	"A3_Characters_F",
@@ -71,7 +71,6 @@ addons[]=
 	"A3_Structures_F_Enoch_Industrial_Agriculture",
 	"RELICTA_models",
 	"A3_Structures_F_EPA_Items_Food",
-	"stelazh_ot_seregi",
 	"A3_Structures_F_EPA_Civ_Camping",
 	"Model_14_10",
 	"pechka",
@@ -87,15 +86,20 @@ addons[]=
 	"sofa",
 	"A3_Structures_F_EPB_Furniture",
 	"stalkatun",
+	"model_05",
 	"A3_Props_F_Enoch_Military_Decontamination",
 	"sovokgoods",
 	"scaliensprops",
 	"RELICTA_models2",
-	"model_05",
 	"mushrooms",
 	"A3_Weapons_F_Orange",
 	"A3_Structures_F_Items_Stationery",
 	"A3_Structures_F_EPA_Items_Tools",
+	"am_items",
+	"am_items_2",
+	"A3_Structures_F_Civ_Camping",
+	"A3_Props_F_Orange_Civilian_Constructions",
+	"A3_Structures_F_Heli_Items_Tools",
 	"CUP_Editor_Structures_Config",
 	"A3_Props_F_Enoch_Industrial_Supplies",
 	"egl_veg_gliese",
@@ -136,8 +140,6 @@ addons[]=
 	"A3_Structures_F_Households_House_Shop01",
 	"A3_Structures_F_Households_Stone_Big",
 	"yashikus",
-	"A3_Props_F_Orange_Civilian_Constructions",
-	"am_items",
 	"A3_Structures_F_Enoch_Wrecks",
 	"A3_Structures_F_Exp_Cultural_BasaltRuins",
 	"A3_Structures_F_Exp_Industrial_SurfaceMine_01",
@@ -150,8 +152,6 @@ addons[]=
 	"A3_Props_F_Enoch_Civilian_Forest",
 	"A3_Structures_F_EPB_Civ_Dead",
 	"A3_Structures_F_Enoch_Civilian_Accessories",
-	"A3_Structures_F_Civ_Camping",
-	"am_items_2",
 	"A3_Structures_F_EPA_Items_Medical",
 	"A3_Structures_F_Argo_Industrial_Agriculture",
 	"A3_Structures_F_Items_Tools",
@@ -170,6 +170,7 @@ addons[]=
 	"A3_Structures_F_Exp_Infrastructure_Powerlines",
 	"stanok",
 	"stanok_2",
+	"stelazh_ot_seregi",
 	"A3_Structures_F_Heli_Items_Electronics",
 	"A3_Structures_F_EPB_Items_Vessels",
 	"A3_Structures_F_Exp_Walls_Polewalls",
@@ -178,7 +179,6 @@ addons[]=
 	"A3_Structures_F_Exp_Infrastructure_Roads",
 	"A3_Structures_F_Argo_Walls_Tin",
 	"A3_Props_F_Orange_Items_Tools",
-	"A3_Structures_F_Heli_Items_Tools",
 	"A3_Structures_F_EPA_Items_Electronics",
 	"A3_Structures_F_Civ_Market",
 	"A3_Structures_F_Enoch_Military_Barracks",
@@ -419,76 +419,76 @@ class AddonsMetaData
 		};
 		class Item35
 		{
-			className="stelazh_ot_seregi";
-			name="stelazh_ot_seregi";
-		};
-		class Item36
-		{
 			className="Model_14_10";
 			name="Model_14_10";
 		};
-		class Item37
+		class Item36
 		{
 			className="pechka";
 			name="pechka";
 		};
-		class Item38
+		class Item37
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item39
+		class Item38
 		{
 			className="SMG_Metro_building";
 			name="SMG Metro Static Object";
 			author="TRIDJ,Zebra,Smesitel";
 			url="https://vk.com/smg_tvt";
 		};
-		class Item40
+		class Item39
 		{
 			className="exodus";
 			name="exodus";
 		};
-		class Item41
+		class Item40
 		{
 			className="furniture";
 			name="furniture";
 		};
-		class Item42
+		class Item41
 		{
 			className="CUP_Editor_Buildings_Config";
 			name="CUP_Editor_Buildings_Config";
 		};
-		class Item43
+		class Item42
 		{
 			className="kryslo";
 			name="kryslo";
 		};
-		class Item44
+		class Item43
 		{
 			className="A3_Structures_F_Exp_Civilian";
 			name="Arma 3 Apex - Civilian Buildings";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item45
+		class Item44
 		{
 			className="sofa";
 			name="sofa";
 		};
-		class Item46
+		class Item45
 		{
 			className="A3_Structures_F_EPB";
 			name="Arma 3 Adapt Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item47
+		class Item46
 		{
 			className="stalkatun";
 			name="stalkatun";
+		};
+		class Item47
+		{
+			className="model_05";
+			name="model_05";
 		};
 		class Item48
 		{
@@ -509,222 +509,222 @@ class AddonsMetaData
 		};
 		class Item51
 		{
-			className="model_05";
-			name="model_05";
-		};
-		class Item52
-		{
 			className="mushrooms";
 			name="mushrooms";
 		};
-		class Item53
+		class Item52
 		{
 			className="A3_Weapons_F_Orange";
 			name="Arma 3 Orange - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item54
-		{
-			className="CUP_Editor_Structures_Config";
-			name="CUP_Editor_Structures_Config";
-		};
-		class Item55
-		{
-			className="egl_veg_gliese";
-			name="Vegetation Gliese";
-			author="EAGLE";
-		};
-		class Item56
-		{
-			className="A3_Structures_F_Exp_Industrial";
-			name="Arma 3 Apex - Industrial Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item57
-		{
-			className="A3_Structures_F_Ind";
-			name="Arma 3 - Industrial Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item58
-		{
-			className="meshok";
-			name="meshok";
-		};
-		class Item59
-		{
-			className="A3_Structures_F_Households";
-			name="Arma 3 - Houses";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item60
-		{
-			className="A3_Structures_F_Enoch_Military";
-			name="Arma 3 Contact Platform - Military Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item61
-		{
-			className="CUP_Misc_e_Config";
-			name="CUP_Misc_e_Config";
-		};
-		class Item62
-		{
-			className="CUP_A1_EditorObjects";
-			name="CUP_A1_EditorObjects";
-			author="NeoArmageddon";
-		};
-		class Item63
-		{
-			className="door_solar";
-			name="door_solar";
-		};
-		class Item64
-		{
-			className="CUP_Misc3_Config";
-			name="CUP_Misc3_Config";
-		};
-		class Item65
-		{
-			className="AtmObjects";
-			name="AtmObjects";
-		};
-		class Item66
-		{
-			className="CUP_CASigns2";
-			name="CUP_CASigns2";
-		};
-		class Item67
-		{
-			className="projector";
-			name="projector";
-		};
-		class Item68
-		{
-			className="sovokbed";
-			name="sovokbed";
-		};
-		class Item69
-		{
-			className="drova";
-			name="drova";
-		};
-		class Item70
-		{
-			className="tinfence";
-			name="tinfence";
-		};
-		class Item71
-		{
-			className="BSG_EFT";
-			name="BSG_EFT";
-		};
-		class Item72
-		{
-			className="CUP_CAHouseBlock_C";
-			name="CUP_CAHouseBlock_C";
-		};
-		class Item73
-		{
-			className="yashikus";
-			name="yashikus";
-		};
-		class Item74
+		class Item53
 		{
 			className="am_items";
 			name="am_items";
 			author="Yodes";
 		};
-		class Item75
+		class Item54
 		{
-			className="A3_Structures_F_Exp_Cultural";
-			name="Arma 3 Apex - Cultural Buildings";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
+			className="am_items_2";
+			name="am_items_2";
+			author="Yodes";
 		};
-		class Item76
-		{
-			className="A3_Rocks_F_Exp";
-			name="Arma 3 Apex - Rocks and Stones";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item77
-		{
-			className="Ferrum";
-			name="Ferrum";
-		};
-		class Item78
+		class Item55
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item79
+		class Item56
 		{
-			className="am_items_2";
-			name="am_items_2";
-			author="Yodes";
+			className="CUP_Editor_Structures_Config";
+			name="CUP_Editor_Structures_Config";
 		};
-		class Item80
+		class Item57
+		{
+			className="egl_veg_gliese";
+			name="Vegetation Gliese";
+			author="EAGLE";
+		};
+		class Item58
+		{
+			className="A3_Structures_F_Exp_Industrial";
+			name="Arma 3 Apex - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item59
+		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item60
+		{
+			className="meshok";
+			name="meshok";
+		};
+		class Item61
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item62
+		{
+			className="A3_Structures_F_Enoch_Military";
+			name="Arma 3 Contact Platform - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item63
+		{
+			className="CUP_Misc_e_Config";
+			name="CUP_Misc_e_Config";
+		};
+		class Item64
+		{
+			className="CUP_A1_EditorObjects";
+			name="CUP_A1_EditorObjects";
+			author="NeoArmageddon";
+		};
+		class Item65
+		{
+			className="door_solar";
+			name="door_solar";
+		};
+		class Item66
+		{
+			className="CUP_Misc3_Config";
+			name="CUP_Misc3_Config";
+		};
+		class Item67
+		{
+			className="AtmObjects";
+			name="AtmObjects";
+		};
+		class Item68
+		{
+			className="CUP_CASigns2";
+			name="CUP_CASigns2";
+		};
+		class Item69
+		{
+			className="projector";
+			name="projector";
+		};
+		class Item70
+		{
+			className="sovokbed";
+			name="sovokbed";
+		};
+		class Item71
+		{
+			className="drova";
+			name="drova";
+		};
+		class Item72
+		{
+			className="tinfence";
+			name="tinfence";
+		};
+		class Item73
+		{
+			className="BSG_EFT";
+			name="BSG_EFT";
+		};
+		class Item74
+		{
+			className="CUP_CAHouseBlock_C";
+			name="CUP_CAHouseBlock_C";
+		};
+		class Item75
+		{
+			className="yashikus";
+			name="yashikus";
+		};
+		class Item76
+		{
+			className="A3_Structures_F_Exp_Cultural";
+			name="Arma 3 Apex - Cultural Buildings";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item77
+		{
+			className="A3_Rocks_F_Exp";
+			name="Arma 3 Apex - Rocks and Stones";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item78
+		{
+			className="Ferrum";
+			name="Ferrum";
+		};
+		class Item79
 		{
 			className="rabochiystol";
 			name="rabochiystol";
 		};
-		class Item81
+		class Item80
 		{
 			className="ml_germogate";
 			name="ml_germogate";
 		};
-		class Item82
+		class Item81
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item83
+		class Item82
 		{
 			className="metro_a3_menu";
 			name="metro_a3_menu";
 		};
-		class Item84
+		class Item83
 		{
 			className="SurfacesssAPEX";
 			name="SurfacesssAPEX";
 		};
-		class Item85
+		class Item84
 		{
 			className="kpz";
 			name="kpz";
 		};
-		class Item86
+		class Item85
 		{
 			className="A3_Structures_F_Enoch_Cultural";
 			name="Arma 3 Contact Platform - Cultural Buildings";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item87
+		class Item86
 		{
 			className="chasiks";
 			name="chasiks";
 		};
-		class Item88
+		class Item87
 		{
 			className="stanok";
 			name="stanok";
 		};
-		class Item89
+		class Item88
 		{
 			className="stanok_2";
 			name="stanok_2";
+		};
+		class Item89
+		{
+			className="stelazh_ot_seregi";
+			name="stelazh_ot_seregi";
 		};
 		class Item90
 		{
@@ -894,7 +894,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=30;
+		items=11;
 		class Item0
 		{
 			dataType="Group";
@@ -1041,7 +1041,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14.763714,5.039001,8100.1621};
+				position[]={14.78576,5.039001,8100.1665};
 			};
 			side="Empty";
 			flags=4;
@@ -9901,7 +9901,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3486.1992,34.582672,3639.1553};
+												position[]={3486.2454,34.079124,3639.1113};
 												angles[]={0,1.5707963,1.5707964};
 											};
 											side="Empty";
@@ -9911,11 +9911,11 @@ class Mission
 											};
 											id=14286;
 											type="CUP_A2_indpipe1_ground";
-											atlOffset=3.5967369;
+											atlOffset=3.1008778;
 										};
 									};
 									id=5576;
-									atlOffset=1.4194756;
+									atlOffset=1.1753368;
 								};
 								class Item1
 								{
@@ -10526,42 +10526,8 @@ class Mission
 									state=1;
 									class Entities
 									{
-										items=96;
+										items=95;
 										class Item0
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8804,31.158575,3643.179};
-												angles[]={0,1.5707964,0};
-											};
-											side="Empty";
-											flags=5;
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""LongShelf""]]}";
-											};
-											id=6535;
-											type="stelazh_ot_seregi";
-										};
-										class Item1
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8489,31.158525,3638.425};
-												angles[]={0,1.5707964,0};
-											};
-											side="Empty";
-											flags=5;
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""LongShelf""]]}";
-											};
-											id=6534;
-											type="stelazh_ot_seregi";
-										};
-										class Item2
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10579,7 +10545,7 @@ class Mission
 											type="Land_WoodenTable_large_F";
 											atlOffset=0.22271347;
 										};
-										class Item3
+										class Item1
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10596,7 +10562,7 @@ class Mission
 											type="Land_WoodenTable_small_F";
 											atlOffset=25.100344;
 										};
-										class Item4
+										class Item2
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10614,24 +10580,7 @@ class Mission
 											type="Land_WoodenTable_small_F";
 											atlOffset=0.18563271;
 										};
-										class Item5
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3483.3989,30.497383,3634.0391};
-												angles[]={0,4.688899,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SmallWoodenTable""]]}";
-											};
-											id=6531;
-											type="Land_WoodenTable_small_F";
-											atlOffset=4.9667988;
-										};
-										class Item6
+										class Item3
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10648,7 +10597,7 @@ class Mission
 											type="kreslo";
 											atlOffset=4.9786243;
 										};
-										class Item7
+										class Item4
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10666,7 +10615,7 @@ class Mission
 											type="kreslo";
 											atlOffset=0.85207176;
 										};
-										class Item8
+										class Item5
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10684,7 +10633,7 @@ class Mission
 											type="press";
 											atlOffset=0.79207611;
 										};
-										class Item9
+										class Item6
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10702,7 +10651,7 @@ class Mission
 											type="pechechkas";
 											atlOffset=0.61098099;
 										};
-										class Item10
+										class Item7
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10720,7 +10669,7 @@ class Mission
 											type="stelazh";
 											atlOffset=19.993689;
 										};
-										class Item11
+										class Item8
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10738,7 +10687,7 @@ class Mission
 											type="bar_stoika";
 											atlOffset=0.066555023;
 										};
-										class Item12
+										class Item9
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10756,7 +10705,7 @@ class Mission
 											type="bar_stoika";
 											atlOffset=0.067913055;
 										};
-										class Item13
+										class Item10
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10774,7 +10723,7 @@ class Mission
 											type="Land_WoodenCounter_01_F";
 											atlOffset=0.063446045;
 										};
-										class Item14
+										class Item11
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10792,7 +10741,7 @@ class Mission
 											type="Land_WoodenCounter_01_F";
 											atlOffset=0.063446045;
 										};
-										class Item15
+										class Item12
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10809,7 +10758,7 @@ class Mission
 											type="Land_Metal_rack_F";
 											atlOffset=4.7142696;
 										};
-										class Item16
+										class Item13
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10826,7 +10775,7 @@ class Mission
 											type="CUP_A2_bench_ep1";
 											atlOffset=25.101215;
 										};
-										class Item17
+										class Item14
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10843,7 +10792,7 @@ class Mission
 											type="CUP_A2_bench_ep1";
 											atlOffset=10.108131;
 										};
-										class Item18
+										class Item15
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10860,7 +10809,7 @@ class Mission
 											id=6537;
 											type="diwan";
 										};
-										class Item19
+										class Item16
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10877,7 +10826,7 @@ class Mission
 											id=6991;
 											type="diwan";
 										};
-										class Item20
+										class Item17
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10894,24 +10843,7 @@ class Mission
 											type="Land_WoodenTable_large_F";
 											atlOffset=5.0758514;
 										};
-										class Item21
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3483.3289,30.536495,3631.6013};
-												angles[]={0,4.7123895,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MediumWoodenTable1""]]}";
-											};
-											id=8128;
-											type="Land_TableBig_01_F";
-											atlOffset=4.9829712;
-										};
-										class Item22
+										class Item18
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10929,7 +10861,7 @@ class Mission
 											type="umivalnik1";
 											atlOffset=0.40116882;
 										};
-										class Item23
+										class Item19
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10946,7 +10878,7 @@ class Mission
 											id=13969;
 											type="Land_WoodenTable_small_F";
 										};
-										class Item24
+										class Item20
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10963,7 +10895,7 @@ class Mission
 											id=13964;
 											type="Land_TableBig_01_F";
 										};
-										class Item25
+										class Item21
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10980,7 +10912,7 @@ class Mission
 											type="chair3";
 											atlOffset=0.31007385;
 										};
-										class Item26
+										class Item22
 										{
 											dataType="Object";
 											class PositionInfo
@@ -10997,7 +10929,7 @@ class Mission
 											id=13973;
 											type="CUP_A2_kitchen_chair_a";
 										};
-										class Item27
+										class Item23
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11014,7 +10946,7 @@ class Mission
 											id=13972;
 											type="SMG_BomjDivan";
 										};
-										class Item28
+										class Item24
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11031,7 +10963,7 @@ class Mission
 											id=13982;
 											type="CUP_A2_table_drawer";
 										};
-										class Item29
+										class Item25
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11047,7 +10979,7 @@ class Mission
 											id=13967;
 											type="stolempire";
 										};
-										class Item30
+										class Item26
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11064,7 +10996,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51107788;
 										};
-										class Item31
+										class Item27
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11081,7 +11013,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51292419;
 										};
-										class Item32
+										class Item28
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11098,7 +11030,7 @@ class Mission
 											id=6497;
 											type="Land_ChairWood_F";
 										};
-										class Item33
+										class Item29
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11115,7 +11047,7 @@ class Mission
 											id=6498;
 											type="Land_ChairWood_F";
 										};
-										class Item34
+										class Item30
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11132,7 +11064,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51881409;
 										};
-										class Item35
+										class Item31
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11149,7 +11081,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.5105896;
 										};
-										class Item36
+										class Item32
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11166,7 +11098,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51711273;
 										};
-										class Item37
+										class Item33
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11183,7 +11115,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51107788;
 										};
-										class Item38
+										class Item34
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11200,7 +11132,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.51881409;
 										};
-										class Item39
+										class Item35
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11217,7 +11149,7 @@ class Mission
 											type="chairbar3";
 											atlOffset=4.9091873;
 										};
-										class Item40
+										class Item36
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11234,7 +11166,7 @@ class Mission
 											type="chairbar3";
 											atlOffset=3.7056618;
 										};
-										class Item41
+										class Item37
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11251,7 +11183,7 @@ class Mission
 											type="chairbar3";
 											atlOffset=3.6982632;
 										};
-										class Item42
+										class Item38
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11269,7 +11201,7 @@ class Mission
 											type="chair2";
 											atlOffset=0.02564621;
 										};
-										class Item43
+										class Item39
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11286,7 +11218,7 @@ class Mission
 											type="chair2";
 											atlOffset=4.9636593;
 										};
-										class Item44
+										class Item40
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11303,7 +11235,7 @@ class Mission
 											type="chair2";
 											atlOffset=5.0852432;
 										};
-										class Item45
+										class Item41
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11321,7 +11253,7 @@ class Mission
 											type="chair2";
 											atlOffset=0.0003528595;
 										};
-										class Item46
+										class Item42
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11338,7 +11270,7 @@ class Mission
 											id=14009;
 											type="Land_WoodenTable_small_F";
 										};
-										class Item47
+										class Item43
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11356,7 +11288,7 @@ class Mission
 											type="Land_ChairWood_F";
 											atlOffset=0.0023269653;
 										};
-										class Item48
+										class Item44
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11373,7 +11305,7 @@ class Mission
 											id=14012;
 											type="CUP_A2_kitchen_chair_a";
 										};
-										class Item49
+										class Item45
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11389,7 +11321,7 @@ class Mission
 											type="CUP_A2_vase_loam_ep1";
 											atlOffset=4.999712;
 										};
-										class Item50
+										class Item46
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11405,7 +11337,7 @@ class Mission
 											type="CUP_A2_vase_loam_2_ep1";
 											atlOffset=0.29579926;
 										};
-										class Item51
+										class Item47
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11422,7 +11354,7 @@ class Mission
 											type="CUP_A2_vase_loam_ep1";
 											atlOffset=0.21453285;
 										};
-										class Item52
+										class Item48
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11439,7 +11371,7 @@ class Mission
 											id=14040;
 											type="CUP_A2_rack_ep1";
 										};
-										class Item53
+										class Item49
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11455,7 +11387,7 @@ class Mission
 											id=14041;
 											type="CUP_A2_case_d";
 										};
-										class Item54
+										class Item50
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11472,7 +11404,7 @@ class Mission
 											id=14078;
 											type="Land_WoodenTable_large_F";
 										};
-										class Item55
+										class Item51
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11489,7 +11421,7 @@ class Mission
 											id=14091;
 											type="CUP_A2_kitchen_chair_a";
 										};
-										class Item56
+										class Item52
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11506,7 +11438,7 @@ class Mission
 											type="CUP_A2_smalltable";
 											atlOffset=9.8740845;
 										};
-										class Item57
+										class Item53
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11523,7 +11455,7 @@ class Mission
 											id=14050;
 											type="SMG_BomjDivan";
 										};
-										class Item58
+										class Item54
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11540,7 +11472,7 @@ class Mission
 											id=14054;
 											type="SMG_BomjKreslo";
 										};
-										class Item59
+										class Item55
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11557,7 +11489,7 @@ class Mission
 											id=14060;
 											type="SMG_BomjKreslo";
 										};
-										class Item60
+										class Item56
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11575,7 +11507,7 @@ class Mission
 											type="vitoriansofa";
 											atlOffset=0.34765816;
 										};
-										class Item61
+										class Item57
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11592,7 +11524,7 @@ class Mission
 											type="infotablicka";
 											atlOffset=1.0189896;
 										};
-										class Item62
+										class Item58
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11609,7 +11541,7 @@ class Mission
 											id=14117;
 											type="CUP_ch_mod_d";
 										};
-										class Item63
+										class Item59
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11627,7 +11559,7 @@ class Mission
 											type="Land_Net_Fence_pole_F";
 											atlOffset=0.28225899;
 										};
-										class Item64
+										class Item60
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11644,7 +11576,7 @@ class Mission
 											id=14168;
 											type="kryslo";
 										};
-										class Item65
+										class Item61
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11661,7 +11593,7 @@ class Mission
 											id=14166;
 											type="stolempire";
 										};
-										class Item66
+										class Item62
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11678,7 +11610,7 @@ class Mission
 											type="Land_Net_Fence_pole_F";
 											atlOffset=0.27095222;
 										};
-										class Item67
+										class Item63
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11694,7 +11626,7 @@ class Mission
 											id=14167;
 											type="kryslo";
 										};
-										class Item68
+										class Item64
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11711,7 +11643,7 @@ class Mission
 											id=14171;
 											type="CUP_A2_vase_loam_ep1";
 										};
-										class Item69
+										class Item65
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11728,7 +11660,7 @@ class Mission
 											type="CUP_A2_vase_loam_3_ep1";
 											atlOffset=0.43514633;
 										};
-										class Item70
+										class Item66
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11744,7 +11676,7 @@ class Mission
 											id=14217;
 											type="land_stolkafeshechka";
 										};
-										class Item71
+										class Item67
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11761,7 +11693,7 @@ class Mission
 											id=14215;
 											type="Land_TableSmall_01_F";
 										};
-										class Item72
+										class Item68
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11778,7 +11710,7 @@ class Mission
 											id=14224;
 											type="CUP_A2_metalcase_01";
 										};
-										class Item73
+										class Item69
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11795,7 +11727,7 @@ class Mission
 											id=14230;
 											type="CUP_A2_metalcase_01";
 										};
-										class Item74
+										class Item70
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11812,7 +11744,7 @@ class Mission
 											id=14229;
 											type="CUP_A2_metalcase_02";
 										};
-										class Item75
+										class Item71
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11829,7 +11761,7 @@ class Mission
 											id=14227;
 											type="CUP_A2_case_cans_b";
 										};
-										class Item76
+										class Item72
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11846,7 +11778,7 @@ class Mission
 											id=14222;
 											type="CUP_A2_case_d";
 										};
-										class Item77
+										class Item73
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11863,7 +11795,7 @@ class Mission
 											id=14249;
 											type="kryslo";
 										};
-										class Item78
+										class Item74
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11880,7 +11812,7 @@ class Mission
 											id=14243;
 											type="Land_TableBig_01_F";
 										};
-										class Item79
+										class Item75
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11897,7 +11829,7 @@ class Mission
 											id=14254;
 											type="Land_Bench_03_F";
 										};
-										class Item80
+										class Item76
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11914,7 +11846,7 @@ class Mission
 											id=14250;
 											type="diwan";
 										};
-										class Item81
+										class Item77
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11931,7 +11863,7 @@ class Mission
 											id=14247;
 											type="land_kreslishko";
 										};
-										class Item82
+										class Item78
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11948,7 +11880,7 @@ class Mission
 											id=14251;
 											type="kreslo";
 										};
-										class Item83
+										class Item79
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11965,7 +11897,7 @@ class Mission
 											id=14240;
 											type="sofa";
 										};
-										class Item84
+										class Item80
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11981,7 +11913,7 @@ class Mission
 											type="Land_WoodenTable_large_F";
 											atlOffset=1.019968;
 										};
-										class Item85
+										class Item81
 										{
 											dataType="Object";
 											class PositionInfo
@@ -11999,7 +11931,7 @@ class Mission
 											type="Land_Metal_rack_F";
 											atlOffset=0.10904503;
 										};
-										class Item86
+										class Item82
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12016,7 +11948,7 @@ class Mission
 											type="CUP_A2_rack_ep1";
 											atlOffset=0.48425102;
 										};
-										class Item87
+										class Item83
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12033,7 +11965,7 @@ class Mission
 											type="Land_WoodenCrate_01_F";
 											atlOffset=1.2123661;
 										};
-										class Item88
+										class Item84
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12051,7 +11983,7 @@ class Mission
 											type="Land_WoodenCrate_01_F";
 											atlOffset=0.093629837;
 										};
-										class Item89
+										class Item85
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12068,7 +12000,7 @@ class Mission
 											type="Land_ShelvesWooden_F";
 											atlOffset=0.017417908;
 										};
-										class Item90
+										class Item86
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12085,7 +12017,7 @@ class Mission
 											id=14338;
 											type="Land_ShelvesWooden_F";
 										};
-										class Item91
+										class Item87
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12102,7 +12034,7 @@ class Mission
 											id=14330;
 											type="Land_ShelvesWooden_F";
 										};
-										class Item92
+										class Item88
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12120,7 +12052,7 @@ class Mission
 											type="Land_ShelvesWooden_F";
 											atlOffset=0.038959503;
 										};
-										class Item93
+										class Item89
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12138,7 +12070,7 @@ class Mission
 											type="bar_stoika";
 											atlOffset=0.36761093;
 										};
-										class Item94
+										class Item90
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12156,7 +12088,7 @@ class Mission
 											type="plita_kushat";
 											atlOffset=0.056612015;
 										};
-										class Item95
+										class Item91
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12173,9 +12105,62 @@ class Mission
 											id=14325;
 											type="SMG_BomjDivan";
 										};
+										class Item92
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3479.1384,30.973131,3641.9609};
+											};
+											side="Empty";
+											flags=5;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""preinit@__loottemplate"",""Kintchen_all""]]],[""class"",""SteelGreenCabinet""]]}";
+											};
+											id=14517;
+											type="shkafsin";
+											atlOffset=0.037878036;
+										};
+										class Item93
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3479.356,30.601486,3640.5823};
+												angles[]={6.2818046,0,0};
+											};
+											side="Empty";
+											flags=4;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SmallWoodenTable""]]}";
+											};
+											id=14519;
+											type="Land_WoodenTable_small_F";
+											atlOffset=0.063179016;
+										};
+										class Item94
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2788,31.362543,3643.6289};
+												angles[]={0,1.5707963,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenShelf""]]}";
+											};
+											id=14533;
+											type="polka_2";
+											atlOffset=1.1970329;
+										};
 									};
 									id=6616;
-									atlOffset=0.061084747;
+									atlOffset=0.66197205;
 								};
 								class Item4
 								{
@@ -12184,600 +12169,8 @@ class Mission
 									state=1;
 									class Entities
 									{
-										items=89;
+										items=140;
 										class Item0
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3076,30.774563,3648.7219};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6430;
-											type="buhlo1";
-											atlOffset=0.53155327;
-										};
-										class Item1
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7991,31.253433,3638.365};
-												angles[]={0,0.080366008,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6431;
-											type="buhlo1";
-											atlOffset=0.99292564;
-										};
-										class Item2
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8088,30.541435,3638.3552};
-												angles[]={0,0.1120346,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6432;
-											type="buhlo1";
-											atlOffset=0.28087807;
-										};
-										class Item3
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8459,30.541836,3639.0947};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6434;
-											type="buhlo1";
-											atlOffset=0.27984047;
-										};
-										class Item4
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2585,31.359322,3647.4995};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6435;
-											type="buhlo1";
-											atlOffset=1.116312;
-										};
-										class Item5
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8118,31.241936,3636.8657};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6436;
-											type="buhlo1";
-											atlOffset=0.98376656;
-										};
-										class Item6
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7935,30.548233,3637.9949};
-												angles[]={0,0.1120346,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6437;
-											type="buhlo1";
-											atlOffset=0.2883606;
-										};
-										class Item7
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3076,31.360065,3649.0518};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6438;
-											type="buhlo1";
-											atlOffset=1.1170559;
-										};
-										class Item8
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2385,31.05772,3647.5095};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6439;
-											type="buhlo1";
-											atlOffset=0.81471062;
-										};
-										class Item9
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3076,31.368565,3647.9719};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6440;
-											type="buhlo1";
-											atlOffset=1.125555;
-										};
-										class Item10
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3176,30.778362,3649.0518};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6441;
-											type="buhlo1";
-											atlOffset=0.53535271;
-										};
-										class Item11
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7363,31.247734,3639.0977};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6442;
-											type="buhlo1";
-											atlOffset=0.98645592;
-										};
-										class Item12
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2683,31.049522,3647.1597};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6443;
-											type="buhlo1";
-											atlOffset=0.80651283;
-										};
-										class Item13
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2576,31.050663,3648.7219};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6444;
-											type="buhlo1";
-											atlOffset=0.80765343;
-										};
-										class Item14
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2776,30.791664,3647.9619};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6445;
-											type="buhlo1";
-											atlOffset=0.54865456;
-										};
-										class Item15
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8191,31.235134,3637.5554};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6446;
-											type="buhlo1";
-											atlOffset=0.97580147;
-										};
-										class Item16
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3384,31.363323,3646.4097};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6448;
-											type="buhlo1";
-											atlOffset=1.1203136;
-										};
-										class Item17
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2776,31.051662,3647.9719};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6449;
-											type="buhlo1";
-											atlOffset=0.80865288;
-										};
-										class Item18
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2478,31.057964,3648.3518};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6450;
-											type="buhlo1";
-											atlOffset=0.81495476;
-										};
-										class Item19
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8093,30.532333,3637.4656};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6452;
-											type="buhlo1";
-											atlOffset=0.27321053;
-										};
-										class Item20
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2876,31.361763,3648.3218};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6453;
-											type="buhlo1";
-											atlOffset=1.1187534;
-										};
-										class Item21
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8313,30.541534,3638.7058};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6454;
-											type="buhlo1";
-											atlOffset=0.2802639;
-										};
-										class Item22
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3076,30.777462,3648.3518};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6455;
-											type="buhlo1";
-											atlOffset=0.53445244;
-										};
-										class Item23
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3184,31.047321,3646.7595};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6457;
-											type="buhlo1";
-											atlOffset=0.80431175;
-										};
-										class Item24
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8962,30.528435,3640.0452};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6458;
-											type="buhlo1";
-											atlOffset=0.27929497;
-										};
-										class Item25
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7942,31.260235,3638.0151};
-												angles[]={0,0.080366008,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6459;
-											type="buhlo1";
-											atlOffset=1.0003242;
-										};
-										class Item26
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2883,31.366123,3647.1396};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6460;
-											type="buhlo1";
-											atlOffset=1.1231136;
-										};
-										class Item27
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7908,31.235832,3639.5757};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6461;
-											type="buhlo1";
-											atlOffset=0.97845268;
-										};
-										class Item28
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7942,30.539135,3637.0952};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6462;
-											type="buhlo1";
-											atlOffset=0.28071022;
-										};
-										class Item29
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8718,30.544334,3639.665};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6463;
-											type="buhlo1";
-											atlOffset=0.28617477;
-										};
-										class Item30
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7117,31.245834,3638.6956};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""prob"",50],[""class"",""SpirtBottle""]]}";
-											};
-											id=6464;
-											type="buhlo1";
-											atlOffset=0.98536873;
-										};
-										class Item31
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2478,31.057762,3649.0718};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6465;
-											type="buhlo1";
-											atlOffset=0.81475258;
-										};
-										class Item32
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2983,31.063221,3646.3896};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6466;
-											type="buhlo1";
-											atlOffset=0.82021141;
-										};
-										class Item33
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.2976,31.360863,3648.7517};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6467;
-											type="buhlo1";
-											atlOffset=1.1178532;
-										};
-										class Item34
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8154,31.254433,3639.926};
-												angles[]={0,0.010882724,0};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""prob"",60],[""class"",""SpirtBottle""]]}";
-											};
-											id=6468;
-											type="buhlo1";
-											atlOffset=1.0052834;
-										};
-										class Item35
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3481.3083,31.370022,3646.7197};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""class"",""SpirtBottle""]]}";
-											};
-											id=6447;
-											type="buhlo1";
-											atlOffset=1.1270123;
-										};
-										class Item36
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12795,7 +12188,7 @@ class Mission
 											type="okorok";
 											atlOffset=0.89858627;
 										};
-										class Item37
+										class Item1
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12813,7 +12206,7 @@ class Mission
 											type="okorok";
 											atlOffset=1.6562119;
 										};
-										class Item38
+										class Item2
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12831,7 +12224,7 @@ class Mission
 											type="okorok";
 											atlOffset=0.75203323;
 										};
-										class Item39
+										class Item3
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12849,7 +12242,7 @@ class Mission
 											type="okorok";
 											atlOffset=0.76033401;
 										};
-										class Item40
+										class Item4
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12867,7 +12260,7 @@ class Mission
 											type="patroni_indabox";
 											atlOffset=0.98816681;
 										};
-										class Item41
+										class Item5
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12884,7 +12277,7 @@ class Mission
 											type="patroni_indabox";
 											atlOffset=0.55116844;
 										};
-										class Item42
+										class Item6
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12901,7 +12294,7 @@ class Mission
 											type="Sponge_01_Wet_F";
 											atlOffset=1.1086769;
 										};
-										class Item43
+										class Item7
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12919,7 +12312,7 @@ class Mission
 											type="risochek";
 											atlOffset=0.65438461;
 										};
-										class Item44
+										class Item8
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12937,7 +12330,7 @@ class Mission
 											type="risochek";
 											atlOffset=0.95819092;
 										};
-										class Item45
+										class Item9
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12955,7 +12348,7 @@ class Mission
 											type="risochek";
 											atlOffset=0.66760063;
 										};
-										class Item46
+										class Item10
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12971,7 +12364,7 @@ class Mission
 											type="Egg";
 											atlOffset=1.0866642;
 										};
-										class Item47
+										class Item11
 										{
 											dataType="Object";
 											class PositionInfo
@@ -12988,7 +12381,7 @@ class Mission
 											type="Egg";
 											atlOffset=1.0697117;
 										};
-										class Item48
+										class Item12
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13005,7 +12398,7 @@ class Mission
 											type="Egg";
 											atlOffset=1.0684547;
 										};
-										class Item49
+										class Item13
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13022,23 +12415,7 @@ class Mission
 											type="Egg";
 											atlOffset=1.0912151;
 										};
-										class Item50
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.9502,30.42437,3643.7891};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
-											};
-											id=6479;
-											type="S_Salt";
-											atlOffset=0.29040337;
-										};
-										class Item51
+										class Item14
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13055,7 +12432,7 @@ class Mission
 											type="S_Salt";
 											atlOffset=1.1273937;
 										};
-										class Item52
+										class Item15
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13071,23 +12448,7 @@ class Mission
 											type="S_Salt";
 											atlOffset=1.0990639;
 										};
-										class Item53
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.9302,30.417831,3644.1689};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
-											};
-											id=6482;
-											type="S_Salt";
-											atlOffset=0.28360748;
-										};
-										class Item54
+										class Item16
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13104,71 +12465,7 @@ class Mission
 											type="S_Salt";
 											atlOffset=1.1269932;
 										};
-										class Item55
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.6604,30.426353,3644.439};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
-											};
-											id=6484;
-											type="S_Salt";
-											atlOffset=0.2937355;
-										};
-										class Item56
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.7502,30.420444,3643.8889};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
-											};
-											id=6485;
-											type="S_Salt";
-											atlOffset=0.28777313;
-										};
-										class Item57
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.8503,30.42326,3643.489};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
-											};
-											id=6486;
-											type="S_Salt";
-											atlOffset=0.29030609;
-										};
-										class Item58
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={3493.9104,30.416988,3644.6389};
-											};
-											side="Empty";
-											class Attributes
-											{
-												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
-											};
-											id=6487;
-											type="S_Salt";
-											atlOffset=0.28241158;
-										};
-										class Item59
+										class Item17
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13185,7 +12482,7 @@ class Mission
 											type="Sponge_01_Wet_F";
 											atlOffset=1.1096115;
 										};
-										class Item60
+										class Item18
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13202,7 +12499,7 @@ class Mission
 											type="land_tarelochka";
 											atlOffset=0.80318642;
 										};
-										class Item61
+										class Item19
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13220,7 +12517,7 @@ class Mission
 											type="land_doskarez";
 											atlOffset=0.80682945;
 										};
-										class Item62
+										class Item20
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13238,7 +12535,7 @@ class Mission
 											type="hleb";
 											atlOffset=0.83123207;
 										};
-										class Item63
+										class Item21
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13255,7 +12552,7 @@ class Mission
 											type="knife2";
 											atlOffset=0.78790665;
 										};
-										class Item64
+										class Item22
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13273,7 +12570,7 @@ class Mission
 											type="land_skovoroda";
 											atlOffset=0.58524513;
 										};
-										class Item65
+										class Item23
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13290,7 +12587,7 @@ class Mission
 											type="mp133";
 											atlOffset=0.11552238;
 										};
-										class Item66
+										class Item24
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13306,7 +12603,7 @@ class Mission
 											type="svecha";
 											atlOffset=1.0187759;
 										};
-										class Item67
+										class Item25
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13322,7 +12619,7 @@ class Mission
 											type="svecha";
 											atlOffset=1.6560726;
 										};
-										class Item68
+										class Item26
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13338,7 +12635,7 @@ class Mission
 											type="svecha";
 											atlOffset=0.34581375;
 										};
-										class Item69
+										class Item27
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13354,7 +12651,7 @@ class Mission
 											type="CUP_A2_bucket";
 											atlOffset=0.25190926;
 										};
-										class Item70
+										class Item28
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13370,7 +12667,7 @@ class Mission
 											type="CUP_A2_bucket";
 											atlOffset=0.24345016;
 										};
-										class Item71
+										class Item29
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13388,7 +12685,7 @@ class Mission
 											type="CUP_A2_bucket_ep1";
 											atlOffset=0.22197723;
 										};
-										class Item72
+										class Item30
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13404,7 +12701,7 @@ class Mission
 											type="kastryla";
 											atlOffset=0.25112152;
 										};
-										class Item73
+										class Item31
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13421,7 +12718,7 @@ class Mission
 											type="kastryla";
 											atlOffset=0.24706078;
 										};
-										class Item74
+										class Item32
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13438,7 +12735,7 @@ class Mission
 											type="kastryla";
 											atlOffset=0.24734688;
 										};
-										class Item75
+										class Item33
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13454,7 +12751,7 @@ class Mission
 											type="kastryla";
 											atlOffset=0.24810028;
 										};
-										class Item76
+										class Item34
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13471,7 +12768,7 @@ class Mission
 											type="gribabas2";
 											atlOffset=0.87339401;
 										};
-										class Item77
+										class Item35
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13488,7 +12785,7 @@ class Mission
 											type="meatgrib";
 											atlOffset=0.28081703;
 										};
-										class Item78
+										class Item36
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13505,7 +12802,7 @@ class Mission
 											type="grib8";
 											atlOffset=0.52627373;
 										};
-										class Item79
+										class Item37
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13523,24 +12820,24 @@ class Mission
 											type="gribabas1";
 											atlOffset=0.55320168;
 										};
-										class Item80
+										class Item38
 										{
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3483.0837,31.05802,3632.2842};
-												angles[]={0,6.195919,0};
+												position[]={3484.1731,31.060558,3637.1753};
+												angles[]={0,5.1487226,0};
 											};
 											side="Empty";
-											flags=4;
 											class Attributes
 											{
 												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PaperHolder""]]}";
 											};
 											id=14036;
 											type="Leaflet_05_Stack_F";
+											atlOffset=0.88075256;
 										};
-										class Item81
+										class Item39
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13557,7 +12854,7 @@ class Mission
 											type="Leaflet_05_Stack_F";
 											atlOffset=0.86000061;
 										};
-										class Item82
+										class Item40
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13575,7 +12872,7 @@ class Mission
 											type="Leaflet_05_Old_F";
 											atlOffset=1.9073486e-06;
 										};
-										class Item83
+										class Item41
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13592,13 +12889,13 @@ class Mission
 											type="Leaflet_05_Old_F";
 											atlOffset=0.99266815;
 										};
-										class Item84
+										class Item42
 										{
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3483.1423,30.985954,3632.4761};
-												angles[]={0,4.9741898,0};
+												position[]={3484.0361,30.990574,3637.322};
+												angles[]={0,3.926995,0};
 											};
 											side="Empty";
 											class Attributes
@@ -13607,9 +12904,9 @@ class Mission
 											};
 											id=14037;
 											type="Land_PenBlack_F";
-											atlOffset=0.8765564;
+											atlOffset=0.87867546;
 										};
-										class Item85
+										class Item43
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13625,7 +12922,7 @@ class Mission
 											id=14038;
 											type="Land_PenBlack_F";
 										};
-										class Item86
+										class Item44
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13642,7 +12939,7 @@ class Mission
 											type="Land_PenBlack_F";
 											atlOffset=0.86000061;
 										};
-										class Item87
+										class Item45
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13659,7 +12956,7 @@ class Mission
 											type="Land_PenBlack_F";
 											atlOffset=0.99266815;
 										};
-										class Item88
+										class Item46
 										{
 											dataType="Object";
 											class PositionInfo
@@ -13676,9 +12973,1598 @@ class Mission
 											type="Land_Matches_F";
 											atlOffset=0.88453102;
 										};
+										class Item47
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.292,30.776901,3648.71};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle12""]]}";
+											};
+											id=14453;
+											type="AM_Scotch_New_fam";
+											atlOffset=0.53118896;
+										};
+										class Item48
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2747,30.776901,3648.3381};
+												angles[]={0,6.1086526,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle12""]]}";
+											};
+											id=14454;
+											type="AM_Scotch_New_fam";
+											atlOffset=0.53118896;
+										};
+										class Item49
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2764,30.776901,3647.9558};
+												angles[]={0,5.9341197,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle12""]]}";
+											};
+											id=14455;
+											type="AM_Scotch_New_fam";
+											atlOffset=0.53118896;
+										};
+										class Item50
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2668,31.061859,3649.0608};
+												angles[]={0,6.1086526,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""class"",""SpirtBottle13""]]}";
+											};
+											id=14436;
+											type="AM_Scotch_Old_fam";
+											atlOffset=0.81614685;
+										};
+										class Item51
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2705,31.065239,3648.7053};
+												angles[]={0,0.087266617,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""class"",""SpirtBottle13""]]}";
+											};
+											id=14457;
+											type="AM_Scotch_Old_fam";
+											atlOffset=0.81952667;
+										};
+										class Item52
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2732,31.083672,3647.5183};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""class"",""SpirtBottle4""]]}";
+											};
+											id=14434;
+											type="beerbottle";
+											atlOffset=0.82599449;
+										};
+										class Item53
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2715,31.083672,3647.3162};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""class"",""SpirtBottle4""]]}";
+											};
+											id=14450;
+											type="beerbottle";
+											atlOffset=0.82599449;
+										};
+										class Item54
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.282,31.083672,3647.1174};
+												angles[]={0,0.87266457,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""class"",""SpirtBottle4""]]}";
+											};
+											id=14451;
+											type="beerbottle";
+											atlOffset=0.82599449;
+										};
+										class Item55
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2974,31.400429,3647.5935};
+												angles[]={0,2.1816614,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Квасок""]]],[""class"",""SpirtBottle6""]]}";
+											};
+											id=14484;
+											type="bottlehz";
+											atlOffset=1.1289692;
+										};
+										class Item56
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2839,31.401464,3647.4409};
+												angles[]={0,2.4434607,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Квасок""]]],[""class"",""SpirtBottle6""]]}";
+											};
+											id=14487;
+											type="bottlehz";
+											atlOffset=1.1300049;
+										};
+										class Item57
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2939,31.38505,3648.4041};
+												angles[]={0,6.1086526,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""class"",""SpirtBottle8""]]}";
+											};
+											id=14429;
+											type="bottlepoison";
+											atlOffset=1.1266899;
+										};
+										class Item58
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2937,31.38505,3648.2554};
+												angles[]={0,3.4906645,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""class"",""SpirtBottle8""]]}";
+											};
+											id=14449;
+											type="bottlepoison";
+											atlOffset=1.1266899;
+										};
+										class Item59
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2942,31.398808,3648.0032};
+												angles[]={0,0.087269016,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Суслянка""]]],[""class"",""SpirtBottle7""]]}";
+											};
+											id=14485;
+											type="bottlevine";
+											atlOffset=1.1273479;
+										};
+										class Item60
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2925,31.399279,3647.8499};
+												angles[]={0,0.17453545,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Суслянка""]]],[""class"",""SpirtBottle7""]]}";
+											};
+											id=14486;
+											type="bottlevine";
+											atlOffset=1.1278191;
+										};
+										class Item61
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2642,31.283358,3646.7898};
+												angles[]={0,2.4873086e-07,1.5707964};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""class"",""SpirtBottle2""]]}";
+											};
+											id=14424;
+											type="buhlo3";
+											atlOffset=0.96918869;
+										};
+										class Item62
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.262,31.283358,3646.575};
+												angles[]={4.7123885,4.712389,1.48353};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""class"",""SpirtBottle2""]]}";
+											};
+											id=14452;
+											type="buhlo3";
+											atlOffset=0.96918869;
+										};
+										class Item63
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.3081,31.046341,3646.7852};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""class"",""SpirtBottle9""]]}";
+											};
+											id=14430;
+											type="ratpoison";
+											atlOffset=0.82542992;
+										};
+										class Item64
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2979,31.048056,3646.3806};
+												angles[]={0,0.69813162,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""class"",""SpirtBottle9""]]}";
+											};
+											id=14459;
+											type="ratpoison";
+											atlOffset=0.82714462;
+										};
+										class Item65
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2947,31.407362,3649.0503};
+												angles[]={0,4.7123909,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""class"",""SpirtBottle10""]]}";
+											};
+											id=14431;
+											type="scotch_fam";
+											atlOffset=1.1279202;
+										};
+										class Item66
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.3018,31.405727,3648.6987};
+												angles[]={0,4.8869243,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""class"",""SpirtBottle10""]]}";
+											};
+											id=14460;
+											type="scotch_fam";
+											atlOffset=1.1262856;
+										};
+										class Item67
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.3052,31.399517,3647.1968};
+												angles[]={0,4.7996645,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""class"",""SpirtBottle5""]]}";
+											};
+											id=14433;
+											type="Tequila_fam";
+											atlOffset=1.1200752;
+										};
+										class Item68
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.3022,31.39893,3647.0479};
+												angles[]={0,5.0614605,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""class"",""SpirtBottle5""]]}";
+											};
+											id=14448;
+											type="Tequila_fam";
+											atlOffset=1.1194878;
+										};
+										class Item69
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2483,31.073448,3648.3271};
+												angles[]={0,4.5378604,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""class"",""SpirtBottle11""]]}";
+											};
+											id=14432;
+											type="whiskeybottle01_fam";
+											atlOffset=0.8242836;
+										};
+										class Item70
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2761,31.069921,3647.9695};
+												angles[]={0,4.7123933,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""class"",""SpirtBottle11""]]}";
+											};
+											id=14456;
+											type="whiskeybottle01_fam";
+											atlOffset=0.82075691;
+										};
+										class Item71
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.2717,30.776901,3649.052};
+												angles[]={0,5.4977875,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Коричневый сок""]]],[""class"",""SpirtBottle12""]]}";
+											};
+											id=14435;
+											type="AM_Scotch_New_fam";
+											atlOffset=0.53118896;
+										};
+										class Item72
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.7314,31.825281,3636.7334};
+												angles[]={0,1.6580627,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""prob"",60],[""class"",""SpirtBottle13""]]}";
+											};
+											id=14477;
+											type="AM_Scotch_Old_fam";
+											atlOffset=1.5815659;
+										};
+										class Item73
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.8716,31.8132,3636.7334};
+												angles[]={0,1.3962634,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Бурманский эль""]]],[""prob"",60],[""class"",""SpirtBottle13""]]}";
+											};
+											id=14478;
+											type="AM_Scotch_Old_fam";
+											atlOffset=1.5694847;
+										};
+										class Item74
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1353,31.694969,3642.3733};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Вино """"Клятва Горана""""""]]],[""prob"",60],[""class"",""SpirtBottle14""]]}";
+											};
+											id=14437;
+											type="AM_Wine_fam";
+											atlOffset=1.3686371;
+										};
+										class Item75
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1479,31.692104,3642.2783};
+												angles[]={0,5.7595868,-0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Вино """"Клятва Горана""""""]]],[""prob"",60],[""class"",""SpirtBottle14""]]}";
+											};
+											id=14481;
+											type="AM_Wine_fam";
+											atlOffset=1.368639;
+										};
+										class Item76
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.4695,31.830103,3636.7222};
+												angles[]={0,1.5707963,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""prob"",60],[""class"",""SpirtBottle4""]]}";
+											};
+											id=14467;
+											type="beerbottle";
+											atlOffset=1.5744228;
+										};
+										class Item77
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.2705,31.82522,3636.7119};
+												angles[]={0,2.4434607,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Серое пиво""]]],[""prob"",60],[""class"",""SpirtBottle4""]]}";
+											};
+											id=14468;
+											type="beerbottle";
+											atlOffset=1.56954;
+										};
+										class Item78
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1594,31.699039,3641.8193};
+												angles[]={0,2.1816614,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Квасок""]]],[""prob"",60],[""class"",""SpirtBottle6""]]}";
+											};
+											id=14427;
+											type="bottlehz";
+											atlOffset=1.4295769;
+										};
+										class Item79
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.8118,31.509027,3636.7092};
+												angles[]={0,1.3962634,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""prob"",60],[""class"",""SpirtBottle8""]]}";
+											};
+											id=14463;
+											type="bottlepoison";
+											atlOffset=1.2526646;
+										};
+										class Item80
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.6389,31.509027,3636.7097};
+												angles[]={0,5.0614638,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мертвецкая роса""]]],[""prob"",60],[""class"",""SpirtBottle8""]]}";
+											};
+											id=14464;
+											type="bottlepoison";
+											atlOffset=1.2526646;
+										};
+										class Item81
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1428,31.699066,3641.9482};
+												angles[]={0,0.087269016,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Суслянка""]]],[""prob"",60],[""class"",""SpirtBottle7""]]}";
+											};
+											id=14428;
+											type="bottlevine";
+											atlOffset=1.4296036;
+										};
+										class Item82
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1707,31.668442,3641.1226};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""prob"",60],[""class"",""SpirtBottle""]]}";
+											};
+											id=14426;
+											type="buhlo1";
+											atlOffset=1.4274292;
+										};
+										class Item83
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1604,31.689554,3641.6418};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Первач""]]],[""prob"",60],[""class"",""SpirtBottle1""]]}";
+											};
+											id=14423;
+											type="buhlo2";
+											atlOffset=1.4288731;
+										};
+										class Item84
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1423,31.687305,3641.5073};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Первач""]]],[""prob"",60],[""class"",""SpirtBottle1""]]}";
+											};
+											id=14483;
+											type="buhlo2";
+											atlOffset=1.4266243;
+										};
+										class Item85
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.085,31.187044,3636.8271};
+												angles[]={0,0.78539824,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""prob"",60],[""class"",""SpirtBottle2""]]}";
+											};
+											id=14469;
+											type="buhlo3";
+											atlOffset=0.87487221;
+										};
+										class Item86
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.0828,31.189226,3636.6711};
+												angles[]={0,1.5707963,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Этиловая водка""]]],[""prob"",60],[""class"",""SpirtBottle2""]]}";
+											};
+											id=14470;
+											type="buhlo3";
+											atlOffset=0.87705421;
+										};
+										class Item87
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.2498,31.19157,3636.7148};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Водка """"Ебейший""""""]]],[""class"",""SpirtBottle3""]]}";
+											};
+											id=14425;
+											type="buhlo4";
+											atlOffset=0.87970161;
+										};
+										class Item88
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.9951,31.146811,3636.6145};
+												angles[]={0,6.195919,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
+											};
+											id=14340;
+											type="milkbottle";
+											atlOffset=0.90001678;
+										};
+										class Item89
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.7322,31.146605,3636.7805};
+												angles[]={0,0.17453289,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
+											};
+											id=14341;
+											type="milkbottle";
+											atlOffset=0.89981079;
+										};
+										class Item90
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.8835,31.13063,3636.8132};
+												angles[]={0,0.34906581,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
+											};
+											id=14342;
+											type="milkbottle";
+											atlOffset=0.88383675;
+										};
+										class Item91
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.8982,31.120726,3636.6565};
+												angles[]={0,1.5707963,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""prob"",60],[""class"",""SpirtBottle9""]]}";
+											};
+											id=14471;
+											type="ratpoison";
+											atlOffset=0.9018116;
+										};
+										class Item92
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.7593,31.119884,3636.6541};
+												angles[]={0,2.2689278,0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Грустная вода""]]],[""prob"",60],[""class"",""SpirtBottle9""]]}";
+											};
+											id=14472;
+											type="ratpoison";
+											atlOffset=0.90097046;
+										};
+										class Item93
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2173,31.245625,3641.334};
+												angles[]={0,4.8869243,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
+											};
+											id=14439;
+											type="S_Pepper";
+											atlOffset=1.1327553;
+										};
+										class Item94
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1399,31.245625,3641.4109};
+												angles[]={0.018574219,0,0.4179292};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
+											};
+											id=14440;
+											type="S_Pepper";
+											atlOffset=1.1327553;
+										};
+										class Item95
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.0911,31.245625,3641.3315};
+												angles[]={6.1139436,5.8099027,0.38441405};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""PepperShaker""]]}";
+											};
+											id=14441;
+											type="S_Pepper";
+											atlOffset=1.1078548;
+										};
+										class Item96
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2661,31.245625,3641.686};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
+											};
+											id=14442;
+											type="S_Salt";
+											atlOffset=1.1327553;
+										};
+										class Item97
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2065,31.245625,3641.6011};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
+											};
+											id=14443;
+											type="S_Salt";
+											atlOffset=1.1327553;
+										};
+										class Item98
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1594,31.245625,3641.6824};
+												angles[]={0.018574219,0,0.4179292};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SugarShaker""]]}";
+											};
+											id=14444;
+											type="S_Salt";
+											atlOffset=1.1327553;
+										};
+										class Item99
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.8638,31.860216,3636.738};
+												angles[]={0,6.108655,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""prob"",60],[""class"",""SpirtBottle10""]]}";
+											};
+											id=14461;
+											type="scotch_fam";
+											atlOffset=1.5827713;
+										};
+										class Item100
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.6707,31.858582,3636.7422};
+												angles[]={0,2.5629997e-06,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Сахаринка""]]],[""prob"",60],[""class"",""SpirtBottle10""]]}";
+											};
+											id=14462;
+											type="scotch_fam";
+											atlOffset=1.5811367;
+										};
+										class Item101
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.5811,31.174049,3636.6692};
+												angles[]={0,0.087275676,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""prob"",60],[""class"",""SpirtBottle5""]]}";
+											};
+											id=14473;
+											type="Tequila_fam";
+											atlOffset=0.89660454;
+										};
+										class Item102
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.4158,31.173462,3636.6824};
+												angles[]={0,0.3490712,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Пивной напиток Блёвушка""]]],[""prob"",60],[""class"",""SpirtBottle5""]]}";
+											};
+											id=14474;
+											type="Tequila_fam";
+											atlOffset=0.89601707;
+										};
+										class Item103
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.2522,31.503178,3636.7537};
+												angles[]={0,3.9860606e-06,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""prob"",60],[""class"",""SpirtBottle11""]]}";
+											};
+											id=14475;
+											type="whiskeybottle01_fam";
+											atlOffset=1.2560101;
+										};
+										class Item104
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3484.446,31.503332,3636.7329};
+												angles[]={0,6.1086564,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Мочавинный ром""]]],[""prob"",60],[""class"",""SpirtBottle11""]]}";
+											};
+											id=14476;
+											type="whiskeybottle01_fam";
+											atlOffset=1.2561646;
+										};
+										class Item105
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.925,30.669092,3639.0784};
+												angles[]={0,4.7123909,0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""lightisenabled"",false]]],[""class"",""Campfire""]]}";
+											};
+											id=14362;
+											type="Land_FirePlace_F";
+											atlOffset=0.51678467;
+										};
+										class Item106
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.0962,31.58939,3641.2258};
+												angles[]={0,1.3089969,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MetalCup""]]}";
+											};
+											id=14494;
+											type="chashka_rja";
+											atlOffset=1.3866634;
+										};
+										class Item107
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.0767,31.791336,3637.9346};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MetalCup""]]}";
+											};
+											id=14505;
+											type="chashka_rja";
+											atlOffset=0.62708092;
+										};
+										class Item108
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.6328,30.999866,3642.2839};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Ashtray""]]}";
+											};
+											id=14512;
+											type="ashtray";
+											atlOffset=0.81119919;
+										};
+										class Item109
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.3938,30.330227,3639.1182};
+												angles[]={0,1.0471976,-0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenBucket""]]}";
+											};
+											id=14491;
+											type="CUP_A2_bucket_ep1";
+											atlOffset=0.39616966;
+										};
+										class Item110
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2024,31.003723,3640.1406};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Mug""]]}";
+											};
+											id=14500;
+											type="chashechka";
+											atlOffset=0.8100605;
+										};
+										class Item111
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1821,31.830427,3638.3391};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Mug""]]}";
+											};
+											id=14508;
+											type="chashechka";
+											atlOffset=0.64372444;
+										};
+										class Item112
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1614,31.596235,3641.3694};
+												angles[]={0,5.5850539,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Cup1""]]}";
+											};
+											id=14493;
+											type="land_chashunka";
+											atlOffset=1.430563;
+										};
+										class Item113
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.0269,31.802437,3637.7856};
+												angles[]={0,1.6580627,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Cup1""]]}";
+											};
+											id=14504;
+											type="land_chashunka";
+											atlOffset=0.64696693;
+										};
+										class Item114
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.2388,31.802437,3637.6624};
+												angles[]={0,5.5850539,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Cup1""]]}";
+											};
+											id=14509;
+											type="land_chashunka";
+											atlOffset=0.64768982;
+										};
+										class Item115
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.043,31.353514,3639.3098};
+												angles[]={0,1.134464,-0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Teapot""]]}";
+											};
+											id=14488;
+											type="chaynik";
+											atlOffset=0.52154922;
+										};
+										class Item116
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.0752,31.792778,3637.6511};
+												angles[]={0,0,0.0009134906};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Cup""]]}";
+											};
+											id=14503;
+											type="cup";
+											atlOffset=0.64775467;
+										};
+										class Item117
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1287,31.083555,3638.1226};
+												angles[]={0,0.52359873,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""CuttingBoard""]]}";
+											};
+											id=14511;
+											type="land_doskarez";
+											atlOffset=0.96798706;
+										};
+										class Item118
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.0471,31.295485,3638.948};
+												angles[]={0,1.2217305,-0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Kastrula""]]}";
+											};
+											id=14489;
+											type="kastryla";
+											atlOffset=0.52101707;
+										};
+										class Item119
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1104,30.49482,3637.7412};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Kastrula""]]}";
+											};
+											id=14496;
+											type="kastryla";
+											atlOffset=0.31258774;
+										};
+										class Item120
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1492,31.602453,3642.1172};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""OlderWoodenCup""]]}";
+											};
+											id=14495;
+											type="kryjka";
+											atlOffset=1.3771744;
+										};
+										class Item121
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.9924,31.807478,3638.1152};
+												angles[]={0,1.919862,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""OlderWoodenCup""]]}";
+											};
+											id=14507;
+											type="kryjka";
+											atlOffset=0.6450367;
+										};
+										class Item122
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.2629,31.163452,3639.9629};
+												angles[]={0.87872952,5.5729947,1.3012086};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Polovnik""]]}";
+											};
+											id=14499;
+											type="ladle";
+											atlOffset=1.0091705;
+										};
+										class Item123
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1108,31.444925,3638.2224};
+												angles[]={0,0,0.0009134906};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""FoodPlate""]]}";
+											};
+											id=14514;
+											type="plate";
+											atlOffset=0.32855606;
+										};
+										class Item124
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1123,31.459625,3638.2209};
+												angles[]={0,0,0.0009134906};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""FoodPlate""]]}";
+											};
+											id=14515;
+											type="plate";
+											atlOffset=0.34326363;
+										};
+										class Item125
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.0981,31.444925,3637.9224};
+												angles[]={0,0,0.0009134906};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""FoodPlate""]]}";
+											};
+											id=14516;
+											type="plate";
+											atlOffset=0.33031273;
+										};
+										class Item126
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1392,30.760311,3638.1943};
+												angles[]={0,3.926995,-0};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""FryingPan""]]}";
+											};
+											id=14510;
+											type="land_skovoroda";
+											atlOffset=0.61218071;
+										};
+										class Item127
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.1384,30.946756,3639.6697};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SoupPlate""]]}";
+											};
+											id=14490;
+											type="land_tarelochka";
+											atlOffset=0.8100605;
+										};
+										class Item128
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1235,31.104683,3637.7087};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SoupPlate""]]}";
+											};
+											id=14497;
+											type="land_tarelochka";
+											atlOffset=0.96798706;
+										};
+										class Item129
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3482.1296,31.128298,3637.7126};
+											};
+											side="Empty";
+											flags=5;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""SoupPlate""]]}";
+											};
+											id=14498;
+											type="land_tarelochka";
+											atlOffset=0.0022315979;
+										};
+										class Item130
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3481.957,31.814739,3638.3418};
+												angles[]={0,0,0.0009134906};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenCup""]]}";
+											};
+											id=14506;
+											type="woodcup";
+											atlOffset=0.64370918;
+										};
+										class Item131
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3478.896,31.63447,3644.7729};
+											};
+											side="Empty";
+											flags=1;
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""Ashtray""]]}";
+											};
+											id=14513;
+											type="ashtray";
+											atlOffset=1.442667;
+										};
+										class Item132
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3483.6738,29.991295,3648.4451};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""relicta_models\models\interier\props\flask.p3d""]]],[""class"",""IStruct""]]}";
+											};
+											id=14386;
+											type="Flask";
+											atlOffset=4.7910671;
+										};
+										class Item133
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.0344,30.288309,3642.7717};
+												angles[]={6.2826748,6.1959176,0.0058370866};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedBrick""]]}";
+											};
+											id=14524;
+											type="Land_Brick_01_F";
+											atlOffset=0.099761963;
+										};
+										class Item134
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.7361,31.252337,3639.2812};
+												angles[]={0,0.2617994,-0};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RedBrick""]]}";
+											};
+											id=14525;
+											type="Land_Brick_01_F";
+											atlOffset=0.54728508;
+										};
+										class Item135
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.5481,30.632021,3642.6936};
+												angles[]={0.0037669705,2.4434524,6.2786999};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""BrushCleaner""]]}";
+											};
+											id=14520;
+											type="Brush_01_green_F";
+											atlOffset=0.47030067;
+										};
+										class Item136
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.9558,30.588652,3642.7397};
+												angles[]={6.2794204,5.5850472,0.0044890735};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""ClothDebris1""]]}";
+											};
+											id=14523;
+											type="S_Cloth_Debris";
+											atlOffset=0.46116257;
+										};
+										class Item137
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.3857,30.191408,3644.1333};
+												angles[]={0,3.1416025,1.0471976};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenDebris5""]]}";
+											};
+											id=14530;
+											type="S_Wooden_Debris4";
+											atlOffset=0.029573441;
+										};
+										class Item138
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3486.3843,30.770327,3643.1282};
+												angles[]={1.3445585,2.9969015,0.68545169};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""WoodenDebris7""]]}";
+											};
+											id=14531;
+											type="S_Wooden_Debris6";
+											atlOffset=0.59251404;
+										};
+										class Item139
+										{
+											dataType="Object";
+											class PositionInfo
+											{
+												position[]={3485.8167,30.282173,3642.7585};
+												angles[]={0.0057699885,1.3962665,0.0010185147};
+											};
+											side="Empty";
+											class Attributes
+											{
+												init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""RopeItem""]]}";
+											};
+											id=14521;
+											type="Land_Rope_01_F";
+											atlOffset=0.15444756;
+										};
 									};
 									id=6617;
-									atlOffset=0.54545403;
+									atlOffset=0.27610016;
 								};
 								class Item5
 								{
@@ -13882,7 +14768,7 @@ class Mission
 								};
 							};
 							id=5575;
-							atlOffset=0.70601654;
+							atlOffset=0.67041397;
 						};
 						class Item1
 						{
@@ -16768,7 +17654,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="2-й этаж";
-							state=3;
+							state=2;
 							class Entities
 							{
 								items=9;
@@ -16992,7 +17878,7 @@ class Mission
 										};
 									};
 									id=6261;
-									atlOffset=-5;
+									atlOffset=4.6828461;
 								};
 								class Item1
 								{
@@ -17175,11 +18061,11 @@ class Mission
 												};
 											};
 											id=7381;
-											atlOffset=-5;
+											atlOffset=9.2199821;
 										};
 									};
 									id=7111;
-									atlOffset=-5;
+									atlOffset=9.1795959;
 								};
 								class Item2
 								{
@@ -17996,7 +18882,7 @@ class Mission
 											};
 											id=6397;
 											type="Land_door_solar";
-											atlOffset=4.0177841;
+											atlOffset=4.9101086;
 										};
 										class Item48
 										{
@@ -18084,7 +18970,7 @@ class Mission
 											};
 											id=6404;
 											type="gate_bridge";
-											atlOffset=4.6109219;
+											atlOffset=3.7871227;
 										};
 										class Item53
 										{
@@ -18102,7 +18988,7 @@ class Mission
 											};
 											id=6405;
 											type="gate_bridge";
-											atlOffset=4.5125008;
+											atlOffset=3.7888546;
 										};
 										class Item54
 										{
@@ -19100,7 +19986,7 @@ class Mission
 										};
 									};
 									id=6414;
-									atlOffset=-5;
+									atlOffset=5.8939896;
 								};
 								class Item3
 								{
@@ -19211,7 +20097,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3486.2354,35.54509,3635.3811};
+												position[]={3486.2354,35.54509,3634.3816};
 											};
 											side="Empty";
 											class Attributes
@@ -19220,7 +20106,7 @@ class Mission
 											};
 											id=6318;
 											type="Land_WoodenTable_small_F";
-											atlOffset=4.9916306;
+											atlOffset=4.9589691;
 										};
 										class Item7
 										{
@@ -19277,7 +20163,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3486.2246,35.553127,3637.3638};
+												position[]={3486.2246,35.553127,3636.3643};
 												angles[]={0,3.1415927,0};
 											};
 											side="Empty";
@@ -19776,7 +20662,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3485.5178,35.075565,3635.2559};
+												position[]={3485.5178,35.075565,3634.2563};
 												angles[]={0,4.7123895,0};
 											};
 											side="Empty";
@@ -19786,7 +20672,7 @@ class Mission
 											};
 											id=8095;
 											type="Land_ChairWood_F";
-											atlOffset=4.9688931;
+											atlOffset=4.9758282;
 										};
 										class Item40
 										{
@@ -20063,7 +20949,7 @@ class Mission
 										};
 									};
 									id=8077;
-									atlOffset=-5;
+									atlOffset=2.4659424;
 								};
 								class Item4
 								{
@@ -20378,7 +21264,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3486.2949,36.052433,3635.6072};
+												position[]={3486.2949,36.052433,3634.6077};
 											};
 											side="Empty";
 											class Attributes
@@ -20387,7 +21273,7 @@ class Mission
 											};
 											id=8116;
 											type="svecha";
-											atlOffset=5.8629322;
+											atlOffset=5.8350143;
 										};
 										class Item19
 										{
@@ -20545,7 +21431,7 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={3486.082,35.988251,3635.5701};
+												position[]={3486.082,35.988251,3634.5706};
 												angles[]={0,5.8468533,0};
 											};
 											side="Empty";
@@ -20555,7 +21441,7 @@ class Mission
 											};
 											id=14126;
 											type="Land_Matches_F";
-											atlOffset=5.8467522;
+											atlOffset=5.8140907;
 										};
 										class Item29
 										{
@@ -20593,7 +21479,7 @@ class Mission
 										};
 									};
 									id=8078;
-									atlOffset=-5;
+									atlOffset=5.8449707;
 								};
 								class Item5
 								{
@@ -21015,7 +21901,7 @@ class Mission
 										};
 									};
 									id=8079;
-									atlOffset=-5;
+									atlOffset=4.8503857;
 								};
 								class Item6
 								{
@@ -21251,7 +22137,7 @@ class Mission
 										};
 									};
 									id=8119;
-									atlOffset=-5;
+									atlOffset=4.2179604;
 								};
 								class Item7
 								{
@@ -21295,7 +22181,7 @@ class Mission
 						};
 					};
 					id=5574;
-					atlOffset=2.1462841;
+					atlOffset=2.1564674;
 				};
 				class Item2
 				{
@@ -89724,335 +90610,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3483.9155,31.146811,3636.6145};
-				angles[]={0,6.195919,0};
+				position[]={3427.5959,32.507263,3715.8782};
+				angles[]={0,2.9670594,-0};
 			};
 			side="Empty";
 			class Attributes
 			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
+				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""bottlename"",""Самогон""]]],[""class"",""SpirtBottle15""]]}";
 			};
-			id=14340;
-			type="milkbottle";
-			atlOffset=0.90001678;
-		};
-		class Item11
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3483.7322,31.146605,3636.7805};
-				angles[]={0,0.17453289,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
-			};
-			id=14341;
-			type="milkbottle";
-			atlOffset=0.89981079;
-		};
-		class Item12
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3483.8835,31.13063,3636.8132};
-				angles[]={0,0.34906581,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""MilkBottle2""]]}";
-			};
-			id=14342;
-			type="milkbottle";
-			atlOffset=0.88383675;
-		};
-		class Item13
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3601,31.255255,3647.1006};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""beerbottle""]]}";
-			};
-			id=14344;
-			type="beerbottle";
-			atlOffset=0.99757767;
-		};
-		class Item14
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3716,31.256458,3647.2075};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml\ml_object_new\model_14_10\bottlepoison.p3d""]]],[""class"",""IStruct""]]}";
-			};
-			id=14346;
-			type="bottlepoison";
-			atlOffset=0.99809837;
-		};
-		class Item15
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3655,31.270554,3648.1606};
-				angles[]={0,3.1416004,-0};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml\ml_object_new\model_14_10\bottlevine.p3d""]]],[""class"",""IStruct""]]}";
-			};
-			id=14348;
-			type="bottlevine";
-			atlOffset=0.99909401;
-		};
-		class Item16
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3667,31.270084,3648.0564};
-				angles[]={0,5.6723204,0};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml\ml_object_new\model_14_10\bottlehz.p3d""]]],[""class"",""IStruct""]]}";
-			};
-			id=14350;
-			type="bottlehz";
-			atlOffset=0.9986248;
-		};
-		class Item17
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3828,31.248877,3648.2913};
-				angles[]={0,1.5707963,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""whiskeybottle01""]]}";
-			};
-			id=14352;
-			type="whiskeybottle01_fam";
-			atlOffset=0.99971199;
-		};
-		class Item18
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3879,31.310713,3646.3579};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""GlassBottle3""]]}";
-			};
-			id=14355;
-			type="buhlo4";
-			atlOffset=0.99684715;
-		};
-		class Item19
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3901,31.310213,3646.2065};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""GlassBottle2""]]}";
-			};
-			id=14357;
-			type="buhlo3";
-			atlOffset=0.99604416;
-		};
-		class Item20
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3923,31.258112,3646.0808};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""GlassBottle1""]]}";
-			};
-			id=14359;
-			type="buhlo2";
-			atlOffset=0.99543381;
-		};
-		class Item21
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3485.925,30.669092,3639.0784};
-				angles[]={0,4.7123909,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""lightisenabled"",false]]],[""class"",""Campfire""]]}";
-			};
-			id=14362;
-			type="Land_FirePlace_F";
-			atlOffset=0.51678467;
-		};
-		class Item22
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.395,31.266457,3645.9731};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""GlassBottle""]]}";
-			};
-			id=14364;
-			type="buhlo1";
-		};
-		class Item23
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3723,31.281353,3648.6606};
-				angles[]={0,1.5707963,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""scotch""]]}";
-			};
-			id=14366;
-			type="scotch_fam";
-			atlOffset=1.0019112;
-		};
-		class Item24
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3782,31.302889,3648.7998};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""tequila""]]}";
-			};
-			id=14368;
-			type="Tequila_fam";
-		};
-		class Item25
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3789,31.269159,3648.918};
-				angles[]={0,3.1415994,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""am_scotch_new""]]}";
-			};
-			id=14370;
-			type="AM_Scotch_New_fam";
-		};
-		class Item26
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3601,31.247725,3649.0652};
-				angles[]={0,3.1415992,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""am_scotch_old""]]}";
-			};
-			id=14372;
-			type="AM_Scotch_Old_fam";
-			atlOffset=1.0020123;
-		};
-		class Item27
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3787,31.269619,3649.1987};
-				angles[]={0,3.1415999,0};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[]],[""class"",""am_wine""]]}";
-			};
-			id=14381;
-			type="AM_Wine_fam";
-			atlOffset=1.0021191;
-		};
-		class Item28
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3474,31.222864,3649.7493};
-			};
-			side="Empty";
-			flags=1;
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""ml_exodusnew\tequila_timurka.p3d""]]],[""class"",""IStruct""]]}";
-			};
-			id=14384;
-			type="land_tequila_timurka";
-			atlOffset=1.0020046;
-		};
-		class Item29
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={3479.3926,31.198282,3647.552};
-			};
-			side="Empty";
-			class Attributes
-			{
-				init="{createHashMapFromArray[[""customProps"",createHashMapFromArray[[""model"",""relicta_models\models\interier\props\flask.p3d""]]],[""class"",""IStruct""]]}";
-			};
-			id=14386;
-			type="Flask";
-			atlOffset=1.0019855;
+			id=14438;
+			type="moonshinejug_fam";
+			atlOffset=0.85750008;
 		};
 	};
 };
