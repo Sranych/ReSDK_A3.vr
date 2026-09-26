@@ -543,7 +543,6 @@ _3485_091803637_0039124_97955 = ['IStruct',[3485.09,3637,24.9796],180,[0,0,1], {
 ['FurnacePipe',[3486.26,3638.99,25.5123],180.001,[0,0,1]] call InitStruct; 
 ['IndPipeGround',[3486.25,3639.11,34.0791,true],[-4.37114e-08,7.54979e-08,1],[-1,0,-4.37114e-08]] call InitStruct; 
 _3473_341553633_4680224_80071 = ['IStruct',[3473.34,3633.47,24.8007],240.763,[0,0,1], {_thisObj setvariable ['model','a3\structures_f_enoch\civilian\sheds\shed_14_ruins_f.p3d'];}] call InitStruct; // !!! realocated model !!!
-_3463_500003641_5000064_37500 = ['IStruct',[3463.5,3641.5,64.375],0,[0,0,1], {_thisObj setvariable ['model','a3\structures_f_enoch\civilian\police\policestation_01_ruins_f.p3d'];}] call InitStruct; // !!! realocated model !!!
 _3465_825683639_3381324_80686 = ['IStruct',[3465.83,3639.34,24.8069],270,[0,0,1], {_thisObj setvariable ['model','a3\structures_f_enoch\civilian\sheds\shed_14_ruins_f.p3d'];}] call InitStruct; // !!! realocated model !!!
 ['SmallBrickHouseRuins',[3478.06,3629.55,25.1116],0,[0,0,1]] call InitStruct; 
 ['BetonBlockFloor',[3452.01,3635.19,24.9939],0,[0,0,1]] call InitStruct; 
@@ -1248,6 +1247,8 @@ _3481_809333645_1406230_00000 = ['SteelBrownDoor',[3481.81,3645.14,30],0,[0,0,1]
 ['GreenArmChair',[3476.12,3634.09,30.0801],183,[0,0,1]] call InitStruct; 
 ['WoodenChair',[3466.06,3648.48,30.082],345,[0,0,1]] call InitItem; 
 ['SmallChair',[3466.84,3646.96,30.0714],120,[0,0,1]] call InitItem; 
+['BrownOldSofa',[3474.18,3644.23,30.091],180,[0,0,1]] call InitStruct; 
+['BrownOldSofa',[3468.76,3637.53,30.091],88,[0,0,1]] call InitStruct; 
 ['Candle',[3484.03,3641.12,31.089],90,[0,0,1], {_thisObj setvariable ['lightisenabled',false];}] call InitItem; 
 ['Candle',[3472.88,3646.76,30.9092],0,[0,0,1], {_thisObj setvariable ['lightisenabled',false];}] call InitItem; 
 ['Candle',[3484.35,3649.08,30.7818],88.4794,[0,0,1], {_thisObj setvariable ['lightisenabled',false];}] call InitItem; 
@@ -1316,8 +1317,6 @@ _3476_667973644_7810130_09542 = ['WoodenSmallShelf2',[3476.67,3644.78,30.0954],9
 ['WoodenSmallShelf1',[3480.07,3627.38,35.5868,true],280,[-0.000160531,-0.000896279,1]] call InitStruct; 
 ['SmallWoodenTableHandmade',[3477.3,3630.61,30.0828],0,[0,0,1]] call InitStruct; 
 ['WoodenLadder',[3465.57,3641.7,35.327,true],[-0.287627,0.925473,0.246515],[-0.957555,-0.272786,-0.0931481]] call InitStruct; 
-['BrownOldSofa',[3474.18,3644.23,30.091],180,[0,0,1]] call InitStruct; 
-['BrownOldSofa',[3468.76,3637.53,30.091],88,[0,0,1]] call InitStruct; 
 _3358_305663660_9343332_29021 = ['ElectricalShield',[3358.31,3660.93,32.2902],100,[0,0,1], {go_editor_globalRefs set ["_transpolice",_thisObj];
 }] call InitStruct; 
 _3452_220463649_9074724_98702 = ['ElectricalShield',[3452.22,3649.91,24.987],167.405,[0,0,1], {go_editor_globalRefs set ["_transbar",_thisObj];
